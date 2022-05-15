@@ -15,7 +15,7 @@
 #  specific language governing permissions and limitations
 #  under the License.
 
-name: Jekyll site CI
+name: Jekyll Pages
 
 on:
   push:
@@ -24,17 +24,17 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  pages:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7'
-        bundler-cache: true
-    - run: bundle install
-    - run: bundle exec jekyll build
-    - uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+      - run: bundle install
+      - run: bundle exec jekyll build
+      - uses: peaceiris/actions-gh-pages@v3
         if: github.event_name != 'pull_request'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
