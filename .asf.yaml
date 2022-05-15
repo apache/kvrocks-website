@@ -30,7 +30,7 @@ github:
     rebase:  false
 
 publish:
-  whoami: asf-site
+  whoami: main 
 
 jekyll:
-  whoami: master
+  whoami: main 
