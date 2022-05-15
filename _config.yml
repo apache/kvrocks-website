@@ -25,6 +25,9 @@ keep_files: [".git", ".svn", "apidocs"]
 # The base path where the website is deployed
 baseurl: 
 
+include:
+  - .asf.yaml
+
 exclude:
   - tmp/
   - vendor/
