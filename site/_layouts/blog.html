@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<div class="columns is-multiline">
+    {% for post in site.posts %}
+    <div class="column is-12">
+        <div class="card" style="margin-top: 2rem">
+            <header class="card-header">
+                <a class="card-header-title is-centered has-text-grey-dark"
+                    href="{{ site.baseurl }}{{ post.url }}">
+                    {{post.title}}
+                </a>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p>{{ post.excerpt }}</p>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <span class="icon" style="margin-right: .25em">
+                        <i class="far fa-calendar-check" aria-hidden="true"></i>
+                    </span>
+                    发布于: {{ post.date | date: "%Y-%m-%d" }}
+                </p>
+                <a class="card-footer-item" href="{{ site.baseurl }}{{ post.url }}">
+                    <span class="icon" style="margin-right: .25em">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                    Read More
+                </a>
+            </footer>
+        </div>
+    </div>
+    {% endfor %}
+</div>
