@@ -31,6 +31,7 @@ github:
 
 publish:
   whoami: main
+  target: asf-site
 
 jekyll:
   whoami: main
