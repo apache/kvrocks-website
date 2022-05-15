@@ -30,7 +30,7 @@ github:
     rebase:  false
 
 publish:
-  whoami: main 
+  whoami: main
 
 jekyll:
-  whoami: main 
+  whoami: main
