@@ -30,8 +30,8 @@ github:
     rebase:  false
 
 publish:
-  whoami: main
-  target: asf-site
+  whoami: asf-site
 
 jekyll:
   whoami: main
+  target: asf-site
