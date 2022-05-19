@@ -15,7 +15,7 @@
 #
 # Apache Project configurations
 #
-name: Apache Kvrocks 
+name: Apache Kvrocks (Incubating)
 short_name: Kvrocks 
 unix_name: kvrocks 
 incubator_name: incubator-kvrocks

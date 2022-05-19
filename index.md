@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Home
-tagline: Apache Project !
+title: Apache Kvrocks (Incubating)
 ---
 <!--
 {% comment %}
@@ -24,9 +23,9 @@ limitations under the License.
 
 {% include JB/setup %}
 
-## Apache Kvrocks 
+## Apache Kvrocks (Incubating)
 
-Apache Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol. Kvrocks intends to decrease the cost of memory and increase the capacity while compared to Redis.
+Apache Kvrocks (Incubating) is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol. Kvrocks intends to decrease the cost of memory and increase the capacity while compared to Redis.
 
 It has the following key features:
 
