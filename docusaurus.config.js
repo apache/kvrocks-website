@@ -25,6 +25,18 @@ const config = {
       },
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -60,6 +72,7 @@ const config = {
         },
         items: [
           {type: 'doc', docId: 'supported-commands', position: 'right', label: 'Docs'},
+          {type: 'doc', docId: 'index', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
           {
             type: 'dropdown',
