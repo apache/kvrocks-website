@@ -15,25 +15,29 @@
 #  specific language governing permissions and limitations
 #  under the License.
 
-github:
-  description: "Apache Kvrocks Website"
-  homepage: https://kvrocks.apache.org/
-  features:
-    issues: false
-    projects: false
-    wiki: false
-  labels:
-    - kvrocks
-  enabled_merge_buttons:
-    squash:  true
-    merge:   false
-    rebase:  false
+name: Pages
 
-publish:
-  whoami: asf-site
+on:
+  push:
+    branches:
+      - main
+    pull_request:
 
-notifications:
-  commits:      commits@kvrocks.apache.org
-  issues:       issues@kvrocks.apache.org
-  pullrequests: issues@kvrocks.apache.org
-  jobs:         builds@kvrocks.apache.org
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name != 'pull_request'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: asf-site
+          force_orphan: true
