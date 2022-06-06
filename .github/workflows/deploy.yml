@@ -40,4 +40,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           publish_branch: asf-site
-          force-orphan: true
+          force_orphan: true
