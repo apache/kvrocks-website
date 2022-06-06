@@ -32,7 +32,7 @@ Before submitting an issue, please:
 
 * Verify that the bug does in fact exist.
 * Search the issue tracker to verify there is no existing issue reporting the bug you've found.
-* Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly.
+* Consider tracking down the bug yourself in the source code of Kvrocks and submitting a patch along with your bug report. This is a great time saver for the Kvrocks developers and helps ensure the bug will be fixed quickly.
 
 ### Feature Requests
 
