@@ -135,7 +135,7 @@ The svn repository of the Release branch is: https://dist.apache.org/repos/dist/
 
 #### Add the public key to the KEYS in the release branch for releasing official version
 ```shell
-➜  ~ svn co //dist.apache.org/repos/dist/release/incubator/kvrocks kvrocks-dist-release
+➜  ~ svn co https://dist.apache.org/repos/dist/release/incubator/kvrocks kvrocks-dist-release
 ➜  ~ cd kvrocks-dist-release
 ➜  kvrocks-dist-release ~ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS	# Append the KEY you generated to the document KEYS, after appending, it is best to check whether it is correct
 ➜  kvrocks-dist-release ~ svn add .	# It is not needed if the KEYS document exists before.
