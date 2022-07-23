@@ -261,7 +261,7 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_versio
 ```
 ### Check whether the dev and release is correct
 1. Make sure `${release_version}-${rc_version}` is deleted in [dev](https://dist.apache.org/repos/dist/dev/incubator/kvrocks/).
-2. Delete release package of pre versions[release](https://dist.apache.org/repos/dist/release/incubator/kvrocks/)，these packages will be saved [here](https://archive.apache.org/dist/incubator/kvrocks/)
+2. Delete release package of pre versions [release](https://dist.apache.org/repos/dist/release/incubator/kvrocks/)，these packages will be saved [here](https://archive.apache.org/dist/incubator/kvrocks/)
 
 ### Update links on official website
 
@@ -269,7 +269,7 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_versio
 
 Release announce email template：
 ```html
-Title： [ANNOUNCE] Release Apache Kvrocks(inbating) ${release_version}
+Title： [ANNOUNCE] Release Apache Kvrocks(incubating) ${release_version}
 Content：
 Hi all,
 
