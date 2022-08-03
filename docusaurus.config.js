@@ -35,6 +35,15 @@ const config = {
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'download',
+        path: 'download',
+        routeBasePath: 'download',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
   ],
 
   presets: [
@@ -74,6 +83,7 @@ const config = {
           {type: 'doc', docId: 'supported-commands', position: 'right', label: 'Docs'},
           {type: 'doc', docId: 'index', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
+          {to: '/download', label: 'Download', position: 'right'},
           {
             type: 'dropdown',
             label: 'ASF',
