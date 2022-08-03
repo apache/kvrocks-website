@@ -148,7 +148,7 @@ The svn repository of the Release branch is: https://dist.apache.org/repos/dist/
 ### create tag
 
 1. Checkout to the RELEASE BRANCH and cherry-pick commits to release
-2. Use `./x.py package source --version {VERSION}`  to create release tarball 
+2. Use `./x.py package source --version ${release_version}`  to create release tarball
 3. Make sure it compiles good and push tag to GitHub
 
 ### Upload tar file to dist repo
@@ -163,12 +163,12 @@ svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks /tmp/kvrocks-dis
 ### Add public key to KEYS file adn commit to SVN repository
 ```shell
 cd /tmp/kvrocks-dist-dev
-mkdir ${release_version}-${rc_version} # create a directory named by version
-cp /tmp/apache-kvrocks-${release_version}-${rc_version}-incubating-src/*tar.gz* ${release_version}-${rc_version}/ # copy source code and signature package to the versioned directory  
+mkdir ${release_version} # create a directory named by version
+cp /tmp/apache-kvrocks-${release_version}-incubating-src.tar.gz* ${release_version}/ # copy source code and signature package to the versioned directory
 svn status # check svn status
-svn add ${release_version}-${rc_version} # addi to svn
+svn add ${release_version} # add to svn
 svn status # check svn status
-svn commit -m "prepare for ${release_version} ${rc_version}"     # commit to SVN remote server
+svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 ```
 
 ## Voting
@@ -180,19 +180,19 @@ svn commit -m "prepare for ${release_version} ${rc_version}"     # commit to SVN
 #### Vote template
 
 ```html
-Title：[VOTE] Release Apache Kvrocks(incubating) ${release_version} ${rc_version}
+Title：[VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
 Content：
 
 Hello Apache Kvrocks(incubating) PMC and Community,
 
-    This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}-${rc_version}.
+    This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}.
 
-    The tag to be voted on is ${release_version}-${rc_version}:
+    The tag to be voted on is ${release_version}:
 
     The release candidate:
 
-    https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}-${rc_version}/
+    https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}/
 
 
     Keys to verify the release candidate:
@@ -202,7 +202,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     Git tag for the release:
 
-    https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}-${rc_version}
+    https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}
 
     Please download, verify, and test.
 
@@ -228,40 +228,130 @@ Hello Apache Kvrocks(incubating) PMC and Community,
       More detailed checklist  please refer to:
       https://kvrocks.apache.org/community/how-to-verify
 
-Thanks,
-Your Kvrocks(incubating) Release Manager
+Thanks
 ```
 
 #### Vote Result template
 ```html
-Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version} ${rc_version}
+Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
 Content：
 
-Hello Apache Kvrocks(incubating) PMC and Community,
+The vote to release Apache Kvrocks(Incubating) 2.1.0 has passed.
 
-    The vote closes now as 72hr have passed. The vote PASSES with
-    xx (+1 non-binding) votes from the PMC,
-    xx (+1 non-binding) vote from the rest of the developer community,
-    and no further 0 or -1 votes.
+The vote PASSED with xxx binding +1 and 0 -1 votes:
 
-    The vote thread: {vote_mail_address}
+Binding votes:
+- Yuan Wang
+- tison
+- hulk
+- Liang Chen
+- Jean-Baptiste Onofré
+- Xiaoqiao He
+- donghui liu
 
-    The release is accepted and will be published.
+Vote thread:
 
-Thank you for your support.
-Your Kvrocks(incubating) Release Manager
+${vote_thread_url}
+
+Thank you to all the above members to help us to verify and vote for the
+${release_version} release. We will move to IPMC voting shortly.
+
+Thanks
+```
+
+### Incubator community vote
+
+#### Vote template
+
+```html
+Title：[VOTE] Release Apache Kvrocks(incubating) ${release_version}
+
+Content：
+
+Hello IPMC,
+
+The Apache Kvrocks community has voted and approved the release of Apache
+Kvrocks(incubating) ${release_version}. We now kindly request the IPMC members
+review and vote for this release.
+
+Kvrocks is a distributed key value NoSQL database that uses RocksDB as the storage engine
+and is compatible with Redis protocol. The current release provides the first official
+package, resolves all of the license issues, many improvements and fixes many bugs.
+
+Kvrocks community vote thread:
+
+${kvrocks_community_vote_thread_url}
+
+Vote result thread:
+
+${kvrocks_community_vote_result_thread_url}
+
+The release candidate:
+
+https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}
+
+This release has been signed with a PGP available here:
+
+https://downloads.apache.org/incubator/kvrocks/KEYS
+
+Git tag for the release:
+
+https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}
+
+Build guide can be found at:
+
+https://github.com/apache/incubator-kvrocks#build
+
+The vote will be open for at least 72 hours or until the necessary number
+of votes is reached.
+
+Please vote accordingly:
+[ ] +1 Approve the release of Apache Kvrocks(incubating) ${release_version}
+[ ] +0
+[ ] -1 Do not approve (please specify the reason)
+
+Thanks
+```
+
+#### Vote Result template
+```html
+Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
+
+Content：
+
+Hi Incubator Community,
+
+The vote to release Apache Kvrocks(incubating) 2.1.0 has passed with
+4 +1 binding and 3 +1 non-binding votes, no +0 or -1 votes.
+
+Binding votes：
+
+- xxx
+- yyy
+- zzz
+
+Non-Binding votes:
+
+- xxx
+- yyy
+- zzz
+
+Vote thread: ${incubator_vote_thread_url}
+
+Thanks for reviewing and voting for our release candidate.
+
+We will proceed with publishing the approved artifacts and sending out the announcement soon.
 ```
 
 ## Officially released
 
 ### Move source code and binary package from DEV to release repository on SVN.
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
+svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 ### Check whether the dev and release is correct
-1. Make sure `${release_version}-${rc_version}` is deleted in [dev](https://dist.apache.org/repos/dist/dev/incubator/kvrocks/).
-2. Delete release package of pre versions [release](https://dist.apache.org/repos/dist/release/incubator/kvrocks/)，these packages will be saved [here](https://archive.apache.org/dist/incubator/kvrocks/)
+1. Make sure `${release_version}` is deleted in [dev](https://dist.apache.org/repos/dist/dev/incubator/kvrocks/).
 
 ### Update links on official website
 
@@ -287,7 +377,7 @@ The notable changes since ${release_version} include:
 3. zzzzzz
 
 Please refer to the change log for the complete list of changes:
-https://github.com/apache/incubator-kvrocks/blob/${release_version}-${rc_version}/Changelog
+https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}
 
 Apache Kvrocks website: https://kvrocks.apache.org/
 
