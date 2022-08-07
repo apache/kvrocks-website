@@ -29,6 +29,7 @@ sidebar_position: 1
 | unlink      | √                |                      |
 | cas         | √                | see https://github.com/KvrocksLabs/kvrocks/pull/415           |
 | cad         | √                | see https://github.com/KvrocksLabs/kvrocks/pull/415           |
+| getdel      | √                |                      |
 
 ## Hash Commands
 
