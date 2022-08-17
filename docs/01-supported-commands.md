@@ -154,7 +154,7 @@ sidebar_position: 1
 | bitcount | √                |      |
 | bitpos   | √                |      |
 | bitfield | X                |      |
-| bitop    | X                |      |
+| bitop    | √               |      |
 
 **NOTE : String and Bitmap is different type in kvrocks, so you can't do bit with string, vice versa.**
 
@@ -223,7 +223,8 @@ sidebar_position: 1
 | flushdb      | √                |      |
 | flushall     | √                |      |
 | command      | √                |      |
-| clinet       | √                |      |
+| client       | √                |      |
+| auth         | √                |      |
 | quit         | √                |      |
 | slowlog      | √                |      |
 | perflog      | √                |      |
