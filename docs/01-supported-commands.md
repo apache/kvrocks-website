@@ -242,6 +242,25 @@ sidebar_position: 1
 | georadius         | √                |      |
 | georadiusbymember | √                |      |
 
+## Stream Commands
+
+| Command           | Supported OR Not | Desc |
+| ------------      | ---------------- | ---- |
+| xadd              | √                |      |
+| xdel              | √                |      |
+| xinfo             | √                |STREAM only|
+| xlen              | √                |      |
+| xrange            | √                |      |
+| xread             | √                |      |
+| xrevrange         | √                |      |
+| xtrim             | √                |      |
+| xclaim            | X                |      |
+| xautoclaim        | X                |      |
+| xgroup            | X                |      |
+| xpending          | X                |      |
+| xreadgroup        | X                |      |
+| xsetid            | X                |      |
+
 ## Hyperloglog Commands
 
 **Not Supported**
