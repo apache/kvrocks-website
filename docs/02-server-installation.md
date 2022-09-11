@@ -35,7 +35,8 @@ brew install autoconf automake libtool cmake
 ```
 $ git clone https://github.com/apache/incubator-kvrocks.git
 $ cd incubator-kvrocks
-$ ./build.sh build # `./build.sh -h` to check more options
+$ ./x.py build # `./x.py build -h` to check more options;
+               # especially, `./x.py build --ghproxy` will fetch dependencies via ghproxy.com.
 ```
 
 The binary file `kvrocks` would be generated at `src` dir if everything was going well, or you can help to file an issue with your context.
