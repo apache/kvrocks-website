@@ -228,7 +228,7 @@ sidebar_position: 1
 | quit         | √                |      |
 | slowlog      | √                |      |
 | perflog      | √                |      |
-| hello        | X                |      |
+| hello        | √                |      |
 
 **NOTE : The db size was updated async after execute `dbsize scan` command**
 
