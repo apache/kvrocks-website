@@ -228,6 +228,7 @@ sidebar_position: 1
 | quit         | √                |      |
 | slowlog      | √                |      |
 | perflog      | √                |      |
+| hello        | √                |      |
 
 **NOTE : The db size was updated async after execute `dbsize scan` command**
 
@@ -264,3 +265,15 @@ sidebar_position: 1
 ## Hyperloglog Commands
 
 **Not Supported**
+
+## FUNCTION Commands
+
+| FUNCTION DELETE           | X                |      |
+| FUNCTION DUMP             | X                |      |
+| FUNCTION FLUSH            | X                |      |
+| FUNCTION KILL             | X                |      |
+| FUNCTION LIST             | X                |      |
+| FUNCTION LOAD             | X                |      |
+| FUNCTION RESTORE          | X                |      |
+| FUNCTION STATS            | X                |      |
+
