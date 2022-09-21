@@ -45,6 +45,7 @@ sidebar_position: 1
 | hlen         | √                |      |
 | hmget        | √                |      |
 | hmset        | √                |      |
+| hrange       | √                |      |
 | hset         | √                |      |
 | hsetnx       | √                |      |
 | hstrlen      | √                |      |
