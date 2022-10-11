@@ -220,6 +220,7 @@ sidebar_position: 1
 | role         | √                |      |
 | config       | √                |      |
 | dbsize       | √                |      |
+| disk         | √                |`disk usage user_key` to get the disk usage of the `user_key`, see details: https://github.com/apache/incubator-kvrocks/issues/874|
 | namespace    | √                |      |
 | flushdb      | √                |      |
 | flushall     | √                |      |
