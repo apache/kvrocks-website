@@ -12,6 +12,7 @@ sidebar_position: 1
 | decr        | √                |                      |
 | decrby      | √                |                      |
 | get         | √                |                      |
+| getex       | √                |                      |
 | getrange    | √                |                      |
 | getset      | √                |                      |
 | incr        | √                |                      |
