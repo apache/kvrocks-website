@@ -6,7 +6,7 @@ For installing docker, follow the Docker installation instructions found here: h
 Start the kvrocks service:
 
 ```shell
-$ docker run -it -p 6666:6666 kvrocks/kvrocks
+$ docker run -it -p 6666:6666 -v /var/lib/kvrocks:/var/lib/kvrocks apache/kvrocks
 ```
 then you can use the redis-cli to play the kvrocks server as Redis.
 
