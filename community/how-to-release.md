@@ -125,7 +125,7 @@ The svn repository of the Release branch is: https://dist.apache.org/repos/dist/
 
 #### Add the public key to KEYS in the dev branch to release the RC version
 ```shell
-➜  ~ svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks /tmp/kvrocks-dist-dev
+➜  ~ svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks kvrocks-dist-dev
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
 ➜  ~ cd kvrocks-dist-dev
 ➜  kvrocks-dist-dev ~ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS # Append your key to the KEYS file
@@ -157,14 +157,14 @@ The svn repository of the Release branch is: https://dist.apache.org/repos/dist/
 ### Checkout Kvorcks to local directory
 ```shell
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
-svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks /tmp/kvrocks-dist-dev
+svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks kvrocks-dist-dev
 ```
 
 ### Add public key to KEYS file adn commit to SVN repository
 ```shell
-cd /tmp/kvrocks-dist-dev
+cd kvrocks-dist-dev
 mkdir ${release_version} # create a directory named by version
-cp /tmp/apache-kvrocks-${release_version}-incubating-src.tar.gz* ${release_version}/ # copy source code and signature package to the versioned directory
+cp ${repo_dir}/apache-kvrocks-${release_version}-incubating-src.tar.gz* ${release_version}/ # copy source code and signature package to the versioned directory
 svn status # check svn status
 svn add ${release_version} # add to svn
 svn status # check svn status
@@ -237,7 +237,7 @@ Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
 Content：
 
-The vote to release Apache Kvrocks(Incubating) 2.1.0 has passed.
+The vote to release Apache Kvrocks(Incubating) ${release_version} has passed.
 
 The vote PASSED with xxx binding +1 and 0 -1 votes:
 
@@ -276,8 +276,8 @@ Kvrocks(incubating) ${release_version}. We now kindly request the IPMC members
 review and vote for this release.
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB as the storage engine
-and is compatible with Redis protocol. The current release provides the first official
-package, resolves all of the license issues, many improvements and fixes many bugs.
+and is compatible with Redis protocol. The current release provides ..., 
+many new features, many improvements and fixes many bugs.
 
 Kvrocks community vote thread:
 
@@ -322,7 +322,7 @@ Content：
 
 Hi Incubator Community,
 
-The vote to release Apache Kvrocks(incubating) 2.1.0 has passed with
+The vote to release Apache Kvrocks(incubating) ${release_version} has passed with
 4 +1 binding and 3 +1 non-binding votes, no +0 or -1 votes.
 
 Binding votes：
