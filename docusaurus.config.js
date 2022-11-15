@@ -120,6 +120,10 @@ const config = {
                 label: 'Supported Commands',
                 to: '/docs/supported-commands',
               },
+              {
+                label: 'Server Installation',
+                to: '/docs/server-installation',
+              },
             ],
           },
           {
