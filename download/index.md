@@ -39,6 +39,12 @@ We are pleased to announce our 2.1.0 release as below.
     </thead>
     <tbody>
         <tr>
+            <td>Apache Kvrocks(incubating) 2.2.0 (tar.gz)</td>
+            <td><a href="https://downloads.apache.org/incubator/kvrocks/2.2.0/apache-kvrocks-2.2.0-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/incubator/kvrocks/2.2.0/apache-kvrocks-2.2.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/kvrocks/2.2.0/apache-kvrocks-2.2.0-incubating-src.tar.gz.asc">ASC</a></td>
+        </tr>
+        <tr>
             <td>Apache Kvrocks(incubating) 2.1.0 (tar.gz)</td>
             <td><a href="https://downloads.apache.org/incubator/kvrocks/2.1.0/apache-kvrocks-2.1.0-incubating-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/incubator/kvrocks/2.1.0/apache-kvrocks-2.1.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
