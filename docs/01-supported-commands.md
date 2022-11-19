@@ -271,6 +271,8 @@ sidebar_position: 1
 
 ## FUNCTION Commands
 
+| Command                   | Supported OR Not | Desc |
+| ------------              | ---------------- | ---- |
 | FUNCTION DELETE           | X                |      |
 | FUNCTION DUMP             | X                |      |
 | FUNCTION FLUSH            | X                |      |
