@@ -6,6 +6,8 @@ authors: [hulk]
 
 Most developers should be familiar with bitmap, in addition to the storage implementation for the bloom filter, and many databases also provide bitmap type indexes. For memory storage, the bitmap can be regarded as the special type of sparse bit array, which would not cause the read-write amplification issue (means read/write bytes far more than the request). While Redis supports bit-related operations on string types, it is a big challenge for disk KV-based storage like [Kvrocks](https://github.com/apache/incubator-kvrocks). So this article mainly discusses "**How to reduce disk read/write amplification on RocksDB**".
 
+<!--truncate-->
+
 ## Why amplification occurs
 
 Amplification mainly comes from two aspects:
