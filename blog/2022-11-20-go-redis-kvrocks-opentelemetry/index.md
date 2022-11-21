@@ -114,10 +114,14 @@ num, err := incrBy.Run(ctx, rdb, keys, values...).Int()
 
 ## What is OpenTelemetry?
 
-[OpenTelemetry](https://uptrace.dev/opentelemetry/) is a vendor-neutral standard that allows you to
-collect and export [traces](https://uptrace.dev/opentelemetry/distributed-tracing.html),
-[logs](https://uptrace.dev/opentelemetry/logs.html), and
-[metrics](https://uptrace.dev/opentelemetry/metrics.html).
+[OpenTelemetry](https://opentelemetry.io/) is a vendor-neutral standard that allows you to
+collect and export traces, logs, and metrics.
+
+Uptrace, one of its vendor, provides a series of good documents about the terminology and usages:
+
+* [What is OpenTelemetry?](https://uptrace.dev/opentelemetry)
+* [OpenTelemetry Distributed Tracing](https://uptrace.dev/opentelemetry/distributed-tracing.html)
+* [OpenTelemetry Metrics](https://uptrace.dev/opentelemetry/metrics.html)
 
 Otel allows developers to collect and export telemetry data in a vendor agnostic way. With
 OpenTelemetry, you can instrument your application once and then add or change vendors without
