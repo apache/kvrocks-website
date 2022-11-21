@@ -19,7 +19,7 @@ You can use Kvrocks as a drop-in replacement for Redis to store data on SSD decr
 memory and increasing the capacity. For example, imagine taking one of the many existing Redis-based
 job queues and using them with Kvrocks and SSD storage.
 
-Kvrocks supports most [Redis commands](https://kvrocks.apache.org/docs/supported-commands) with a
+Kvrocks supports most [Redis commands](/docs/supported-commands) with a
 single notable exception being that `watch` and `unwatch` commands are not
 [supported yet](https://github.com/apache/incubator-kvrocks/issues/315).
 
