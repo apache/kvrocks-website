@@ -131,7 +131,7 @@ OpenTelemetry.
 
 ## What is Uptrace?
 
-Uptrace is an [open-source APM tool](https://uptrace.dev/get/open-source-apm.html) that supports
+Uptrace is an [source-available APM tool](https://uptrace.dev/get/open-source-apm.html) that supports
 distributed tracing, metrics, and logs. You can use it to monitor applications and set up automatic
 alerts to receive notifications via email, Slack, Telegram, and more.
 
