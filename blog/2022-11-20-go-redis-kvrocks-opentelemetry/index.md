@@ -247,6 +247,6 @@ See [OpenTelemetry Go Metrics API](https://uptrace.dev/opentelemetry/go-metrics.
 
 ## Useful links
 
-- [Kvrocks Server Installation](https://kvrocks.apache.org/docs/server-installation)
+- [Kvrocks Server Installation](/docs/server-installation)
 - [Go Redis](https://redis.uptrace.dev/guide/go-redis.html)
 - [Get started with Uptrace](https://uptrace.dev/get/get-started.html)
