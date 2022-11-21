@@ -12,7 +12,7 @@ sides.
 
 ## What is Kvrocks?
 
-[Apache Kvrocks](https://kvrocks.apache.org/) is a distributed key value NoSQL database that uses
+[Apache Kvrocks](https://kvrocks.apache.org/) is a distributed key-value NoSQL database that uses
 RocksDB as a storage engine and is compatible with Redis protocol.
 
 You can use Kvrocks as a drop-in replacement for Redis to store data on SSD decreasing the cost of
