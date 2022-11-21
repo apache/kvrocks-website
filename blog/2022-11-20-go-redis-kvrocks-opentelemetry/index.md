@@ -24,7 +24,7 @@ single notable exception being that `watch` and `unwatch` commands are not
 [supported yet](https://github.com/apache/incubator-kvrocks/issues/315).
 
 [Kvrocks Cluster](/docs/Cluster/kvrocks-cluster-introduction) and
-[replication](https://kvrocks.apache.org/docs/Design/replication/) are available as well.
+[replication](/docs/Design/replication) are available as well.
 
 ## Getting started with Kvrocks
 
