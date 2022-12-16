@@ -1,6 +1,6 @@
-# Supported Commands
+# Supported commands
 
-## String Commands
+## String commands
 
 | Command     | Supported OR Not | Desc                                           |
 |-------------|------------------|------------------------------------------------|
@@ -28,7 +28,7 @@
 | cad         | √                | see https://github.com/apache/kvrocks/pull/415 |
 | getdel      | √                |                                                |
 
-## Hash Commands
+## Hash commands
 
 | Command      | Supported OR Not | Desc |
 |--------------|------------------|------|
@@ -49,7 +49,7 @@
 | hvals        | √                |      |
 | hscan        | √                |      |
 
-## List Commands
+## List commands
 
 | Command    | Supported OR Not | Desc                                                                        |
 |------------|------------------|-----------------------------------------------------------------------------|
@@ -72,7 +72,7 @@
 | rpushx     | √                |                                                                             |
 | lmove      | √                |                                                                             |
 
-## Set Commands
+## Set commands
 
 | Command     | Supported OR Not | Desc                                  |
 |-------------|------------------|---------------------------------------|
@@ -92,7 +92,7 @@
 | sunionstore | √                |                                       |
 | sscan       | √                |                                       |
 
-## ZSet Commands
+## ZSet commands
 
 | Command          | Supported OR Not | Desc         |
 |------------------|------------------|--------------|
@@ -123,7 +123,7 @@
 | zmscore          | √                | multi zscore |
 | zunionstore      | √                |              |
 
-## Key Commands
+## Key commands
 
 | Command   | Supported OR Not | Desc                    |
 |-----------|------------------|-------------------------|
@@ -143,7 +143,7 @@
 | rename    | X                |                         |
 | randomkey | √                |                         |
 
-## Bit Commands
+## Bit commands
 
 | Command  | Supported OR Not | Desc |
 |----------|------------------|------|
@@ -156,11 +156,11 @@
 
 :::note
 
-String and bitmap are different types in kvrocks, so you _cannot_ do bit operations with string, and vice versa.
+String and bitmap are different types in Kvrocks, so you _cannot_ do bit operations with string, and vice versa.
 
 :::
 
-## Script Commands
+## Script commands
 
 | Command | Supported OR Not | Desc                                               |
 |---------|------------------|----------------------------------------------------|
@@ -168,7 +168,7 @@ String and bitmap are different types in kvrocks, so you _cannot_ do bit operati
 | evalsha | √                |                                                    |
 | script  | √                | script kill and debug subcommand are not supported |
 
-## Pub/Sub Commands
+## PubSub commands
 
 | Command      | Supported OR Not | Desc |
 |--------------|------------------|------|
@@ -179,7 +179,7 @@ String and bitmap are different types in kvrocks, so you _cannot_ do bit operati
 | subscribe    | √                |      |
 | unsubscribe  | √                |      |
 
-## Transaction Commands
+## Transaction commands
 
 | Command | Supported OR Not | Desc |
 |---------|------------------|------|
@@ -189,7 +189,7 @@ String and bitmap are different types in kvrocks, so you _cannot_ do bit operati
 | watch   | X                |      |
 | unwatch | X                |      |
 
-## Sortedint Commands
+## SortedInt commands
 
 | Command           | Supported OR Not | Desc                                               |
 |-------------------|------------------|----------------------------------------------------|
@@ -202,7 +202,9 @@ String and bitmap are different types in kvrocks, so you _cannot_ do bit operati
 | sirangebyvalue    | √                | sirangebyvalue key min max (LIMIT offset count)    |
 | sirevrangebyvalue | √                | sirevrangebyvalue key max min (LIMIT offset count) |
 
-## Cluster Subcommands
+## Cluster commands
+
+These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 | Subcommand | Supported OR Not | Desc |
 |------------|------------------|------|
@@ -211,26 +213,26 @@ String and bitmap are different types in kvrocks, so you _cannot_ do bit operati
 | slots      | √                |      |
 | keyslot    | √                |      |
 
-## Server Commands
+## Server commands
 
-| Command   | Supported OR Not | Desc                                                                                                                     |
-|-----------|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| monitor   | √                |                                                                                                                          |
-| info      | √                |                                                                                                                          |
-| role      | √                |                                                                                                                          |
-| config    | √                |                                                                                                                          |
-| dbsize    | √                |                                                                                                                          |
-| disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see details: https://github.com/apache/kvrocks/issues/874 |
-| namespace | √                |                                                                                                                          |
-| flushdb   | √                |                                                                                                                          |
-| flushall  | √                |                                                                                                                          |
-| command   | √                |                                                                                                                          |
-| client    | √                |                                                                                                                          |
-| auth      | √                |                                                                                                                          |
-| quit      | √                |                                                                                                                          |
-| slowlog   | √                |                                                                                                                          |
-| perflog   | √                |                                                                                                                          |
-| hello     | √                |                                                                                                                          |
+| Command   | Supported OR Not | Desc                                                                                                            |
+|-----------|------------------|-----------------------------------------------------------------------------------------------------------------|
+| monitor   | √                |                                                                                                                 |
+| info      | √                |                                                                                                                 |
+| role      | √                |                                                                                                                 |
+| config    | √                |                                                                                                                 |
+| dbsize    | √                |                                                                                                                 |
+| disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see https://github.com/apache/kvrocks/issues/874 |
+| namespace | √                |                                                                                                                 |
+| flushdb   | √                |                                                                                                                 |
+| flushall  | √                |                                                                                                                 |
+| command   | √                |                                                                                                                 |
+| client    | √                |                                                                                                                 |
+| auth      | √                |                                                                                                                 |
+| quit      | √                |                                                                                                                 |
+| slowlog   | √                |                                                                                                                 |
+| perflog   | √                |                                                                                                                 |
+| hello     | √                |                                                                                                                 |
 
 
 :::note
@@ -239,7 +241,7 @@ The db size is updated async after execute `dbsize scan` command.
 
 :::
 
-## GEO Commands
+## GEO commands
 
 | Command           | Supported OR Not | Desc |
 |-------------------|------------------|------|
@@ -250,7 +252,7 @@ The db size is updated async after execute `dbsize scan` command.
 | georadius         | √                |      |
 | georadiusbymember | √                |      |
 
-## Stream Commands
+## Stream commands
 
 | Command    | Supported OR Not | Desc        |
 |------------|------------------|-------------|
@@ -269,10 +271,10 @@ The db size is updated async after execute `dbsize scan` command.
 | xreadgroup | X                |             |
 | xsetid     | X                |             |
 
-## Hyperloglog Commands
+## Hyperloglog commands
 
 [Not supported yet](https://redis.io/commands/?group=hyperloglog).
 
-## FUNCTION Commands
+## Function commands
 
-[Not supported yet](https://redis.io/commands/?name=FUNCTION).
+[Not supported yet](https://redis.io/commands/?group=scripting).

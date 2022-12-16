@@ -68,7 +68,7 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {type: 'doc', docId: 'supported-commands', position: 'right', label: 'Docs'},
+          {type: 'doc', docId: 'getting-started', position: 'right', label: 'Docs'},
           {to: '/download', label: 'Download', position: 'right'},
           {type: 'doc', docId: 'community', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
@@ -102,12 +102,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Supported Commands',
-                to: '/docs/supported-commands',
+                label: 'Getting started',
+                to: '/docs/getting-started',
               },
               {
-                label: 'Server Installation',
-                to: '/docs/server-installation',
+                label: 'Supported commands',
+                to: '/docs/supported-commands',
               },
             ],
           },
