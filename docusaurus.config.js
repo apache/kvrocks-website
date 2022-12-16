@@ -72,6 +72,7 @@ const config = {
           {to: '/download', label: 'Download', position: 'right'},
           {type: 'doc', docId: 'community', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
+          {to: '/users', label: 'Users', position: 'right'},
           {
             href: 'https://github.com/apache/incubator-kvrocks',
             position: 'right',
