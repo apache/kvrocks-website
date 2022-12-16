@@ -5,7 +5,7 @@
     flex-wrap: wrap;
 }
 
-.img-wrapper .link {
+.img-wrapper, .link {
     width: 140px;
     margin: 20px 10px;
     height: 60px;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.img-wrapper img {
+.img-wrapper, img {
     max-height: 94%;
     max-width: 94%;
     transition: opacity 0.5s;

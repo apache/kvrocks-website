@@ -1,17 +1,17 @@
-import React from "react";
-import {ImageList, ImageListItem} from "@mui/material";
+import React from "react"
+import styles from "./index.module.css"
 import Link from "@docusaurus/Link";
 
 export default function UserLogos(): JSX.Element {
-    return <ImageList cols={5}>
-        {userData.map((item) => (
-            <ImageListItem key={item.img} sx={{ width: 140, height: 60, maxWidth: "94%", maxHeight: "94%" }}>
-                <Link target={"_blank"} rel={"noopener noreferrer"} href={item.site}>
+    return <>
+        <div className={styles.imgWrapper}>{
+            userData.map(item => (
+                <Link className={styles.link} rel={"noopener noreferrer"} target={"_blank"} href={item.site}>
                     <img src={item.img} srcSet={item.img} alt={item.title}/>
                 </Link>
-            </ImageListItem>
-        ))}
-    </ImageList>
+            ))
+        }</div>
+    </>
 }
 
 const userData = [
@@ -29,5 +29,35 @@ const userData = [
         img: '/media/users/jiatou.png',
         title: 'Jiatou',
         site: 'https://www.jiaads.com/',
-    }
+    },
+    {
+        img: '/media/users/baidu.png',
+        title: 'Baidu',
+        site: 'https://www.baidu.com/',
+    },
+    {
+        img: '/media/users/baishancloud.png',
+        title: 'BaiShanCloud',
+        site: 'https://intl.baishancloud.com/',
+    },
+    {
+        img: '/media/users/rgyun.png',
+        title: 'Ruangao Mobile Private Marketplace',
+        site: 'https://www.rgyun.com/',
+    },
+    {
+        img: '/media/users/xueqiu.png',
+        title: 'Xueqiu',
+        site: 'https://xueqiu.com/',
+    },
+    {
+        img: '/media/users/u-next.png',
+        title: 'U-NEXT',
+        site: 'https://unext.jp/',
+    },
+    {
+        img: '/media/users/circl-lu.png',
+        title: 'circl.lu',
+        site: 'https://circl.lu/',
+    },
 ]
