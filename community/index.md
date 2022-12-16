@@ -79,3 +79,10 @@ Enhancements or new feature proposals are also welcome. The more concrete and ra
 ## People
 
 The list below could be outdated. Please find the most up-to-date list [here](http://people.apache.org/phonebook.html?podling=kvrocks).
+
+
+````mdx-code-block
+import Committers from "../src/components/Committers";
+
+<Committers/>
+````

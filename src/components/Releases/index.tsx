@@ -1,5 +1,10 @@
 import React from "react";
 
+const versions = [
+    '2.2.0',
+    '2.1.0',
+]
+
 type ReleaseData = {
     name: string,
     archive: string,
@@ -7,13 +12,21 @@ type ReleaseData = {
     signature: string,
 }
 
-type ReleasesProps = {
-    data: ReleaseData[],
+function createReleaseData(version: string): ReleaseData {
+    const vtag = `${version}-incubating`
+    const archive = `https://downloads.apache.org/incubator/kvrocks/${version}/apache-kvrocks-${vtag}-src.tar.gz`
+    return {
+        name: vtag,
+        archive: archive,
+        checksum: `${archive}.sha512`,
+        signature: `${archive}.asc`,
+    };
 }
 
-export default function Releases({data}: ReleasesProps): JSX.Element {
+export default function Releases(): JSX.Element {
+    const releases = versions.map(version => createReleaseData(version))
     return <>
-        <table className="table table-hover sortable">
+        <table>
             <thead>
             <tr>
                 <th><b>Name</b></th>
@@ -23,15 +36,13 @@ export default function Releases({data}: ReleasesProps): JSX.Element {
             </tr>
             </thead>
             <tbody>
-            {data.map(v => (
-                <>
-                    <tr>
-                        <td>{v.name}</td>
-                        <td><a href={v.archive}>tarball</a></td>
-                        <td><a href={v.checksum}>sha512</a></td>
-                        <td><a href={v.signature}>asc</a></td>
-                    </tr>
-                </>
+            {releases.map(v => (
+                <tr key={v.name}>
+                    <td>{v.name}</td>
+                    <td><a href={v.archive}>tarball</a></td>
+                    <td><a href={v.checksum}>sha512</a></td>
+                    <td><a href={v.signature}>asc</a></td>
+                </tr>
             ))}
             </tbody>
         </table>
