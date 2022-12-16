@@ -4,6 +4,7 @@ const sidebars = {
         'getting-started',
         'namespace',
         'cluster',
+        'replication',
         {
             "type": "category",
             "label": "References",

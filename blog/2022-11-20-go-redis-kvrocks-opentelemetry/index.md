@@ -16,7 +16,7 @@ You can use Kvrocks as a drop-in replacement for Redis to store data on SSD decr
 
 Kvrocks supports most [Redis commands](/docs/supported-commands) with a single notable exception being that `watch` and `unwatch` commands are not [supported yet](https://github.com/apache/incubator-kvrocks/issues/315).
 
-[Kvrocks Cluster](/docs/Cluster/kvrocks-cluster-introduction) and [replication](/docs/Design/replication) are available as well.
+[Kvrocks Cluster](/docs/cluster) and [replication](/docs/replication) are available as well.
 
 ## Getting started with Kvrocks
 
@@ -221,6 +221,6 @@ See [OpenTelemetry Go Metrics API](https://uptrace.dev/opentelemetry/go-metrics.
 
 ## Useful links
 
-- [Kvrocks Server Installation](/docs/server-installation)
+- [Getting started with Kvrocks](/docs/getting-started)
 - [Go Redis](https://redis.uptrace.dev/guide/go-redis.html)
 - [Get started with Uptrace](https://uptrace.dev/get/get-started.html)
