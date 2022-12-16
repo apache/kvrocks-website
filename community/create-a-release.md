@@ -33,7 +33,7 @@ This section is the requirements for release manager who is the first time to be
 For more details, please refer to [GPG official website](https://www.gnupg.org/download/index.html). Here shows one approach to install GPG with [Homebrew](https://brew.sh/):
 
 ```shell
-brew install gpg
+brew install gnupg
 gpg --version #check the version, should be 2.x
 ```
 
