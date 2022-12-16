@@ -18,7 +18,7 @@ Let's have a look at how Kvrocks uses the RocksDB before introducing performance
 
 Also, Kvrocks uses the RocksDB WAL to implement the replication, for more detail can see:
 * [Kvrocks: An Open-Source Distributed Disk Key-Value Storage With Redis Protocol](https://kvrocks.medium.com/distributed-disk-key-value-storage-kvrocks-7bc5101c8585)
-* [How to implement the Redis data structures on RocksDB](https://github.com/KvrocksLabs/kvrocks/blob/unstable/docs/metadata-design.md)
+* [How to implement the Redis data structures on RocksDB](/community/data-structure-on-rocksdb)
 
 We can have a glance at the Kvrocks architecture from 10,000 feet view：
 

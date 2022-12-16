@@ -4,6 +4,17 @@ const sidebars = {
     'community',
     {
       "type": "category",
+      "label": "Internals",
+      collapsed: true,
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        'data-structure-on-rocksdb',
+      ]
+    },
+    {
+      "type": "category",
       "label": "Releases",
       collapsed: false,
       link: {
