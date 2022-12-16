@@ -41,15 +41,17 @@ export default function Committers(): JSX.Element {
             </tr>
             </thead>
             <tbody>
-            {committers.map(v => (
-                <tr key={v.name}>
-                    <td><img width={64} className={styles.contributorAvatar}
-                             src={`https://github.com/${v.githubId}.png`} alt={v.name}/></td>
-                    <td>{v.name}</td>
-                    <td>{v.apacheId}</td>
-                    <td><a target={"_blank"} href={`https://github.com/${v.githubId}`}>{v.githubId}</a></td>
-                </tr>
-            ))}
+            {committers
+                .sort((c0, c1) => c0.apacheId.localeCompare(c1.apacheId))
+                .map(v => (
+                    <tr key={v.name}>
+                        <td><img width={64} className={styles.contributorAvatar}
+                                 src={`https://github.com/${v.githubId}.png`} alt={v.name}/></td>
+                        <td>{v.name}</td>
+                        <td>{v.apacheId}</td>
+                        <td><a target={"_blank"} href={`https://github.com/${v.githubId}`}>{v.githubId}</a></td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     </>
