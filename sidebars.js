@@ -7,6 +7,17 @@ const sidebars = {
         'replication',
         {
             "type": "category",
+            "label": "Operation",
+            link: {
+                type: 'generated-index',
+            },
+            items: [
+                'backup',
+                'kvrocks-exporter',
+            ]
+        },
+        {
+            "type": "category",
             "label": "References",
             collapsed: false,
             link: {
