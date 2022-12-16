@@ -14,17 +14,52 @@ You can:
 
 ## Mailing list
 
-Get help using Kvrocks or contribute to the project on our mailing lists:
+| Name                       | Desc                                           | Subscribe                                                | Unsubscribe                                                  | Post                                  | Archive                                                                  |
+|----------------------------|------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------|---------------------------------------|--------------------------------------------------------------------------|
+| dev@kvrocks.apache.org     | Development related discussions                | [Subscribe](mailto:dev-subscribe@kvrocks.apache.org)     | [Unsubscribe](mailto:dev-unsubscribe@kvrocks.apache.org)     | [Post](mailto:dev@kvrocks.apache.org) | [Archive](https://lists.apache.org/list.html?dev@kvrocks.apache.org)     |
+| commits@kvrocks.apache.org | All commits to our repositories                | [Subscribe](mailto:commits-subscribe@kvrocks.apache.org) | [Unsubscribe](mailto:commits-unsubscribe@kvrocks.apache.org) | Read only list                        | [Archive](https://lists.apache.org/list.html?commits@kvrocks.apache.org) |
+| issues@kvrocks.apache.org  | Mirror of all GitHub activity                  | [Subscribe](mailto:issues-subscribe@kvrocks.apache.org)  | [Unsubscribe](mailto:issues-unsubscribe@kvrocks.apache.org)  | Read only list                        | [Archive](https://lists.apache.org/list.html?issues@kvrocks.apache.org)  |
+| builds@kvrocks.apache.org  | Build notifications of Kvrocks main repository | [Subscribe](mailto:builds-subscribe@kvrocks.apache.org)  | [Unsubscribe](mailto:builds-unsubscribe@kvrocks.apache.org)  | Read only list                        | [Archive](https://lists.apache.org/list.html?builds@kvrocks.apache.org)  |
 
-* [dev@kvrocks.apache.org](mailto:dev@kvrocks.apache.org) is for people who want to contribute code to Kvrocks. [subscribe](mailto:dev-subscribe@kvrocks.apache.org), [unsubscribe](mailto:dev-unsubscribe@kvrocks.apache.org), [archives](https://www.mail-archive.com/dev@kvrocks.apache.org/)
-* [commits@kvrocks.apache.org](mailto:commits@kvrocks.apache.org) is for commit messages and patches to Kvrocks. [subscribe](mailto:commits-subscribe@kvrocks.apache.org), [unsubscribe](mailto:commits-unsubscribe@kvrocks.apache.org), [archives](https://www.mail-archive.com/commits@kvrocks.apache.org/)
-* [issues@kvorkcs.apache.org](mailto:issues@kvorkcs.apache.org) is for issues and pull requests activities on Kvrocks repository. [subscribe](mailto:issues-subscribe@kvrocks.apache.org), [unsubscribe](mailto:issues-unsubscribe@kvrocks.apache.org), [archives](https://www.mail-archive.com/issues@kvrocks.apache.org/)
+Please make sure you are subscribed to the mailing list you are posting to!
+
+If you are not subscribed to the mailing list, your message will either be rejected or you won't receive the response.
+
+### How to subscribe to a mailing list
+
+Before you can post a message to a mailing list, you need to subscribe to the list first.
+
+1. Send an email without any contents or subject to listname-subscribe@kvrocks.apache.org. (replace listname with dev, issues, ..)
+2. Wait till you receive an email with the subject "confirm subscribe to listname@kvrocks.apache.org". Reply to that email, without editing the subject or including any contents.
+3. Wait till you receive an email with the subject "WELCOME to listname@kvrocks.apache.org".
+
+If you email us with a code snippet, make sure that:
+
+* you do not link to files in external services as such files can change, get deleted or the link might break and thus make an archived email thread useless
+* you paste text instead of screenshots of text
+* you keep formatting when pasting code in order to keep the code readable
+* there are enough import statements to avoid ambiguities
+
+## Slack
+
+You can join the [Apache Kvrocks community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
+
+There are a couple of community rules:
+
+* Be respectful - This is the most important rule!
+* All important decisions and conclusions must be reflected back to the mailing lists. "If it didn't happen on a mailing list, it didn't happen." - The [Apache Mottos](https://theapacheway.com/on-list/)
+* Use Slack threads to keep parallel conversations from overwhelming a channel.
+* Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
 
 ## Issue tracker
 
-### Bug Reports
+We use GitHub Issues to track all code related issues: https://github.com/apache/incubator-kvrocks/issues
 
-Found bug? Enter an issue in the [issue tracker](https://github.com/apache/incubator-kvrocks/issues).
+You must have a [GitHub account](https://github.com/signup) in order to log cases and issues.
+
+### Bug reports
+
+Found bug? Enter an issue in the issue tracker.
 
 Before submitting an issue, please:
 
@@ -36,10 +71,11 @@ Before submitting an issue, please:
 
 Enhancements or new feature proposals are also welcome. The more concrete and rationale the proposal is, the greater the chance it will be incorporated into future releases.
 
-## Source Code
+## Source code
 
-The project sources are accessible via [GitHub](https://github.com/apache/incubator-kvrocks)
+* Kvrocks core repository: https://github.com/apache/incubator-kvrocks
+* Kvrocks website repository: https://github.com/apache/incubator-kvrocks-website
 
-## Website Source Code
+## People
 
-The project website sources are accessible via [GitHub](https://github.com/apache/incubator-kvrocks-website)
+The list below could be outdated. Please find the most up-to-date list [here](http://people.apache.org/phonebook.html?podling=kvrocks).
