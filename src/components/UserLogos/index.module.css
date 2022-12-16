@@ -1,25 +1,28 @@
-.img-wrapper {
+.imgWrapper {
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
-.img-wrapper, .link {
-    width: 140px;
+.imgBox{
+    width: 20%;
+}
+
+.link {
     margin: 20px 10px;
-    height: 60px;
+    height: 80px;
+    padding:0 10px;
     border: 1px solid #eaecef;
     border-radius: 4px;
     box-shadow: #f8f9fa 1px 1px 2px 1px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.img-wrapper, img {
-    max-height: 94%;
-    max-width: 94%;
+.imgWrapper img {
+    max-height: 100%;
+    max-width: 100%;
     transition: opacity 0.5s;
 }

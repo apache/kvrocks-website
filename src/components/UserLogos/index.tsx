@@ -55,15 +55,17 @@ export default function UserLogos(): JSX.Element {
     return <>
         <div className={styles.imgWrapper}>{
             userData.map(item => (
-                <Link
-                    className={styles.link}
-                    rel={"noopener noreferrer"}
-                    target={"_blank"}
-                    href={item.site}
-                    key={item.title}
-                >
-                    <img src={item.img} srcSet={item.img} alt={item.title}/>
-                </Link>
+                <div className={styles.imgBox}>
+                    <Link
+                        className={styles.link}
+                        rel={"noopener noreferrer"}
+                        target={"_blank"}
+                        href={item.site}
+                        key={item.title}
+                    >
+                        <img src={item.img} srcSet={item.img} alt={item.title}/>
+                    </Link>
+                </div>
             ))
         }</div>
     </>
