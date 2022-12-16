@@ -1,4 +1,4 @@
-# Design Complex Structure On Rocksdb
+# Kvrocks data structures design
 
 Kvrocks uses the RocksDB as storage, it's developed by Facebook which is built on LevelDB with many extra features, like column family, transaction and backup, see the RocksDB wiki: [Features Not In LevelDB](https://github.com/facebook/RocksDB/wiki/Features-Not-in-LevelDB). The basic operations in RocksDB are `Put(key, value)`, `Get(key)`, `Delete(key)`, other complex structures aren't supported.
 
