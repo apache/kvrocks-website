@@ -205,7 +205,7 @@ Here is the meaning of all fields in the cpu section:
 
 ## Keyspace Section
 
-The keyspace section provides statistics on the main dictionary of each database. The statistics are the number of keys, and the number of keys with an expiration. Note that Kvrocks only have `db0` and keys statistics wasn't manipulated in memor, so we need to use the `dbsize scan` to async scan and calculate the keys number like below: 
+The keyspace section provides statistics on the main dictionary of each database. The statistics are the number of keys, and the number of keys with an expiration. Note that Kvrocks only have `db0` and keys statistics wasn't manipulated in memor, so we need to use the `dbsize scan` to async scan and calculate the keys number like below:
 
 ```shell
 # Last scan db time: Sun Oct 31 17:13:14 2021
@@ -252,7 +252,7 @@ those statistics were the entire rocksdb side:
 * memtable_flush_pending: This metric returns 1 if a memtable flush is pending; otherwhise it returns 0.
 * compaction_pending: This metric returns 1 if at least one compaction is pending; otherwise, the metric reports 0.
 * num_running_compactions: Number of currently running compactions.
-* num_live_versions: Number of live versions. More live versions often mean more SST files are held from being deleted, by iterators or unfinished compactions. 
+* num_live_versions: Number of live versions. More live versions often mean more SST files are held from being deleted, by iterators or unfinished compactions.
 * num_background_errors: Accumulated number of background errors.
 * flush_count: Number of flushes.
 * compaction_count: Number of compactions.

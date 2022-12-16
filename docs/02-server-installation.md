@@ -12,7 +12,7 @@ then you can use the redis-cli to play the kvrocks server as Redis.
 
 ## Run Kvrocks Using Binary
 
-We will automated build the release binary for the CentOS7 and Ubuntu(>= 18.04) when releasing a new version, please step forward to [kvrocks releases](https://github.com/KvrocksLabs/kvrocks/releases) page to download the binary zip file. 
+We will automated build the release binary for the CentOS7 and Ubuntu(>= 18.04) when releasing a new version, please step forward to [kvrocks releases](https://github.com/KvrocksLabs/kvrocks/releases) page to download the binary zip file.
 
 ## Run Kvrocks Using Source Code
 

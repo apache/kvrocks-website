@@ -129,7 +129,7 @@ fi
 ```
 2. verify the sign and checksum
 
-./release-verify.sh apache-kvrocks-${release_version}-src.tar.gz 
+./release-verify.sh apache-kvrocks-${release_version}-src.tar.gz
 
 ```shell
 gpg: Signature made 一  7/18 13:44:27 2022 CST

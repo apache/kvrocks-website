@@ -42,7 +42,7 @@ gpg --version #check the version, should be 2.x
 Attentions:
 
 * Name is best to keep consistent with your full name of Apache ID;
-* Email should be the Apache email; 
+* Email should be the Apache email;
 * Name is best to only use English to avoid garbled.
 
 Run `gpg --full-gen-key` and complete the generation interactively:
@@ -61,7 +61,7 @@ Please select what kind of key you want:
 Your selection? 1 # input 1
 RSA keys may be between 1024 and 4096 bits long.
 What keysize do you want? (2048) 4096 # input 4096
-Requested keysize is 4096 bits       
+Requested keysize is 4096 bits
 Please specify how long the key should be valid.
          0 = key does not expire
       <n>  = key expires in n days
@@ -80,7 +80,7 @@ Comment:                          # input some annotations, optional
 You selected this USER-ID:
     "Hulk <hulk@apache.org>"
 
-Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O # input O 
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O # input O
 We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
@@ -236,7 +236,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
     The VOTE will remain open for at least 72 hours.
 
     [ ] +1 approve
-    [ ] +0 no opinion 
+    [ ] +0 no opinion
     [ ] -1 disapprove with the reason
 
     To learn more about apache kvrocks, please see
@@ -258,7 +258,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 Thanks
 ```
 
-After at least 72 hours with at least 3 +1 binding vote (from Kvrocks Podling PMC member) and no veto, claim the vote result: 
+After at least 72 hours with at least 3 +1 binding vote (from Kvrocks Podling PMC member) and no veto, claim the vote result:
 
 ```text
 [RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
@@ -300,7 +300,7 @@ Kvrocks(incubating) ${release_version}. We now kindly request the IPMC members
 review and vote for this release.
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB as the storage engine
-and is compatible with Redis protocol. The current release provides ..., 
+and is compatible with Redis protocol. The current release provides ...,
 many new features, many improvements and fixes many bugs.
 
 Kvrocks community vote thread:
@@ -392,7 +392,7 @@ Send the release announcement to `dev@kvrocks.apache.org` and CC `announce@apach
 
 Hi all,
 
-The Apache Kvrocks(incubating) community is pleased to announce 
+The Apache Kvrocks(incubating) community is pleased to announce
 that Apache Kvrocks(incubating) ${release_version} has been released!
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB
