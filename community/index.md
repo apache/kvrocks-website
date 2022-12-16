@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+id: community
 title: Community
 ---
 
@@ -11,8 +11,6 @@ You can:
 * Provide us with the use-cases.
 * Report bugs and submit patches.
 * Contribute code, documentation.
-
-Visit the [Contributing] page for more information.
 
 ## Mailing list
 
@@ -26,7 +24,7 @@ Get help using Kvrocks or contribute to the project on our mailing lists:
 
 ### Bug Reports
 
-Found bug? Enter an issue in the [Issue Tracker](https://github.com/apache/incubator-kvrocks/issues).
+Found bug? Enter an issue in the [issue tracker](https://github.com/apache/incubator-kvrocks/issues).
 
 Before submitting an issue, please:
 
@@ -34,9 +32,9 @@ Before submitting an issue, please:
 * Search the issue tracker to verify there is no existing issue reporting the bug you've found.
 * Consider tracking down the bug yourself in the source code of Kvrocks and submitting a patch along with your bug report. This is a great time saver for the Kvrocks developers and helps ensure the bug will be fixed quickly.
 
-### Feature Requests
+### Enhancement
 
-Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
+Enhancements or new feature proposals are also welcome. The more concrete and rationale the proposal is, the greater the chance it will be incorporated into future releases.
 
 ## Source Code
 

@@ -21,11 +21,11 @@ Take SSD as an example, the smallest unit of reading/writing operation was the p
 
 As we can see, a large random io was very unfriendly to the SSD disk, except for the performance issue, frequent erasing and writing will also seriously lead to the life of the SSD (random reads and writes are also unfriendly to HDDs, requiring constant seek and addressing). LSM-Tree alleviates such problems by changing random writes into sequential batch writes.
 
-The read-write amplification at the software level mainly comes from the data organization method, and the degree of read-write amplification brought about by different organization methods will also vary greatly. Take RocksDB as an example here, RocksDB is Facebook based on Google LevelDB which enrichments the multi-threading, Backup and Compaction, and many other very useful functions. To solve the problem of the disk write amplification, it also brings some space enlargement problems. Let's take a brief look at how LSM-Tree organizes data:
+The read-write amplification at the software level mainly comes from the data organization method, and the degree of read-write amplification brought about by different organization methods will also vary greatly. Take RocksDB as an example here, RocksDB is Facebook based on Google LevelDB which enriches the multi-threading, Backup and Compaction, and many other very useful functions. To solve the problem of the disk write amplification, it also brings some space enlargement problems. Let's take a brief look at how LSM-Tree organizes data:
 
 ![major-compaction](major-compaction.jpeg)
 
-LSM-Tree would create a new entry per write. For example in the above picture, the variable X is written 4 times successively, which are 0, 1, 2, 3. From the single variable X side, it was caused 4 times space amplification, those old spaces would be reclaimed on the background compaction. Similarly, deletion is achieved by inserting a record whose value is empty. The space size of each layer of LSM-Tree increases layer by layer. When the capacity reaches the limit, it will trigger compaction to merge to the next layer, and so on. Assuming that the maximum storage size of Level 0 is M Bytes, it increases layer by layer by 10 times and the maximum is 7 layers. Theoretically, the space enlargement is about 1.111111 times. Calculated as follows:
+LSM-Tree would create a new entry per write. For example in the above picture, the variable X is written 4 times successively, which are 0, 1, 2, 3. From the single variable X side, it was caused 4 times space amplification, those old spaces would be reclaimed on the background compaction. Similarly, deletion is achieved by inserting a record whose value is empty. The space size of each layer of LSM-Tree increases layer by layer. When the capacity reaches the limit, it will trigger compaction to merge to the next layer, and so on. Assuming that the maximum storage size of Level 0 is M Bytes, it increases layer by layer in 10 times and the maximum is 7 layers. Theoretically, the space enlargement is about 1.111111 times. Calculated as follows:
 
 ```text
 amplification ratio = (1 + 10 + 100 +1000 + 10000 + 100000 + 1000000) * M / (1000000 * M)
@@ -47,11 +47,11 @@ Since we know that the core problem is caused by a single key-value that is too 
 
 Take `setbit foo 8192002 1` as an example, the implementation steps are:
 
-* Calculate the key corresponding to the offset of `8192002`, because Kvrocks uses a value of 1 KiB, so the number of the key is `8192002/(1024*8)=1000`, so you can know the bit should be stored in the subkey `foo1000`.
+* Calculate the key corresponding to the offset of `8192002`, because Kvrocks uses a value of 1 KiB, so the number of the key is `8192002/(1024*8)=1000`, so you can know the bit should be stored in the sub key `foo1000`.
 * Then get the value corresponding to this key from RocksDB and calculate the offset in the segment, `8192002%8192` is equal to `2`, and then set the bit with the offset of 2 to 1.
-* Finally write the entire value back to RocksDB
+* Finally, write the entire value back to RocksDB
 
-A key point of this implementation is only read-write the limit part of the bitmap we need. Assuming that we have only executed setbit twice, `setbit foo 1 1` and `setbit foo 8192002 1`, then there will only read and write two keys `foo:0` and `foo:1000` in RocksDB, and the actual read-value size is only 2 KiB in total. It can be perfectly adapted to the sparse array scene like the bitmap, and will also not cause the problem of space enlargement due to sparse writing.
+A key point of this implementation is only read-write the limit part of the bitmap we need. Assuming that we have only executed `setbit` twice, `setbit foo 1 1` and `setbit foo 8192002 1`, then there will only read and write two keys `foo:0` and `foo:1000` in RocksDB, and the actual read-value size is only 2 KiB in total. It can be perfectly adapted to the sparse array scene like the bitmap, and will also not cause the problem of space enlargement due to sparse writing.
 
 > This idea is also similar to Linux's virtual memory/physical memory mapping strategy. For example, we request to malloc for 1GiB, and the operating system only allocates a piece of virtual memory address space. The physical memory was allocated when it is actually written will it trigger a page fault interrupt. That is, if the memory page has not been written, read-only will not cause physical memory allocation.
 

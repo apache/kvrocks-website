@@ -1,42 +1,53 @@
 ---
-title: How to release
-sidebar_position: 2
+id: create-a-release
+title: Create a Kvrocks release
 ---
 
-> This article mainly introduces how the Release Manager releases a new version in accordance with the Apache requirements.
+This document mainly introduces how the Release Manager releases a new version in accordance with the Apache requirements.
 
-## Prolegomenon
-Source Release is the key point which Apache values, also, is necessary for a release;
-Binary Release is optional. Kvrocks can choose whether to release the binary package to the Apache repository or not.
+## Introduction
+
+* Source Release is the key point which Apache values, also, is necessary for a release;
+* Binary Release is optional. Kvrocks can choose whether to release the binary package to the Apache repository or not.
 
 Note that for binary distribution packages, it is necessary to check that the new version does not contain third-party dependencies.
 
-For more guideline, you can refer the following links:
+Please remember that publishing software has legal consequences. This guide complements the foundation-wide policies and guides:
 
-[ASF Release Creation Process](https://infra.apache.org/release-publishing.html)
+* [Release Policy](https://www.apache.org/legal/release-policy.html)
+* [Release Distribution Policy](https://infra.apache.org/release-distribution)
+* [Release Creation Process](https://infra.apache.org/release-publishing.html)
 
-[ASF Release Policy](https://www.apache.org/legal/release-policy.html)
+## Adding GPG KEY
 
+This section is a brief from the [Cryptography with OpenPGP](https://infra.apache.org/openpgp.html) guideline.
 
-## Adding PG KEY
-> Ref：https://infra.apache.org/openpgp.html
-**This section is the requirements for release manager who is the first time to be a release manager**
+:::note
+
+This section is the requirements for release manager who is the first time to be a release manager
+
+:::
 
 ### Install gpg
-For more details, please ref to [Official website](https://www.gnupg.org/download/index.html), configurations under Mac OS:
-```shell
-$ brew install gpg
-$ gpg --version #check the version, should be 2.x
-```
-### Generate gpg Key
-#### Attentions：
-- Name is best to keep consistent with your full name of Apache ID
-- Email should be the Apache email
-- Name is best to only use English to avoid garbled
 
-#### Generate the key as prompt
+For more details, please refer to [GPG official website](https://www.gnupg.org/download/index.html). Here shows one approach to install GPG with [Homebrew](https://brew.sh/):
+
 ```shell
-➜  ~ gpg --full-gen-key
+brew install gnupg
+gpg --version #check the version, should be 2.x
+```
+
+### Generate gpg Key
+
+Attentions:
+
+* Name is best to keep consistent with your full name of Apache ID;
+* Email should be the Apache email;
+* Name is best to only use English to avoid garbled.
+
+Run `gpg --full-gen-key` and complete the generation interactively:
+
+```text
 gpg (GnuPG) 2.2.20; Copyright (C) 2020 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -50,7 +61,7 @@ Please select what kind of key you want:
 Your selection? 1 # input 1
 RSA keys may be between 1024 and 4096 bits long.
 What keysize do you want? (2048) 4096 # input 4096
-Requested keysize is 4096 bits       
+Requested keysize is 4096 bits
 Please specify how long the key should be valid.
          0 = key does not expire
       <n>  = key expires in n days
@@ -69,7 +80,7 @@ Comment:                          # input some annotations, optional
 You selected this USER-ID:
     "Hulk <hulk@apache.org>"
 
-Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O # input O 
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O # input O
 We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
@@ -98,69 +109,89 @@ uid           [ultimate] hulk <hulk@apache.org>
 sub   rsa4096 2022-07-12 [E]
 ```
 
-### upload your key to public gpg keyserver
+### Upload your key to public gpg keyserver
+
+Firstly, list your key:
 
 ```shell
-➜  ~ gpg --list-keys                                                        
+gpg --list-keys
+```
+
+The output is like:
+
+```text
 -------------------------------
 pub   rsa4096 2022-07-12 [SC]
       F77B887A4F25A9468C513E9AA3008E49B00F626B
 uid           [ultimate] hulk <hulk@apache.org>
 sub   rsa4096 2022-07-12 [E]
-
-# command for sending your key id to key server
-$ gpg --keyserver pgpkeys.mit.edu --send-key <key id>
-# Among them, pgpkeys.mit.edu is a randomly selected keyserver, and the keyserver list is: https://sks-keyservers.net/status/, which is automatically synchronized with each other, you can choose any one of them.
 ```
 
-### Check whether the key is created successfully
-Uploading takes about one minute, after that, you can check by your email at `http://keys.gnupg.net`. Be reminded to tick "the show full-key hashes" under advance.
+Then, send your key id to key server:
 
+```shell
+gpg --keyserver keys.openpgp.org --send-key <key-id> # e.g., F77B887A4F25A9468C513E9AA3008E49B00F626B
+```
+
+Among them, `keys.openpgp.org` is a randomly selected keyserver, you can use `keyserver.ubuntu.com` or any other full-featured keyserver.
+
+### Check whether the key is created successfully
+
+Uploading takes about one minute, after that, you can check by your email at the corresponding keyserver.
+
+Uploading keys to the keyserver is mainly for joining a [Web of Trust](https://infra.apache.org/release-signing.html#web-of-trust).
 
 ### Add your gpg public key to the KEYS document
 
-> SVN is required for this step
-The svn repository of the DEV branch is: https://dist.apache.org/repos/dist/dev/incubator/kvrocks
-The svn repository of the Release branch is: https://dist.apache.org/repos/dist/release/incubator/kvrocks
+:::info
 
-#### Add the public key to KEYS in the dev branch to release the RC version
+SVN is required for this step.
+
+:::
+
+The svn repository of the release branch is: https://dist.apache.org/repos/dist/release/incubator/kvrocks
+
+Please always add the public key to KEYS in the release branch:
+
 ```shell
-➜  ~ svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks kvrocks-dist-dev
+svn co https://dist.apache.org/repos/dist/release/incubator/kvrocks kvrocks-dist
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
-➜  ~ cd kvrocks-dist-dev
-➜  kvrocks-dist-dev ~ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS # Append your key to the KEYS file
-➜  kvrocks-dist-dev ~ svn add .	# It is not needed if the KEYS document exists before.
-➜  kvrocks-dist-dev ~ svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a username and password, just use your apache username and password.
+cd kvrocks-dist
+(gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS # Append your key to the KEYS file
+svn add .	# It is not needed if the KEYS document exists before.
+svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a username and password, just use your apache username and password.
 ```
 
-#### Add the public key to the KEYS in the release branch for releasing official version
-```shell
-➜  ~ svn co https://dist.apache.org/repos/dist/release/incubator/kvrocks kvrocks-dist-release
-➜  ~ cd kvrocks-dist-release
-➜  kvrocks-dist-release ~ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS	# Append the KEY you generated to the document KEYS, after appending, it is best to check whether it is correct
-➜  kvrocks-dist-release ~ svn add .	# It is not needed if the KEYS document exists before.
-➜  kvrocks-dist-release ~ svn ci -m "Add gpg key for YOUR_NAME" # Later on, if you are asked to enter a username and password, just use your apache username and password.
-```
-### Upload the GPG public key to your Github account
+### Upload the GPG public key to your GitHub account
+
 1. Enter https://github.com/settings/keys to add GPG KEYS.
-2. Please remember to bind the email address used in the GPG key to your github account (https://github.com/settings/emails)., if you find "unverified" after adding it.
+2. Please remember to bind the email address used in the GPG key to your GitHub account (https://github.com/settings/emails) if you find "unverified" after adding it.
 
-### create tag
+## Create source releases and stage
 
 1. Checkout to the RELEASE BRANCH and cherry-pick commits to release
-2. Use `./x.py package source --version ${release_version}`  to create release tarball
+2. Use `./x.py package source --version ${release_version}` to create release tarball
 3. Make sure it compiles good and push tag to GitHub
 
-### Upload tar file to dist repo
-> SVN is need in this step, SVN repo for DEV branch is https://dist.apache.org/repos/dist/dev/incubator/kvrocks
+## Upload artifacts to SVN dist repo
 
-### Checkout Kvorcks to local directory
+:::info
+
+SVN is required for this step.
+
+:::
+
+The svn repository of the dev branch is: https://dist.apache.org/repos/dist/dev/incubator/kvrocks
+
+First, checkout Kvrocks to local directory:
+
 ```shell
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
 svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks kvrocks-dist-dev
 ```
 
-### Add public key to KEYS file adn commit to SVN repository
+Then, upload the artifacts:
+
 ```shell
 cd kvrocks-dist-dev
 mkdir ${release_version} # create a directory named by version
@@ -173,16 +204,12 @@ svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 
 ## Voting
 
-- Kvrocks community vote，send email to ：`dev@kvrocks.apache.org`
-
 ### Kvrocks community vote
 
-#### Vote template
+Kvrocks community vote，send email to: `dev@kvrocks.apache.org`:
 
-```html
-Title：[VOTE] Release Apache Kvrocks(incubating) ${release_version}
-
-Content：
+```text
+[VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
 Hello Apache Kvrocks(incubating) PMC and Community,
 
@@ -209,7 +236,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
     The VOTE will remain open for at least 72 hours.
 
     [ ] +1 approve
-    [ ] +0 no opinion 
+    [ ] +0 no opinion
     [ ] -1 disapprove with the reason
 
     To learn more about apache kvrocks, please see
@@ -231,11 +258,10 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 Thanks
 ```
 
-#### Vote Result template
-```html
-Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
+After at least 72 hours with at least 3 +1 binding vote (from Kvrocks Podling PMC member) and no veto, claim the vote result:
 
-Content：
+```text
+[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
 The vote to release Apache Kvrocks(Incubating) ${release_version} has passed.
 
@@ -262,21 +288,19 @@ Thanks
 
 ### Incubator community vote
 
-#### Vote template
+Incubator community vote，send email to: `general@incubator.apache.org`:
 
-```html
-Title：[VOTE] Release Apache Kvrocks(incubating) ${release_version}
+```text
+[VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
-Content：
-
-Hello IPMC,
+Hello Incubator PMC,
 
 The Apache Kvrocks community has voted and approved the release of Apache
 Kvrocks(incubating) ${release_version}. We now kindly request the IPMC members
 review and vote for this release.
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB as the storage engine
-and is compatible with Redis protocol. The current release provides ..., 
+and is compatible with Redis protocol. The current release provides ...,
 many new features, many improvements and fixes many bugs.
 
 Kvrocks community vote thread:
@@ -314,13 +338,12 @@ Please vote accordingly:
 Thanks
 ```
 
-#### Vote Result template
-```html
-Title：[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
+After at least 72 hours with at least 3 +1 binding vote (from Incubator PMC member) and no veto, claim the vote result:
 
-Content：
+```text
+[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
 
-Hi Incubator Community,
+Hi Incubator PMC,
 
 The vote to release Apache Kvrocks(incubating) ${release_version} has passed with
 4 +1 binding and 3 +1 non-binding votes, no +0 or -1 votes.
@@ -333,9 +356,7 @@ Binding votes：
 
 Non-Binding votes:
 
-- xxx
-- yyy
-- zzz
+- aaa
 
 Vote thread: ${incubator_vote_thread_url}
 
@@ -346,24 +367,32 @@ We will proceed with publishing the approved artifacts and sending out the annou
 
 ## Officially released
 
-### Move source code and binary package from DEV to release repository on SVN.
+### Publish artifacts to SVN RELEASE branch
+
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
 ```
-### Check whether the dev and release is correct
-1. Make sure `${release_version}` is deleted in [dev](https://dist.apache.org/repos/dist/dev/incubator/kvrocks/).
 
-### Update links on official website
+### Delete artifacts in SVN DEV branch
 
-### Send email to `dev@kvrocks.apache.org` and CC `announce@apache.org`
+```shell
+svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} -m "Delete staging ${release_version} artifacts"
+```
 
-Release announce email template：
+### Update website links
+
+Update [releases data file](https://github.com/apache/incubator-kvrocks-website/blob/main/download/releases.json).
+
+### Send the announcement
+
+Send the release announcement to `dev@kvrocks.apache.org` and CC `announce@apache.org`:
+
 ```html
-Title： [ANNOUNCE] Release Apache Kvrocks(incubating) ${release_version}
-Content：
+[ANNOUNCE] Release Apache Kvrocks(incubating) ${release_version}
+
 Hi all,
 
-The Apache Kvrocks(incubating) community is pleased to announce 
+The Apache Kvrocks(incubating) community is pleased to announce
 that Apache Kvrocks(incubating) ${release_version} has been released!
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB
