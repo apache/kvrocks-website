@@ -5,6 +5,7 @@ const sidebars = {
     {
       "type": "category",
       "label": "Releases",
+      collapsed: false,
       link: {
         type: 'generated-index',
       },
@@ -16,6 +17,7 @@ const sidebars = {
     {
       "type": "category",
       "label": "Committers",
+      collapsed: false,
       link: {
         type: 'generated-index',
       },
