@@ -2,18 +2,6 @@ import React from "react"
 import styles from "./index.module.css"
 import Link from "@docusaurus/Link";
 
-export default function UserLogos(): JSX.Element {
-    return <>
-        <div className={styles.imgWrapper}>{
-            userData.map(item => (
-                <Link className={styles.link} rel={"noopener noreferrer"} target={"_blank"} href={item.site}>
-                    <img src={item.img} srcSet={item.img} alt={item.title}/>
-                </Link>
-            ))
-        }</div>
-    </>
-}
-
 const userData = [
     {
         img: '/media/users/meitu.png',
@@ -61,3 +49,22 @@ const userData = [
         site: 'https://circl.lu/',
     },
 ]
+
+
+export default function UserLogos(): JSX.Element {
+    return <>
+        <div className={styles.imgWrapper}>{
+            userData.map(item => (
+                <Link
+                    className={styles.link}
+                    rel={"noopener noreferrer"}
+                    target={"_blank"}
+                    href={item.site}
+                    key={item.title}
+                >
+                    <img src={item.img} srcSet={item.img} alt={item.title}/>
+                </Link>
+            ))
+        }</div>
+    </>
+}
