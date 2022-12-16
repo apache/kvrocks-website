@@ -381,7 +381,7 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_ve
 
 ### Update website links
 
-Update [releases data file](https://github.com/apache/incubator-kvrocks-website/blob/main/download/releases.json).
+Update [releases data file](https://github.com/apache/incubator-kvrocks-website/blob/main/src/components/Releases/index.tsx).
 
 ### Send the announcement
 
