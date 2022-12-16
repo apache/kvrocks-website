@@ -8,6 +8,10 @@ const sidebars = {
       link: {
         type: 'generated-index',
       },
+      items: [
+        'verify-release-candidate',
+        'release-process',
+      ]
     },
     {
       "type": "category",

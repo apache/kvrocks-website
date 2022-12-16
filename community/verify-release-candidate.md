@@ -1,6 +1,6 @@
 ---
+id: verify-release-candidate
 title: How to verify release
-sidebar_position: 3
 ---
 
 To verify the release, the following checklist can be used to reference:

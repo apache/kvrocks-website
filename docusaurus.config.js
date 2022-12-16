@@ -80,7 +80,7 @@ const config = {
         },
         items: [
           {type: 'doc', docId: 'supported-commands', position: 'right', label: 'Docs'},
-          {type: 'doc', docId: 'index', position: 'right', label: 'Community', docsPluginId: 'community'},
+          {type: 'doc', docId: 'community', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
           {to: '/download', label: 'Download', position: 'right'},
           {

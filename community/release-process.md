@@ -1,6 +1,6 @@
 ---
+id: release-process
 title: How to release
-sidebar_position: 2
 ---
 
 > This article mainly introduces how the Release Manager releases a new version in accordance with the Apache requirements.
