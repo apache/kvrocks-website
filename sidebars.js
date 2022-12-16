@@ -11,6 +11,7 @@ const sidebars = {
             },
             items: [
                 'supported-commands',
+                'info-sections',
             ]
         },
     ],
