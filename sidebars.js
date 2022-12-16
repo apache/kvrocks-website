@@ -2,6 +2,8 @@
 const sidebars = {
     docs: [
         'getting-started',
+        'namespace',
+        'cluster',
         {
             "type": "category",
             "label": "References",

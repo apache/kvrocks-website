@@ -1,18 +1,14 @@
 # Namespace
 
-Like the Redis database, Kvrocks uses the namespace to isolate the data between users,
-but unlike Redis, each namespace has its own password. The data would be stored in the
-default namespace when using `requirepass`. The namespace would have
-no effect when the cluster mode was enabled like the Redis DB.
+Like the Redis database, Kvrocks uses the namespace to isolate the data between users. But unlike Redis, each namespace has its own password. The data would be stored in the default namespace when using `requirepass`. The namespace would have no effect when the cluster mode was enabled like the Redis DB.
 
 ## Manage Namespace
 
-`requirepass` MUST be set if you want to add namespaces since we treat the `requirepass`
-user as administrator.
+`requirepass` must be set if you want to add namespaces since we treat the `requirepass` user as administrator.
 
 ```shell
 # Auth with the requirepass
-> redis-cli -p 6666 -a ${REQUIREPASS}
+redis-cli -p 6666 -a ${REQUIREPASS}
 
 # Add a new namespace with the token, the namespace name must be unique.
 127.0.0.1:6666> namespace add ${NEW NAMESPACE} ${NEW TOKEN}
@@ -31,8 +27,7 @@ user as administrator.
 127.0.0.1:6666> namespace get *
 ```
 
-Be careful that you MUST use the `config rewrite` command to persist
-the new namespaces into the config file.
+Be careful that you must use the `config rewrite` command to persist the new namespaces into the config file.
 
 ## Switch Namespace
 
@@ -68,12 +63,10 @@ OK
 OK
 127.0.0.1:6666> get key
 "100"
-
 ```
 
-## How Kvrocks implement the namespace
+## How Kvrocks implements namespace
 
 Kvrocks simply prepend the namespace prefix to the user key and remove it before retrieving.
-For example, we create a new namespace `foo` with token `bar`, then the `foo` would prepend
-to the user key. Another way was to split the namespace into different rocksdb column families,
-but we didn't do that for the sake of simplicity.
+
+For example, we create a new namespace `foo` with token `bar`, then the `foo` would prepend to the user key. Another way was to split the namespace into different rocksdb column families, but we didn't do that for the sake of simplicity.
