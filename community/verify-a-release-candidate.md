@@ -1,9 +1,10 @@
 ---
-id: verify-release-candidate
-title: How to verify release
+id: verify-a-release-candidate
+title: Verify a release candidate
 ---
 
 To verify the release, the following checklist can be used to reference:
+
 - [ ] Download links are valid.
 - [ ] Checksums and PGP signatures are valid.
 - [ ] Source code artifacts have correct names matching the current release.

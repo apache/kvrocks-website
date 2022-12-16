@@ -9,8 +9,8 @@ const sidebars = {
         type: 'generated-index',
       },
       items: [
-        'verify-release-candidate',
-        'release-process',
+        'create-a-release',
+        'verify-a-release-candidate',
       ]
     },
     {

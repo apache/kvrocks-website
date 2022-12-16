@@ -1,6 +1,6 @@
 ---
-id: release-process
-title: How to release
+id: create-a-release
+title: Create a Kvrocks release
 ---
 
 > This article mainly introduces how the Release Manager releases a new version in accordance with the Apache requirements.

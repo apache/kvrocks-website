@@ -1,6 +1,6 @@
 ---
 id: vote-a-core-developer
-title: How to vote a Committer or PMC Member
+title: Vote a new committer or PMC member
 ---
 
 ## Initiate discussion in the community private mailing group
