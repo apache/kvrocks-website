@@ -5,7 +5,7 @@ const sidebars = {
     {
       "type": "category",
       "label": "Internals",
-      collapsed: true,
+      collapsed: false,
       link: {
         type: 'generated-index',
       },

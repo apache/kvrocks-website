@@ -8,6 +8,7 @@ const sidebars = {
         {
             "type": "category",
             "label": "Operation",
+            collapsed: false,
             link: {
                 type: 'generated-index',
             },
