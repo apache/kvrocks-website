@@ -69,9 +69,16 @@ const config = {
         },
         items: [
           {type: 'doc', docId: 'supported-commands', position: 'right', label: 'Docs'},
+          {to: '/download', label: 'Download', position: 'right'},
           {type: 'doc', docId: 'community', position: 'right', label: 'Community', docsPluginId: 'community'},
           {to: '/blog', label: 'Blog', position: 'right'},
-          {to: '/download', label: 'Download', position: 'right'},
+          {
+            href: 'https://github.com/apache/incubator-kvrocks',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
+          {type: 'search', position: 'right'},
           {
             type: 'dropdown',
             label: 'ASF',
@@ -85,12 +92,6 @@ const config = {
               {label: 'Privacy', to: 'https://www.apache.org/foundation/policies/privacy.html'},
               {label: 'Thanks', to: 'https://www.apache.org/foundation/thanks.html'}
             ],
-          },
-          {
-            href: 'https://github.com/apache/incubator-kvrocks',
-            position: 'right',
-            className: 'header-github-link',
-            'aria-label': 'GitHub repository',
           },
         ],
       },
