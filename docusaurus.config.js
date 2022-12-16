@@ -14,17 +14,6 @@ const config = {
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
 
-  organizationName: 'apache',
-  projectName: 'incubator-kvrocks-website',
-
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh-CN'],
-    localeConfigs: {
-        'zh-CN': {label: "简体中文"},
-      },
-  },
-
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
@@ -98,10 +87,6 @@ const config = {
             ],
           },
           {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-          {
             href: 'https://github.com/apache/incubator-kvrocks',
             position: 'right',
             className: 'header-github-link',
@@ -173,7 +158,7 @@ const config = {
           hashed: true,
           indexDocs: true,
           indexPages: true,
-          language: ["en", "zh"],
+          language: ["en"],
         }
       ],
     ]
