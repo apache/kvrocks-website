@@ -11,7 +11,7 @@ type ReleasesProps = {
     data: ReleaseData[],
 }
 
-export default function ReleasesTable({data}: ReleasesProps): JSX.Element {
+export default function Releases({data}: ReleasesProps): JSX.Element {
     return <>
         <table className="table table-hover sortable">
             <thead>
