@@ -32,7 +32,7 @@ const config = {
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
-        sidebarPath: require.resolve('./sidebars.js'),
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
     [
@@ -41,7 +41,6 @@ const config = {
         id: 'download',
         path: 'download',
         routeBasePath: 'download',
-        sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
   ],
