@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Apache Kvrocks (incubating)',
-  tagline: 'Apache Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol.',
+  tagline: 'A distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol',
   url: 'https://kvrocks.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -129,8 +129,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitHub',
+                label: 'Source Repo',
                 href: 'https://github.com/apache/incubator-kvrocks',
+              },
+              {
+                label: 'Website Source Repo',
+                href: 'https://github.com/apache/incubator-kvrocks-website',
               },
             ],
           },
