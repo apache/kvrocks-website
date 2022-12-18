@@ -6,6 +6,8 @@ authors: [hulk]
 
 Kvrocks is an open-source key-value database that is based on rocksdb and compatible with Redis protocol. Intention to decrease the cost of memory and increase the capability while compared to Redis. We would focus on how we use RocksDB features to improve the performance of the Redis on disk. Hopes this helps people who want to improve performance on RocksDB.
 
+<!--truncate-->
+
 ## Background
 
 Let's have a look at how Kvrocks uses the RocksDB before introducing performance optimization. From the implementation side, Kvrocks would encode the Redis data structure into the key-values and write them into the different RocksDB's column families. There's five column family type in Kvrocks:
