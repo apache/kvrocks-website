@@ -269,7 +269,7 @@ The db size is updated async after execute `dbsize scan` command.
 | xgroup     | X                |             |
 | xpending   | X                |             |
 | xreadgroup | X                |             |
-| xsetid     | X                |             |
+| xsetid     | √                |             |
 
 ## Hyperloglog commands
 
