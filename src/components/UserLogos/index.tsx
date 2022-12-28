@@ -48,6 +48,11 @@ const userData = [
         title: 'circl.lu',
         site: 'https://circl.lu/',
     },
+    {
+        img: '/media/users/datavisor.png',
+        title: 'datavisor',
+        site: 'https://datavisor.com/',
+    },
 ]
 
 
