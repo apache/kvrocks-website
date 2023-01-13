@@ -27,6 +27,7 @@ const committers: CommitterData[] = [
     {name: 'Mingyang Liu', apacheId: 'twice', githubId: 'PragmaTwice'},
     {name: 'Von Gosling', apacheId: 'vongosling', githubId: 'vongosling'},
     {name: 'Yuan Wang', apacheId: 'wangyuan', githubId: 'ShooterIT'},
+    {name: 'Xiaobiao Zhao', apacheId: 'xiaobiao', githubId: 'xiaobiaozhao'},
 ]
 
 export default function Committers(): JSX.Element {
