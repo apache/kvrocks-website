@@ -42,7 +42,7 @@
 | hlen         | √                |      |
 | hmget        | √                |      |
 | hmset        | √                |      |
-| hrange       | √                |      |
+| hrangebylex  | √                |      |
 | hset         | √                |      |
 | hsetnx       | √                |      |
 | hstrlen      | √                |      |
