@@ -27,7 +27,7 @@ Kvrocks uses the [CLUSTERX SETNODES](https://github.com/apache/kvrocks/pull/302)
 CLUSTERX SETNODES $ALL_NODES_INFO $VERSION $FORCE
 ````
 
-`$ALL_NODES_INFO` is the cluster topology information in format:
+`$ALL_NODES_INFO` is the cluster topology information in format (note that newline is required between different nodes):
 
 ```shell
 $node_id $ip $port $role $master_node_id $slot_range
@@ -47,8 +47,8 @@ where
 
 ```shell
 CLUSTERX SETNODES
-  "67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1 127.0.0.1 30002 master - 5461-10922 16380 16383
-    07c37dfeb235213a872192d90877d0cd55635b91 127.0.0.1 30004 slave 67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1"
+  "67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1 127.0.0.1 30002 master - 5461-10922 16380 16383\n
+   07c37dfeb235213a872192d90877d0cd55635b91 127.0.0.1 30004 slave 67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1"
   1
 ```
 

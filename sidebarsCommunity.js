@@ -2,6 +2,7 @@
 const sidebars = {
   community: [
     'community',
+    'contributing',
     {
       "type": "category",
       "label": "Internals",
