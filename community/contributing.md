@@ -9,7 +9,7 @@ In order to build an active community to improve Kvrocks, we welcome and are eag
 - contributing code changes (whether they are minor typo fixes, improvements, or major feature contributions); 
 - fixing or improving the documentation or the project website.
 
-## Submit Patches to Kvrocks
+## Submit patches to Kvrocks
 
 Before you submit a patch, we strongly recommend that you share your ideas with others in the community via [Issues](https://github.com/apache/incubator-kvrocks/issues), [Discussions](https://github.com/apache/incubator-kvrocks/discussions) or [Mailing Lists](/community/#mailing-list). 
 Of course, you do not need to do this if you are submitting a patch that can already be associated with an issue, or a minor patch like a typo fix. 
@@ -40,7 +40,7 @@ After opening your pull request (PR), you can choose some reviewers, although it
 We suggest you to choose a reviewer recommended by GitHub based on code snippets you modified, or some active community members (which can be found in the [Community](index.md#people) page).
 After one or more committers have approved your PR and the rest of the community has no objections, congratulations, your PR will be merged into the main branch as soon as possible.
 
-## Submit Patches to Document or Project Website
+## Submit patches to document or project website
 
 Contributions to the documentation and the project website are strongly encouraged, as they are often much less frequent.
 The source code for both can be found in [apache/incubator-kvrocks-website](https://github.com/apache/incubator-kvrocks-website) repository, with the documentation written in Markdown format and the website based on Docusaurus. 
@@ -49,7 +49,7 @@ When contributing to the documentation, it is important to note that:
 - After making major changes to the documentation, we recommend that you preview the changed version locally first to avoid formatting errors; you can use `yarn start` to build and preview the page locally.
 - Do not copy from other copyrighted documents.
 
-## Find Tasks and Start to Contribute
+## Find tasks and start to contribute
 
 A major obstacle for people just starting out and wanting to get involved in the community can be the difficulty of knowing where to start.
 To solve this problem, here are some suggestions to help new contributors start with simple tasks to learn the structure of the code and participate in the community step by step:
@@ -57,7 +57,7 @@ To solve this problem, here are some suggestions to help new contributors start 
 - Check out the Kvrocks roadmap in [Projects](https://github.com/apache/incubator-kvrocks/projects/2) and [Discussions](https://github.com/apache/incubator-kvrocks/discussions) and pick the parts you are familiar with to contribute.
 - Keep up to date with Redis developments and feel free to contribute any features that exist in Redis and are missing in Kvrocks.
 
-## Participate in the Community and Become a Committer
+## Participate in the community and become a committer
 
 As you find tasks to start participating in the community, you will gradually learn about the workings and practices of the community.
 Here are some tips to help you feel more comfortable in the community:
