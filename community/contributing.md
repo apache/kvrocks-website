@@ -59,4 +59,13 @@ To solve this problem, here are some suggestions to help new contributors start 
 
 ## Participate in the Community and Become a Committer
 
-TODO
+As you find tasks to start participating in the community, you will gradually learn about the workings and practices of the community.
+Here are some tips to help you feel more comfortable in the community:
+- Try to express your intentions in as many words as possible, and do not be afraid of words.
+- Talk to other members to get support before starting a new idea.
+
+After being involved in the community for a while, some members may want to learn how to become a committer, who has write access to the project (this is limited to merging PRs that have been approved and passed the CI, as kvrocks protects the main branch), and the ability to review PRs from others.
+
+The Kvrocks community does not set explicit thresholds or requirements for committers.
+In theory, a community member can become a committer if a PMC member proposes to the PMC to grant committer privileges to the community member, and the PMC members vote on and approve the proposal.
+And in practice, contributors who have been active in the community for a while have a good chance of becoming committers.
