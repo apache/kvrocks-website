@@ -46,10 +46,7 @@ where
 `$FORCE` (0 or 1) indicates force update the topology information without verifying the version, you can use this flag when the topology information is totally broken. For example:
 
 ```shell
-CLUSTERX SETNODES
-  "67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1 127.0.0.1 30002 master - 5461-10922 16380 16383
-   07c37dfeb235213a872192d90877d0cd55635b91 127.0.0.1 30004 slave 67ed2db8d677e59ec4a4cefb06858cf2a1a89fa1"
-  1
+CLUSTERX SETNODES "kvrockskvrockskvrockskvrockskvrocksnode1 10.32.68.251 6666 master - 0-5460 \n kvrockskvrockskvrockskvrockskvrocksnode2 10.32.68.250 6667 master - 5461-10992 \n kvrockskvrockskvrockskvrockskvrocksnode3 10.32.68.249 6666 master - 10993-16383" 1
 ```
 
 Although Kvrocks can recognize the node id by comparing the `ip:port` pair then finding out the serving slots, but users may set the IP address to `0.0.0.0` so that we can't match the right topology information. Thus, Kvrocks gives the extra command [CLUSTERX SETNODEID](https://github.com/apache/kvrocks/pull/302) to set the id. The format is like this:
