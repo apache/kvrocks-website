@@ -53,6 +53,11 @@ const userData = [
         title: 'datavisor',
         site: 'https://datavisor.com/',
     },
+    {
+        img: '/media/users/huolala.png',
+        title: 'huolala',
+        site: 'https://www.huolala.cn/',
+    },
 ]
 
 
