@@ -58,6 +58,11 @@ const userData = [
         title: 'huolala',
         site: 'https://www.huolala.cn/',
     },
+    {
+        img: '/media/users/opera.png',
+        title: 'Opera',
+        site: 'https://opera.com'
+    },
 ]
 
 
