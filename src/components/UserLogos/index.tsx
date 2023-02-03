@@ -61,7 +61,12 @@ const userData = [
     {
         img: '/media/users/opera.png',
         title: 'Opera',
-        site: 'https://opera.com'
+        site: 'https://opera.com',
+    },
+    {
+        img: '/media/users/coinindex.png',
+        title: 'CoinIndex',
+        site: 'https://coinindex.agency/',
     },
 ]
 
