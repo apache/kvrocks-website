@@ -23,7 +23,6 @@
 | setnx       | √                |                                                |
 | setrange    | √                |                                                |
 | strlen      | √                |                                                |
-| unlink      | √                |                                                |
 | cas         | √                | see https://github.com/apache/kvrocks/pull/415 |
 | cad         | √                | see https://github.com/apache/kvrocks/pull/415 |
 | getdel      | √                |                                                |
@@ -142,6 +141,7 @@
 | scan      | √                |                         |
 | rename    | X                |                         |
 | randomkey | √                |                         |
+| unlink    | √                |                         |
 
 ## Bit commands
 
