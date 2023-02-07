@@ -215,7 +215,7 @@ First, use `docker login` to login your own DockerHub account.
 Then, build and push docker images to DockerHub:
 
 ```shell
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output=type=registry
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output-type=registry
 ```
 
 ## Voting
