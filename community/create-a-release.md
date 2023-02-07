@@ -215,7 +215,7 @@ First, use `docker login` to login your own DockerHub account.
 Then, build and push docker images to DockerHub:
 
 ```shell
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${dockerhub_username}/kvrocks:${release_version} --tag ${PERSONAL ACCOUNT}/kvrocks:latest . --output=type=registry
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output=type=registry
 ```
 
 ## Voting
@@ -249,7 +249,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     Docker image:
 
-    https://hub.docker.com/layers/${dockerhub_username}/kvrocks/${release_version}/images/sha256-${sha256_value}
+    https://hub.docker.com/layers/${your_dockerhub_username}/kvrocks/${release_version}/images/sha256-${sha256_value}
 
     Please download, verify, and test.
 
