@@ -75,7 +75,7 @@ Is this correct? (y/N) y # input y
 GnuPG needs to construct a user ID to identify your key.
 
 Real name: Hulk Lin               # input your name
-Email address: hulk@apache.org    # input your emal
+Email address: hulk@apache.org    # input your email
 Comment:                          # input some annotations, optional
 You selected this USER-ID:
     "Hulk <hulk@apache.org>"
@@ -202,6 +202,22 @@ svn status # check svn status
 svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 ```
 
+## Build and push docker images
+
+:::info
+
+docker is required for this step.
+
+:::
+
+First, use `docker login` to login your own DockerHub account.
+
+Then, build and push docker images to DockerHub:
+
+```shell
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${PERSONAL ACCOUNT}/kvrocks:${release_version} --tag ${PERSONAL ACCOUNT}/kvrocks:latest . --output=type=registry
+```
+
 ## Voting
 
 ### Kvrocks community vote
@@ -215,7 +231,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}.
 
-    The tag to be voted on is ${release_version}:
+    The tag to be voted on is ${release_version}.
 
     The release candidate:
 
@@ -230,6 +246,10 @@ Hello Apache Kvrocks(incubating) PMC and Community,
     Git tag for the release:
 
     https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}
+
+    Docker image:
+
+    https://hub.docker.com/layers/caipengbo/kvrocks/2.3.0/images/sha256-78f1d29e632e94fc438d71174285e1034418fb06eb8b623a93bc0a15451b6807
 
     Please download, verify, and test.
 
@@ -251,9 +271,12 @@ Hello Apache Kvrocks(incubating) PMC and Community,
       [ ] All source files have ASF headers
       [ ] Can compile from source
       [ ] All Tests Passed
+      [ ] Docker image with right version
+      [ ] Docker image contains license files
+      [ ] Docker image can work well
 
       More detailed checklist  please refer to:
-      https://kvrocks.apache.org/community/how-to-verify
+      https://kvrocks.apache.org/community/verify-a-release-candidate
 
 Thanks
 ```
