@@ -202,17 +202,16 @@ svn status # check svn status
 svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 ```
 
-## Build and push docker images
+## Build and push Docker images
 
 :::info
 
-docker is required for this step.
+Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
 
 :::
 
-First, use `docker login` to login your own DockerHub account.
-
-Then, build and push docker images to DockerHub:
+1. `docker login` to your own DockerHub account.
+2. Build and push docker images to your personal repository on DockerHub:
 
 ```shell
 docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output-type=registry
@@ -401,6 +400,30 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_versio
 ```shell
 svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} -m "Delete staging ${release_version} artifacts"
 ```
+
+### Publish Docker images
+
+Copy the approved candidate docker images from your personal account to apache org:
+
+```shell
+release_version="..."
+your_dockerhub_username="..."
+
+for tag in $release_version latest; do
+      for platform in linux/amd64 linux/arm64; do
+            docker pull --platform=$platform "${your_dockerhub_username}/kvrocks:${tag}"
+            docker tag "${your_dockerhub_username}/kvrocks:${tag}" "apache/kvrocks:${tag}"
+            echo "Pushing apache/kvrocks:${tag} for platform ${platform}"
+            docker push "apache/kvrocks:${tag}"
+      done
+done
+```
+
+:::caution
+
+If you don't have the permission, you can ask someone with access to apache org to do that.
+
+:::
 
 ### Update website links
 

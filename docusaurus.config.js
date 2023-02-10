@@ -22,6 +22,7 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
       },
     ],
     [
@@ -30,6 +31,7 @@ const config = {
         id: 'download',
         path: 'download',
         routeBasePath: 'download',
+        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
       },
     ],
   ],
