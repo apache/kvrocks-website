@@ -214,7 +214,7 @@ Docker and [Docker Buildx](https://docs.docker.com/build/install-buildx/) is req
 2. Build and push docker images to your personal repository on DockerHub:
 
 ```shell
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} . --output-type=registry
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output-type=registry
 ```
 
 ## Voting
@@ -403,23 +403,27 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_ve
 
 ### Publish Docker images
 
-Copy the approved candidate docker images from your personal account to apache org.
-
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} . --output-type=registry
+Copy the approved candidate docker images from your personal account to apache org:
 
 ```shell
 release_version="..."
 your_dockerhub_username="..."
 
-for platform in linux/amd64 linux/arm64; do
-      docker pull --platform=$platform "${your_dockerhub_username}/kvrocks:${release_version}"
-      docker tag "${your_dockerhub_username}/kvrocks:${release_version}" "apache/kvrocks:${release_version}"
-      echo "Pushing apache/kvrocks:${release_version} for platform ${platform}"
-      docker push "apache/kvrocks:${release_version}"
+for tag in $release_version latest; do
+      for platform in linux/amd64 linux/arm64; do
+            docker pull --platform=$platform "${your_dockerhub_username}/kvrocks:${tag}"
+            docker tag "${your_dockerhub_username}/kvrocks:${tag}" "apache/kvrocks:${tag}"
+            echo "Pushing apache/kvrocks:${tag} for platform ${platform}"
+            docker push "apache/kvrocks:${tag}"
+      done
 done
 ```
 
+:::caution
+
 If you don't have the permission, you can ask someone with access to apache org to do that.
+
+:::
 
 ### Update website links
 
