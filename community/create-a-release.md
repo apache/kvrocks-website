@@ -206,7 +206,7 @@ svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 
 :::info
 
-Docker and [Docker Buildx](https://docs.docker.com/build/install-buildx/) is required for this step.
+Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
 
 :::
 
