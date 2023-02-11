@@ -19,7 +19,7 @@ github:
   description: "Apache Kvrocks Website"
   homepage: https://kvrocks.apache.org/
   features:
-    issues: false
+    issues: true
     projects: false
     wiki: false
   labels:
