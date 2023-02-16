@@ -18,10 +18,10 @@
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
 }
 
 .buttons a:first-child {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
