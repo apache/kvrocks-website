@@ -1,22 +1,21 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import feature0 from '../../../static/img/feature-0.png';
+import feature1 from '../../../static/img/feature-1.png';
+import feature2 from '../../../static/img/feature-2.png';
+import feature3 from '../../../static/img/feature-3.png';
+import feature4 from '../../../static/img/feature-4.png'
 
 type FeatureItem = {
+  imgPath:string;
   title: string;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Redis Compatible',
-    description: (
-      <>
-        User can use a Redis client to visit Apache Kvrocks.
-      </>
-    ),
-  },
-  {
+    imgPath:feature1,
     title: 'Namespace',
     description: (
       <>
@@ -25,6 +24,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    imgPath:feature2,
     title: 'Replication',
     description: (
       <>
@@ -33,6 +33,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    imgPath:feature3,
     title: 'High Available',
     description: (
       <>
@@ -41,6 +42,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    imgPath:feature4,
     title: 'Cluster',
     description: (
       <>
@@ -50,12 +52,15 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, description}: FeatureItem) {
+function Feature({imgPath,title, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center padding-horiz--md">
+    <div className={clsx('col col--6')}>
+      <div className="text--center padding-horiz--md" style={{width:'100%',height:'100%',margin:'50px 0px'}}>
+        <img style={{width:'auto',height:'35%',marginBottom:'30px'}} src={imgPath} alt={title}/>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+          <p style={{fontFamily:'PingFang SC-Light',fontWeight:'light',color:'rgba(59, 61, 63, 1)',width:'55%'}}>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -66,6 +71,24 @@ export default function HomepageFeatures(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
+          <div className={clsx('col col--12')} style={{marginBottom:'100px'}}>
+            <div className="text--center padding-horiz--md" style={{width:'100%',height:'100%'}}>
+              <h1>Redis Compatible</h1>
+              <div className={styles.blueLine}>
+                <div></div>
+              </div>
+              <p>User can use a Redis client to visit Apache Kvrocks.</p>
+              <div className={styles.redisCompatible}>
+                <img src={feature0} alt='Redis Compatible'/>
+                <div className={styles.Pie}>
+                  <div className='Pie round'></div>
+                  <div className='Pie-tri'>
+                    <div className={styles.tri}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
