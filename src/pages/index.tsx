@@ -19,28 +19,25 @@ function HomepageHeader() {
         <div className={styles.buttons} style={{margin:'10rem 0 0 0'}}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/getting-started"
-            style={{borderRadius:'90pt',backgroundColor:'rgba(40, 117, 243, 1)',color:'white'}}>
+            to="/docs/getting-started">
             QUICK START
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="https://github.com/apache/incubator-kvrocks"
-            style={{borderRadius:'90pt',border:'1px solid rgba(0, 91, 244, 1)',backgroundColor:'white',color:'rgba(0, 91, 244, 1)',display:'flex'}}>
+            to="https://github.com/apache/incubator-kvrocks">
             <div className='header-github-link' style={{marginRight:'10px'}}></div>
             GITHUB
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="https://slack.com/intl/zh-hk/"
-            style={{borderRadius:'90pt',border:'1px solid rgba(0, 91, 244, 1)',backgroundColor:'white',color:'rgba(0, 91, 244, 1)',display:'flex',marginLeft:'2rem'}}>
+            to="https://slack.com/intl/zh-hk/">
             <div className='header-slack-link' style={{marginRight:'10px'}}></div>
             SLACK
           </Link>
         </div>
       </div>
       <div className="image image--main--right" style={{width:'40%'}}>
-        <img src={Pic}></img>
+        <img src={Pic} />
       </div>
     </header>
   );
