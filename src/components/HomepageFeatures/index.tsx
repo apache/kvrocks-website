@@ -72,7 +72,7 @@ export default function HomepageFeatures(): JSX.Element {
       <div className="container">
         <div className="row">
           <div className={clsx('col col--12')} style={{marginBottom:'100px'}}>
-            <div className="text--center padding-horiz--md" style={{width:'100%',height:'100%'}}>
+            <div className="text--center padding-horiz--md" style={{width:'100%',height:'100%',marginTop:'50px'}}>
               <h1>Redis Compatible</h1>
               <div className={styles.blueLine}>
                 <div></div>
