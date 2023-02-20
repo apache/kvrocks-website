@@ -403,20 +403,11 @@ svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_ve
 
 ### Publish Docker images
 
-Copy the approved candidate docker images from your personal account to apache org:
+Rebuild and push the Docker images from the release tag:
 
 ```shell
-release_version="..."
-your_dockerhub_username="..."
-
-for tag in $release_version latest; do
-      for platform in linux/amd64 linux/arm64; do
-            docker pull --platform=$platform "${your_dockerhub_username}/kvrocks:${tag}"
-            docker tag "${your_dockerhub_username}/kvrocks:${tag}" "apache/kvrocks:${tag}"
-            echo "Pushing apache/kvrocks:${tag} for platform ${platform}"
-            docker push "apache/kvrocks:${tag}"
-      done
-done
+git checkout v${release_version}
+docker buildx build --platform linux/amd64,linux/arm64 --tag apache/kvrocks:${release_version} --tag apache/kvrocks:latest . --output-type=registry
 ```
 
 :::caution
