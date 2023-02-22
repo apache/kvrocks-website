@@ -395,12 +395,6 @@ We will proceed with publishing the approved artifacts and sending out the annou
 svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 
-### Delete artifacts in SVN DEV branch
-
-```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} -m "Delete staging ${release_version} artifacts"
-```
-
 ### Publish Docker images
 
 Copy the approved candidate docker images from your personal account to apache org:
