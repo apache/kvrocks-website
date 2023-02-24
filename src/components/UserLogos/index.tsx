@@ -78,6 +78,11 @@ const userData = [
         title: 'iflytek adx',
         site: 'https://www.voiceads.cn/',
     },
+    {
+        img: '/media/users/shoplazza.png',
+        title: 'Shoplazza',
+        site: 'https://www.shoplazza.com/',
+    },
 ]
 
 
