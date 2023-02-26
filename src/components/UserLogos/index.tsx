@@ -68,6 +68,11 @@ const userData = [
         title: 'CoinIndex',
         site: 'https://coinindex.agency/',
     },
+    {
+        img: '/media/users/ahoygames.png',
+        title: 'Ahoy Games',
+        site: 'https://www.ahoygames.com/',
+    },
 ]
 
 
