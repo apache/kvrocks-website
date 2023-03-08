@@ -186,8 +186,8 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | multi   | √                |      |
 | exec    | √                |      |
 | discard | √                |      |
-| watch   | X                |      |
-| unwatch | X                |      |
+| watch   | √                |      |
+| unwatch | √                |      |
 
 ## SortedInt commands
 
