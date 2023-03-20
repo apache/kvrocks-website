@@ -12,7 +12,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Redis Compatible',
     description: (
       <>
-        User can use a Redis client to visit Apache Kvrocks.
+        Users can access Apache Kvrocks via any Redis client.
       </>
     ),
   },
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Namespace',
     description: (
       <>
-        Similar to Redis db but use token per namespace.
+        Similar to Redis SELECT but equipped with token per namespace.
       </>
     ),
   },
@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Cluster',
     description: (
       <>
-        Centralized management but compatible with Redis cluster client access.
+        Centralized management but accessible via any Redis cluster client.
       </>
     ),
   },
