@@ -1,11 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import feature0 from '../../../static/img/feature-0.png';
-import feature1 from '../../../static/img/feature-1.png';
-import feature2 from '../../../static/img/feature-2.png';
-import feature3 from '../../../static/img/feature-3.png';
-import feature4 from '../../../static/img/feature-4.png'
+import feature0 from '/img/feature-0.png';
+import feature1 from '/img/feature-1.png';
+import feature2 from '/img/feature-2.png';
+import feature3 from '/img/feature-3.png';
+import feature4 from '/img/feature-4.png';
 
 type FeatureItem = {
   imgPath:string;
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Namespace',
     description: (
       <>
-        Similar to Redis SELECT but equipped with token per namespace.
+        Similar to Redis SELECT but equipped with token per namespace
       </>
     ),
   },
@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Replication',
     description: (
       <>
-        Async replication using binlog like MySQL.
+        Async replication using binlog like MySQL
       </>
     ),
   },
@@ -38,7 +38,7 @@ const FeatureList: FeatureItem[] = [
     title: 'High Available',
     description: (
       <>
-        Support Redis sentinel to failover when master or slave was failed.
+        Support Redis sentinel to failover when master or slave was failed
       </>
     ),
   },
@@ -47,7 +47,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Cluster',
     description: (
       <>
-        Centralized management but accessible via any Redis cluster client.
+        Centralized management but accessible via any Redis cluster client
       </>
     ),
   },
@@ -78,8 +78,8 @@ export default function HomepageFeatures(): JSX.Element {
               <div className={styles.blueLine}>
                 <div></div>
               </div>
-              <p>Users can access Apache Kvrocks via any Redis client.</p>
-              <div className={styles.redisCompatible}>
+              <p>Users can access Apache Kvrocks via any Redis client</p>
+              {/* <div className={styles.redisCompatible}>
                 <img src={feature0} alt='Redis Compatible'/>
                 <div className={styles.Pie}>
                   <div className='Pie round'></div>
@@ -87,7 +87,7 @@ export default function HomepageFeatures(): JSX.Element {
                     <div className={styles.tri}></div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {FeatureList.map((props, idx) => (
