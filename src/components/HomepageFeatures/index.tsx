@@ -36,7 +36,7 @@ const FeatureList: FeatureItem[] = [
     title: 'High Available',
     description: (
       <>
-        Support redis sentinel to failover when master or slave was failed.
+        Support Redis sentinel to failover when master or slave was failed.
       </>
     ),
   },
