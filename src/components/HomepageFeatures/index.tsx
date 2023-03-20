@@ -16,10 +16,11 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     imgPath:feature1,
+
     title: 'Namespace',
     description: (
       <>
-        Similar to Redis db but use token per namespace.
+        Similar to Redis SELECT but equipped with token per namespace.
       </>
     ),
   },
@@ -37,7 +38,7 @@ const FeatureList: FeatureItem[] = [
     title: 'High Available',
     description: (
       <>
-        Support redis sentinel to failover when master or slave was failed.
+        Support Redis sentinel to failover when master or slave was failed.
       </>
     ),
   },
@@ -46,7 +47,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Cluster',
     description: (
       <>
-        Centralized management but compatible with Redis cluster client access.
+        Centralized management but accessible via any Redis cluster client.
       </>
     ),
   },
@@ -77,7 +78,7 @@ export default function HomepageFeatures(): JSX.Element {
               <div className={styles.blueLine}>
                 <div></div>
               </div>
-              <p>User can use a Redis client to visit Apache Kvrocks.</p>
+              <p>Users can access Apache Kvrocks via any Redis client.</p>
               <div className={styles.redisCompatible}>
                 <img src={feature0} alt='Redis Compatible'/>
                 <div className={styles.Pie}>

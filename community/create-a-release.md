@@ -395,28 +395,13 @@ We will proceed with publishing the approved artifacts and sending out the annou
 svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 
-### Delete artifacts in SVN DEV branch
-
-```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} -m "Delete staging ${release_version} artifacts"
-```
-
 ### Publish Docker images
 
 Copy the approved candidate docker images from your personal account to apache org:
 
 ```shell
-release_version="..."
-your_dockerhub_username="..."
-
-for tag in $release_version latest; do
-      for platform in linux/amd64 linux/arm64; do
-            docker pull --platform=$platform "${your_dockerhub_username}/kvrocks:${tag}"
-            docker tag "${your_dockerhub_username}/kvrocks:${tag}" "apache/kvrocks:${tag}"
-            echo "Pushing apache/kvrocks:${tag} for platform ${platform}"
-            docker push "apache/kvrocks:${tag}"
-      done
-done
+docker buildx imagetools create -t apache/kvrocks:${release_version} ${your_dockerhub_username}/kvrocks:${release_version}
+docker buildx imagetools create -t apache/kvrocks:latest ${your_dockerhub_username}/kvrocks:latest
 ```
 
 :::caution

@@ -73,6 +73,16 @@ const userData = [
         title: 'Ahoy Games',
         site: 'https://www.ahoygames.com/',
     },
+    {
+        img: '/media/users/iflytek-adx.jpg',
+        title: 'iflytek adx',
+        site: 'https://www.voiceads.cn/',
+    },
+    {
+        img: '/media/users/shoplazza.png',
+        title: 'Shoplazza',
+        site: 'https://www.shoplazza.com/',
+    },
 ]
 
 
