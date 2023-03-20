@@ -18,10 +18,29 @@
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
+}
+
+.buttons a{
+  border-radius:90pt;
+  box-shadow:0pt 5pt 6pt 1pt rgba(48, 113, 169, 0.16);
+  background-color:white;
+  margin-right: 2rem;
+  color:rgba(0, 91, 244, 1);
+  display:flex
 }
 
 .buttons a:first-child {
-  margin-right: 1rem;
+  background-color:rgba(40, 117, 243, 1);
+  box-shadow:0pt 5pt 6pt 1pt rgba(0, 0, 0, 0.16);
+  color:white
+}
+
+.buttons a:nth-child(2){
+  border:1px solid rgba(0, 91, 244, 1);
+}
+
+.buttons a:nth-child(3){
+  border:1px solid rgba(0, 91, 244, 1);
 }
