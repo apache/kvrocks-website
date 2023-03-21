@@ -55,8 +55,8 @@
 | blpop      | √                |                                                                             |
 | brpop      | √                |                                                                             |
 | brpoplpush | X                |                                                                             |
-| lindex     | √                | Caution: linsert is O(N) operation, don't use it when list was extreme long |
-| linsert    | √                |                                                                             |
+| lindex     | √                | Caution: lindex is O(N) operation, don't use it when list was extreme long  |
+| linsert    | √                | Caution: linsert is O(N) operation, don't use it when list was extreme long |
 | llen       | √                |                                                                             |
 | lpop       | √                |                                                                             |
 | lpush      | √                |                                                                             |
