@@ -55,16 +55,16 @@
 | blpop      | √                |                                                                             |
 | brpop      | √                |                                                                             |
 | brpoplpush | X                |                                                                             |
-| lindex     | √                | Caution: linsert is O(N) operation, don't use it when list was extreme long |
-| linsert    | √                |                                                                             |
+| lindex     | √                | Caution: lindex is O(N) operation, don't use it when list is extremely long |
+| linsert    | √                | Caution: linsert is O(N) operation, don't use it when list is extremely long |
 | llen       | √                |                                                                             |
 | lpop       | √                |                                                                             |
 | lpush      | √                |                                                                             |
 | lpushx     | √                |                                                                             |
 | lrange     | √                |                                                                             |
-| lrem       | √                | Caution: lrem is O(N) operation, don't use it when list was extreme long    |
+| lrem       | √                | Caution: lrem is O(N) operation, don't use it when list is extremely long   |
 | lset       | √                |                                                                             |
-| ltrim      | √                | Caution: ltrim is O(N) operation, don't use it when list was extreme long   |
+| ltrim      | √                | Caution: ltrim is O(N) operation, don't use it when list is extremely long  |
 | rpop       | √                |                                                                             |
 | rpoplpush  | √                |                                                                             |
 | rpush      | √                |                                                                             |
