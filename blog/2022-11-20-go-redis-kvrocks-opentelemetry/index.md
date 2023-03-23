@@ -14,7 +14,7 @@ This post explains how to get started with Apache Kvrocks using go-redis client.
 
 You can use Kvrocks as a drop-in replacement for Redis to store data on SSD decreasing the cost of memory and increasing the capacity. For example, imagine taking one of the many existing Redis-based job queues and using them with Kvrocks and SSD storage.
 
-Kvrocks supports most [Redis commands](/docs/supported-commands) with a single notable exception being that `watch` and `unwatch` commands are not [supported yet](https://github.com/apache/incubator-kvrocks/issues/315).
+Kvrocks supports most [Redis commands](/docs/supported-commands) with a single notable exception being that `watch` and `unwatch` commands are not [supported yet](https://github.com/apache/incubator-kvrocks/issues/315). (Note: At the time of writing this article, `watch`/`unwatch` was not supported. However, it is [now supported](https://github.com/apache/incubator-kvrocks/pull/1279) and expected to be released in version 2.4.0 and later.)
 
 [Kvrocks Cluster](/docs/cluster) and [replication](/docs/replication) are available as well.
 
