@@ -6,16 +6,14 @@
 }
 
 .imgBox{
-    width: 140px;
+    width: 200px;
 }
 
 .link {
     margin: 20px 10px;
-    height: 60px;
+    height: 100px;
     padding:0 10px;
     border: 1px solid #eaecef;
-    border-radius: 4px;
-    box-shadow: #f8f9fa 1px 1px 2px 1px;
     display: flex;
     justify-content: center;
     align-items: center;
