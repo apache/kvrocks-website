@@ -17,14 +17,14 @@
 | mget        | √                |                                                |
 | mset        | √                |                                                |
 | msetnx      | √                |                                                |
-| psetex      | √                | precision is in seconds                        |
+| psetex      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) |
 | set         | √                |                                                |
 | setex       | √                |                                                |
 | setnx       | √                |                                                |
 | setrange    | √                |                                                |
 | strlen      | √                |                                                |
-| cas         | √                | see https://github.com/apache/kvrocks/pull/415 |
-| cad         | √                | see https://github.com/apache/kvrocks/pull/415 |
+| cas         | √                | see [#415](https://github.com/apache/kvrocks/pull/415) |
+| cad         | √                | see [#415](https://github.com/apache/kvrocks/pull/415) |
 | getdel      | √                |                                                |
 
 ## Hash commands
@@ -55,16 +55,16 @@
 | blpop      | √                |                                                                             |
 | brpop      | √                |                                                                             |
 | brpoplpush | X                |                                                                             |
-| lindex     | √                | Caution: lindex is O(N) operation, don't use it when list is extremely long |
-| linsert    | √                | Caution: linsert is O(N) operation, don't use it when list is extremely long |
+| lindex     | √                | `O(N)` operation, do not use it when list is extremely long |
+| linsert    | √                | `O(N)` operation, do not use it when list is extremely long |
 | llen       | √                |                                                                             |
 | lpop       | √                |                                                                             |
 | lpush      | √                |                                                                             |
 | lpushx     | √                |                                                                             |
 | lrange     | √                |                                                                             |
-| lrem       | √                | Caution: lrem is O(N) operation, don't use it when list is extremely long   |
+| lrem       | √                | `O(N)` operation, do not use it when list is extremely long   |
 | lset       | √                |                                                                             |
-| ltrim      | √                | Caution: ltrim is O(N) operation, don't use it when list is extremely long  |
+| ltrim      | √                | `O(N)` operation, do not use it when list is extremely long  |
 | rpop       | √                |                                                                             |
 | rpoplpush  | √                |                                                                             |
 | rpush      | √                |                                                                             |
@@ -133,9 +133,9 @@
 | expireat  | √                |                         |
 | keys      | √                |                         |
 | persist   | √                |                         |
-| pexpire   | √                | precision is in seconds |
-| pexpireat | √                | precision is in seconds |
-| pttl      | √                | precision is in seconds |
+| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
+| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
+| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
 | ttl       | √                |                         |
 | type      | √                |                         |
 | scan      | √                |                         |
@@ -222,7 +222,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | role      | √                |                                                                                                                 |
 | config    | √                |                                                                                                                 |
 | dbsize    | √                |                                                                                                                 |
-| disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see https://github.com/apache/kvrocks/issues/874 |
+| disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
 | namespace | √                |                                                                                                                 |
 | flushdb   | √                |                                                                                                                 |
 | flushall  | √                |                                                                                                                 |
