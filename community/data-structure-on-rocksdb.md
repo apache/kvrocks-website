@@ -4,6 +4,18 @@ Kvrocks uses the RocksDB as storage, it's developed by Facebook which is built o
 
 The main goal of this doc is to explain how we build the Redis hash/list/set/zset/bitmap/stream on RocksDB. Most of the design were derived from [Qihoo360/Blackwidow](https://github.com/Qihoo360/blackwidow), but with little modification, like the bitmap design, it's a fascinating part.
 
+## User Key Encoding
+
+Kvrocks prefixes the user key with the `namespace` and `cluster slot`. The namespace helps identify the associated namespace for each user key,
+while the cluster slot determines its slot when cluster mode is enabled.
+
+```text
++-------------+--------------------+--------------+
+|  namespace  |   cluster slot     |  user key    |
+|  (N+1 byte) |      (2byte)       |   (Nbyte)    |
++-------------+--------------------+--------------+
+```
+
 ## String
 
 Redis string is key-value with expire time, so it's very easy to translate the Redis string into RocksDB key-value.
