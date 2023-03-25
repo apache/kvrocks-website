@@ -10,6 +10,7 @@
 | get         | √                |                                                |
 | getex       | √                |                                                |
 | getrange    | √                |                                                |
+| substr      | √                |                                                |
 | getset      | √                |                                                |
 | incr        | √                |                                                |
 | incrby      | √                |                                                |
