@@ -10,11 +10,44 @@ Kvrocks prefixes the user key with the `namespace` and `cluster slot`. The names
 while the cluster slot determines its slot when cluster mode is enabled.
 
 ```text
-+-------------+--------------------+--------------+
-|  namespace  |   cluster slot     |  user key    |
-|  (N+1 byte) |      (2byte)       |   (Nbyte)    |
-+-------------+--------------------+--------------+
++-------------+-------------+--------------------+--------------+
+|  ns size    |  namespace  |   cluster slot     |  user key    |
+| (1byte: X)  |   (Xbyte)   |      (2byte)       |   (Nbyte)    |
++-------------+-------------+--------------------+--------------+
 ```
+
+
+## Encoding Version and Data Type
+
+The encoding version (currently `0` or `1`) and data type is encoded in the `flags` field. The data type is encoded from the least significant bit (LSB),
+while the encoding version is encoded from the most significant bit (MSB).
+
+```
++----------------------------------------+
+|               flags                    |
++----------------------------------------+
+|  (1byte: | version -> <- data type |)  |
++----------------------------------------+
+```
+
+For example, the encoding version `0` and the data type String (`1`) is encoded as `0 0 0 0 | 0 0 0 1`,
+while the encoding version `1` and the data type Hash (`2`) is encoded as `1 0 0 0 | 0 0 1 0`.
+The values encoded for other data types in flags can be found in the table below.
+
+| data type  | enum value |
+|------------|------------|
+| String     |          1 |
+| Hash       |          2 |
+| List       |          3 |
+| Set        |          4 |
+| ZSet       |          5 |
+| Bitmap     |          6 |
+| Sortedint  |          7 |
+| Stream     |          8 |
+
+In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
+while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
+In the following text, we will refer to the length of `expire` field as `Ebyte` and the length of `size` field as `Sbyte`, in order to describe different encoding versions consistently.
 
 ## String
 
@@ -23,7 +56,7 @@ Redis string is key-value with expire time, so it's very easy to translate the R
 ```text
         +----------+------------+--------------------+
 key =>  |  flags   |  expire    |       payload      |
-        | (1byte)  | (4byte)    |       (Nbyte)      |
+        | (1byte)  | (Ebyte)    |       (Nbyte)      |
         +----------+------------+--------------------+
 ```
 
@@ -42,7 +75,7 @@ Redis hashmap(dict) is like the hashmap in many programming languages, it is use
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -84,7 +117,7 @@ Redis set can be regarded as a hash, with the value of sub-key always being null
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -105,7 +138,7 @@ Redis list is also organized by metadata and sub keys-values, and sub key is ind
 ```text
         +----------+------------+-----------+-----------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |  head     |  tail     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   | (8byte)   | (8byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   | (8byte)   | (8byte)   |
         +----------+------------+-----------+-----------+-----------+-----------+
 ```
 
@@ -135,7 +168,7 @@ The metadata of zset is still same with set, like below:
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -164,7 +197,7 @@ Redis bitmap is the most interesting part in Kvrocks design, unlike other types,
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -187,7 +220,7 @@ SortedInt is a set with members being type int and sorted in ascending order:
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
