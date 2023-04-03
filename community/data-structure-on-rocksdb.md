@@ -62,7 +62,7 @@ key =>  |  flags   |  expire    |       payload      |
 
 We prepend 1-byte `flags` and 4-bytes expire before the user's value:
 
-- `flags` is used to tell the Kvrocks which type of this key-value, maybe `string`/`hash`/`list`/`zset`/`bitmap`/`stream`
+- `flags` is used to tell the Kvrocks which encoding version and type of this key-value
 - `expire` stores the absolute time of key should be expired, zero means the key-value would never expire
 - `payload` is the user's raw value
 
@@ -82,7 +82,7 @@ key =>  |  flags   |  expire    |  version  |  size     |
 The value of key we call it metadata here, it stored the metadata of hash key includes:
 
 - `flags` like the string, the field shows what type this key is
-- `expire ` is the same as the string type, record the expiration time
+- `expire` is the same as the string type, record the expiration time
 - `version` is used to accomplish fast delete when the number of sub keys/values grew bigger
 - `size` records the number sub keys/values in this hash key
 
