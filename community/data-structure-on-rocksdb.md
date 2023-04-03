@@ -241,9 +241,9 @@ Each entry in a stream has its unique ID in the form of `MS-SEQ` where `MS` is t
 Redis stream is organized by the metadata and sub keys-values. The metadata has fields mentioned before (`flags`, `expiration`, `version`, `size`) and additional fields, that are specific only for this data type. The structure of the metadata value is the following:
 
 - `flags` (1 byte)
-- `expiration` (4 bytes)
+- `expiration` (Ebytes)
 - `version` (8 bytes)
-- `size` (4 bytes)
+- `size` (Sbytes)
 - `LGE ID MS` (8 bytes) stores the `MS` value of the last generated entry ID
 - `LGE ID SEQ` (8 bytes) stores the `SEQ` value of the last generated entry ID
 - `RFE ID MS` (8 bytes) stores the `MS` value of the very first entry ID that was added to the stream
