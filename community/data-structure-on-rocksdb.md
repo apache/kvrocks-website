@@ -62,7 +62,7 @@ key =>  |  flags   |  expire    |       payload      |
 
 We prepend 1-byte `flags` and 4-bytes expire before the user's value:
 
-- `flags` is used to tell the Kvrocks which type of this key-value, maybe `string`/`hash`/`list`/`zset`/`bitmap`/`stream`
+- `flags` is used to tell the Kvrocks which encoding version and type of this key-value
 - `expire` stores the absolute time of key should be expired, zero means the key-value would never expire
 - `payload` is the user's raw value
 
@@ -82,7 +82,7 @@ key =>  |  flags   |  expire    |  version  |  size     |
 The value of key we call it metadata here, it stored the metadata of hash key includes:
 
 - `flags` like the string, the field shows what type this key is
-- `expire ` is the same as the string type, record the expiration time
+- `expire` is the same as the string type, record the expiration time
 - `version` is used to accomplish fast delete when the number of sub keys/values grew bigger
 - `size` records the number sub keys/values in this hash key
 
@@ -241,9 +241,9 @@ Each entry in a stream has its unique ID in the form of `MS-SEQ` where `MS` is t
 Redis stream is organized by the metadata and sub keys-values. The metadata has fields mentioned before (`flags`, `expiration`, `version`, `size`) and additional fields, that are specific only for this data type. The structure of the metadata value is the following:
 
 - `flags` (1 byte)
-- `expiration` (4 bytes)
+- `expiration` (Ebytes)
 - `version` (8 bytes)
-- `size` (4 bytes)
+- `size` (Sbytes)
 - `LGE ID MS` (8 bytes) stores the `MS` value of the last generated entry ID
 - `LGE ID SEQ` (8 bytes) stores the `SEQ` value of the last generated entry ID
 - `RFE ID MS` (8 bytes) stores the `MS` value of the very first entry ID that was added to the stream
