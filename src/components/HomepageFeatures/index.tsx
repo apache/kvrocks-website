@@ -2,10 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import feature0 from '../../../static/img/feature-0.png';
-import feature1 from '../../../static/img/feature-1.png';
-import feature2 from '../../../static/img/feature-2.png';
-import feature3 from '../../../static/img/feature-3.png';
-import feature4 from '../../../static/img/feature-4.png'
+import namespace from '../../../static/img/namespace.png';
+import replication from '../../../static/img/replication.png';
+import highAvailable from '../../../static/img/high-available.png';
+import cluster from '../../../static/img/cluster.png'
 
 type FeatureItem = {
   imgPath:string;
@@ -15,7 +15,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    imgPath:feature1,
+    imgPath:namespace,
     title: 'Namespace',
     description: (
       <>
@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:feature2,
+    imgPath:replication,
     title: 'Replication',
     description: (
       <>
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:feature3,
+    imgPath:highAvailable,
     title: 'High Available',
     description: (
       <>
@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:feature4,
+    imgPath:cluster,
     title: 'Cluster',
     description: (
       <>
@@ -55,11 +55,11 @@ const FeatureList: FeatureItem[] = [
 function Feature({imgPath,title, description}: FeatureItem) {
   return (
     <div className={clsx('col col--6')}>
-      <div className="text--center padding-horiz--md" style={{width:'100%',height:'100%',margin:'50px 0px'}}>
-        <img style={{width:'auto',height:'35%',marginBottom:'30px'}} src={imgPath} alt={title}/>
+      <div className="text--center padding-horiz--md" style={{width:"100%",height:"100%",margin:'30px 0px'}}>
+        <img className={styles.imgItem} src={imgPath} alt={title}/>
         <h3>{title}</h3>
-        <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <p style={{fontFamily:'PingFang SC-Light',fontWeight:'light',color:'rgba(59, 61, 63, 1)',width:'55%'}}>{description}</p>
+        <div className={styles.itemDes}>
+          <p>{description}</p>
         </div>
       </div>
     </div>
