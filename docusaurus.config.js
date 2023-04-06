@@ -34,6 +34,7 @@ const config = {
         editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
       },
     ],
+    [require.resolve("docusaurus-plugin-image-zoom"), {}],
   ],
 
   presets: [
@@ -96,7 +97,7 @@ const config = {
               {label: 'Events', to: 'https://www.apache.org/events/current-event'},
               {label: 'Security', to: 'https://www.apache.org/security/'},
               {label: 'Sponsorship', to: 'https://www.apache.org/foundation/sponsorship.html'},
-              {label: 'Privacy', to: 'https://www.apache.org/foundation/policies/privacy.html'},
+              {label: 'Privacy', to: 'https://privacy.apache.org/policies/privacy-policy-public.html'},
               {label: 'Thanks', to: 'https://www.apache.org/foundation/thanks.html'}
             ],
           },
@@ -161,6 +162,16 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['properties'],
+      },
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        config: {
+            // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+            background: {
+                light: 'rgb(255, 255, 255)',
+                dark: 'rgb(50, 50, 50)'
+            }
+        }
       },
     }),
 

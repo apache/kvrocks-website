@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Namespace',
     description: (
       <>
-        Similar to Redis db but use token per namespace.
+        Similar to Redis SELECT but equipped with token per namespace
       </>
     ),
   },
@@ -28,7 +28,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Replication',
     description: (
       <>
-        Async replication using binlog like MySQL.
+        Async replication using binlog like MySQL
       </>
     ),
   },
@@ -37,7 +37,7 @@ const FeatureList: FeatureItem[] = [
     title: 'High Available',
     description: (
       <>
-        Support redis sentinel to failover when master or slave was failed.
+        Support Redis sentinel to failover when master or slave was failed
       </>
     ),
   },
@@ -46,7 +46,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Cluster',
     description: (
       <>
-        Centralized management but compatible with Redis cluster client access.
+        Centralized management but accessible via any Redis cluster client
       </>
     ),
   },

@@ -31,7 +31,7 @@ Be careful that you must use the `config rewrite` command to persist the new nam
 
 ## Switch Namespace
 
-Firstly, we use the namespace command to create namespace `ns1` and `ns2` with the corresponding tokens `token1` and `token2`.
+Firstly, we use the `namespace add` command to create namespace `ns1` and `ns2` with the corresponding tokens `token1` and `token2`.
 
 ```shell
 127.0.0.1:6666> namespace add ns1 token1

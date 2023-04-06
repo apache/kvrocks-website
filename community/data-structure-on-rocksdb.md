@@ -4,6 +4,51 @@ Kvrocks uses the RocksDB as storage, it's developed by Facebook which is built o
 
 The main goal of this doc is to explain how we build the Redis hash/list/set/zset/bitmap/stream on RocksDB. Most of the design were derived from [Qihoo360/Blackwidow](https://github.com/Qihoo360/blackwidow), but with little modification, like the bitmap design, it's a fascinating part.
 
+## User Key Encoding
+
+Kvrocks prefixes the user key with the `namespace` and `cluster slot`. The namespace helps identify the associated namespace for each user key,
+while the cluster slot determines its slot when cluster mode is enabled.
+
+```text
++-------------+-------------+--------------------+--------------+
+|  ns size    |  namespace  |   cluster slot     |  user key    |
+| (1byte: X)  |   (Xbyte)   |      (2byte)       |   (Nbyte)    |
++-------------+-------------+--------------------+--------------+
+```
+
+
+## Encoding Version and Data Type
+
+The encoding version (currently `0` or `1`) and data type is encoded in the `flags` field. The data type is encoded from the least significant bit (LSB),
+while the encoding version is encoded from the most significant bit (MSB).
+
+```
++----------------------------------------+
+|               flags                    |
++----------------------------------------+
+|  (1byte: | version -> <- data type |)  |
++----------------------------------------+
+```
+
+For example, the encoding version `0` and the data type String (`1`) is encoded as `0 0 0 0 | 0 0 0 1`,
+while the encoding version `1` and the data type Hash (`2`) is encoded as `1 0 0 0 | 0 0 1 0`.
+The values encoded for other data types in flags can be found in the table below.
+
+| data type  | enum value |
+|------------|------------|
+| String     |          1 |
+| Hash       |          2 |
+| List       |          3 |
+| Set        |          4 |
+| ZSet       |          5 |
+| Bitmap     |          6 |
+| Sortedint  |          7 |
+| Stream     |          8 |
+
+In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
+while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
+In the following text, we will refer to the length of `expire` field as `Ebyte` and the length of `size` field as `Sbyte`, in order to describe different encoding versions consistently.
+
 ## String
 
 Redis string is key-value with expire time, so it's very easy to translate the Redis string into RocksDB key-value.
@@ -11,13 +56,13 @@ Redis string is key-value with expire time, so it's very easy to translate the R
 ```text
         +----------+------------+--------------------+
 key =>  |  flags   |  expire    |       payload      |
-        | (1byte)  | (4byte)    |       (Nbyte)      |
+        | (1byte)  | (Ebyte)    |       (Nbyte)      |
         +----------+------------+--------------------+
 ```
 
 We prepend 1-byte `flags` and 4-bytes expire before the user's value:
 
-- `flags` is used to tell the Kvrocks which type of this key-value, maybe `string`/`hash`/`list`/`zset`/`bitmap`/`stream`
+- `flags` is used to tell the Kvrocks which encoding version and type of this key-value
 - `expire` stores the absolute time of key should be expired, zero means the key-value would never expire
 - `payload` is the user's raw value
 
@@ -30,14 +75,14 @@ Redis hashmap(dict) is like the hashmap in many programming languages, it is use
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
 The value of key we call it metadata here, it stored the metadata of hash key includes:
 
 - `flags` like the string, the field shows what type this key is
-- `expire ` is the same as the string type, record the expiration time
+- `expire` is the same as the string type, record the expiration time
 - `version` is used to accomplish fast delete when the number of sub keys/values grew bigger
 - `size` records the number sub keys/values in this hash key
 
@@ -72,7 +117,7 @@ Redis set can be regarded as a hash, with the value of sub-key always being null
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -93,7 +138,7 @@ Redis list is also organized by metadata and sub keys-values, and sub key is ind
 ```text
         +----------+------------+-----------+-----------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |  head     |  tail     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   | (8byte)   | (8byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   | (8byte)   | (8byte)   |
         +----------+------------+-----------+-----------+-----------+-----------+
 ```
 
@@ -123,7 +168,7 @@ The metadata of zset is still same with set, like below:
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -152,7 +197,7 @@ Redis bitmap is the most interesting part in Kvrocks design, unlike other types,
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -175,7 +220,7 @@ SortedInt is a set with members being type int and sorted in ascending order:
 ```text
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (4byte)    |  (8byte)  | (4byte)   |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
 
@@ -196,9 +241,9 @@ Each entry in a stream has its unique ID in the form of `MS-SEQ` where `MS` is t
 Redis stream is organized by the metadata and sub keys-values. The metadata has fields mentioned before (`flags`, `expiration`, `version`, `size`) and additional fields, that are specific only for this data type. The structure of the metadata value is the following:
 
 - `flags` (1 byte)
-- `expiration` (4 bytes)
+- `expiration` (Ebytes)
 - `version` (8 bytes)
-- `size` (4 bytes)
+- `size` (Sbytes)
 - `LGE ID MS` (8 bytes) stores the `MS` value of the last generated entry ID
 - `LGE ID SEQ` (8 bytes) stores the `SEQ` value of the last generated entry ID
 - `RFE ID MS` (8 bytes) stores the `MS` value of the very first entry ID that was added to the stream

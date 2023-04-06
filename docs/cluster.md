@@ -41,7 +41,7 @@ where
 - `$master_node_id`: set to the master node id when the current node's role is a slave; `-` if it's master
 - `$slot_range`: slots are served by current node, the format can be the range or single value, like `0-100 200 205`, which means slots 0 to 100, 200 and 205 are served by this node
 
-`$VERSION` is the topology information version used to control update the order. The topology information can be updated iff the version is newer than the current version.
+`$VERSION` is the topology information version used to control update the order. The topology information can be updated if the version is newer than the current version.
 
 `$FORCE` (0 or 1) indicates force update the topology information without verifying the version, you can use this flag when the topology information is totally broken. For example:
 
@@ -65,7 +65,7 @@ For a complete cluster solution, we need to depend on another controller to mana
 
 ## Client access
 
-Users can use Redis Cluster SDK to access the Kvrocks cluster since it's compatible with the Redis cluster solution(Kvrocks supported `CLUSTER NODES` and `CLUSTER SLOTS` command to respond to the cluster topology).  Kvrocks also responds to the `MOVED $slot_id $ip:$port` to redirect the target node when the slot is NOT served by the current node. You can also use the Redis Cluster Proxy like `redis-cluster-proxy` to hide the cluster topology.
+Users can use Redis Cluster SDK to access the Kvrocks cluster since it's compatible with the Redis cluster solution(Kvrocks supported `CLUSTER NODES` and `CLUSTER SLOTS` commands to respond to the cluster topology).  Kvrocks also responds to the `MOVED $slot_id $ip:$port` to redirect the target node when the slot is NOT served by the current node. You can also use the Redis Cluster Proxy like `redis-cluster-proxy` to hide the cluster topology.
 
 ## Deploy and operate
 
@@ -73,7 +73,7 @@ Users need to self-manage the cluster topology information since the Kvrocks con
 
 1. Deploy Kvrocks nodes
 2. Design the kvrocks topology which is mentioned at [topology management](#topology-management)
-3. Set node unique id for each node by using `CLUSTER SETNODEID` command
+3. Set node unique id for each node by using `CLUSTERX SETNODEID` command
 4. Apply the topology information to all nodes by using `CLUSTER NODES` command
 
 Kvrocks would auto-setup the master-slave replication after receiving the setup topology command, and repeats steps 2-4 when we want to switch the node role or number.
@@ -88,9 +88,9 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 Kvrocks data migration is based on the slot instead of on key like Redis, we can migrate one slot to another node at once.
 
-Kvrocks storage is based on disk instead of memory, so the key migration may be time cost. Now, the controller/DBA can use `CLUSTER MIGRATE` command to migrate slots.
+Kvrocks storage is based on disk instead of memory, so the key migration may be time cost. Now, the controller/DBA can use `CLUSTERX MIGRATE` command to migrate slots.
 
-After `CLUSTERX MIGRATE` command to migrate the slot, you should use `CLUSTER SETSLOT` to modify the topology information:
+After `CLUSTERX MIGRATE` command to migrate the slot, you should use `CLUSTERX SETSLOT` to modify the topology information:
 
 ```shell
 CLUSTERX SETSLOT $slot NODE $node_id $new_version
