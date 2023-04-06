@@ -77,7 +77,7 @@ export default function HomepageFeatures(): JSX.Element {
               <div className={styles.blueLine}>
                 <div></div>
               </div>
-              <p>Users can access Apache Kvrocks via any Redis client</p>
+              <p>Users can access Apache Kvrocks via any Redis client..</p>
               <div className={styles.redisCompatible}>
                 <img src={feature0} alt='Redis Compatible'/>
                 <div className={styles.Pie}>
