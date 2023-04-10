@@ -3,6 +3,15 @@ id: vote-a-core-developer
 title: Vote a new committer or PMC member
 ---
 
+Kvrocks PMC member should be responsible for assessing the contributions of candidates.
+
+Like many Apache projects, Kvrocks welcome all contributions, including code contributions, documentation improvement, blog entries, guides for new users, public speeches, and enhancement of the project in various ways.
+
+## Nominate new committer
+
+New committer nomination could only be officially started by existing PMC members. If a new committer feels that he/she is qualified, he/she should contact any existing PMC member and discuss.
+If this is agreed among some members of the PMC, the process will kick off.
+
 ## Initiate discussion in the community private mailing group
 
 Any Kvrocks PMC member can initiate a voting discussion.
