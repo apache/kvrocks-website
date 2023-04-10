@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import feature0 from '../../../static/img/feature-0.png';
 import namespace from '../../../static/img/namespace.png';
 import replication from '../../../static/img/replication.png';
 import highAvailable from '../../../static/img/high-available.png';
@@ -78,15 +77,6 @@ export default function HomepageFeatures(): JSX.Element {
                 <div></div>
               </div>
               <p>Users can access Apache Kvrocks via any Redis client.</p>
-              <div className={styles.redisCompatible}>
-                <img src={feature0} alt='Redis Compatible'/>
-                <div className={styles.Pie}>
-                  <div className='Pie round'></div>
-                  <div className='Pie-tri'>
-                    <div className={styles.tri}></div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           {FeatureList.map((props, idx) => (
