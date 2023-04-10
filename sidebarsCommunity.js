@@ -36,7 +36,8 @@ const sidebars = {
       items: [
         'vote-a-core-developer',
       ]
-    }
+    },
+    'security',
   ],
 };
 
