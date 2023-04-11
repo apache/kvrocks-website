@@ -60,7 +60,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **CO40** | The community strives to be meritocratic and gives more rights and responsibilities to contributors who, over time, add value to the project. | **YES** The community has elected 2 new PPMC members and 4 new committers so far. |
 | **CO50** | The project documents how contributors can earn more rights such as commit access or decision power, and applies these principles consistently. | **YES** With [committer guide](https://kvrocks.incubator.apache.org/community/vote-a-core-developer/) in the community document. |
 | **CO60** | The community operates based on consensus of its members (see CS10) who have decision power. Dictators, benevolent or not, are not welcome in Apache projects. | **YES** All decisions are made after vote by community members. |
-| **CO70** | The project strives to answer user questions in a timely manner. | **YES** We use dev@kvrocks, [Github issue](https://github.com/apache/incubator-kvrocks/issues) and [Github discussion](https://github.com/apache/incubator-kvrocks/discussions) to do this in a timely manner. |
+| **CO70** | The project strives to answer user questions in a timely manner. | **YES** We use dev@kvrocks.apache.org, [Github issue](https://github.com/apache/incubator-kvrocks/issues) and [Github discussion](https://github.com/apache/incubator-kvrocks/discussions) to do this in a timely manner. |
 
 **Consensus**
 
