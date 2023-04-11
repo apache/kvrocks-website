@@ -12,7 +12,7 @@ This assessment is still working in progress.
 
 The following table is filled according to the [Apache Maturity Model](https://community.apache.org/apache-way/apache-project-maturity-model.html). Mentors and community members are welcome to comment and modify it.
 
-**CODE**
+### CODE
 
 | **ID**   | **Description** | **Status** |
 | -------- | ----- | ---------- |
@@ -22,7 +22,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **CD40** | The full history of the project's code is available via a source code control system, in a way that allows anyone to recreate any released version.                                                                                                            | **YES** It depends on git, and anyone can view the full history of the project via commit logs. |
 | **CD50** | The source code control system establishes the provenance of each line of code in a reliable way, based on strong authentication of the committer. When third parties contribute code, commit messages provide reliable information about the code provenance. | **YES** The project uses GitHub and managed by Apache Infra, it ensuring provenance of each line of code to a committer. And the third-party contributions are accepted in accordance with the [Contributing Guide](https://kvrocks.apache.org/community/contributing/).|
 
-**LICENSE**
+### LICENSE
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -32,7 +32,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **LC40** | Committers are bound by an Individual Contributor Agreement (the "Apache iCLA") that defines which code they may commit and how they need to identify code that is not their own. | **YES** All committers have iCLAs. |
 | **LC50** | The project clearly defines and documents the copyright ownership of everything that the project produces.                                                                                                                                                                              | **YES** And all source files are with APLv2 header, checked by `apache/skywalking-eyes@v0.4.0`. |
 
-**Releases**
+### Releases
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -42,7 +42,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **RE40** | The project can distribute convenience binaries alongside source code, but they are not Apache Releases, they are provided with no guarantee. | **YES** User can easily build binaries from source code, and we do not provide binaries as Apache Releases. |
 | **RE50** | The project documents a repeatable release process so that someone new to the project can independently generate the complete set of artifacts required for a release. | **YES** We can follow the [Release guide](https://kvrocks.apache.org/community/create-a-release) to make new Apache Kvrocks releases, and so far we had 3 different release managers. |
 
-**Quality**
+### Quality
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -52,7 +52,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **QU40** | The project puts a high priority on backwards compatibility and aims to document any incompatible changes and provide tools and documentation to help users transition to new features. | **YES** All releases have backward compatibility. |
 | **QU50** | The project strives to respond to documented bug reports in a timely manner. | **YES** The project has resolved 300+ issues and 800+ pull requests so far, with very prompt response. |
 
-**Community**
+### Community
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -64,7 +64,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **CO60** | The community operates based on consensus of its members (see CS10) who have decision power. Dictators, benevolent or not, are not welcome in Apache projects. | **YES** All decisions are made after vote by community members. |
 | **CO70** | The project strives to answer user questions in a timely manner. | **YES** We use dev@kvrocks.apache.org, [Github issue](https://github.com/apache/incubator-kvrocks/issues) and [Github discussion](https://github.com/apache/incubator-kvrocks/discussions) to do this in a timely manner. |
 
-**Consensus**
+### Consensus
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -74,7 +74,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **CS40** |In Apache projects, vetoes are only valid for code commits. The person exercising the veto must justify it with a technical explanation, as per the Apache voting rules defined in CS30. | **YES** Apache Kvrocks community has not used the veto power yet except for code commits. |
 | **CS50** | All "important" discussions happen asynchronously in written form on the project's main communications channel. Offline, face-to-face or private discussions that affect the project are also documented on that channel. | **YES** All important discussions and conclusions are recorded in written form. |
 
-**Independence**
+### Independence
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
