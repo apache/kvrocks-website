@@ -47,7 +47,7 @@ The following table is filled according to the [Apache Maturity Model](https://c
 | **QU10** | The project is open and honest about the quality of its code. Various levels of quality and maturity for various modules are natural and acceptable as long as they are clearly communicated. | **YES** We encourage user to [report issues](https://github.com/apache/incubator-kvrocks/issues) |
 | **QU20** | The project puts a very high priority on producing secure software.                                                                                                                                                                                                            | **YES** All security issues will be addressed within 3 days. |
 | **QU30** | The project provides a well-documented, secure and private channel to report security issues, along with a documented way of responding to them. | **YES** Website provides a [security page](https://kvrocks.apache.org/community/security/) |
-| **QU40** | The project puts a high priority on backwards compatibility and aims to document any incompatible changes and provide tools and documentation to help users transition to new features. | **YES** All releases are backwards compatibility. |
+| **QU40** | The project puts a high priority on backwards compatibility and aims to document any incompatible changes and provide tools and documentation to help users transition to new features. | **YES** All releases have backward compatibility. |
 | **QU50** | The project strives to respond to documented bug reports in a timely manner. | **YES** The project has resolved 300+ issues and 800+ pull requests so far, with very prompt response. |
 
 **Community**
