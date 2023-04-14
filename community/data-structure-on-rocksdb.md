@@ -22,7 +22,7 @@ while the cluster slot determines its slot when cluster mode is enabled.
 The encoding version (currently `0` or `1`) and data type is encoded in the `flags` field. The data type is encoded from the least significant bit (LSB),
 while the encoding version is encoded from the most significant bit (MSB).
 
-```
+```text
 +----------------------------------------+
 |               flags                    |
 +----------------------------------------+
@@ -68,7 +68,7 @@ We prepend 1-byte `flags` and 4-bytes expire before the user's value:
 
 ## Hash
 
-Redis hashmap(dict) is like the hashmap in many programming languages, it is used to implement an associative array abstract data type, a structure that can map keys to values. The direct way to implement the hash in RocksDB is serialized the keys/values into one value and store it like the string, but the drawback is performance impact when the keys/values grew bigger. so we split the hash sub keys/values into a single key-value in RocksDB, track it with metadata.
+Redis hashmap(dict) is like the hashmap in many programming languages, it is used to implement an associative array abstract data type, a structure that can map keys to values. The direct way to implement the hash in RocksDB is serialized the keys/values into one value and store it like the string, but the drawback is performance impact when the keys/values grew bigger. So we split the hash sub keys/values into a single key-value in RocksDB, track it with metadata.
 
 #### hash metadata
 
@@ -100,7 +100,7 @@ We prepend the hash `key` and `version` before the hash field, the value of `ver
 
 :::note Why store version in the metadata?
 
-We store the hash keys/values into a single key-value, if the store millions of sub keys-values in one hash key. If user delete this key, the Kvrocks must iterator millions of sub keys-values and delete them, which would cause performance problem. With version, we can quickly delete the metadata and then recycle the others keys-values in compaction background threads. The cost is those tombstone keys would take some disk storage. You can regard the version as an atomic increment number, but it's combined with a timestamp.
+We store the hash keys/values into a single key-value, assume we store millions of sub keys-values in one hash key. If user delete this key, then Kvrocks must iterator millions of sub keys-values and delete them, which would cause performance problem. With version, we can quickly delete the metadata and then recycle the others keys-values in compaction background threads. The cost is those tombstone keys would take some disk storage. You can regard the version as an atomic increment number, but it's combined with a timestamp.
 
 :::
 
@@ -149,7 +149,7 @@ The meaning of other fields are the same as other types, just add extra head/tai
 
 #### list sub keys-values
 
-The subkey in list is composed by list key, version and index, index is calculated from metadata's head or tail. for example, when the user requests the `rpush list elem`, Kvrocks would fetch the metadata with list key, then generate the subkey with list key, version and tail, simply increase the tail, then write the metadata and subkey's value back to RocksDB.
+The subkey in list is composed by list key, version and index, index is calculated from metadata's head or tail. For example, when the user requests the `rpush list elem`, Kvrocks would fetch the metadata with list key, then generate the subkey with list key, version and tail, simply increase the tail, then write the metadata and subkey's value back to RocksDB.
 
 ```text
                      +---------------+
@@ -159,7 +159,7 @@ key|version|index => |     value     |
 
 ## ZSet
 
-Redis zset is set with sorted property, so it's a little different from other types. it must be able to search with the member, as well as to retrieve members with score range.
+Redis zset is set with sorted property, so it's a little different from other types. It must be able to search with the member, as well as to retrieve members with score range.
 
 #### zset metadata
 
@@ -203,7 +203,7 @@ key =>  |  flags   |  expire    |  version  |  size     |
 
 #### bitmap sub keys-values
 
-We break the bitmap values into fragments(1KiB, 8192 bits/fragment), and subkey is the index of the fragment. for example, when the request to set the bit of 1024 would locate in the first fragment with index 0, to set a bit of 80970 would locate in 10th fragment with index 9.
+We break the bitmap values into fragments(1KiB, 8192 bits/fragment), and subkey is the index of the fragment. For example, when the request to set the bit of 1024 would locate in the first fragment with index 0, to set a bit of 80970 would locate in 10th fragment with index 9.
 
 ```text
                      +---------------+
@@ -211,7 +211,7 @@ key|version|index => |    fragment   |
                      +---------------+
 ```
 
-when the user requests to get it of position P, Kvrocks would first fetch the metadata with bitmap's key and calculate the index of the fragment with bit position, then fetch the bitmap fragment with composed key and find the bit in fragment offset. For example, `getbit bitmap 8193`, the fragment index is `1` (8193/8192) and subkey is `bitmap|1|1` (when the version is 1), then fetch the subkey from RocksDB and check if the bit of offset `1`(8193%8192) is set or not.
+When the user requests to get it of position P, Kvrocks would first fetch the metadata with bitmap's key and calculate the index of the fragment with bit position, then fetch the bitmap fragment with composed key and find the bit in fragment offset. For example, `getbit bitmap 8193`, the fragment index is `1` (8193/8192) and subkey is `bitmap|1|1` (when the version is 1), then fetch the subkey from RocksDB and check if the bit of offset `1`(8193%8192) is set or not.
 
 ## SortedInt
 
@@ -224,7 +224,7 @@ key =>  |  flags   |  expire    |  version  |  size     |
         +----------+------------+-----------+-----------+
 ```
 
-and the sub keys-values in RocksDB would be:
+And the sub keys-values in RocksDB would be:
 
 ```text
                   +---------------+
@@ -258,7 +258,7 @@ Redis stream is organized by the metadata and sub keys-values. The metadata has 
 
 #### stream sub keys-values
 
-the sub-key in a stream is composed by the stream key, version and the entry ID. The entry ID is encoded as two consecutive 8-bytes integer values (`EID MS` and `EID SEQ`). The stream entry value may represent any even number of strings. This value is encoded as a sequence of strings and each string value is prepended by its length as a 4-bytes variable integer.
+The sub-key in a stream is composed by the stream key, version and the entry ID. The entry ID is encoded as two consecutive 8-bytes integer values (`EID MS` and `EID SEQ`). The stream entry value may represent any even number of strings. This value is encoded as a sequence of strings and each string value is prepended by its length as a 4-bytes variable integer.
 
 ```text
                               +-----------------------+
