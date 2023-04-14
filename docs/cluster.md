@@ -1,6 +1,6 @@
 # Cluster
 
-Before releasing the cluster mode of Kvrocks, we usually used the pre-sharding way to scale out the capacity like sharding with Twemproxy, and used Redis Sentinel to guarantee the availability. Although it works well in most scenes since the capacity of Kvrocks is far larger than Redis, it’s still trivial to scale-out in-flight, so we decided to implement the cluster mode to make it easier.
+Before releasing the cluster mode of Kvrocks, we usually used the pre-sharding way to scale out the capacity like sharding with Twemproxy, and used Redis Sentinel to guarantee the availability. Although it works well in most scenes since the capacity of Kvrocks is far larger than Redis, it’s still hard to scale-out in-flight, so we decided to implement the cluster mode to make it easier.
 
 There are two main types of Redis cluster solutions in the industry:
 
