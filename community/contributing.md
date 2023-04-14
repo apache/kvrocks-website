@@ -21,11 +21,11 @@ To help you familiarise yourself with the source tree, we have listed some impor
 /cmake                  CMake source code for configuring dependencies and other build processing
 /src                    C++ source code for the kvrocks server
 /tests/cppunit          C++ unit tests for some components in /src
-/tests/gocases          Golang test cases for unit, functional and integration tests
+/tests/gocase           Golang test cases for unit, functional and integration tests
 /utils/kvrocks2redis    C++ source code for the kvrocks2redis tool
 ```
 
-Make sure you have C++ (at least GCC >= 7 or Clang >= 5, a higher-version compiler is highly recommended) and Go toolchains in your development environment, refering to the [Getting Started](/docs/getting-started#install-dependencies) page for all build dependencies. 
+Make sure you have C++ (at least GCC >= 7 or Clang >= 5, a higher-version compiler is highly recommended) and Go toolchains in your development environment, referring to the [Getting Started](/docs/getting-started#install-dependencies) page for all build dependencies.
 In addition to the source code listed above, the rest of the repository consists mainly of scripts written in python or shell.
 And you can read about how to build this project on the [Getting Started](/docs/getting-started#compile-kvrocks-from-source) page.
 
