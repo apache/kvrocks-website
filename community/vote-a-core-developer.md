@@ -64,15 +64,15 @@ I think making him/her a [committer|PPMC member] will be a recognition of his/he
 outstanding work for Kvrocks. So, I am happy to call VOTE to accept XXXXXX as a
 Kvrocks [committer|PPMC member]
 
- Voting will continue for at least 72 hours or until the required number of votes is reached.
+Voting will continue for at least 72 hours or until the required number of votes is reached.
 
- Please vote accordingly:
+Please vote accordingly:
 
  [ ] +1 approve
  [ ] +0 no opinion
  [ ] -1 disapprove with the reason
 
-Here are three links to his contributions to Kvrocks:
+Here are some links to his/her contributions to Kvrocks:
 
 [1] Issues: https://github.com/apache/incubator-kvrocks/issues/created_by/XXXXXX
 [2] PRs   : https://github.com/apache/incubator-kvrocks/pulls/created_by/XXXXXX
@@ -149,7 +149,7 @@ better.
 
 If you'd like to accept, you will need to send an Individual Contributor License Agreement
 (ICLA) to secretary@apache.org, CCing private@kvrocks.apache.org, and request an
-Apache account name as described at https://www.apache.org/dev/new-committers-guide.html
+Apache account name as described at https://www.apache.org/dev/new-committers-guide.html,
 if you don't already have one, once you get an account name, or if you have one already,
 please email it to me.
 
@@ -184,9 +184,9 @@ After the above steps are completed, the vote initiator must send a notification
 
 Hi everyone,
 
-The Project Management Committee(PPMC) for Apache Kvrocks has invited XXXXXX to become a [committer|PPMC member] and we are pleased to announce that he has accepted.
+The Project Management Committee(PPMC) for Apache Kvrocks has invited XXXXXX to become a [committer|PPMC member] and we are pleased to announce that he/she has accepted.
 
-XXXXXX is being active in the Kvrocks community, and we are glad to see his more interactions with the community in the future.
+XXXXXX is being active in the Kvrocks community, and we are glad to see his/her more interactions with the community in the future.
 
 Welcome XXXXXX, and please enjoy your journey.:)
 
