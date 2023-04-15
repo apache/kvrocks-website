@@ -1,10 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import namespace from '../../../static/img/namespace.png';
-import replication from '../../../static/img/replication.png';
-import highAvailable from '../../../static/img/high-available.png';
-import cluster from '../../../static/img/cluster.png'
+import { IMG_CDN_URL_PREFIX } from '../../constants';
+
+const imagePaths = {
+  namespace: IMG_CDN_URL_PREFIX + 'namespace.png',
+  cluster: IMG_CDN_URL_PREFIX + 'cluster.png',
+  highAvailable: IMG_CDN_URL_PREFIX + 'high-available.png',
+  replication: IMG_CDN_URL_PREFIX + 'replication.png',
+};
 
 type FeatureItem = {
   imgPath:string;
@@ -14,7 +18,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    imgPath:namespace,
+    imgPath:imagePaths.namespace,
     title: 'Namespace',
     description: (
       <>
@@ -23,7 +27,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:replication,
+    imgPath:imagePaths.replication,
     title: 'Replication',
     description: (
       <>
@@ -32,7 +36,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:highAvailable,
+    imgPath:imagePaths.highAvailable,
     title: 'High Available',
     description: (
       <>
@@ -41,7 +45,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:cluster,
+    imgPath:imagePaths.cluster,
     title: 'Cluster',
     description: (
       <>
