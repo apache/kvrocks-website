@@ -6,9 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
-import { IMG_CDN_URL_PREFIX } from '../constants';
-
-const mainPic = IMG_CDN_URL_PREFIX + 'mainPic.png';
+import {resolveStaticAssetsURL} from "@site/src/cdn";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -21,7 +19,7 @@ function HomepageHeader() {
           <div className={clsx('hero__subtitle',styles.tagline)}>{siteConfig.tagline}</div>
         </div>
         <div className={clsx(styles.image)}>
-          <img src={mainPic} />
+          <img src={resolveStaticAssetsURL('img/hero.png')}  alt="hero banner picture"/>
         </div>
       </div>
       <div className={styles.buttons}>
