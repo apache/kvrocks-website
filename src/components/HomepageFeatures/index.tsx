@@ -1,13 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import { IMG_CDN_URL_PREFIX } from '../../constants';
+import {resolveStaticAssetsURL} from "@site/src/cdn";
 
 const imagePaths = {
-  namespace: IMG_CDN_URL_PREFIX + 'namespace.png',
-  cluster: IMG_CDN_URL_PREFIX + 'cluster.png',
-  highAvailable: IMG_CDN_URL_PREFIX + 'high-available.png',
-  replication: IMG_CDN_URL_PREFIX + 'replication.png',
+  namespace: resolveStaticAssetsURL('img/namespace.png'),
+  cluster: resolveStaticAssetsURL('img/cluster.png'),
+  highAvailable: resolveStaticAssetsURL('img/high-available.png'),
+  replication: resolveStaticAssetsURL('img/replication.png'),
 };
 
 type FeatureItem = {
