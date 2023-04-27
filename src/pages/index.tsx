@@ -4,6 +4,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageSwiper from '@site/src/components/HomepageSwiper';
+
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -46,13 +48,14 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-      <Layout
-          title={`${siteConfig.title}`}
-          description="Apache Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol.">
-        <HomepageHeader />
-        <main>
-          <HomepageFeatures />
-        </main>
-      </Layout>
+    <Layout
+      title={`${siteConfig.title}`}
+      description="Apache Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol.">
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+        <HomepageSwiper />
+      </main>
+    </Layout>
   );
 }
