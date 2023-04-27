@@ -53,9 +53,6 @@ export default function Home(): JSX.Element {
         <HomepageHeader />
         <main>
           <HomepageFeatures />
-          <div className={styles.footerTitle}>
-            <h1>Who use Kvrocks?</h1>
-          </div>
         </main>
       </Layout>
   );
