@@ -10,10 +10,10 @@ Kvrocks prefixes the user key with the `namespace` and `cluster slot`. The names
 while the cluster slot determines its slot when cluster mode is enabled.
 
 ```text
-+-------------+-------------+--------------------+--------------+
-|  ns size    |  namespace  |   cluster slot     |  user key    |
-| (1byte: X)  |   (Xbyte)   |      (2byte)       |   (Nbyte)    |
-+-------------+-------------+--------------------+--------------+
++-------------+-------------+------------------------------+-----------------+------------+-------------+-----------+
+|  ns size    |  namespace  |   cluster slot               |  user key size  |  user key  |   version   |  sub key  |
+| (1byte: X)  |   (Xbyte)   | (2byte when cluster enabled) |   (4byte: Y)    |   (YByte)  |    (4byte)  |   (ZByte) |
++-------------+-------------+------------------------------+-----------------+------------+-------------+-----------+
 ```
 
 
