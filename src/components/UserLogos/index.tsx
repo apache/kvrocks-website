@@ -53,6 +53,36 @@ const userData = [
         title: 'datavisor',
         site: 'https://datavisor.com/',
     },
+    {
+        img: '/media/users/huolala.png',
+        title: 'huolala',
+        site: 'https://www.huolala.cn/',
+    },
+    {
+        img: '/media/users/opera.png',
+        title: 'Opera',
+        site: 'https://opera.com',
+    },
+    {
+        img: '/media/users/coinindex.png',
+        title: 'CoinIndex',
+        site: 'https://coinindex.agency/',
+    },
+    {
+        img: '/media/users/ahoygames.png',
+        title: 'Ahoy Games',
+        site: 'https://www.ahoygames.com/',
+    },
+    {
+        img: '/media/users/iflytek-adx.jpg',
+        title: 'iflytek adx',
+        site: 'https://www.voiceads.cn/',
+    },
+    {
+        img: '/media/users/shoplazza.png',
+        title: 'Shoplazza',
+        site: 'https://www.shoplazza.com/',
+    },
 ]
 
 

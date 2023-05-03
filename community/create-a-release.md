@@ -75,7 +75,7 @@ Is this correct? (y/N) y # input y
 GnuPG needs to construct a user ID to identify your key.
 
 Real name: Hulk Lin               # input your name
-Email address: hulk@apache.org    # input your emal
+Email address: hulk@apache.org    # input your email
 Comment:                          # input some annotations, optional
 You selected this USER-ID:
     "Hulk <hulk@apache.org>"
@@ -202,6 +202,21 @@ svn status # check svn status
 svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 ```
 
+## Build and push Docker images
+
+:::info
+
+Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
+
+:::
+
+1. `docker login` to your own DockerHub account.
+2. Build and push docker images to your personal repository on DockerHub:
+
+```shell
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output-type=registry
+```
+
 ## Voting
 
 ### Kvrocks community vote
@@ -215,7 +230,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}.
 
-    The tag to be voted on is ${release_version}:
+    The tag to be voted on is ${release_version}.
 
     The release candidate:
 
@@ -230,6 +245,10 @@ Hello Apache Kvrocks(incubating) PMC and Community,
     Git tag for the release:
 
     https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}
+
+    Docker image:
+
+    https://hub.docker.com/layers/${your_dockerhub_username}/kvrocks/${release_version}/images/sha256-${sha256_value}
 
     Please download, verify, and test.
 
@@ -251,9 +270,12 @@ Hello Apache Kvrocks(incubating) PMC and Community,
       [ ] All source files have ASF headers
       [ ] Can compile from source
       [ ] All Tests Passed
+      [ ] Docker image with right version
+      [ ] Docker image contains license files
+      [ ] Docker image can work well
 
       More detailed checklist  please refer to:
-      https://kvrocks.apache.org/community/how-to-verify
+      https://kvrocks.apache.org/community/verify-a-release-candidate
 
 Thanks
 ```
@@ -373,11 +395,20 @@ We will proceed with publishing the approved artifacts and sending out the annou
 svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 
-### Delete artifacts in SVN DEV branch
+### Publish Docker images
+
+Copy the approved candidate docker images from your personal account to apache org:
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} -m "Delete staging ${release_version} artifacts"
+docker buildx imagetools create -t apache/kvrocks:${release_version} ${your_dockerhub_username}/kvrocks:${release_version}
+docker buildx imagetools create -t apache/kvrocks:latest ${your_dockerhub_username}/kvrocks:latest
 ```
+
+:::caution
+
+If you don't have the permission, you can ask someone with access to apache org to do that.
+
+:::
 
 ### Update website links
 

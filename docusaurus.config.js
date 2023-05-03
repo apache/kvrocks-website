@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Apache Kvrocks (incubating)',
+  title: 'Apache Kvrocks',
   tagline: 'A distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol',
   url: 'https://kvrocks.apache.org',
   baseUrl: '/',
@@ -22,6 +22,7 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./sidebarsCommunity.js'),
+        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
       },
     ],
     [
@@ -30,8 +31,10 @@ const config = {
         id: 'download',
         path: 'download',
         routeBasePath: 'download',
+        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
       },
     ],
+    [require.resolve("docusaurus-plugin-image-zoom"), {}],
   ],
 
   presets: [
@@ -61,6 +64,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: true,
+      },
       navbar: {
         title: 'Apache Kvrocks',
         logo: {
@@ -90,7 +97,7 @@ const config = {
               {label: 'Events', to: 'https://www.apache.org/events/current-event'},
               {label: 'Security', to: 'https://www.apache.org/security/'},
               {label: 'Sponsorship', to: 'https://www.apache.org/foundation/sponsorship.html'},
-              {label: 'Privacy', to: 'https://www.apache.org/foundation/policies/privacy.html'},
+              {label: 'Privacy', to: 'https://privacy.apache.org/policies/privacy-policy-public.html'},
               {label: 'Thanks', to: 'https://www.apache.org/foundation/thanks.html'}
             ],
           },
@@ -155,6 +162,16 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['properties'],
+      },
+      zoom: {
+        selector: '.markdown :not(em) > img',
+        config: {
+            // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+            background: {
+                light: 'rgb(255, 255, 255)',
+                dark: 'rgb(50, 50, 50)'
+            }
+        }
       },
     }),
 

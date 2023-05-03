@@ -25,11 +25,11 @@ On the slave side, replication is composed of the following steps:
 
 ## Partial Synchronization (PSYNC)
 
-PSYNC takes advantage of the rocksdb's WAL iterator. If the requesting sequence number of PSYNC is in the range of the WAL files, PSYNC is considered viable.
+`PSYNC` takes advantage of the rocksdb's WAL iterator. If the requesting sequence number of `PSYNC` is in the range of the WAL files, `PSYNC` is considered viable.
 
-PSYNC is a command implemented on master role instance. Unlike other commands (e.g. GET), PSYNC cmd is not a REQ-RESP command, but a REQ-RESP-RESP style. That's the response never ends once the req is accepted.
+`PSYNC` is a command implemented on master role instance. Unlike other commands (e.g. `GET`), `PSYNC` cmd is not a REQ-RESP command, but a REQ-RESP-RESP style. That's the response never ends once the req is accepted.
 
-So, PSYNC has two main parts in the code:
+So, `PSYNC` has two main parts in the code:
 
 * libevent callback: This is for sending the batches when the WAL iterator has new data.
 * timer callback: When the libevent callback quited because of the exhaustion of the WAL data, the timer callback will check if WAL has new data available from time to time, so to awake the libevent callback again.

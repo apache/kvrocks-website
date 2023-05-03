@@ -5,7 +5,137 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.blueLine {
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px 0
+}
+
+.blueLine div{
+  width:15%;
+  border-radius:20pt;
+  border:2px solid rgba(0, 114, 252, 1)
+}
+
+.blueLine + p{
+  font-family:'PingFang SC-Light';
+  font-weight:light;
+  color:rgba(59, 61, 63, 1)
+}
+
+.redisCompatible{
+  display:flex;
+  flex-direction:row;
+  position:relative;
+  padding-top:20px;
+  width:90%;
+  margin:10px 5%
+}
+
+.redisCompatible img{
+  width:60%;
+  float:left;
+  margin:10px 0
+}
+
+.Pie{
+  margin:60px 10%;
+  width: 240px;
+  height: auto;
+  padding: relative;
+}
+
+.Pie > div:first-child{
+  width:240px;
+  height:240px;
+  background-color:rgba(60, 119, 235, 1);
+  border-radius:50%;
+}
+
+.Pie > div:nth-child(2){
+  width:0;
+  height:0;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 60%;
+  left: 51%;
+}
+
+.tri{
+  border-left:20px solid transparent;
+  border-right:20px solid transparent;
+  border-bottom:130px solid rgba(247, 136, 107, 1);
+  border-top:0;
+  transform: rotate(150deg);
+}
+
+.imgItem{
+  width:auto;
+  height:35%;
+  margin-bottom:30px;
+}
+
+.itemDes{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:light;
+  color:rgba(59, 61, 63, 1);
+}
+
+.itemDes p{
+  width: 50%;
+}
+
+@media screen and (max-width:820px) {
+  .redisCompatible{
+    flex-direction: column;
+    position: relative;
+  }
+
+  .redisCompatible img{
+    width:80%;
+    float:left;
+    margin:10px 10%
+  }
+
+  .Pie{
+    margin:10% 10% 0 10%;
+    width: 80%;
+    height: auto;
+    padding: relative;
+  }
+  
+  .Pie > div:first-child{
+    width:10rem;
+    height:10rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgba(60, 119, 235, 1);
+    border-radius:50%;
+  }
+  
+  .Pie > div:nth-child(2){
+    width:0;
+    height:0;
+    position: absolute;
+    margin: auto;
+    top: 0%;
+    right: 28%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .tri{
+    border-left:1rem solid transparent;
+    border-right:1rem solid transparent;
+    border-bottom:6rem solid rgba(247, 136, 107, 1);
+    border-top:0;
+    transform: rotate(150deg);
+  }
 }

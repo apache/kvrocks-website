@@ -13,6 +13,7 @@ The optional section parameter can be used to select a specific section of infor
 | replication  | Master/replica replication information       |
 | cpu          | CPU consumption statistics                   |
 | commandstats | Kvrocks command statistics                   |
+| cluster      | Cluster section                              |
 | keyspace     | Database related statistics                  |
 | rocksdb      | RocksDB related statistics                   |
 
@@ -74,6 +75,9 @@ used_cpu_user:0
 # Commandstats
 cmdstat_command:calls=1,usec=904,usec_per_call=904
 cmdstat_info:calls=1,usec=0,usec_per_call=0
+
+# Cluster
+cluster_enabled:0
 
 # Keyspace
 # Last scan db time: Thu Jan  1 08:00:00 1970
@@ -226,6 +230,14 @@ Here is the meaning of all fields in the cpu section:
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | used_cpu_sys  | System CPU consumed by the Kvrocks server, which is the sum of system CPU consumed by all threads of the server process (main thread and background threads) |
 | used_cpu_user | User CPU consumed by the Kvrocks server, which is the sum of user CPU consumed by all threads of the server process (main thread and background threads)     |
+
+## Cluster section
+
+Here is the meaning of all fields in the cluster section:
+
+| Property         | Desc                                                     |
+|------------------|----------------------------------------------------------|
+| cluster_enabled  | Indicate Kvrocks cluster is enabled                      |
 
 ## Keyspace section
 

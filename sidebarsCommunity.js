@@ -2,6 +2,7 @@
 const sidebars = {
   community: [
     'community',
+    'contributing',
     {
       "type": "category",
       "label": "Internals",
@@ -35,7 +36,8 @@ const sidebars = {
       items: [
         'vote-a-core-developer',
       ]
-    }
+    },
+    'security',
   ],
 };
 
