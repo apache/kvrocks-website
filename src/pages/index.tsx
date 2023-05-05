@@ -19,7 +19,7 @@ function HomepageHeader() {
             <div className={clsx('hero__subtitle',styles.tagline)}>{siteConfig.tagline}</div>
           </div>
           <div className={clsx(styles.image)}>
-            <img src={resolveStaticAssetsURL('img/hero.png')}/>
+            <img src={resolveStaticAssetsURL('img/hero.png')}  alt="hero banner picture"/>
           </div>
         </div>
         <div className={styles.buttons}>
