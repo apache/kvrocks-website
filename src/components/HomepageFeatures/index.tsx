@@ -1,14 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import {resolveStaticAssetsURL} from "@site/src/cdn";
-
-const imagePaths = {
-  namespace: resolveStaticAssetsURL('img/namespace.png'),
-  cluster: resolveStaticAssetsURL('img/cluster.png'),
-  highAvailable: resolveStaticAssetsURL('img/high-available.png'),
-  replication: resolveStaticAssetsURL('img/replication.png'),
-};
 
 type FeatureItem = {
   imgPath:string;
@@ -18,7 +10,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    imgPath:imagePaths.namespace,
+    imgPath: require('@site/static/img/namespace.png').default,
     title: 'Namespace',
     description: (
       <>
@@ -27,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:imagePaths.replication,
+    imgPath: require('@site/static/img/cluster.png').default,
     title: 'Replication',
     description: (
       <>
@@ -36,7 +28,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:imagePaths.highAvailable,
+    imgPath: require('@site/static/img/high-available.png').default,
     title: 'High Available',
     description: (
       <>
@@ -45,7 +37,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    imgPath:imagePaths.cluster,
+    imgPath: require('@site/static/img/replication.png').default,
     title: 'Cluster',
     description: (
       <>
