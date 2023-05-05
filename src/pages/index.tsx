@@ -4,9 +4,8 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
 import styles from './index.module.css';
-import {resolveStaticAssetsURL} from "@site/src/cdn";
+import {resolveStaticAssetsURL} from '../cdn'
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -19,7 +18,7 @@ function HomepageHeader() {
             <div className={clsx('hero__subtitle',styles.tagline)}>{siteConfig.tagline}</div>
           </div>
           <div className={clsx(styles.image)}>
-            <img src={resolveStaticAssetsURL('img/hero.png')}/>
+            <img src={resolveStaticAssetsURL('img/hero.png')} />
           </div>
         </div>
         <div className={styles.buttons}>
