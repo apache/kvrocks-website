@@ -170,7 +170,7 @@ svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a us
 ## Create source releases and stage
 
 1. Checkout to the RELEASE BRANCH and cherry-pick commits to release
-2. Use `./x.py package source --version ${release_version}` to create release tarball
+2. Use `./x.py package source --version ${release_version} -rc ${candidate_number}` to create release tarball
 3. Make sure it compiles good and push tag to GitHub
 
 ## Upload artifacts to SVN dist repo
@@ -230,7 +230,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}.
 
-    The tag to be voted on is ${release_version}.
+    The tag to be voted on is ${release_version}-rc${candidate_number}.
 
     The release candidate:
 
@@ -244,7 +244,7 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 
     Git tag for the release:
 
-    https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}
+    https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}-rc${candidate_number}
 
     Docker image:
 
@@ -343,7 +343,7 @@ https://downloads.apache.org/incubator/kvrocks/KEYS
 
 Git tag for the release:
 
-https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}
+https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}-rc${candidate_number}
 
 Build guide can be found at:
 
