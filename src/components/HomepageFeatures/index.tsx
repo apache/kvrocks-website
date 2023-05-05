@@ -229,9 +229,42 @@ export function LineChartRight(): JSX.Element {
 }
 
 export function CodeBlock(): JSX.Element {
-  const [pythonCode, setPythonCode]=useState(`xxxxxxxxxxxxx\n  xxxxxxxxxxxxxxxxxxxxxxxxxx\n  xxxxxxxxxxxxx`)
-  const [javaCode, setJavaCode]=useState(`xxxxxxxxxxxxx\n  xxxxxxxxxxxxxxxxxxxxxxxxxx\n  xxxxxxxxxxxxx`)
-  const [golangCode, setGolangCode]=useState(`xxxxxxxxxxxxx\n  xxxxxxxxxxxxxxxxxxxxxxxxxx\n  xxxxxxxxxxxxx`)
+  const [pythonCode, setPythonCode]=useState('r = redis.Redis(host=\'localhost\', port=6666, decode_responses=True)\n' +
+      '\n' +
+      'r.set(\'username\', \'kvrocks\')\n' +
+      '# True\n' +
+      'r.get(\'username\')\n' +
+      '# kvrocks')
+  const [javaCode, setJavaCode]=useState('ackage org.example;\n' +
+      'import redis.clients.jedis.Jedis;\n' +
+      'import redis.clients.jedis.JedisPool;\n' +
+      '\n' +
+      'JedisPool pool = new JedisPool("127.0.0.1", 6666);\n' +
+      '\n' +
+      'try (Jedis jedis = pool.getResource()) {\n' +
+      '\tjedis.set("username", "kvrocks");\n' +
+      '  System.out.println(jedis.get("username"));\n' +
+      '}')
+  const [golangCode, setGolangCode]=useState('import (\n' +
+      '\t"context"\n' +
+      '\t"fmt"\n' +
+      '\t"github.com/redis/go-redis/v9"\n' +
+      ')\n' +
+      '\n' +
+      'client := redis.NewClient(&redis.Options{\n' +
+      '\tAddr:\t  "localhost:6666",\n' +
+      '})\n' +
+      '\n' +
+      'err := client.Set(ctx, "username", "kvrocks", 0).Err()\n' +
+      'if err != nil {\n' +
+      '    panic(err)\n' +
+      '}\n' +
+      '\n' +
+      'val, err := client.Get(ctx, "username").Result()\n' +
+      'if err != nil {\n' +
+      '    panic(err)\n' +
+      '}\n' +
+      'fmt.Println("username", val)')
   const [code, setCode]=useState(javaCode)
   const [current, setCurrent] = useState('java');
   const onClick: MenuProps['onClick'] = (e) => {
