@@ -170,7 +170,7 @@ svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a us
 ## Create source releases and stage
 
 1. Checkout to the RELEASE BRANCH and cherry-pick commits to release
-2. Use `./x.py package source --v ${release_version} -rc ${candidate_number}` to create release tarball
+2. Use `./x.py package source -v ${release_version} -rc ${candidate_number}` to create release tarball
 3. Make sure it compiles good and push tag to GitHub
 
 ## Upload artifacts to SVN dist repo
