@@ -170,7 +170,7 @@ svn ci -m "add gpg key for YOUR_NAME" # Later on, if you are asked to enter a us
 ## Create source releases and stage
 
 1. Checkout to the RELEASE BRANCH and cherry-pick commits to release
-2. Use `./x.py package source --version ${release_version} -rc ${candidate_number}` to create release tarball
+2. Use `./x.py package source -v ${release_version} -rc ${candidate_number}` to create release tarball
 3. Make sure it compiles good and push tag to GitHub
 
 ## Upload artifacts to SVN dist repo
@@ -212,9 +212,10 @@ Docker and Docker Buildx is required for this step. Docker Buildx should be bund
 
 1. `docker login` to your own DockerHub account.
 2. Build and push docker images to your personal repository on DockerHub:
+3. MORE BUILD ARGS can be adjusted according to the performance of your computer
 
 ```shell
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output-type=registry
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12
 ```
 
 ## Voting
@@ -357,6 +358,25 @@ Please vote accordingly:
 [ ] +0
 [ ] -1 Do not approve (please specify the reason)
 
+To learn more about apache kvrocks, please see
+    https://kvrocks.apache.org/
+
+    Checklist for reference:
+
+      [ ] Download links are valid.
+      [ ] Checksums and signatures.
+      [ ] LICENSE/NOTICE files exist
+      [ ] No unexpected binary files
+      [ ] All source files have ASF headers
+      [ ] Can compile from source
+      [ ] All Tests Passed
+      [ ] Docker image with right version
+      [ ] Docker image contains license files
+      [ ] Docker image can work well
+
+      More detailed checklist  please refer to:
+      https://kvrocks.apache.org/community/verify-a-release-candidate
+
 Thanks
 ```
 
@@ -417,6 +437,8 @@ Update [releases data file](https://github.com/apache/incubator-kvrocks-website/
 ### Send the announcement
 
 Send the release announcement to `dev@kvrocks.apache.org` and CC `announce@apache.org`:
+
+> You have to use `${name}@apache.org` post email to `announce@apache.org`
 
 ```html
 [ANNOUNCE] Release Apache Kvrocks(incubating) ${release_version}
