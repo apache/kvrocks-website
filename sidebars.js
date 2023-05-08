@@ -29,6 +29,7 @@ const sidebars = {
                 'info-sections',
             ]
         },
+		'faq'
     ],
 };
 
