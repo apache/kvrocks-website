@@ -1,13 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import {resolveStaticAssetsURL} from "@site/src/cdn";
-const imagePaths = {
-  namespace: resolveStaticAssetsURL('img/namespace.png'),
-  cluster: resolveStaticAssetsURL('img/cluster.png'),
-  highAvailable: resolveStaticAssetsURL('img/high-available.png'),
-  replication: resolveStaticAssetsURL('img/replication.png')
-};
 import * as echarts from 'echarts';
 import type {MenuProps} from 'antd';
 import { Menu } from 'antd';
@@ -26,39 +19,39 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    imgPath:imagePaths.namespace,
+    imgPath: require('@site/static/img/namespace.png').default,
     title: 'Namespace',
     description: (
-      <>
-        Similar to Redis SELECT but equipped with token per namespace
-      </>
+        <>
+          Similar to Redis SELECT but equipped with token per namespace
+        </>
     ),
   },
   {
-    imgPath:imagePaths.replication,
+    imgPath: require('@site/static/img/cluster.png').default,
     title: 'Replication',
     description: (
-      <>
-        Async replication using binlog like MySQL
-      </>
+        <>
+          Async replication using binlog like MySQL
+        </>
     ),
   },
   {
-    imgPath:imagePaths.highAvailable,
+    imgPath: require('@site/static/img/high-available.png').default,
     title: 'High Available',
     description: (
-      <>
-        Support Redis sentinel to failover when master or slave was failed
-      </>
+        <>
+          Support Redis sentinel to failover when master or slave was failed
+        </>
     ),
   },
   {
-    imgPath:imagePaths.cluster,
+    imgPath: require('@site/static/img/replication.png').default,
     title: 'Cluster',
     description: (
-      <>
-        Centralized management but accessible via any Redis cluster client
-      </>
+        <>
+          Centralized management but accessible via any Redis cluster client
+        </>
     ),
   },
 ];
