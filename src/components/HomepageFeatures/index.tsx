@@ -225,8 +225,8 @@ export function CodeBlock(): JSX.Element {
       'r.set(\'username\', \'kvrocks\')\n' +
       '# True\n' +
       'r.get(\'username\')\n' +
-      '# kvrocks')
-  const [javaCode, setJavaCode]=useState('ackage org.example;\n' +
+      '# kvrocks\n')
+  const [javaCode, setJavaCode]=useState('package org.example;\n\n' +
       'import redis.clients.jedis.Jedis;\n' +
       'import redis.clients.jedis.JedisPool;\n' +
       '\n' +
@@ -235,7 +235,7 @@ export function CodeBlock(): JSX.Element {
       'try (Jedis jedis = pool.getResource()) {\n' +
       '\tjedis.set("username", "kvrocks");\n' +
       '  System.out.println(jedis.get("username"));\n' +
-      '}')
+      '}\n')
   const [golangCode, setGolangCode]=useState('import (\n' +
       '\t"context"\n' +
       '\t"fmt"\n' +
@@ -254,8 +254,8 @@ export function CodeBlock(): JSX.Element {
       'val, err := client.Get(ctx, "username").Result()\n' +
       'if err != nil {\n' +
       '    panic(err)\n' +
-      '}\n' +
-      'fmt.Println("username", val)')
+      '}\n\n' +
+      'fmt.Println("username", val)\n')
   const [code, setCode]=useState(javaCode)
   const [current, setCurrent] = useState('java');
   const onClick: MenuProps['onClick'] = (e) => {
