@@ -92,13 +92,11 @@ export function PieChartRight(): JSX.Element {
       },
       series: [
         {
-          name: 'Access From',
           type: 'pie',
           radius: '75%',
           data: [
-            { value: 870, name: 'Supported ',itemStyle: {color: 'rgb(255,0,102)'} },
-            { value: 100, name: 'Todo',itemStyle: {color: 'rgb(153,0,255)'} },
-            { value: 30, name: 'Doing',itemStyle: {color: 'rgb(246,108,104)'} }
+            { value: 875, name: 'Supported ',itemStyle: {color: 'rgb(255,0,102)'} },
+            { value: 125, name: 'Todo',itemStyle: {color: 'rgb(246,108,104)'} }
           ],
           emphasis: {
             itemStyle: {
