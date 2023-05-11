@@ -1,26 +1,26 @@
 # Replication
 
-An instance is turned into a slave role when `SLAVEOF` cmd is received.
+An instance is turned into a replica role when `SLAVEOF` cmd is received.
 
-A slave will try to do a partial synchronization (a.k.a. incremental replication) if it is viable. Otherwise, a slave will do a full-sync by copying all the RocksDB's latest backup files.
+The replica will try to do a partial synchronization (a.k.a. incremental replication) if it is viable. Otherwise, the replica will do a full-sync by copying all the RocksDB's latest backup files.
 
-After the full-sync is finished, the slave's DB will be erased and restored using the backup files downloaded from the master, then partial-sync is triggered again.
+After the full-sync is finished, the replica's DB will be erased and restored using the backup files downloaded from the master, then partial-sync is triggered again.
 
 If everything goes OK, the partial-sync is an ever-running procedure that keep receiving every batch the master gets.
 
 ## Replication state machine
 
-A state machine is used in the slave's replication thread to accommodate the complexity.
+A state machine is used in the replica's replication thread to accommodate the complexity.
 
-On the slave side, replication is composed of the following steps:
+On the replica side, replication is composed of the following steps:
 
 1. Send auth
 2. Send db_name to check if the master has the right DB
-3. Try `PSYNC`: if succeeds, the slave is in the loop of receiving batches; if not, go to (4)
+3. Try `PSYNC`: if succeeds, the replica is in the loop of receiving batches; if not, go to (4)
 4. Do `FULLSYNC`:
     1. send _fetch_meta to get the latest backup metadata
     2. send _fetch_file to get all the backup files listed in the meta
-    3. restore slave's DB using the backup
+    3. restore the replica 's DB using the backup
 5. Go to (1)
 
 ## Partial Synchronization (PSYNC)
@@ -38,4 +38,4 @@ So, `PSYNC` has two main parts in the code:
 
 On the master side, to support full synchronization, master must create a RocksDB backup every time receiving a `_fetch_meta` request.
 
-On the slave side, after retrieving the metadata, the slave can fetch every file listed in the metadata (skip if already existed), and restore the backup. To accelerate a bit, file fetching is executed in parallel.
+On the replica side, after retrieving the metadata, the replica fetch every file listed in the metadata (skip if already existed), and restore the backup. To accelerate a bit, file fetching is executed in parallel.
