@@ -75,7 +75,7 @@ As you find tasks to start participating in the community, you will gradually le
 - Try to express your intentions in as many words as possible, and do not be afraid of words.
 - Talk to other members to get support before starting a new idea.
 
-After being involved in the community for a while, some members may want to learn how to become a committer, who has write access to the project (this is limited to merging PRs that have been approved and passed the CI, as kvrocks protects the unstable branch), and the ability to review PRs from others.
+After being involved in the community for a while, some members may want to learn how to become a committer, who has write access to the project (this is limited to merging PRs that have been approved and passed the CI), and the ability to review PRs from others.
 
 The Kvrocks community does not set explicit thresholds or requirements for committers.
 
