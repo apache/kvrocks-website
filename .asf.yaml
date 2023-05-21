@@ -30,6 +30,7 @@ github:
     rebase:  false
   protected_branches:
     main: {}
+    asf-site: {}
 
 publish:
   whoami: asf-site
