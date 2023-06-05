@@ -106,6 +106,7 @@
 | zlexcount        | √                |              |
 | zpopmin          | √                |              |
 | zpopmax          | √                |              |
+| zrangestore      | √                |              |
 | zrange           | √                |              |
 | zrangebylex      | √                |              |
 | zrangebyscore    | √                |              |
