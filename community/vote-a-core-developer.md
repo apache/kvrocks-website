@@ -136,36 +136,81 @@ The invitation email is sent to the invitee with a CC to `private@kvrocks.apache
 The following is an example of an email inviting candidates:
 
 ```text
-[Invitation] Invitation to join Apache Kvrocks as a [committer|PPMC member]
+Subject: Invitation to become Kvrocks(incubating) committer: [invitee name]
 
-Hi XXXXXX,
+Hi [invitee name],
 
-In recognition of your contributions to Apache Kvrocks(incubating), the Kvrocks PPMC
-has recently voted to add you as a [committer|PPMC member]. The [committer|PPMC member]
-role gives you access to merge patches into Apache Kvrocks(incubating) and is also
-a stepping-stone towards membership in the Project Management Committee (PPMC). We hope
-that you accept this invitation and continue to help us make Apache Kvrocks(incubating)
-better.
+The Kvrocks Project Management Committee (PMC)
 
-If you'd like to accept, you will need to send an Individual Contributor License Agreement
-(ICLA) to secretary@apache.org, CCing private@kvrocks.apache.org, and request an
-Apache account name as described at https://www.apache.org/dev/new-committers-guide.html,
-if you don't already have one, once you get an account name, or if you have one already,
-please email it to me.
+hereby offers you committer privileges to the project.
+These privileges are offered on the understanding that you'll use them
+reasonably and with common sense. We like to work on trust
+rather than unnecessary constraints.
 
-NOTICE: when you fill out ICLA file, the value of preferred Apache id(s) needs to be a valid ID,
-including:
+Being a committer enables you to more easily make
+changes without needing to go through the patch
+submission process.
 
-    1. The ID must not already be in use in https://people.apache.org/committer-index.html;
-    2. The characters "-" and "_" are not allowed in id;
-    3. The id must consist of lowercase alphanumeric characters only,
-       start with an alphabetic character, have a minimum length of 3 characters,
-       and have no special characters.
+Being a committer does not require you to
+participate any more than you already do. It does
+tend to make one even more committed.  You will
+probably find that you spend more time here.
 
-With the expectation of your acceptance, welcome!
+Of course, you can decline and instead remain as a
+contributor, participating as you do now.
 
-The Apache Kvrocks(incubating) PPMC
+Of course, you can decline and instead remain as a
+contributor, participating as you do now.
+
+This personal invitation is a chance for you to accept or decline in private.
+Please let us know in reply to this message whether you accept or decline.
+
+If you accept, you will need an Apache account (id) with privileges.
+Please follow these instructions.
+
+A. If you already have an ICLA on file:
+
+    1. If you already have an Apache account, let us know your id and we
+will grant you privileges on the project repositories.
+
+    2. If you have previously sent an ICLA, let us know the email address
+and public name used on the ICLA and your preferred Apache id, and
+we will request your account.
+
+    3. If the email address on the previously submitted ICLA is no longer
+valid, let us know the email address and public name used on the new ICLA,
+and your preferred Apache id. Continue to step B below and file your new ICLA.
+
+Look to see if your preferred ID is already taken at
+https://people.apache.org/committer-index.html
+
+B. If there is not already an ICLA on file, you need to submit an ICLA:
+
+    1. Details of the ICLA and the forms are found
+    through this link: https://www.apache.org/licenses/#clas
+
+    2. Instructions for its completion and return to
+    the Secretary of the ASF are found at
+    https://www.apache.org/licenses/contributor-agreements.html#submitting
+
+    Do not copy the project or any other individual on your message
+    to Secretary, as the form contains Personally Identifiable Information
+    that should be kept private.
+
+    3. When you complete the ICLA form, be sure to include in the form
+    the Apache Kvrocks project and choose a
+    unique Apache ID. Look to see if your preferred
+    ID is already taken at
+    https://people.apache.org/committer-index.html
+    This will allow the Secretary to notify the PMC
+    when your ICLA has been recorded.
+
+When recording of your ICLA is noted, you will
+receive a follow-up message with the next steps for
+establishing you as a committer.
 ```
+
+For inviting the PPMC member, the mail template can refer [this](https://incubator.apache.org/guides/ppmc-offer.txt).
 
 ## Processing after accepting the invitation
 
