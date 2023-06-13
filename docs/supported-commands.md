@@ -81,6 +81,7 @@
 | sdiff       | √                |                                       |
 | sdiffstore  | √                |                                       |
 | sinter      | √                |                                       |
+| sintercard  | √                |                                       |
 | sinterstore | √                |                                       |
 | sismember   | √                |                                       |
 | smembers    | √                |                                       |
