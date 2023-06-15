@@ -4,7 +4,7 @@ title: Getting started with Kvrocks and go-redis
 authors: [vmihailenco]
 ---
 
-This post explains how to get started with Apache Kvrocks using go-redis client. It also demonstrates how you can use OpenTelemetry and Uptrace to monitor Kvrocks on both client and server sides.
+Learn how to use go-redis client to get started with Apache Kvrocks, a distributed key-value NoSQL database.
 
 <!--truncate-->
 
@@ -12,11 +12,9 @@ This post explains how to get started with Apache Kvrocks using go-redis client.
 
 [Apache Kvrocks](https://kvrocks.apache.org/) is a distributed key-value NoSQL database that uses RocksDB as a storage engine and is compatible with Redis protocol.
 
-You can use Kvrocks as a drop-in replacement for Redis to store data on SSD decreasing the cost of memory and increasing the capacity. For example, imagine taking one of the many existing Redis-based job queues and using them with Kvrocks and SSD storage.
+You can use Kvrocks as a drop-in replacement for Redis to store data on SSD, reducing storage costs and increasing capacity. For example, imagine taking one of the many existing Redis-based job queues and using them with Kvrocks and SSD storage.
 
-Kvrocks supports most [Redis commands](/docs/supported-commands) with a single notable exception being that `watch` and `unwatch` commands are not [supported yet](https://github.com/apache/incubator-kvrocks/issues/315). (Note: At the time of writing this article, `watch`/`unwatch` was not supported. However, it is [now supported](https://github.com/apache/incubator-kvrocks/pull/1279) and expected to be released in version 2.4.0 and later.)
-
-[Kvrocks Cluster](/docs/cluster) and [replication](/docs/replication) are available as well.
+Kvrocks supports most [Redis commands](/docs/supported-commands) including the `watch` command starting from v2.4.0. [Kvrocks Cluster](/docs/cluster) and [replication](/docs/replication) are available as well.
 
 ## Getting started with Kvrocks
 
@@ -43,14 +41,14 @@ You can also [build](https://github.com/apache/incubator-kvrocks#build-and-run-k
 
 ## Connecting to Kvrocks from Go
 
-Since Kvrocks uses Redis-compatible protocol, you can use your favorite Redis client to work with Kvrocks, for example, [Go Redis client](https://redis.uptrace.dev/):
+Since Kvrocks uses Redis-compatible protocol, you can use your favorite Redis client to work with Kvrocks, for example, [Go Redis client](https://redis.uptrace.dev/guide/go-redis.html):
 
 ```go
 package main
 
 import (
 	"context"
-	"github.com/go-redis/redis/v8"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
@@ -73,7 +71,7 @@ func main() {
 }
 ```
 
-[Pipelines](https://redis.uptrace.dev/guide/go-redis-pipelines.html),[pub/sub](https://redis.uptrace.dev/guide/go-redis-pubsub.html), and even [Lua scripts](https://redis.uptrace.dev/guide/lua-scripting.html) are working as well:
+Pipelines, pub/sub, and even Lua scripts are working as well:
 
 ```go
 var incrBy = redis.NewScript(`
@@ -100,30 +98,30 @@ values := []interface{}{+1}
 num, err := incrBy.Run(ctx, rdb, keys, values...).Int()
 ```
 
-## What is OpenTelemetry?
+## Monitoring Kvrocks
 
-[OpenTelemetry](https://opentelemetry.io/) is a vendor-neutral standard that allows you to collect and export traces, logs, and metrics.
+Monitoring Kvrocks performance is crucial to ensure optimal operation and identify any potential bottlenecks or issues.
 
-Uptrace, one of its vendor, provides a series of good documents about the terminology and usages:
+OpenTelemetry provides instrumentation libraries and integrations for monitoring Kvrocks using its unified observability framework.
 
-* [What is OpenTelemetry?](https://uptrace.dev/opentelemetry)
-* [OpenTelemetry Distributed Tracing](https://uptrace.dev/opentelemetry/distributed-tracing.html)
-* [OpenTelemetry Metrics](https://uptrace.dev/opentelemetry/metrics.html)
+### What is OpenTelemetry?
 
-Otel allows developers to collect and export telemetry data in a vendor-agnostic way. With OpenTelemetry, you can instrument your application once and then add or change vendors without changing the instrumentation, for example, here is a list [DataDog competitors](https://uptrace.dev/get/compare/datadog-competitors.html) that support OpenTelemetry.
+[OpenTelemetry](https://opentelemetry.io/) is an open-source observability framework designed to standardize and simplify the collection, analysis, and export of telemetry data
 
-## What is Uptrace?
+OpenTelemetry allows developers to collect and export telemetry data in a vendor agnostic way. With OpenTelemetry, you can instrument your application once and then add or change vendors without changing the instrumentation, for example, here is a list [DataDog competitors](https://uptrace.dev/blog/datadog-competitors.html) that support OpenTelemetry.
 
-Uptrace is a [source-available APM tool](https://uptrace.dev/get/open-source-apm.html) that supports distributed tracing, metrics, and logs. You can use it to monitor applications and set up automatic alerts to receive notifications via email, Slack, Telegram, and more.
+### What is Uptrace?
 
-Uptrace uses OpenTelemetry to collect data and ClickHouse database to store it. ClickHouse is the only dependency.
+Uptrace is an [OpenTelemetry APM](https://uptrace.dev/get/opentelemetry-apm.html) that supports [distributed tracing](https://uptrace.dev/opentelemetry/distributed-tracing.html), metrics, and logs. You can use it to monitor applications and set up automatic alerts to receive notifications via email, Slack, Telegram, and more.
 
-## Monitoring Kvrocks client
+Uptrace stores telemetry data in ClickHouse database. ClickHouse is an open source column-oriented database management system that is designed to process large volumes of data in real-time and to provide fast analytics and reporting capabilities.
+
+### Monitoring Kvrocks client
 
 You can use OpenTelemetry and Uptrace together to monitor Kvrocks performance using the go-redis instrumentation:
 
 ```go
-import "github.com/go-redis/redis/extra/redisotel/v9"
+import "github.com/redis/go-redis/extra/redisotel/v9"
 
 rdb := redis.NewClient(&redis.Options{
 	Addr: ":6666",
@@ -141,16 +139,16 @@ Once the data reaches Uptrace, it will generate the following dashboard for you:
 
 ![Uptrace DB dashboard](db-dashboard.png)
 
-See [Getting started with Uptrace](https://uptrace.dev/get/get-started.html) for details.
+Because OpenTelemetry provides a vendor-agnostic approach, it allows you to choose an [OpenTelemetry backend](https://uptrace.dev/blog/opentelemetry-backend.html) that best suits your requirements, for example, Jaeger or Zipkin.
 
-## Monitoring Kvrocks server
+### Monitoring Kvrocks server
 
-You can also configure OpenTelemetry Redis[receiver](https://uptrace.dev/opentelemetry/collector-config.html?receiver=redis) to monitor Kvrocks:
+You can also configure [OpenTelemetry Redis receiver](https://uptrace.dev/get/monitor/opentelemetry-redis.html) to monitor Kvrocks:
 
 ```yaml
 receivers:
   redis/kvrocks:
-    endpoint: 'kvrocks:6666'
+    endpoint: "kvrocks:6666"
     collection_interval: 10s
 ```
 
@@ -158,9 +156,11 @@ The receiver works by parsing the output of `INFO` command and produces a number
 
 ![Redis Metrics](redis-metrics.png)
 
-See [GitHub example](https://github.com/uptrace/uptrace/tree/master/example/kvrocks) and [OpenTelemetry Redis monitoring](https://uptrace.dev/opentelemetry/redis-monitoring.html) for details.
+See [GitHub example](https://github.com/uptrace/uptrace/tree/master/example/kvrocks) for details.
 
-## Custom metrics
+You can also export the collected metrics to Prometheus using [OpenTelemetry Prometheus bridge](https://uptrace.dev/opentelemetry/prometheus-metrics.html)
+
+### Custom metrics
 
 Using OpenTelemetry Metrics API, you can even create custom Kvrocks metrics. For example, the following function parses `used_disk_percent` to create `kvrocks.used_disk_percent` metric:
 
@@ -222,5 +222,5 @@ See [OpenTelemetry Go Metrics API](https://uptrace.dev/opentelemetry/go-metrics.
 ## Useful links
 
 - [Getting started with Kvrocks](/docs/getting-started)
-- [Go Redis](https://redis.uptrace.dev/guide/go-redis.html)
+- [Golang Redis](https://redis.uptrace.dev/guide/go-redis.html)
 - [Get started with Uptrace](https://uptrace.dev/get/get-started.html)
