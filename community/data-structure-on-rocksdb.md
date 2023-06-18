@@ -12,7 +12,7 @@ while the cluster slot determines its slot when cluster mode is enabled.
 ```text
 +-------------+-------------+------------------------------+-----------------+------------+-------------+-----------+
 |  ns size    |  namespace  |   cluster slot               |  user key size  |  user key  |   version   |  sub key  |
-| (1byte: X)  |   (Xbyte)   | (2byte when cluster enabled) |   (4byte: Y)    |   (YByte)  |    (4byte)  |   (ZByte) |
+| (1byte: X)  |   (Xbyte)   | (2byte when cluster enabled) |   (4byte: Y)    |   (YByte)  |   (8byte)   |  (ZByte)  |
 +-------------+-------------+------------------------------+-----------------+------------+-------------+-----------+
 ```
 
