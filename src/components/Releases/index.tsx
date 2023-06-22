@@ -1,10 +1,22 @@
 import React from "react";
 
 const versions = [
-    '2.4.0',
-    '2.3.0',
-    '2.2.0',
-    '2.1.0',
+    {
+        version: '2.4.0',
+        vtag: '2.4.0-incubating'
+    },
+    {
+        version: '2.3.0',
+        vtag: '2.3.0-incubating'
+    },
+    {
+        version: '2.2.0',
+        vtag: '2.2.0-incubating'
+    },
+    {
+        version: '2.1.0',
+        vtag: '2.1.0-incubating'
+    },
 ]
 
 type ReleaseData = {
@@ -14,15 +26,11 @@ type ReleaseData = {
     signature: string,
 }
 
-function createReleaseData(index: number, version: string): ReleaseData {
-    var vtag = `${version}-incubating`
-    // Drop the incubating suffix for releases after graduation
-    if (index >= 4) {
-        vtag = `${version}`
-    }
-    const archive = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${vtag}-src.tar.gz`
+function createReleaseData(version: string, vtag?: string): ReleaseData {
+    const fixedVTag = vtag ?? version;
+    const archive = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
     return {
-        name: vtag,
+        name: fixedVTag,
         archive: archive,
         checksum: `${archive}.sha512`,
         signature: `${archive}.asc`,
@@ -30,7 +38,7 @@ function createReleaseData(index: number, version: string): ReleaseData {
 }
 
 export default function Releases(): JSX.Element {
-    const releases = versions.map((version, index) => createReleaseData(versions.length-index-1, version))
+    const releases = versions.map(({ version, vtag }) => createReleaseData(version, vtag))
     return <>
         <table>
             <thead>
