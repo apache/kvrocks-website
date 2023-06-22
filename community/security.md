@@ -3,7 +3,7 @@ id: security
 title: Security
 ---
 
-The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache Kvrocks (incubating) is also vigilant and takes security issues related to its features and functionality into the highest consideration.
+The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache Kvrocks is also vigilant and takes security issues related to its features and functionality into the highest consideration.
 
 If you have any concerns regarding Kvrocks's security, or you discover a vulnerability or potential threat, please do not hesitate to get in touch with the [Apache Security Team](https://www.apache.org/security/) by dropping an email at [security@apache.org](mailto:security@apache.org).
 

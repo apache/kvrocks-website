@@ -1,10 +1,10 @@
-# Apache Kvrocks (Incubating) Official Website
+# Apache Kvrocks Official Website
 
-This project keeps all sources used for building the Apache Kvrocks (Incubating) official website, which is served at https://kvrocks.apache.org/.
+This project keeps all sources used for building the Apache Kvrocks official website, which is served at https://kvrocks.apache.org/.
 
 ## Prerequisite
 
-The Apache Kvrocks (Incubating) website is powered by [Docusaurus 2](https://docusaurus.io/) and is built with Node 19 and Yarn 3. Check the [deploy workflow](.github/workflows/deploy.yml) for concrete requirements and instructions.
+The Apache Kvrocks website is powered by [Docusaurus 2](https://docusaurus.io/) and is built with Node 19 and Yarn 3. Check the [deploy workflow](.github/workflows/deploy.yml) for concrete requirements and instructions.
 
 ## Installation
 
