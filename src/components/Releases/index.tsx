@@ -14,9 +14,13 @@ type ReleaseData = {
     signature: string,
 }
 
-function createReleaseData(version: string): ReleaseData {
-    const vtag = `${version}-incubating`
-    const archive = `https://downloads.apache.org/incubator/kvrocks/${version}/apache-kvrocks-${vtag}-src.tar.gz`
+function createReleaseData(index: number, version: string): ReleaseData {
+    var vtag = `${version}-incubating`
+    // Drop the incubating suffix for releases after graduation
+    if (index >= 4) {
+        vtag = `${version}`
+    }
+    const archive = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${vtag}-src.tar.gz`
     return {
         name: vtag,
         archive: archive,
@@ -26,7 +30,7 @@ function createReleaseData(version: string): ReleaseData {
 }
 
 export default function Releases(): JSX.Element {
-    const releases = versions.map(version => createReleaseData(version))
+    const releases = versions.map((version, index) => createReleaseData(versions.length-index-1, version))
     return <>
         <table>
             <thead>
