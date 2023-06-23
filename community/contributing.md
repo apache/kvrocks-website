@@ -14,7 +14,7 @@ In order to build an active community to improve Kvrocks, we welcome and are eag
 
 ### Prerequisite
 
-Before you submit a patch, we strongly recommend that you share your ideas with others in the community via [Issues](https://github.com/apache/incubator-kvrocks/issues), [Discussions](https://github.com/apache/incubator-kvrocks/discussions) or [Mailing Lists](/community/#mailing-list). Of course, you do not need to do this if you are submitting a patch that can already be associated with an issue, or a minor patch like a typo fix. You can then submit your patch via [Pull Requests](https://github.com/apache/incubator-kvrocks/pulls), which requires a GitHub account.
+Before you submit a patch, we strongly recommend that you share your ideas with others in the community via [Issues](https://github.com/apache/kvrocks/issues), [Discussions](https://github.com/apache/kvrocks/discussions) or [Mailing Lists](/community/#mailing-list). Of course, you do not need to do this if you are submitting a patch that can already be associated with an issue, or a minor patch like a typo fix. You can then submit your patch via [Pull Requests](https://github.com/apache/kvrocks/pulls), which requires a GitHub account.
 
 To help you get familiar with the source tree, we have listed some important directories below, along with an explanation and the programming language used:
 
@@ -32,7 +32,7 @@ In addition to the source code listed above, the rest of the repository consists
 
 ### Code style
 
-If your patch contains changes to C++ code, make sure you format the code using Clang Format (`./x.py format` to quickly format all code). In addition, after you submit your patch, the CI (currently [GitHub Actions](https://github.com/apache/incubator-kvrocks/actions)) will perform some checks using Clang Tidy to ensure that the code follows some good patterns (modern C++) and without some security issues. So if the CI reports a problem, you can check the CI logs or run Clang Tidy locally (`./x.py check tidy`) to help you fix your code. And if your patch involves changes to Golang code, make sure you run golangci-lint (`./x.py check golangci-lint`) before submitting the patch.
+If your patch contains changes to C++ code, make sure you format the code using Clang Format (`./x.py format` to quickly format all code). In addition, after you submit your patch, the CI (currently [GitHub Actions](https://github.com/apache/kvrocks/actions)) will perform some checks using Clang Tidy to ensure that the code follows some good patterns (modern C++) and without some security issues. So if the CI reports a problem, you can check the CI logs or run Clang Tidy locally (`./x.py check tidy`) to help you fix your code. And if your patch involves changes to Golang code, make sure you run golangci-lint (`./x.py check golangci-lint`) before submitting the patch.
 
 ### Tests
 
@@ -50,7 +50,7 @@ After opening your pull request (PR), you can choose some reviewers, although it
 
 Contributions to the documentation and the project website are strongly encouraged, as they are often much less frequent.
 
-The source code for both can be found in [apache/incubator-kvrocks-website](https://github.com/apache/incubator-kvrocks-website) repository, with the documentation written in Markdown format and the website based on Docusaurus.
+The source code for both can be found in [apache/kvrocks-website](https://github.com/apache/kvrocks-website) repository, with the documentation written in Markdown format and the website based on Docusaurus.
 
 When contributing to the documentation, it is important to note that:
 
@@ -64,8 +64,8 @@ A major obstacle for people just starting out and wanting to get involved in the
 
 To solve this problem, here are some suggestions to help new contributors start with simple tasks to learn the structure of the code and participate in the community step by step:
 
-- Filter the [Issues](https://github.com/apache/incubator-kvrocks/issues) with `good first issue` or `help wanted` label, pick a task from there, and get involved. Note that `good first issue` indicates an easy task for newcomers, while `help wanted` has no fixed task difficulty.
-- Check out the Kvrocks roadmap in [Projects](https://github.com/apache/incubator-kvrocks/projects/2) and [Discussions](https://github.com/apache/incubator-kvrocks/discussions) and pick the parts you are familiar with to contribute.
+- Filter the [Issues](https://github.com/apache/kvrocks/issues) with `good first issue` or `help wanted` label, pick a task from there, and get involved. Note that `good first issue` indicates an easy task for newcomers, while `help wanted` has no fixed task difficulty.
+- Check out the Kvrocks roadmap in [Projects](https://github.com/apache/kvrocks/projects/2) and [Discussions](https://github.com/apache/kvrocks/discussions) and pick the parts you are familiar with to contribute.
 - Keep up to date with Redis developments and feel free to contribute any features that exist in Redis and are missing in Kvrocks.
 
 ## Participate in the community and become a committer

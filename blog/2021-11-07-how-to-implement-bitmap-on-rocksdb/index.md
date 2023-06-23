@@ -4,7 +4,7 @@ title: How to implement bitmap on RocksDB?
 authors: [hulk]
 ---
 
-Most developers should be familiar with bitmap, in addition to the storage implementation for the bloom filter, and many databases also provide bitmap type indexes. For memory storage, the bitmap can be regarded as the special type of sparse bit array, which would not cause the read-write amplification issue (means read/write bytes far more than the request). While Redis supports bit-related operations on string types, it is a big challenge for disk KV-based storage like [Kvrocks](https://github.com/apache/incubator-kvrocks). So this article mainly discusses "**How to reduce disk read/write amplification on RocksDB**".
+Most developers should be familiar with bitmap, in addition to the storage implementation for the bloom filter, and many databases also provide bitmap type indexes. For memory storage, the bitmap can be regarded as the special type of sparse bit array, which would not cause the read-write amplification issue (means read/write bytes far more than the request). While Redis supports bit-related operations on string types, it is a big challenge for disk KV-based storage like [Kvrocks](https://github.com/apache/kvrocks). So this article mainly discusses "**How to reduce disk read/write amplification on RocksDB**".
 
 <!--truncate-->
 
@@ -60,7 +60,7 @@ GetBit is similar. It first calculates the key where the offset is located, and 
 * If not exist, means that segment has not been written, returns 0 directly.
 * If exists, read the Value and return the value of the corresponding bit.
 
-In addition, the actual key-value size is also determined by the largest offset currently written. It would NOT always create a 1024 KiB key-value when there is a write. This can also help to optimize the read-write amplification problem within a single key-value in some degree. You can read [the source code of bitmap](https://github.com/apache/incubator-kvrocks/blob/unstable/src/types/redis_bitmap.cc) for more details.
+In addition, the actual key-value size is also determined by the largest offset currently written. It would NOT always create a 1024 KiB key-value when there is a write. This can also help to optimize the read-write amplification problem within a single key-value in some degree. You can read [the source code of bitmap](https://github.com/apache/kvrocks/blob/unstable/src/types/redis_bitmap.cc) for more details.
 
 ## Summary
 

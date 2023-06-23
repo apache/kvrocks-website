@@ -27,7 +27,7 @@ function HomepageHeader() {
           </Link>
           <Link
               className="button button--secondary button--lg"
-              to="https://github.com/apache/incubator-kvrocks">
+              to="https://github.com/apache/kvrocks">
             <div className='header-github-link' style={{marginRight:'10px'}}></div>
             GITHUB
           </Link>

@@ -37,7 +37,7 @@ OK
 "bar"
 ```
 
-You can also [build](https://github.com/apache/incubator-kvrocks#build-and-run-kvrocks) Kvrocks with GCC yourself.
+You can also [build](https://github.com/apache/kvrocks#build-and-run-kvrocks) Kvrocks with GCC yourself.
 
 ## Connecting to Kvrocks from Go
 

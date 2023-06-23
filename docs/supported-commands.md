@@ -18,7 +18,7 @@
 | mget        | √                |                                                |
 | mset        | √                |                                                |
 | msetnx      | √                |                                                |
-| psetex      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) |
+| psetex      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
 | set         | √                |                                                |
 | setex       | √                |                                                |
 | setnx       | √                |                                                |
@@ -136,9 +136,9 @@
 | expireat  | √                |                         |
 | keys      | √                |                         |
 | persist   | √                |                         |
-| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
-| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
-| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/incubator-kvrocks/issues/1033)) | |
+| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
+| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
+| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
 | ttl       | √                |                         |
 | type      | √                |                         |
 | scan      | √                |                         |
