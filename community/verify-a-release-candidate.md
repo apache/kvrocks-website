@@ -25,7 +25,7 @@ However, you should clearly state which checks you did. The release manager need
 Use the following command to download all artifacts, replace "${release_version}-${rc_version}" with the version ID of the version to be released:
 
 ```shell
-svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}-${rc_version}/
+svn co https://dist.apache.org/repos/dist/dev/kvrocks/${release_version}-${rc_version}/
 ```
 
 ## Verify signature and hash
@@ -48,7 +48,7 @@ GnuPG is recommended, which can install by `yum install gnupg`, `apt-get install
 First, import public key:
 
 ```shell
-curl https://downloads.apache.org/incubator/kvrocks/KEYS > KEYS # Download KEYS
+curl https://downloads.apache.org/kvrocks/KEYS > KEYS # Download KEYS
 gpg --import KEYS # Import KEYS to local
 ```
 Then, trust the public key by entering `gpg --edit-key <KEY-used-in-this-version>` and finishing interactively:
@@ -154,7 +154,7 @@ gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 0B27 9084 F7EC 85E8 A6A2  0E1C 10C4 8A3C 1BE7 E3D8
 Success to verify the gpg sign
-apache-kvrocks-2.2.0-incubating-src.tar.gz: OK
+apache-kvrocks-2.2.0-src.tar.gz: OK
 Success to verify the checksum
 ```
 
