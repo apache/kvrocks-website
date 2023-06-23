@@ -97,8 +97,9 @@
 
 | Command          | Supported OR Not | Desc         |
 |------------------|------------------|--------------|
-| bzpopmin         | X                |              |
-| bzpopmax         | X                |              |
+| bzmpop           | √                |              |
+| bzpopmin         | √                |              |
+| bzpopmax         | √                |              |
 | zadd             | √                |              |
 | zcard            | √                |              |
 | zcount           | √                |              |
@@ -122,6 +123,7 @@
 | zrevrangebyscore | √                |              |
 | zscan            | √                |              |
 | zscore           | √                |              |
+| zmpop            | √                |              |
 | zmscore          | √                | multi zscore |
 | zunionstore      | √                |              |
 
