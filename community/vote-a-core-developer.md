@@ -111,7 +111,7 @@ Note: If it is not passed, the result is "The vote for "XXXXXX as a Kvrocks [com
 
 This step is only processed for the PMC member that passed the vote. If the election is Committer, this step is skipped and not executed.
 
-Voting initiators need to send notification emails to Board's mailing group and wait at least 72 hours; email owners send `private@incubator.apache.org` and CC `private@kvrocks.apache.org`; Board will analyze compliance Until there is no doubt.
+Voting initiators need to send notification emails to Board's mailing group and wait at least 72 hours; email owners send `board@apache.org` and CC `private@kvrocks.apache.org`; Board will analyze compliance Until there is no doubt.
 
 The following is an example of a new PMC notification email:
 
