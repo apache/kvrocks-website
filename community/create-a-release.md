@@ -149,12 +149,12 @@ SVN is required for this step.
 
 :::
 
-The svn repository of the release branch is: https://dist.apache.org/repos/dist/release/incubator/kvrocks
+The svn repository of the release branch is: https://dist.apache.org/repos/dist/release/kvrocks
 
 Please always add the public key to KEYS in the release branch:
 
 ```shell
-svn co https://dist.apache.org/repos/dist/release/incubator/kvrocks kvrocks-dist
+svn co https://dist.apache.org/repos/dist/release/kvrocks kvrocks-dist
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
 cd kvrocks-dist
 (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS # Append your key to the KEYS file
@@ -181,13 +181,13 @@ SVN is required for this step.
 
 :::
 
-The svn repository of the dev branch is: https://dist.apache.org/repos/dist/dev/incubator/kvrocks
+The svn repository of the dev branch is: https://dist.apache.org/repos/dist/dev/kvrocks
 
 First, checkout Kvrocks to local directory:
 
 ```shell
 # As this step will copy all the versions, it will take some time. If the network is broken, please use svn cleanup to delete the lock before re-execute it.
-svn co https://dist.apache.org/repos/dist/dev/incubator/kvrocks kvrocks-dist-dev
+svn co https://dist.apache.org/repos/dist/dev/kvrocks kvrocks-dist-dev
 ```
 
 Then, upload the artifacts:
@@ -195,7 +195,7 @@ Then, upload the artifacts:
 ```shell
 cd kvrocks-dist-dev
 mkdir ${release_version} # create a directory named by version
-cp ${repo_dir}/apache-kvrocks-${release_version}-incubating-src.tar.gz* ${release_version}/ # copy source code and signature package to the versioned directory
+cp ${repo_dir}/apache-kvrocks-${release_version}-src.tar.gz* ${release_version}/ # copy source code and signature package to the versioned directory
 svn status # check svn status
 svn add ${release_version} # add to svn
 svn status # check svn status
@@ -225,27 +225,27 @@ docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_us
 Kvrocks community vote，send email to: `dev@kvrocks.apache.org`:
 
 ```text
-[VOTE] Release Apache Kvrocks(incubating) ${release_version}
+[VOTE] Release Apache Kvrocks ${release_version}
 
-Hello Apache Kvrocks(incubating) PMC and Community,
+Hello Apache Kvrocks PMC and Community,
 
-    This is a call for a vote to release Apache Kvrocks(incubating) version ${release_version}.
+    This is a call for a vote to release Apache Kvrocks version ${release_version}.
 
     The tag to be voted on is ${release_version}-rc${candidate_number}.
 
     The release candidate:
 
-    https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}/
+    https://dist.apache.org/repos/dist/dev/kvrocks/${release_version}/
 
 
     Keys to verify the release candidate:
 
-    https://downloads.apache.org/incubator/kvrocks/KEYS
+    https://downloads.apache.org/kvrocks/KEYS
 
 
     Git tag for the release:
 
-    https://github.com/apache/incubator-kvrocks/releases/tag/${release_version}-rc${candidate_number}
+    https://github.com/apache/kvrocks/releases/tag/${release_version}-rc${candidate_number}
 
     Docker image:
 
@@ -281,12 +281,12 @@ Hello Apache Kvrocks(incubating) PMC and Community,
 Thanks
 ```
 
-After at least 72 hours with at least 3 +1 binding vote (from Kvrocks Podling PMC member) and no veto, claim the vote result:
+After at least 72 hours with at least 3 +1 binding vote (from Kvrocks PMC member) and no veto, claim the vote result:
 
 ```text
-[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
+[RESULT][VOTE] Release Apache Kvrocks ${release_version}
 
-The vote to release Apache Kvrocks(Incubating) ${release_version} has passed.
+The vote to release Apache Kvrocks ${release_version} has passed.
 
 The vote PASSED with xxx binding +1 and 0 -1 votes:
 
@@ -304,107 +304,9 @@ Vote thread:
 ${vote_thread_url}
 
 Thank you to all the above members to help us to verify and vote for the
-${release_version} release. We will move to IPMC voting shortly.
+${release_version} release.
 
 Thanks
-```
-
-### Incubator community vote
-
-Incubator community vote，send email to: `general@incubator.apache.org`:
-
-```text
-[VOTE] Release Apache Kvrocks(incubating) ${release_version}
-
-Hello Incubator PMC,
-
-The Apache Kvrocks community has voted and approved the release of Apache
-Kvrocks(incubating) ${release_version}. We now kindly request the IPMC members
-review and vote for this release.
-
-Kvrocks is a distributed key value NoSQL database that uses RocksDB as the storage engine
-and is compatible with Redis protocol. The current release provides ...,
-many new features, many improvements and fixes many bugs.
-
-Kvrocks community vote thread:
-
-${kvrocks_community_vote_thread_url}
-
-Vote result thread:
-
-${kvrocks_community_vote_result_thread_url}
-
-The release candidate:
-
-https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version}
-
-This release has been signed with a PGP available here:
-
-https://downloads.apache.org/incubator/kvrocks/KEYS
-
-Git tag for the release:
-
-https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}-rc${candidate_number}
-
-Build guide can be found at:
-
-https://github.com/apache/incubator-kvrocks#build
-
-The vote will be open for at least 72 hours or until the necessary number
-of votes is reached.
-
-Please vote accordingly:
-[ ] +1 Approve the release of Apache Kvrocks(incubating) ${release_version}
-[ ] +0
-[ ] -1 Do not approve (please specify the reason)
-
-To learn more about apache kvrocks, please see
-    https://kvrocks.apache.org/
-
-    Checklist for reference:
-
-      [ ] Download links are valid.
-      [ ] Checksums and signatures.
-      [ ] LICENSE/NOTICE files exist
-      [ ] No unexpected binary files
-      [ ] All source files have ASF headers
-      [ ] Can compile from source
-      [ ] All Tests Passed
-      [ ] Docker image with right version
-      [ ] Docker image contains license files
-      [ ] Docker image can work well
-
-      More detailed checklist  please refer to:
-      https://kvrocks.apache.org/community/verify-a-release-candidate
-
-Thanks
-```
-
-After at least 72 hours with at least 3 +1 binding vote (from Incubator PMC member) and no veto, claim the vote result:
-
-```text
-[RESULT][VOTE] Release Apache Kvrocks(incubating) ${release_version}
-
-Hi Incubator PMC,
-
-The vote to release Apache Kvrocks(incubating) ${release_version} has passed with
-4 +1 binding and 3 +1 non-binding votes, no +0 or -1 votes.
-
-Binding votes：
-
-- xxx
-- yyy
-- zzz
-
-Non-Binding votes:
-
-- aaa
-
-Vote thread: ${incubator_vote_thread_url}
-
-Thanks for reviewing and voting for our release candidate.
-
-We will proceed with publishing the approved artifacts and sending out the announcement soon.
 ```
 
 ## Officially released
@@ -412,7 +314,7 @@ We will proceed with publishing the approved artifacts and sending out the annou
 ### Publish artifacts to SVN RELEASE branch
 
 ```shell
-svn mv https://dist.apache.org/repos/dist/dev/incubator/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/incubator/kvrocks/${release_version} -m "Release ${release_version}"
+svn mv https://dist.apache.org/repos/dist/dev/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 
 ### Publish Docker images
@@ -432,7 +334,7 @@ If you don't have the permission, you can ask someone with access to apache org 
 
 ### Update website links
 
-Update [releases data file](https://github.com/apache/incubator-kvrocks-website/blob/main/src/components/Releases/index.tsx).
+Update [releases data file](https://github.com/apache/kvrocks-website/blob/main/src/components/Releases/index.tsx).
 
 ### Send the announcement
 
@@ -441,12 +343,12 @@ Send the release announcement to `dev@kvrocks.apache.org` and CC `announce@apach
 > You have to use `${name}@apache.org` post email to `announce@apache.org`
 
 ```html
-[ANNOUNCE] Release Apache Kvrocks(incubating) ${release_version}
+[ANNOUNCE] Release Apache Kvrocks ${release_version}
 
 Hi all,
 
-The Apache Kvrocks(incubating) community is pleased to announce
-that Apache Kvrocks(incubating) ${release_version} has been released!
+The Apache Kvrocks community is pleased to announce
+that Apache Kvrocks ${release_version} has been released!
 
 Kvrocks is a distributed key value NoSQL database that uses RocksDB
 as storage engine and is compatible with Redis protocol.
@@ -459,14 +361,14 @@ The notable changes since ${release_version} include:
 3. zzzzzz
 
 Please refer to the change log for the complete list of changes:
-https://github.com/apache/incubator-kvrocks/releases/tag/v${release_version}
+https://github.com/apache/kvrocks/releases/tag/v${release_version}
 
 Apache Kvrocks website: https://kvrocks.apache.org/
 
 Download Links: https://kvrocks.apache.org/download
 
 Kvrocks Resources:
-- Issue: https://github.com/apache/incubator-kvrocks/issues
+- Issue: https://github.com/apache/kvrocks/issues
 - Mailing list: dev@kvrocks.apache.org
 
 Thanks
