@@ -106,6 +106,8 @@
 | zincrby          | √                |              |
 | zinterstore      | √                |              |
 | zlexcount        | √                |              |
+| zmpop            | √                |              |
+| zmscore          | √                | multi zscore |
 | zpopmin          | √                |              |
 | zpopmax          | √                |              |
 | zrangestore      | √                |              |
@@ -123,8 +125,6 @@
 | zrevrangebyscore | √                |              |
 | zscan            | √                |              |
 | zscore           | √                |              |
-| zmpop            | √                |              |
-| zmscore          | √                | multi zscore |
 | zunionstore      | √                |              |
 
 ## Key commands
