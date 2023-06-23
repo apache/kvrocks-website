@@ -37,8 +37,8 @@ to let the project more perfect and easier to use.
 
 So I nominated XXXXXX as a [committer|PMC member] of the Kvrocks project.
 
-[1] https://github.com/apache/incubator-kvrocks/issues/created_by/XXXXXX
-[2] https://github.com/apache/incubator-kvrocks/commits?author=XXXXXX
+[1] https://github.com/apache/kvrocks/issues/created_by/XXXXXX
+[2] https://github.com/apache/kvrocks/commits?author=XXXXXX
 ```
 
 ## Initiate vote in the community private mailing group
@@ -74,8 +74,8 @@ Please vote accordingly:
 
 Here are some links to his/her contributions to Kvrocks:
 
-[1] Issues: https://github.com/apache/incubator-kvrocks/issues/created_by/XXXXXX
-[2] PRs   : https://github.com/apache/incubator-kvrocks/pulls/created_by/XXXXXX
+[1] Issues: https://github.com/apache/kvrocks/issues/created_by/XXXXXX
+[2] PRs   : https://github.com/apache/kvrocks/pulls/created_by/XXXXXX
 ```
 
 ## Feedback on voting results

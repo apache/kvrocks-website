@@ -53,8 +53,8 @@ brew install autoconf automake libtool cmake
 ### Compile Kvrocks from source
 
 ```shell
-git clone https://github.com/apache/incubator-kvrocks.git
-cd incubator-kvrocks
+git clone https://github.com/apache/kvrocks.git
+cd kvrocks
 ./x.py build # `./x.py build -h` to check more options;
              # especially, `./x.py build --ghproxy` will fetch dependencies via ghproxy.com.
 ```
