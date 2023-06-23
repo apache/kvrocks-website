@@ -22,7 +22,7 @@ const config = {
         path: 'community',
         routeBasePath: 'community',
         sidebarPath: require.resolve('./sidebarsCommunity.js'),
-        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
+        editUrl: 'https://github.com/apache/kvrocks-website/tree/main/',
       },
     ],
     [
@@ -31,7 +31,7 @@ const config = {
         id: 'download',
         path: 'download',
         routeBasePath: 'download',
-        editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
+        editUrl: 'https://github.com/apache/kvrocks-website/tree/main/',
       },
     ],
     [require.resolve("docusaurus-plugin-image-zoom"), {}],
@@ -48,7 +48,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/apache/incubator-kvrocks-website/tree/main/',
+          editUrl: 'https://github.com/apache/kvrocks-website/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -81,7 +81,7 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'right'},
           {to: '/users', label: 'Users', position: 'right'},
           {
-            href: 'https://github.com/apache/incubator-kvrocks',
+            href: 'https://github.com/apache/kvrocks',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
@@ -128,7 +128,7 @@ const config = {
               },
               {
                 label: 'Issue Tracker',
-                href: 'https://github.com/apache/incubator-kvrocks/issues',
+                href: 'https://github.com/apache/kvrocks/issues',
               },
             ],
           },
@@ -137,11 +137,11 @@ const config = {
             items: [
               {
                 label: 'Source Repo',
-                href: 'https://github.com/apache/incubator-kvrocks',
+                href: 'https://github.com/apache/kvrocks',
               },
               {
                 label: 'Website Source Repo',
-                href: 'https://github.com/apache/incubator-kvrocks-website',
+                href: 'https://github.com/apache/kvrocks-website',
               },
             ],
           },

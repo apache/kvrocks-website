@@ -53,7 +53,7 @@ There are a couple of community rules:
 
 ## Issue tracker
 
-We use GitHub Issues to track all code related issues: https://github.com/apache/incubator-kvrocks/issues
+We use GitHub Issues to track all code related issues: https://github.com/apache/kvrocks/issues
 
 You must have a [GitHub account](https://github.com/signup) in order to log cases and issues.
 
@@ -73,8 +73,8 @@ Enhancements or new feature proposals are also welcome. The more concrete and ra
 
 ## Source code
 
-* Kvrocks core repository: https://github.com/apache/incubator-kvrocks
-* Kvrocks website repository: https://github.com/apache/incubator-kvrocks-website
+* Kvrocks core repository: https://github.com/apache/kvrocks
+* Kvrocks website repository: https://github.com/apache/kvrocks-website
 
 ## People
 
