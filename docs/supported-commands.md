@@ -97,14 +97,17 @@
 
 | Command          | Supported OR Not | Desc         |
 |------------------|------------------|--------------|
-| bzpopmin         | X                |              |
-| bzpopmax         | X                |              |
+| bzmpop           | √                |              |
+| bzpopmin         | √                |              |
+| bzpopmax         | √                |              |
 | zadd             | √                |              |
 | zcard            | √                |              |
 | zcount           | √                |              |
 | zincrby          | √                |              |
 | zinterstore      | √                |              |
 | zlexcount        | √                |              |
+| zmpop            | √                |              |
+| zmscore          | √                | multi zscore |
 | zpopmin          | √                |              |
 | zpopmax          | √                |              |
 | zrangestore      | √                |              |
@@ -122,7 +125,6 @@
 | zrevrangebyscore | √                |              |
 | zscan            | √                |              |
 | zscore           | √                |              |
-| zmscore          | √                | multi zscore |
 | zunionstore      | √                |              |
 
 ## Key commands
