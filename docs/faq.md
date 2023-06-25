@@ -29,3 +29,12 @@ OK
 OK
 ```
 
+**Question: Why Kvorcks scan return a string iterator instead of a number**
+
+For the historical design reason, Kvrocks uses the string iterator to return the scan result.
+But after PR [#1489](https://github.com/apache/kvrocks/pull/1489)(since v2.5.0), the scan command can return a number iterator by enabling the configuration: `redis-cursor-compatible`. You can also enable it in-flight by using the `config set` command.
+
+```shell
+127.0.0.1:6666> config set redis-cursor-compatible yes
+OK
+```
