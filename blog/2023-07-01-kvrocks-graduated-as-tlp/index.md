@@ -3,13 +3,13 @@ slug: kvrocks-graduated-as-tlp
 title: Kvrocks graduated as an Apache Top-Level-Project
 ---
 
-[Wilmington, DE – June 28, 2023 – The Apache Software Foundation(ASF) announced Kvrocks has graduated from the incubator as a Top-Level-Project.](https://news.apache.org/foundation/entry/the-apache-software-foundation-announces-new-top-level-project-apache-kvrocks) Means that the Kvrocks community has met the Apache Foundation's requirements in terms of Apache Way practices,  diversity, and open communication. Graduation is just a new starting point, and much work is still needed for the long-term health of the community.
+[Wilmington, DE – June 28, 2023 – The Apache Software Foundation(ASF) announced Kvrocks has graduated from the incubator as a Top-Level-Project.](https://news.apache.org/foundation/entry/the-apache-software-foundation-announces-new-top-level-project-apache-kvrocks) Means that the Kvrocks community has met the Apache Foundation's requirements for The Apache Way practices, diversity, and open communication. Graduation marks a new starting point, while much work is still necessary for the community's long-term health.
 
 <!--truncate-->
 
 ### Kvrocks Overview & Advantages
 
-Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol. Users can decrease the cost of memory and increase the capacity compared to Redis.
+Kvrocks is a distributed key-value NoSQL database that uses RocksDB as its storage engine and supports the Redis protocol. Compared to Redis, Kvrocks allows users to decrease memory costs and increase capacity.
 
 ### Kvrocks Feature Highlights
 
@@ -26,7 +26,7 @@ Kvrocks is a distributed key value NoSQL database that uses RocksDB as storage e
 - Docs: [https://kvrocks.apache.org/](https://kvrocks.apache.org/)
 - Contribute: [https://kvrocks.apache.org/community/contributing](https://kvrocks.apache.org/community/contributing)
 
-Since being open sourced in 2019, Kvrocks has served as an alternative replacement for Redis in massive data scenarios. Many companies are deploying and using Kvrocks in the production environment, such as Baidu, Circl.lu, Ctrip, Meitu, Opera, U-Next and Xueqiu, among others.
+Since being open-sourced in 2019, Kvrocks has been serving as an alternative for Redis in massive data scenarios. Many companies are deploying and using Kvrocks in the production environment, such as Baidu, Circl.lu, Ctrip, Meitu, Opera, U-Next and Xueqiu, among others.
 
 To serve users better, Kvrocks plans to add Kubernetes deployment support, the controller to make the cluster easier to maintain and operate, and add more data structures for fulfilling the user requirements.
 
@@ -35,10 +35,10 @@ To serve users better, Kvrocks plans to add Kubernetes deployment support, the c
 Kvrocks joined the Apache Incubator at the end of April 2022 and officially became an Apache top-level project in June 2023. There has been a significant increase in community activity
 
 1. The number of contributors has increased from **27** to **82**
-2. Release **4** minor versions during incubation: 2.1.0 / 2.2.0 / 2.3.0 / 2.4.0
+2. Released **4** minor versions during incubation: 2.1.0 / 2.2.0 / 2.3.0 / 2.4.0
 3. Created **900+** Pull Requests
-4. Created Created **300+** Issues
-5. Nominated **4** Committers: PragmaTwice / Torwig / Ruixiang Tan / Xiaobiao Zhao, and PragmaTwice and Torwig has became PMC member now.
+4. Created **300+** Issues
+5. Nominated **4** Committers: PragmaTwice / Torwig / Ruixiang Tan / Xiaobiao Zhao, and PragmaTwice and Torwig are also PMC members now.
 
 ![image](images/contributions.png)
 
@@ -50,9 +50,9 @@ It's worth noting that the majority of Kvrocks community contributors and commit
 
 ### Mentor & PMC Words
 
-**@Liang Chen (Champion, Apache Member, Apache Incubator Mentor):** Congratulations to Kvrocks for becoming an ASF Top Project. Kvrocks community has become an outstanding NoSQL DB open source project in the Big Data ecosystem after more than 1 year of hard work and incubation in accordance with the Apache Way.
+**@Liang Chen (Champion, Apache Member, Apache Incubator Mentor):** Congratulations to Kvrocks for becoming an ASF Top Project. Kvrocks community has become an outstanding NoSQL DB open source project in the Big Data ecosystem after more than 1 year of hard work and incubation in accordance with The Apache Way.
 
-**@Xiaoqiao He (Mentor, Apache Member, Apache Incubator Mentor):** Congratulations to Kvrocks on its successful graduation from the Apache Incubator. It was a pleasure to participate and witness Kvrocks successfully apply the Apache Way to community operations and project evolution after more than a year of incubation run and graduation. Graduation means a new beginning, I wish Kvrocks continues to build and prosper the data ecosystem, and look forward to Kvrocks creating more value.
+**@Xiaoqiao He (Mentor, Apache Member, Apache Incubator Mentor):** Congratulations to Kvrocks on its successful graduation from the Apache Incubator. It was a pleasure to participate and witness Kvrocks successfully apply The Apache Way to community operations and project evolution after more than a year of incubation run and graduation. Graduation means a new beginning, I wish Kvrocks continues to build and prosper the data ecosystem, and look forward to Kvrocks creating more value.
 
 **@tison (Mentor, Apache Member, Apache Incubator Mentor):** Congratulations to Kvrocks, my first mentor-incubated project, for graduating from the incubator. I'm excited to help the Kvrocks community grow under the guidance of The Apache Way, and to see how quickly the diversity of Kvrocks users and developers has grown over the past year. Graduating from the incubator is a small step for Kvrocks, but also a big step for all community members. Thank you and congratulations to everyone who has contributed to the development of Kvrocks!
 
@@ -68,11 +68,11 @@ It's worth noting that the majority of Kvrocks community contributors and commit
 
 ### Thanks
 
-- Thanks to the great efforts of every contributor, to make it possible for Kvrocks becoming a top project;
+- Thanks to the great efforts of every contributor, to make it possible for Kvrocks becoming a top-level project;
 - Thank you to every Release Manager and to those who have helped Kvrocks release process. It is a great opportunity for community members to learn and practice the Apache Way from the release process;
-- Thanks to the incubator mentors for their guidance and help in helping community members understand Apache's operating philosophy and code of conduct. In addition to being heavily involved in code development and community building;
+- Thanks to the incubator mentors for their guidance and help in helping community members understand Apache's philosophy and code of conduct. In addition to being heavily involved in code development and community building;
 - Finally, thank you to all users, your feedback and suggestions have had a significant impact on the development of Kvrocks, and this is what keeps the community going!
 
 ### The End
 
-Apache Kvrocks still has a lot of room for development in terms of community influence and feature iteration, and we hope the community can keep an open and friendly community atmosphere based on the premise of the Apache Way, while attracting more excellent contributors. In the future, in addition to supporting more data types, we will continue to optimize the experience of using Kvrocks in container environments and simplify the operation and management of clusters.
+Apache Kvrocks has significant potential for further development in terms of community influence and feature iteration. We work on maintaining an open and friendly atmosphere based on The Apache Way and attracting more excellent contributors. In the future, we plan to support more data types and optimize the experience of using Kvrocks in container environments. Additionally, we plan to simplify the operation and management of clusters.
