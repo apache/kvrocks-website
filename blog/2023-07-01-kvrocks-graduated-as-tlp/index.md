@@ -21,10 +21,10 @@ Kvrocks is a distributed key-value NoSQL database that uses RocksDB as its stora
 
 ### ADDITIONAL RESOURCES
 
-- GitHub: [https://github.com/apache/kvrocks](https://github.com/apache/kvrocks)
-- Download: [https://kvrocks.apache.org/download](https://kvrocks.apache.org/download)
-- Docs: [https://kvrocks.apache.org/](https://kvrocks.apache.org/)
-- Contribute: [https://kvrocks.apache.org/community/contributing](https://kvrocks.apache.org/community/contributing)
+- GitHub: [https://github.com/apache/kvrocks](https://github.com/apache/kvrocks)
+- Download: [https://kvrocks.apache.org/download](https://kvrocks.apache.org/download)
+- Docs: [https://kvrocks.apache.org/](https://kvrocks.apache.org/)
+- Contribute: [https://kvrocks.apache.org/community/contributing](https://kvrocks.apache.org/community/contributing)
 
 Since being open-sourced in 2019, Kvrocks has been serving as an alternative for Redis in massive data scenarios. Many companies are deploying and using Kvrocks in the production environment, such as Baidu, Circl.lu, Ctrip, Meitu, Opera, U-Next and Xueqiu, among others.
 
