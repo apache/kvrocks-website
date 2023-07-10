@@ -248,14 +248,16 @@ The db size is updated async after execute `dbsize scan` command.
 
 ## GEO commands
 
-| Command           | Supported OR Not | Desc |
-|-------------------|------------------|------|
-| geoadd            | √                |      |
-| geodist           | √                |      |
-| geohash           | √                |      |
-| geopos            | √                |      |
-| georadius         | √                |      |
-| georadiusbymember | √                |      |
+| Command              | Supported OR Not | Desc |
+|----------------------|------------------|------|
+| geoadd               | √                |      |
+| geodist              | √                |      |
+| geohash              | √                |      |
+| geopos               | √                |      |
+| georadius            | √                |      |
+| georadius_ro         | √                |      |
+| georadiusbymember    | √                |      |
+| georadiusbymember_ro | √                |      |
 
 ## Stream commands
 
