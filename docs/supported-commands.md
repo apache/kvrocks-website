@@ -125,6 +125,7 @@
 | zrevrangebyscore | √                |              |
 | zscan            | √                |              |
 | zscore           | √                |              |
+| zunion           | √                |              |
 | zunionstore      | √                |              |
 
 ## Key commands
