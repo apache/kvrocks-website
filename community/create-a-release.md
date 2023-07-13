@@ -218,6 +218,18 @@ Docker and Docker Buildx is required for this step. Docker Buildx should be bund
 docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12
 ```
 
+:::info
+
+If you encounter some network problems, you can try the following methods
+
+:::
+
+```shell
+docker buildx create --name ${your_builder_name} --use --driver-opt network=host
+docker buildx inspect --bootstrap
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12 --build-arg http_proxy=${your_http_proxy} --build-arg https_proxy=${your_https_proxy}
+```
+
 ## Voting
 
 ### Kvrocks community vote
