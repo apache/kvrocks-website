@@ -32,7 +32,7 @@ In addition to the source code listed above, the rest of the repository consists
 
 ### Code style
 
-If your patch contains changes to C++ code, make sure you format the code using Clang Format (`./x.py format` to quickly format all code). In addition, after you submit your patch, the CI (currently [GitHub Actions](https://github.com/apache/kvrocks/actions)) will perform some checks using Clang Tidy to ensure that the code follows some good patterns (modern C++) and without some security issues. So if the CI reports a problem, you can check the CI logs or run Clang Tidy locally (`./x.py check tidy`) to help you fix your code. And if your patch involves changes to Golang code, make sure you run golangci-lint (`./x.py check golangci-lint`) before submitting the patch.
+If your patch contains changes to C++ code, make sure you format the code using Clang Format (`./x.py format` to quickly format all code). In addition, after you submit your patch, the CI (currently [GitHub Actions](https://github.com/apache/kvrocks/actions)) will perform some checks using Clang Tidy to ensure that the code follows some good patterns (modern C++) and without some security issues. So if the CI reports a problem, you can check the CI logs or run Clang Tidy locally (`./x.py check tidy`) to help you fix your code (you can try `./x.py check tidy --fix` to fix a part of reports automatically if auto-fix patches for a checker are available). And if your patch involves changes to Golang code, make sure you run golangci-lint (`./x.py check golangci-lint`) before submitting the patch.
 
 ### Tests
 
