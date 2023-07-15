@@ -25,26 +25,33 @@ redis-cli -p 6666
 ### Install dependencies
 
 <Tabs>
-<TabItem value="centos" label="CentOS/RedHat" default>
-
-```shell
-sudo yum install -y epel-release
-sudo yum install -y git gcc gcc-c++ make cmake autoconf automake libtool which
-```
-
-</TabItem>
 <TabItem value="debian" label="Ubuntu/Debian">
 
 ```shell
 sudo apt update
-sudo apt install gcc g++ make cmake autoconf automake libtool
+sudo apt install -y git build-essential cmake libtool python3 libssl-dev
+```
+
+</TabItem>
+<TabItem value="centos" label="CentOS/RedHat" default>
+
+```shell
+sudo yum install -y centos-release-scl-rh
+sudo yum install -y git devtoolset-11 autoconf automake libtool libstdc++-static python3 openssl-devel
+# download and install cmake via https://cmake.org/download
+wget https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-linux-x86_64.sh -O cmake.sh
+sudo bash cmake.sh --skip-license --prefix=/usr
+# enable gcc and make in devtoolset-11
+source /opt/rh/devtoolset-11/enable
 ```
 
 </TabItem>
 <TabItem value="macos" label="macOS">
 
 ```shell
-brew install autoconf automake libtool cmake
+brew install git cmake autoconf automake libtool openssl
+# please link openssl by force if it still cannot be found after installing
+brew link --force openssl
 ```
 
 </TabItem>
