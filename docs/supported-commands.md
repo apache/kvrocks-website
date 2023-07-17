@@ -48,6 +48,7 @@
 | hstrlen      | √                |      |
 | hvals        | √                |      |
 | hscan        | √                |      |
+| hrandfield   | √                |      |
 
 ## List commands
 
@@ -71,6 +72,7 @@
 | rpush      | √                |                                                                             |
 | rpushx     | √                |                                                                             |
 | lmove      | √                |                                                                             |
+| blmove     | √                |                                                                             |
 
 ## Set commands
 
