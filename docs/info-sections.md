@@ -48,7 +48,7 @@ blocked_clients:0
 
 # Memory
 used_memory_rss:19558400
-used_memory_human:18.65M
+used_memory_rss_human:18.65M
 used_memory_lua:35840
 used_memory_lua_human:35.00K
 used_memory_startup:20357120
