@@ -27,8 +27,11 @@ Sample return value:
 
 ```properties
 # Server
-version:999.999.999
-git_sha1:d2c0afb
+version:unstable
+kvrocks_version:unstable
+redis_version:4.0.0
+git_sha1:0a2dcee
+kvrocks_git_sha1:0a2dcee
 os:Darwin 19.4.0 x86_64
 gcc_version:4.2.1
 arch_bits:64
@@ -38,16 +41,24 @@ uptime_in_seconds:8
 uptime_in_days:0
 
 # Clients
+maxclients:10000
 connected_clients:1
 monitor_clients:0
+blocked_clients:0
+
 # Memory
 used_memory_rss:19558400
 used_memory_human:18.65M
 used_memory_lua:35840
 used_memory_lua_human:35.00K
+used_memory_startup:20357120
 
 # Persistence
 loading:0
+bgsave_in_progress:0
+last_bgsave_time:1689584510
+last_bgsave_status:ok
+last_bgsave_time_sec:0
 
 # Stats
 total_connections_received:1
@@ -94,23 +105,63 @@ used_disk_percent: 53%
 estimate_keys[default]:0
 block_cache_usage[default]:0
 block_cache_pinned_usage[default]:0
-index_and_filter_cache_usage:[default]:0
+index_and_filter_cache_usage[default]:0
+level0_file_limit_slowdown[default]:
+level0_file_limit_stop[default]:
+pending_compaction_bytes_slowdown[default]:
+pending_compaction_bytes_stop[default]:
+memtable_count_limit_slowdown[default]:
+memtable_count_limit_stop[default]:
 estimate_keys[metadata]:0
 block_cache_usage[metadata]:0
 block_cache_pinned_usage[metadata]:0
-index_and_filter_cache_usage:[metadata]:0
+index_and_filter_cache_usage[metadata]:0
+level0_file_limit_slowdown[metadata]:
+level0_file_limit_stop[metadata]:
+pending_compaction_bytes_slowdown[metadata]:
+pending_compaction_bytes_stop[metadata]:
+memtable_count_limit_slowdown[metadata]:
+memtable_count_limit_stop[metadata]:
 estimate_keys[zset_score]:0
 block_cache_usage[zset_score]:0
 block_cache_pinned_usage[zset_score]:0
-index_and_filter_cache_usage:[zset_score]:0
+index_and_filter_cache_usage[zset_score]:0
+level0_file_limit_slowdown[zset_score]:
+level0_file_limit_stop[zset_score]:
+pending_compaction_bytes_slowdown[zset_score]:
+pending_compaction_bytes_stop[zset_score]:
+memtable_count_limit_slowdown[zset_score]:
+memtable_count_limit_stop[zset_score]:
 estimate_keys[pubsub]:0
 block_cache_usage[pubsub]:0
 block_cache_pinned_usage[pubsub]:0
-index_and_filter_cache_usage:[pubsub]:0
+index_and_filter_cache_usage[pubsub]:0
+level0_file_limit_slowdown[pubsub]:
+level0_file_limit_stop[pubsub]:
+pending_compaction_bytes_slowdown[pubsub]:
+pending_compaction_bytes_stop[pubsub]:
+memtable_count_limit_slowdown[pubsub]:
+memtable_count_limit_stop[pubsub]:
 estimate_keys[propagate]:0
 block_cache_usage[propagate]:0
 block_cache_pinned_usage[propagate]:0
-index_and_filter_cache_usage:[propagate]:0
+index_and_filter_cache_usage[propagate]:0
+level0_file_limit_slowdown[propagate]:
+level0_file_limit_stop[propagate]:
+pending_compaction_bytes_slowdown[propagate]:
+pending_compaction_bytes_stop[propagate]:
+memtable_count_limit_slowdown[propagate]:
+memtable_count_limit_stop[propagate]:
+estimate_keys[stream]:0
+block_cache_usage[stream]:0
+block_cache_pinned_usage[stream]:0
+index_and_filter_cache_usage[stream]:0
+level0_file_limit_slowdown[stream]:
+level0_file_limit_stop[stream]:
+pending_compaction_bytes_slowdown[stream]:
+pending_compaction_bytes_stop[stream]:
+memtable_count_limit_slowdown[stream]:
+memtable_count_limit_stop[stream]:
 all_mem_tables:3520
 cur_mem_tables:3520
 snapshots:0
@@ -120,10 +171,15 @@ memtable_flush_pending:0
 compaction_pending:0
 num_running_compactions:0
 num_live_versions:5
-num_superversion:5
+num_super_version:5
 num_background_errors:0
 flush_count:0
 compaction_count:0
+put_per_sec:0
+get_per_sec:0
+seek_per_sec:0
+next_per_sec:0
+prev_per_sec:0
 is_bgsaving:no
 is_compacting:no
 ```
@@ -132,17 +188,21 @@ is_compacting:no
 
 Here is the meaning of all fields in the server section:
 
-| Property          | Desc                                                           |
-|-------------------|----------------------------------------------------------------|
-| version           | Version of the Kvrocks server                                  |
-| git_sha1          | Git SHA1                                                       |
-| os                | Operating system hosting the Kvrocks server                    |
-| arch_bits         | Architecture (32 or 64 bits)                                   |
-| gcc_version       | Version of the GCC compiler used to compile the Kvrocks server |
-| process_id        | PID of the server process                                      |
-| tcp_port          | TCP/IP listen port                                             |
-| uptime_in_seconds | Number of seconds since Kvrocks server start                   |
-| uptime_in_days    | Same value expressed in days                                   |
+| Property          | Desc                                                             |
+|-------------------|----------------------------------------------------------------- |
+| version           | Version of the Kvrocks server                                    |
+| kvrocks_version   | Version of the Kvrocks server                                    |
+| redis_version     | Version of the compatible Redis server                           |
+| git_sha1          | Git SHA1                                                         |
+| kvrocks_git_sha1  | Git SHA1                                                         |
+| os                | Operating system hosting the Kvrocks server                      |
+| arch_bits         | Architecture (32 or 64 bits)                                     |
+| gcc_version       | Version of the GCC compiler used to compile the Kvrocks server   |
+| clang_version     | Version of the Clang compiler used to compile the Kvrocks server |
+| process_id        | PID of the server process                                        |
+| tcp_port          | TCP/IP listen port                                               |
+| uptime_in_seconds | Number of seconds since Kvrocks server start                     |
+| uptime_in_days    | Same value expressed in days                                     |
 
 ## Clients section
 
@@ -150,8 +210,10 @@ Here is the meaning of all fields in the clients section:
 
 | Property          | Desc                                                               |
 |-------------------|--------------------------------------------------------------------|
+| maxclients        | The value of the `maxclients` configuration directive              |
 | connected_clients | Number of client connections (excluding connections from replicas) |
 | monitor_clients   | Number of monitor client connections                               |
+| blocked_clients   | Number of blocked client connections                               |
 
 ## Memory section
 
@@ -163,6 +225,7 @@ Here is the meaning of all fields in the memory section:
 | used_memory_rss_human | Human-readable representation of previous value                                                                                                                  |
 | used_memory_lua       | Number of bytes used by the Lua engine                                                                                                                           |
 | used_memory_lua_human | Human-readable representation of previous value                                                                                                                  |
+| used_memory_startup   | Initial amount of memory consumed by Kvrocks at startup in bytes                                                                                                 |
 
 ## Stats section
 
@@ -197,9 +260,13 @@ cmdstat_XXX:calls=XXX,usec=XXX,usec_per_call=XXX
 
 Here is the meaning of all fields in the replication section:
 
-| Property | Desc                                                     |
-|----------|----------------------------------------------------------|
-| loading  | Flag indicating if the restore of the backup is on-going |
+| Property              | Desc                                                     |
+|-----------------------|----------------------------------------------------------|
+| loading               | Flag indicating if the restore of the backup is on-going |
+| bgsave_in_progress    | Whether the bgsave was in-progress                       |
+| last_bgsave_time      | The last timestamp that bgsave command was executed      |
+| last_bgsave_status    | Whether the bgsave was ok or not (ok/err)                |
+| last_bgsave_time_sec  | The `bgsave` command elapsed seconds                     |
 
 ## Replication section
 
@@ -212,15 +279,16 @@ Here is the meaning of all fields in the replication section:
 
 If the instance is a replica, these additional fields are provided:
 
-| Property                   | Desc                                                     |
-|----------------------------|----------------------------------------------------------|
-| master_host                | Host or IP address of the master                         |
-| master_port                | Master listening TCP port                                |
-| master_link_status         | Status of the link (up/down)                             |
-| master_last_io_seconds_ago | Number of seconds since the last interaction with master |
-| master_sync_in_progress    | Indicate the master is syncing to the replica            |
-| slave_repl_offset          | The replication offset of the replica instance           |
-| slave_priority             | The priority of the instance as a candidate for failover |
+| Property                        | Desc                                                     |
+|---------------------------------|----------------------------------------------------------|
+| master_host                     | Host or IP address of the master                         |
+| master_port                     | Master listening TCP port                                |
+| master_link_status              | Status of the link (up/down)                             |
+| master_sync_unrecoverable_error | Master sync unrecoverable error (yes/no)                 |
+| master_last_io_seconds_ago      | Number of seconds since the last interaction with master |
+| master_sync_in_progress         | Indicate the master is syncing to the replica            |
+| slave_repl_offset               | The replication offset of the replica instance           |
+| slave_priority                  | The priority of the instance as a candidate for failover |
 
 ## CPU section
 
@@ -272,18 +340,25 @@ There are five column families on kvrocks:
 |---------------|------------------------------------------------------------------------------------------------------------|
 | default       | Used to store the subkeys of the complex data structure like hash/set/list/zset/geo.                       |
 | metadata      | Used to store the metadata of the complex data structure and string.                                       |
-| zset score    | Used to store the mapping of zset's score to member, which would make the range by score operation faster. |
+| zset_score    | Used to store the mapping of zset's score to member, which would make the range by score operation faster. |
 | pubsub        | Used to propagate the pubsub message to replicas.                                                          |
 | propagate     | Used to propagate other commands to replicas except pubsub message.                                        |
+| stream        | xxx.                                        |
 
 ... and below statistics were column family related:
 
-| Property                      | Desc                                                                                                                                                         |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| estimate_keys[xxx]            | Estimate keys in the column family, may contains the tombstone and expired keys, it's a fast way to know how many keys on the column family but not precise. |
-| block_cache_usage[xxx]        | Total block cache bytes used by this column family.                                                                                                          |
-| block_cache_pinned_usage[xxx] | Total pinned bytes in this column family.                                                                                                                    |
-| index_and_filter_cache_usage  | Total bytes was used to cache the index and filter block.                                                                                                    |
+| Property                                | Desc                                                                                                                                                         |
+|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| estimate_keys[xxx]                      | Estimate keys in the column family, may contains the tombstone and expired keys, it's a fast way to know how many keys on the column family but not precise. |
+| block_cache_usage[xxx]                  | Total block cache bytes used by this column family.                                                                                                          |
+| block_cache_pinned_usage[xxx]           | Total pinned bytes in this column family.                                                                                                                    |
+| index_and_filter_cache_usage[xxx]       | Total bytes was used to cache the index and filter block.                                                                                                    |
+| level0_file_limit_slowdown[xxx]         | xxx.                                                                                                    |
+| level0_file_limit_stop[xxx]             | xxx.                                                                                                    |
+| pending_compaction_bytes_slowdown[xxx]  | xxx.                                                                                                    |
+| pending_compaction_bytes_stop[xxx]      | xxx.                                                                                                    |
+| memtable_count_limit_slowdown[xxx]      | xxx.                                                                                                    |
+| memtable_count_limit_stop[xxx]          | xxx.                                                                                                    |
 
 ... those statistics were the entire rocksdb side:
 
@@ -298,8 +373,14 @@ There are five column families on kvrocks:
 | compaction_pending      | This metric returns 1 if at least one compaction is pending; otherwise, the metric reports 0.                                              |
 | num_running_compactions | Number of currently running compactions.                                                                                                   |
 | num_live_versions       | Number of live versions. More live versions often mean more SST files are held from being deleted, by iterators or unfinished compactions. |
+| num_super_version       | xxx. |
 | num_background_errors   | Accumulated number of background errors.                                                                                                   |
 | flush_count             | Number of flushes.                                                                                                                         |
 | compaction_count        | Number of compactions.                                                                                                                     |
+| put_per_sec             | Number of put processed per second.                                                                                                        |
+| get_per_sec             | Number of get processed per second.                                                                                                        |
+| seek_per_sec            | Number of seek processed per second.                                                                                                       |
+| next_per_sec            | Number of next processed per second.                                                                                                       |
+| prev_per_sec            | Number of prev processed per second.                                                                                                       |
 | is_bgsaving             | This metric returns 1 if the bgsave was running; otherwise it returns 0.                                                                   |
 | is_compacting           | This metric returns 1 if the compaction was running; otherwise it returns 0.                                                               |
