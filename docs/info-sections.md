@@ -353,12 +353,12 @@ There are five column families on kvrocks:
 | block_cache_usage[xxx]                  | Total block cache bytes used by this column family.                                                                                                          |
 | block_cache_pinned_usage[xxx]           | Total pinned bytes in this column family.                                                                                                                    |
 | index_and_filter_cache_usage[xxx]       | Total bytes was used to cache the index and filter block.                                                                                                    |
-| level0_file_limit_slowdown[xxx]         | xxx.                                                                                                    |
-| level0_file_limit_stop[xxx]             | xxx.                                                                                                    |
-| pending_compaction_bytes_slowdown[xxx]  | xxx.                                                                                                    |
-| pending_compaction_bytes_stop[xxx]      | xxx.                                                                                                    |
-| memtable_count_limit_slowdown[xxx]      | xxx.                                                                                                    |
-| memtable_count_limit_stop[xxx]          | xxx.                                                                                                    |
+| level0_file_limit_slowdown[xxx]         | Number of IO write stalls caused by reaching the level0 file slowdown limit.                                                                                                    |
+| level0_file_limit_stop[xxx]             | Number of IO write stalls caused by reaching the level0 file stop limit.                                                                                                |
+| pending_compaction_bytes_slowdown[xxx]  | Number of IO write stalls caused reaching the pending compaction bytes slowdown limit.                                                                                                    |
+| pending_compaction_bytes_stop[xxx]      | Number of IO write stalls caused reaching the pending compaction bytes stop limit.                                                                                                    |
+| memtable_count_limit_slowdown[xxx]      | Number of IO write stalls caused by reaching the memtable count slowdown limit.                                                                                              |
+| memtable_count_limit_stop[xxx]          | Number of IO write stalls caused by reaching the memtable count stop limit.                                                                                                  |
 
 ... those statistics were the entire rocksdb side:
 
@@ -373,7 +373,7 @@ There are five column families on kvrocks:
 | compaction_pending      | This metric returns 1 if at least one compaction is pending; otherwise, the metric reports 0.                                              |
 | num_running_compactions | Number of currently running compactions.                                                                                                   |
 | num_live_versions       | Number of live versions. More live versions often mean more SST files are held from being deleted, by iterators or unfinished compactions. |
-| num_super_version       | xxx. |
+| num_super_version       | Number of the super version inside the RocksDB. |
 | num_background_errors   | Accumulated number of background errors.                                                                                                   |
 | flush_count             | Number of flushes.                                                                                                                         |
 | compaction_count        | Number of compactions.                                                                                                                     |
