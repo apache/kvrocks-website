@@ -189,7 +189,7 @@ is_compacting:no
 Here is the meaning of all fields in the server section:
 
 | Property          | Desc                                                             |
-|-------------------|----------------------------------------------------------------- |
+|-------------------|------------------------------------------------------------------|
 | version           | Version of the Kvrocks server                                    |
 | kvrocks_version   | Version of the Kvrocks server                                    |
 | redis_version     | Version of the compatible Redis server                           |
