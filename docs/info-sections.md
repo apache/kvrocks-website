@@ -343,7 +343,7 @@ There are five column families on kvrocks:
 | zset_score    | Used to store the mapping of zset's score to member, which would make the range by score operation faster. |
 | pubsub        | Used to propagate the pubsub message to replicas.                                                          |
 | propagate     | Used to propagate other commands to replicas except pubsub message.                                        |
-| stream        | todo xxx. |
+| stream        | Used to store the data of the stream type.                                                                 |
 
 ... and below statistics were column family related:
 
