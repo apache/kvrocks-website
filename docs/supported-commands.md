@@ -261,6 +261,8 @@ The db size is updated async after execute `dbsize scan` command.
 | georadius_ro         | √                |      |
 | georadiusbymember    | √                |      |
 | georadiusbymember_ro | √                |      |
+| geosearch            | √                |      |
+| getsearchstore       | √                |      |
 
 ## Stream commands
 
