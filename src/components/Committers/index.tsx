@@ -5,29 +5,33 @@ type CommitterData = {
     name: string,
     apacheId: string,
     githubId: string,
+    isPMC: boolean,
 }
 
 // sorted by apacheId
 const committers: CommitterData[] = [
-    {name: 'Donghui Liu', apacheId: 'alfejik', githubId: 'Alfejik'},
-    {name: 'Brad Lee', apacheId: 'bradlee', githubId: 'smartlee'},
-    {name: 'Pengbo Cai', apacheId: 'caipengbo', githubId: 'caipengbo'},
-    {name: 'Liang Chen', apacheId: 'chenliang613', githubId: 'chenliang613'},
-    {name: 'Chris Zou', apacheId: 'chriszou', githubId: 'ChrisZMF'},
-    {name: 'Colin Chamber', apacheId: 'colinchamber', githubId: 'ColinChamber'},
-    {name: 'Xiaoqiao He', apacheId: 'hexiaoqiao', githubId: 'Hexiaoqiao'},
-    {name: 'Hulk Lin', apacheId: 'hulk', githubId: 'git-hulk'},
-    {name: 'Jean-Baptiste Onofré', apacheId: 'jbonofre', githubId: 'jbonofre'},
-    {name: 'Jean Lai', apacheId: 'jeanbone', githubId: 'jeanbone'},
-    {name: 'Miuyong Liu', apacheId: 'karelrooted', githubId: 'karelrooted'},
-    {name: 'Shang Xiong', apacheId: 'shang', githubId: 'shangxiaoxiong'},
-    {name: 'Ruixiang Tan', apacheId: 'tanruixiang', githubId: 'tanruixiang'},
-    {name: 'Zili Chen', apacheId: 'tison', githubId: 'tisonkun'},
-    {name: 'Yaroslav Stepanchuk', apacheId: 'torwig', githubId: 'torwig'},
-    {name: 'Mingyang Liu', apacheId: 'twice', githubId: 'PragmaTwice'},
-    {name: 'Von Gosling', apacheId: 'vongosling', githubId: 'vongosling'},
-    {name: 'Yuan Wang', apacheId: 'wangyuan', githubId: 'ShooterIT'},
-    {name: 'Xiaobiao Zhao', apacheId: 'xiaobiao', githubId: 'xiaobiaozhao'},
+    {name: 'Aleks Lozoviuk', apacheId: 'aleksraiden', githubId: 'aleksraiden', isPMC: false},
+    {name: 'Donghui Liu', apacheId: 'alfejik', githubId: 'Alfejik', isPMC: true},
+    {name: 'Binbin Zhu', apacheId: 'binbin', githubId: 'enjoy-binbin', isPMC: false},
+    {name: 'Brad Lee', apacheId: 'bradlee', githubId: 'smartlee', isPMC: false},
+    {name: 'Pengbo Cai', apacheId: 'caipengbo', githubId: 'caipengbo', isPMC: false},
+    {name: 'Liang Chen', apacheId: 'chenliang613', githubId: 'chenliang613', isPMC: true},
+    {name: 'Chris Zou', apacheId: 'chriszou', githubId: 'ChrisZMF', isPMC: false},
+    {name: 'Colin Chamber', apacheId: 'colinchamber', githubId: 'ColinChamber', isPMC: false},
+    {name: 'Xiaoqiao He', apacheId: 'hexiaoqiao', githubId: 'Hexiaoqiao', isPMC: true},
+    {name: 'Hulk Lin', apacheId: 'hulk', githubId: 'git-hulk', isPMC: true},
+    {name: 'Jean-Baptiste Onofré', apacheId: 'jbonofre', githubId: 'jbonofre', isPMC: true},
+    {name: 'Jean Lai', apacheId: 'jeanbone', githubId: 'jeanbone', isPMC: false},
+    {name: 'Miuyong Liu', apacheId: 'karelrooted', githubId: 'karelrooted', isPMC: false},
+    {name: 'Xuwei Fu', apacheId: 'maplefu', githubId: 'mapleFU', isPMC: false},
+    {name: 'Shang Xiong', apacheId: 'shang', githubId: 'shangxiaoxiong', isPMC: false},
+    {name: 'Ruixiang Tan', apacheId: 'tanruixiang', githubId: 'tanruixiang', isPMC: false},
+    {name: 'Zili Chen', apacheId: 'tison', githubId: 'tisonkun', isPMC: true},
+    {name: 'Yaroslav Stepanchuk', apacheId: 'torwig', githubId: 'torwig', isPMC: true},
+    {name: 'Mingyang Liu', apacheId: 'twice', githubId: 'PragmaTwice', isPMC: true},
+    {name: 'Von Gosling', apacheId: 'vongosling', githubId: 'vongosling', isPMC: true},
+    {name: 'Yuan Wang', apacheId: 'wangyuan', githubId: 'ShooterIT', isPMC: true},
+    {name: 'Xiaobiao Zhao', apacheId: 'xiaobiao', githubId: 'xiaobiaozhao', isPMC: false},
 ]
 
 export default function Committers(): JSX.Element {
@@ -48,7 +52,7 @@ export default function Committers(): JSX.Element {
                     <tr key={v.name}>
                         <td><img width={64} className={styles.contributorAvatar}
                                  src={`https://github.com/${v.githubId}.png`} alt={v.name}/></td>
-                        <td>{v.name}</td>
+                        <td>{v.isPMC ? <b>{v.name}</b> : v.name}</td>
                         <td>{v.apacheId}</td>
                         <td><a target={"_blank"} href={`https://github.com/${v.githubId}`}>{v.githubId}</a></td>
                     </tr>
