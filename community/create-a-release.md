@@ -220,7 +220,7 @@ docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_us
 
 :::info
 
-If you encounter some network problems, you can try the following methods
+If you encounter some network problems, you can try the following methods with an HTTP proxy.
 
 :::
 
