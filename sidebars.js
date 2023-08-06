@@ -15,6 +15,7 @@ const sidebars = {
             items: [
                 'backup',
                 'kvrocks-exporter',
+                'kvrocks2redis',
             ]
         },
         {
