@@ -2,31 +2,31 @@
 
 ## String commands
 
-| Command     | Supported OR Not | Desc                                           |
-|-------------|------------------|------------------------------------------------|
-| append      | √                |                                                |
-| decr        | √                |                                                |
-| decrby      | √                |                                                |
-| get         | √                |                                                |
-| getex       | √                |                                                |
-| getrange    | √                |                                                |
-| substr      | √                |                                                |
-| getset      | √                |                                                |
-| incr        | √                |                                                |
-| incrby      | √                |                                                |
-| incrbyfloat | √                |                                                |
-| mget        | √                |                                                |
-| mset        | √                |                                                |
-| msetnx      | √                |                                                |
+| Command     | Supported OR Not | Desc                                                                                                         |
+|-------------|------------------|--------------------------------------------------------------------------------------------------------------|
+| append      | √                |                                                                                                              |
+| decr        | √                |                                                                                                              |
+| decrby      | √                |                                                                                                              |
+| get         | √                |                                                                                                              |
+| getex       | √                |                                                                                                              |
+| getrange    | √                |                                                                                                              |
+| substr      | √                |                                                                                                              |
+| getset      | √                |                                                                                                              |
+| incr        | √                |                                                                                                              |
+| incrby      | √                |                                                                                                              |
+| incrbyfloat | √                |                                                                                                              |
+| mget        | √                |                                                                                                              |
+| mset        | √                |                                                                                                              |
+| msetnx      | √                |                                                                                                              |
 | psetex      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| set         | √                |                                                |
-| setex       | √                |                                                |
-| setnx       | √                |                                                |
-| setrange    | √                |                                                |
-| strlen      | √                |                                                |
-| cas         | √                | see [#415](https://github.com/apache/kvrocks/pull/415) |
-| cad         | √                | see [#415](https://github.com/apache/kvrocks/pull/415) |
-| getdel      | √                |                                                |
+| set         | √                |                                                                                                              |
+| setex       | √                |                                                                                                              |
+| setnx       | √                |                                                                                                              |
+| setrange    | √                |                                                                                                              |
+| strlen      | √                |                                                                                                              |
+| cas         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| cad         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| getdel      | √                |                                                                                                              |
 
 ## Hash commands
 
@@ -52,27 +52,27 @@
 
 ## List commands
 
-| Command    | Supported OR Not | Desc                                                                        |
-|------------|------------------|-----------------------------------------------------------------------------|
-| blpop      | √                |                                                                             |
-| brpop      | √                |                                                                             |
-| brpoplpush | X                |                                                                             |
+| Command    | Supported OR Not | Desc                                                        |
+|------------|------------------|-------------------------------------------------------------|
+| blpop      | √                |                                                             |
+| brpop      | √                |                                                             |
+| brpoplpush | X                |                                                             |
 | lindex     | √                | `O(N)` operation, do not use it when list is extremely long |
 | linsert    | √                | `O(N)` operation, do not use it when list is extremely long |
-| llen       | √                |                                                                             |
-| lpop       | √                |                                                                             |
-| lpush      | √                |                                                                             |
-| lpushx     | √                |                                                                             |
-| lrange     | √                |                                                                             |
-| lrem       | √                | `O(N)` operation, do not use it when list is extremely long   |
-| lset       | √                |                                                                             |
-| ltrim      | √                | `O(N)` operation, do not use it when list is extremely long  |
-| rpop       | √                |                                                                             |
-| rpoplpush  | √                |                                                                             |
-| rpush      | √                |                                                                             |
-| rpushx     | √                |                                                                             |
-| lmove      | √                |                                                                             |
-| blmove     | √                |                                                                             |
+| llen       | √                |                                                             |
+| lpop       | √                |                                                             |
+| lpush      | √                |                                                             |
+| lpushx     | √                |                                                             |
+| lrange     | √                |                                                             |
+| lrem       | √                | `O(N)` operation, do not use it when list is extremely long |
+| lset       | √                |                                                             |
+| ltrim      | √                | `O(N)` operation, do not use it when list is extremely long |
+| rpop       | √                |                                                             |
+| rpoplpush  | √                |                                                             |
+| rpush      | √                |                                                             |
+| rpushx     | √                |                                                             |
+| lmove      | √                |                                                             |
+| blmove     | √                |                                                             |
 
 ## Set commands
 
@@ -132,24 +132,24 @@
 
 ## Key commands
 
-| Command   | Supported OR Not | Desc                    |
-|-----------|------------------|-------------------------|
-| del       | √                |                         |
-| dump      | X                |                         |
-| exists    | √                |                         |
-| expire    | √                |                         |
-| expireat  | √                |                         |
-| keys      | √                |                         |
-| persist   | √                |                         |
-| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
-| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
-| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) | |
-| ttl       | √                |                         |
-| type      | √                |                         |
-| scan      | √                |                         |
-| rename    | X                |                         |
-| randomkey | √                |                         |
-| unlink    | √                |                         |
+| Command   | Supported OR Not | Desc                                                                                                         |
+|-----------|------------------|--------------------------------------------------------------------------------------------------------------|
+| del       | √                |                                                                                                              |
+| dump      | X                |                                                                                                              |
+| exists    | √                |                                                                                                              |
+| expire    | √                |                                                                                                              |
+| expireat  | √                |                                                                                                              |
+| keys      | √                |                                                                                                              |
+| persist   | √                |                                                                                                              |
+| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| ttl       | √                |                                                                                                              |
+| type      | √                |                                                                                                              |
+| scan      | √                |                                                                                                              |
+| rename    | X                |                                                                                                              |
+| randomkey | √                |                                                                                                              |
+| unlink    | √                |                                                                                                              |
 
 ## Bit commands
 
@@ -223,24 +223,24 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 ## Server commands
 
-| Command   | Supported OR Not | Desc                                                                                                            |
-|-----------|------------------|-----------------------------------------------------------------------------------------------------------------|
-| monitor   | √                |                                                                                                                 |
-| info      | √                |                                                                                                                 |
-| role      | √                |                                                                                                                 |
-| config    | √                |                                                                                                                 |
-| dbsize    | √                |                                                                                                                 |
+| Command   | Supported OR Not | Desc                                                                                                                    |
+|-----------|------------------|-------------------------------------------------------------------------------------------------------------------------|
+| monitor   | √                |                                                                                                                         |
+| info      | √                |                                                                                                                         |
+| role      | √                |                                                                                                                         |
+| config    | √                |                                                                                                                         |
+| dbsize    | √                |                                                                                                                         |
 | disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
-| namespace | √                |                                                                                                                 |
-| flushdb   | √                |                                                                                                                 |
-| flushall  | √                |                                                                                                                 |
-| command   | √                |                                                                                                                 |
-| client    | √                |                                                                                                                 |
-| auth      | √                |                                                                                                                 |
-| quit      | √                |                                                                                                                 |
-| slowlog   | √                |                                                                                                                 |
-| perflog   | √                |                                                                                                                 |
-| hello     | √                |                                                                                                                 |
+| namespace | √                |                                                                                                                         |
+| flushdb   | √                |                                                                                                                         |
+| flushall  | √                |                                                                                                                         |
+| command   | √                |                                                                                                                         |
+| client    | √                |                                                                                                                         |
+| auth      | √                |                                                                                                                         |
+| quit      | √                |                                                                                                                         |
+| slowlog   | √                |                                                                                                                         |
+| perflog   | √                |                                                                                                                         |
+| hello     | √                |                                                                                                                         |
 
 
 :::note
