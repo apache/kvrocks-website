@@ -15,11 +15,13 @@
 #  specific language governing permissions and limitations
 #  under the License.
 
+# For more information, see https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features.
+
 github:
   description: "Apache Kvrocks Website"
   homepage: https://kvrocks.apache.org/
   features:
-    issues: false
+    issues: true
     projects: false
     wiki: false
   labels:
