@@ -14,11 +14,11 @@ Please refer [Kvrocks#build](https://github.com/apache/kvrocks#build), this step
 
 For the configurations in `kvrocks2redis.conf`
 
-```
+```text
 # The value should be INFO, WARNING, ERROR, FATAL
 log-level INFO
 
-# Determine whether to run on the deamonize mode or not
+# Determine whether to run on the daemonize mode or not
 # Default: no
 daemonize no
 
@@ -27,7 +27,6 @@ daemonize no
 data-dir ./data
 
 # Where to store the output like the sync sequence and AOF file
-#
 # Default: ./
 output-dir ./
 
