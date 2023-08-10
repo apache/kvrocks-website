@@ -25,7 +25,7 @@ redis-cli -p 6666
 ### Install dependencies
 
 <Tabs>
-<TabItem value="debian" label="Ubuntu/Debian">
+<TabItem value="debian" label="Ubuntu / Debian">
 
 ```shell
 sudo apt update
@@ -33,7 +33,7 @@ sudo apt install -y git build-essential cmake libtool python3 libssl-dev
 ```
 
 </TabItem>
-<TabItem value="centos" label="CentOS/RedHat" default>
+<TabItem value="centos" label="CentOS / RedHat" default>
 
 ```shell
 sudo yum install -y centos-release-scl-rh
@@ -43,6 +43,20 @@ wget https://github.com/Kitware/CMake/releases/download/v3.26.4/cmake-3.26.4-lin
 sudo bash cmake.sh --skip-license --prefix=/usr
 # enable gcc and make in devtoolset-11
 source /opt/rh/devtoolset-11/enable
+```
+
+</TabItem>
+<TabItem value="suse" label="openSUSE / SUSE Linux Enterprise">
+
+```shell
+sudo zypper install -y gcc11 gcc11-c++ make wget git autoconf automake python3 curl cmake
+```
+
+</TabItem>
+<TabItem value="arch" label="Arch Linux">
+
+```shell
+sudo pacman -Sy --noconfirm autoconf automake python3 git wget which cmake make gcc
 ```
 
 </TabItem>
