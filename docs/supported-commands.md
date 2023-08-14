@@ -241,6 +241,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | slowlog   | √                |                                                                                                                         |
 | perflog   | √                |                                                                                                                         |
 | hello     | √                |                                                                                                                         |
+| stats     | √                | dump the rocksdb statistics in JSON foramt                                                                              |
 
 
 :::note
