@@ -36,7 +36,7 @@ kvrocks 127.0.0.1 6666
 
 # If the source Kvrocks enabled the cluster mode, should enable it here as well.
 # Default: no
-cluster-enable no
+cluster-enabled no
 
 # Synchronize the specified namespace data to the specified Redis DB.
 # Warning: It will flush the target redis DB data first before syncing the data.
