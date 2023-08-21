@@ -73,6 +73,7 @@
 | rpushx     | √                |                                                             |
 | lmove      | √                |                                                             |
 | blmove     | √                |                                                             |
+| lpos       | √                |                                                             |
 
 ## Set commands
 
