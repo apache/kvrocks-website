@@ -243,6 +243,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | perflog   | √                |                                                                                                                         |
 | hello     | √                |                                                                                                                         |
 | stats     | √                | dump the rocksdb statistics in JSON foramt                                                                              |
+| restore   | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 
 
 :::note
