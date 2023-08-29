@@ -224,26 +224,38 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 ## Server commands
 
-| Command   | Supported OR Not | Desc                                                                                                                    |
-|-----------|------------------|-------------------------------------------------------------------------------------------------------------------------|
-| monitor   | √                |                                                                                                                         |
-| info      | √                |                                                                                                                         |
-| role      | √                |                                                                                                                         |
-| config    | √                |                                                                                                                         |
-| dbsize    | √                |                                                                                                                         |
-| disk      | √                | `disk usage user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
-| namespace | √                |                                                                                                                         |
-| flushdb   | √                |                                                                                                                         |
-| flushall  | √                |                                                                                                                         |
-| command   | √                |                                                                                                                         |
-| client    | √                |                                                                                                                         |
-| auth      | √                |                                                                                                                         |
-| quit      | √                |                                                                                                                         |
-| slowlog   | √                |                                                                                                                         |
-| perflog   | √                |                                                                                                                         |
-| hello     | √                |                                                                                                                         |
-| stats     | √                | dump the rocksdb statistics in JSON foramt                                                                              |
-| restore   | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
+| Command     | Supported OR Not | Desc                                                                                                                    |
+|-------------|------------------|-------------------------------------------------------------------------------------------------------------------------|
+| bgsave      | √                |                                                                                                                         |
+| lastsave    | √                |                                                                                                                         |
+| ping        | √                |                                                                                                                         |
+| select      | √                | simply returns OK                                                                                                       |
+| echo        | √                |                                                                                                                         |
+| monitor     | √                |                                                                                                                         |
+| shutdown    | √                |                                                                                                                         |
+| info        | √                |                                                                                                                         |
+| role        | √                |                                                                                                                         |
+| config      | √                |                                                                                                                         |
+| dbsize      | √                |                                                                                                                         |
+| disk        | √                | `disk usage user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
+| memory      | √                | MEMORY USAGE command is an alias to DISK USAGE command                                                                  |
+| debug       | √                | only DEBUG SLEEP is supported                                                                                           |
+| namespace   | √                |                                                                                                                         |
+| flushdb     | √                |                                                                                                                         |
+| flushall    | √                |                                                                                                                         |
+| flushbackup | √                |                                                                                                                         |
+| command     | √                |                                                                                                                         |
+| client      | √                |                                                                                                                         |
+| auth        | √                |                                                                                                                         |
+| quit        | √                |                                                                                                                         |
+| slaveof     | √                |                                                                                                                         |
+| slowlog     | √                |                                                                                                                         |
+| perflog     | √                |                                                                                                                         |
+| hello       | √                |                                                                                                                         |
+| time        | √                |                                                                                                                         |
+| stats       | √                | dump the rocksdb statistics in JSON format                                                                              |
+| restore     | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
+| compact     | √                |                                                                                                                         |
 
 
 :::note
