@@ -171,11 +171,13 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 
 ## Script commands
 
-| Command | Supported OR Not | Desc                                               |
-|---------|------------------|----------------------------------------------------|
-| eval    | √                |                                                    |
-| evalsha | √                |                                                    |
-| script  | √                | script kill and debug subcommand are not supported |
+| Command    | Supported OR Not | Desc                                               |
+|------------|------------------|----------------------------------------------------|
+| eval       | √                |                                                    |
+| evalsha    | √                |                                                    |
+| eval_ro    | √                |                                                    |
+| evalsha_ro | √                |                                                    |
+| script     | √                | script kill and debug subcommand are not supported |
 
 ## PubSub commands
 
@@ -183,6 +185,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 |--------------|------------------|------|
 | psubscribe   | √                |      |
 | publish      | √                |      |
+| mpublish      | √                |      |
 | pubsub       | √                |      |
 | punsubscribe | √                |      |
 | subscribe    | √                |      |
