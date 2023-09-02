@@ -220,7 +220,9 @@ export function LineChartRight(): JSX.Element {
 }
 
 export function CodeBlock(): JSX.Element {
-  const [pythonCode, setPythonCode]=useState('r = redis.Redis(host=\'localhost\', port=6666, decode_responses=True)\n' +
+  const [pythonCode, setPythonCode]=useState('import redis\n' +
+      '\n' +
+      'r = redis.Redis(host=\'localhost\', port=6666, decode_responses=True)\n' +
       '\n' +
       'r.set(\'username\', \'kvrocks\')\n' +
       '# True\n' +
