@@ -151,6 +151,7 @@
 | rename    | X                |                                                                                                              |
 | randomkey | √                |                                                                                                              |
 | unlink    | √                |                                                                                                              |
+| move      | √                | if key does not exist, the command returns 0, otherwise it will always returns 1                             |
 
 ## Bit commands
 
