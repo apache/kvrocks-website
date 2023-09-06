@@ -74,6 +74,7 @@
 | lmove      | √                |                                                             |
 | blmove     | √                |                                                             |
 | lpos       | √                |                                                             |
+| lmpop      | √                |                                                             |
 
 ## Set commands
 
