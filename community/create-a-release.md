@@ -65,7 +65,7 @@ Patch Releases do not require this process.
 
 ### Start the official release vote
 
-After the cherry-picking period, the Release Manager can proceed with the formal release process, 
+After the cherry-picking period, the Release Manager can proceed with the ASF release process, 
 which will be described in the following sections.
 
 ## Adding GPG KEY
