@@ -18,6 +18,56 @@ Please remember that publishing software has legal consequences. This guide comp
 * [Release Distribution Policy](https://infra.apache.org/release-distribution)
 * [Release Creation Process](https://infra.apache.org/release-publishing.html)
 
+## Prepare
+
+Before the formal release process, in order to ensure that the version release is more open and formal, we have formulated the following process.
+For Feature Release, this preparation process usually takes one week or more. 
+
+### Release Manager
+
+The first step to release a version is to select a Release Manager, who will drive the entire process.
+
+The Release Manager is usually chosen from PMC members or committers, based on voluntary registration.
+However, if there are other contributors who have a strong desire to participate in the release process and no PMC member objects,
+the Release Manager can be selected from among them.
+
+If no one has a strong willingness to take on the role of Release Manager and a release is needed at this time,
+a person should be selected from among the PMC members to assume this responsibility.
+
+### Propose a release
+
+Once the Release Manager is determined, the first step is to create a Release Proposal and make it public on the community's mailing list or GitHub Discussion.
+
+The Release Proposal should include at least the following:
+- Whether this release is a Feature Release or Patch Release (to be explained later)
+- The release version number
+- The commits added in this release compared to the previous version (please indicate whether rebase/cherry-pick is needed to remove commits from or add commits to the unstable branch)
+- A deadline for cherry-picking period (only applicable to Feature Releases)
+
+Where:
+Feature Release: Typically denoted as `X.Y.0`, this type of release introduces new features along with other enhancements and bug fixes.
+Patch Release: Usually represented as `X.Y.Z`, this type of release is based on the version `X.Y.0` and includes only bug-fix patches without any new features.
+
+### Create the release branch
+
+If no one objects to the Release Proposal in the previous step, the Release Manager can create a new branch `X.Y` (Patch Releases do not need to create a branch and can directly use the existing release branch `X.Y`).
+
+The Release Manager can determine the deadline for publicizing the Release Proposal on their own, which is usually one to three days.
+
+### The cherry-picking period
+
+For Feature Release, after creating a new branch, it will enter a cherry-picking period, usually lasting for one week. The Release Manager will provide the deadline in the Release Proposal.
+
+During this period, newly merged bug fixes (especially those related to security) in the unstable branch will be unconditionally cherry-picked into the release branch,
+while other types of commits (especially new features) need to declare specific reasons and reply to the Release Proposal to apply for cherry-picking into the release branch. The final decision-making power lies with the Release Manager.
+
+Patch Releases do not require this process.
+
+### Start the official release vote
+
+After the cherry-picking period, the Release Manager can proceed with the formal release process, 
+which will be described in the following sections.
+
 ## Adding GPG KEY
 
 This section is a brief from the [Cryptography with OpenPGP](https://infra.apache.org/openpgp.html) guideline.
