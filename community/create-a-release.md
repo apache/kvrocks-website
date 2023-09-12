@@ -56,7 +56,7 @@ The Release Manager can determine the deadline for publicizing the Release Propo
 
 ### The cherry-picking period
 
-For Feature Release, after creating a new branch, it will enter a cherry-picking period, usually lasting for one week. The Release Manager will provide the deadline in the Release Proposal.
+For Feature Release, after creating a new branch, it will enter a cherry-picking period, usually lasting for 5 days to one week. The Release Manager will provide the deadline in the Release Proposal.
 
 During this period, newly merged bug fixes (especially those related to security) in the unstable branch will be unconditionally cherry-picked into the release branch,
 while other types of commits (especially new features) need to declare specific reasons and reply to the Release Proposal to apply for cherry-picking into the release branch. The final decision-making power lies with the Release Manager.
