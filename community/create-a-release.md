@@ -21,7 +21,7 @@ Please remember that publishing software has legal consequences. This guide comp
 ## Prepare
 
 Before the formal release process, in order to ensure that the version release is more open and formal, we have formulated the following process.
-For Feature Release, this preparation process usually takes one week or more. 
+For Feature Release, this preparation process usually takes about one week. 
 
 ### Release Manager
 
