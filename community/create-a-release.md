@@ -18,7 +18,7 @@ Please remember that publishing software has legal consequences. This guide comp
 * [Release Distribution Policy](https://infra.apache.org/release-distribution)
 * [Release Creation Process](https://infra.apache.org/release-publishing.html)
 
-## Prepare
+## Preparation
 
 Before the formal release process, in order to ensure that the version release is more open and formal, we have formulated the following process.
 For Feature Release, this preparation process usually takes about one week. 
