@@ -75,6 +75,7 @@
 | blmove     | √                |                                                             |
 | lpos       | √                |                                                             |
 | lmpop      | √                |                                                             |
+| blmpop     | √                |                                                             |
 
 ## Set commands
 
@@ -302,6 +303,19 @@ The db size is updated async after execute `dbsize scan` command.
 | xpending   | X                |             |
 | xreadgroup | X                |             |
 | xsetid     | √                |             |
+
+## BloomFilter commands
+
+| Command    | Supported OR Not | Desc        |
+|------------|------------------|-------------|
+| BF.RESERVE | √                |             |
+| BF.ADD     | √                |             |
+| BF.EXISTS  | √                |             |
+| BF.CARD    | √                |             |
+| BF.INFO    | √                |             |
+| BF.MADD    | √                |             |
+| BF.INSERT  | √                |             |
+| BF.MEXIST  | √                |             |
 
 ## Hyperloglog commands
 
