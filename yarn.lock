@@ -3554,7 +3554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ace-builds@npm:^1.18.0, ace-builds@npm:^1.4.6":
+"ace-builds@npm:^1.4.6":
   version: 1.19.0
   resolution: "ace-builds@npm:1.19.0"
   checksum: 4a4544ac0ab355d877ab21442222106e86eca2a98d441cbdfb023c64cb31b746515e4d49c91ccc82cc87887e00d03c9ab09a8d1b65727353888afad8732f1cac
@@ -11888,7 +11888,6 @@ __metadata:
     "@easyops-cn/docusaurus-search-local": ^0.26.1
     "@mdx-js/react": ^1.6.22
     "@tsconfig/docusaurus": ^1.0.5
-    ace-builds: ^1.18.0
     antd: ^5.4.5
     clsx: ^1.1.1
     docusaurus-plugin-image-zoom: ^0.1.1
