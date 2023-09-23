@@ -31,6 +31,7 @@ const config = {
         id: 'download',
         path: 'download',
         routeBasePath: 'download',
+        sidebarPath: require.resolve('./sidebarsDownload.js'),
         editUrl: 'https://github.com/apache/kvrocks-website/tree/main/',
       },
     ],
