@@ -1,4 +1,4 @@
-# Community Packages
+# Third-party Packages
 
 In addition to [official releases](https://kvrocks.apache.org/download/), 
 there are some packages for different linux distros maintained by some individual community members.
