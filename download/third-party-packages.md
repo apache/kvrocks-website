@@ -1,9 +1,9 @@
 # Third-party Packages
 
 In addition to [official releases](https://kvrocks.apache.org/download/), 
-there are some packages for different linux distros maintained by some individual community members.
+there are some convenient packages for different Linux distros maintained outside the Kvrocks PMC.
 
-Please note that these packages are NOT created or sponsored by the ASF.
+That said, these packages are **NOT** created or sponsored by the ASF.
 
 ### Debian and its derivatives (e.g. Ubuntu)
 
