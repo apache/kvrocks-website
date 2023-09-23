@@ -3,7 +3,7 @@
 In addition to [official releases](https://kvrocks.apache.org/download/), 
 there are some packages for different linux distros maintained by some individual community members.
 
-Please note that these packages are NOT created and sponsored by the ASF.
+Please note that these packages are NOT created or sponsored by the ASF.
 
 ### Debian and its derivatives (e.g. Ubuntu)
 
