@@ -2,7 +2,7 @@
 const sidebars = {
     docs: [
         'index',
-        'community-packages',
+        'third-party-packages',
     ],
 };
 
