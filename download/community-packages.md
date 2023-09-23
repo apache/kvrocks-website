@@ -8,7 +8,7 @@ Please note that these packages are NOT created and sponsored by the ASF.
 ### Debian and its derivatives (e.g. Ubuntu)
 
 [kvrocks-fpm](https://github.com/RocksLabs/kvrocks-fpm) is maintained by RocksLabs, 
-which generates Debian packages from official releases.
+which generates Debian packages from official releases via [fpm](https://github.com/jordansissel/fpm).
 Check [releases](https://github.com/RocksLabs/kvrocks-fpm/releases) page in the repository to download.
 
 Note that binaries included in the generated packages are built in GitHub Actions from official released source.
