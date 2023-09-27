@@ -118,6 +118,10 @@ const config = {
                 label: 'Supported commands',
                 to: '/docs/supported-commands',
               },
+              {
+                label: 'How to contribute',
+                to: 'community/contributing',
+              }
             ],
           },
           {
@@ -131,18 +135,26 @@ const config = {
                 label: 'Issue Tracker',
                 href: 'https://github.com/apache/kvrocks/issues',
               },
+              {
+                label: 'Mailing list',
+                href: 'https://lists.apache.org/list.html?dev@kvrocks.apache.org',
+              },
             ],
           },
           {
-            title: 'More',
+            title: 'Repositories',
             items: [
               {
-                label: 'Source Repo',
+                label: 'Kvrocks',
                 href: 'https://github.com/apache/kvrocks',
               },
               {
-                label: 'Website Source Repo',
+                label: 'Website',
                 href: 'https://github.com/apache/kvrocks-website',
+              },
+              {
+                label: 'Controller',
+                href: 'https://github.com/apache/kvrocks-controller',
               },
             ],
           },
