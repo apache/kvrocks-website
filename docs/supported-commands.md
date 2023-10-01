@@ -323,6 +323,7 @@ The db size is updated async after execute `dbsize scan` command.
 |------------|------------------|-------------|
 | FUNCTION   | √                |             |
 | FCALL      | √                |             |
+| FCALL_RO   | √                |             |
 
 :::note
 
