@@ -317,10 +317,16 @@ The db size is updated async after execute `dbsize scan` command.
 | BF.INSERT  | √                |             |
 | BF.MEXIST  | √                |             |
 
-## Hyperloglog commands
-
-[Not supported yet](https://redis.io/commands/?group=hyperloglog).
-
 ## Function commands
 
-[Not supported yet](https://redis.io/commands/?group=scripting).
+| Command    | Supported OR Not | Desc        |
+|------------|------------------|-------------|
+| FUNCTION   | √                |             |
+| FCALL      | √                |             |
+
+:::note
+
+Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
+In addition, `LISTFUNC` subcommand is added as an extension to list all functions and their libraries in which they are located.
+
+:::
