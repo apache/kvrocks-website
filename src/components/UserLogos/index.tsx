@@ -45,17 +45,17 @@ const userData = [
     },
     {
         img: '/media/users/circl-lu.png',
-        title: 'circl.lu',
+        title: 'CIRCL',
         site: 'https://circl.lu/',
     },
     {
         img: '/media/users/datavisor.png',
-        title: 'datavisor',
+        title: 'Datavisor',
         site: 'https://datavisor.com/',
     },
     {
         img: '/media/users/huolala.png',
-        title: 'huolala',
+        title: 'Huolala',
         site: 'https://www.huolala.cn/',
     },
     {
@@ -75,7 +75,7 @@ const userData = [
     },
     {
         img: '/media/users/iflytek-adx.jpg',
-        title: 'iflytek adx',
+        title: 'iFlytek ADX',
         site: 'https://www.voiceads.cn/',
     },
     {
@@ -83,6 +83,11 @@ const userData = [
         title: 'Shoplazza',
         site: 'https://www.shoplazza.com/',
     },
+    {
+        img: '/media/users/netease.jpg',
+        title: 'Netease Hangzhou Institute',
+        site: 'https://research.netease.com/',
+    }
 ]
 
 
