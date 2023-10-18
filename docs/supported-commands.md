@@ -262,6 +262,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | stats       | √                | dump the rocksdb statistics in JSON format                                                                              |
 | restore     | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | compact     | √                |                                                                                                                         |
+| rdb         | √                | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
 
 
 :::note
