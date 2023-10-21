@@ -332,3 +332,32 @@ Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
 In addition, `LISTFUNC` subcommand is added as an extension to list all functions and their libraries in which they are located.
 
 :::
+
+## JSON commands
+
+| Command          | Supported OR Not | Desc        |
+|------------------|------------------|-------------|
+| JSON.ARRAPPEND   | √                |             |
+| JSON.ARRINDEX    | X                |             |
+| JSON.ARRINSERT   | X                |             |
+| JSON.ARRLEN      | X                |             |
+| JSON.ARRPOP      | X                |             |
+| JSON.ARRTRIM     | X                |             |
+| JSON.CLEAR       | X                |             |
+| JSON.DEL         | X                |             |
+| JSON.FORGET      | X                |             |
+| JSON.GET         | √                |             |
+| JSON.MERGE       | X                |             |
+| JSON.MGET        | X                |             |
+| JSON.MSET        | X                |             |
+| JSON.NUMINCRBY   | X                |             |
+| JSON.NUMMULTBY   | X                |             |
+| JSON.OBJKEYS     | X                |             |
+| JSON.OBJLEN      | X                |             |
+| JSON.RESP        | X                |             |
+| JSON.SET         | √                |             |
+| JSON.STRAPPEND   | X                |             |
+| JSON.STRLEN      | X                |             |
+| JSON.TOGGLE      | X                |             |
+| JSON.TYPE        | X                |             |
+
