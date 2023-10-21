@@ -359,5 +359,5 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.STRAPPEND   | X                |             |
 | JSON.STRLEN      | X                |             |
 | JSON.TOGGLE      | X                |             |
-| JSON.TYPE        | X                |             |
+| JSON.TYPE        | √                |             |
 
