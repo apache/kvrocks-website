@@ -4,167 +4,167 @@
 
 | Command     | Supported OR Not | Desc                                                                                                         |
 |-------------|------------------|--------------------------------------------------------------------------------------------------------------|
-| append      | √                |                                                                                                              |
-| decr        | √                |                                                                                                              |
-| decrby      | √                |                                                                                                              |
-| get         | √                |                                                                                                              |
-| getex       | √                |                                                                                                              |
-| getrange    | √                |                                                                                                              |
-| substr      | √                |                                                                                                              |
-| getset      | √                |                                                                                                              |
-| incr        | √                |                                                                                                              |
-| incrby      | √                |                                                                                                              |
-| incrbyfloat | √                |                                                                                                              |
-| mget        | √                |                                                                                                              |
-| mset        | √                |                                                                                                              |
-| msetnx      | √                |                                                                                                              |
-| psetex      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| set         | √                |                                                                                                              |
-| setex       | √                |                                                                                                              |
-| setnx       | √                |                                                                                                              |
-| setrange    | √                |                                                                                                              |
-| strlen      | √                |                                                                                                              |
-| cas         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
-| cad         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
-| getdel      | √                |                                                                                                              |
+| APPEND      | √                |                                                                                                              |
+| DECR        | √                |                                                                                                              |
+| DECRBY      | √                |                                                                                                              |
+| GET         | √                |                                                                                                              |
+| GETEX       | √                |                                                                                                              |
+| GETRANGE    | √                |                                                                                                              |
+| SUBSTR      | √                |                                                                                                              |
+| GETSET      | √                |                                                                                                              |
+| INCR        | √                |                                                                                                              |
+| INCRBY      | √                |                                                                                                              |
+| INCRBYFLOAT | √                |                                                                                                              |
+| MGET        | √                |                                                                                                              |
+| MSET        | √                |                                                                                                              |
+| MSETNX      | √                |                                                                                                              |
+| PSETEX      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| SET         | √                |                                                                                                              |
+| SETEX       | √                |                                                                                                              |
+| SETNX       | √                |                                                                                                              |
+| SETRANGE    | √                |                                                                                                              |
+| STRLEN      | √                |                                                                                                              |
+| CAS         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| CAD         | √                | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| GETDEL      | √                |                                                                                                              |
 
 ## Hash commands
 
 | Command      | Supported OR Not | Desc |
 |--------------|------------------|------|
-| hdel         | √                |      |
-| hexists      | √                |      |
-| hget         | √                |      |
-| hgetall      | √                |      |
-| hincrby      | √                |      |
-| hincrbyfloat | √                |      |
-| hkeys        | √                |      |
-| hlen         | √                |      |
-| hmget        | √                |      |
-| hmset        | √                |      |
-| hrangebylex  | √                |      |
-| hset         | √                |      |
-| hsetnx       | √                |      |
-| hstrlen      | √                |      |
-| hvals        | √                |      |
-| hscan        | √                |      |
-| hrandfield   | √                |      |
+| HDEL         | √                |      |
+| HEXISTS      | √                |      |
+| HGET         | √                |      |
+| HGETALL      | √                |      |
+| HINCRBY      | √                |      |
+| HINCRBYFLOAT | √                |      |
+| HKEYS        | √                |      |
+| HLEN         | √                |      |
+| HMGET        | √                |      |
+| HMSET        | √                |      |
+| HRANGEBYLEX  | √                |      |
+| HSET         | √                |      |
+| HSETNX       | √                |      |
+| HSTRLEN      | √                |      |
+| HVALS        | √                |      |
+| HSCAN        | √                |      |
+| HRANDFIELD   | √                |      |
 
 ## List commands
 
 | Command    | Supported OR Not | Desc                                                        |
 |------------|------------------|-------------------------------------------------------------|
-| blpop      | √                |                                                             |
-| brpop      | √                |                                                             |
-| brpoplpush | X                |                                                             |
-| lindex     | √                | `O(N)` operation, do not use it when list is extremely long |
-| linsert    | √                | `O(N)` operation, do not use it when list is extremely long |
-| llen       | √                |                                                             |
-| lpop       | √                |                                                             |
-| lpush      | √                |                                                             |
-| lpushx     | √                |                                                             |
-| lrange     | √                |                                                             |
-| lrem       | √                | `O(N)` operation, do not use it when list is extremely long |
-| lset       | √                |                                                             |
-| ltrim      | √                | `O(N)` operation, do not use it when list is extremely long |
-| rpop       | √                |                                                             |
-| rpoplpush  | √                |                                                             |
-| rpush      | √                |                                                             |
-| rpushx     | √                |                                                             |
-| lmove      | √                |                                                             |
-| blmove     | √                |                                                             |
-| lpos       | √                |                                                             |
-| lmpop      | √                |                                                             |
-| blmpop     | √                |                                                             |
+| BLPOP      | √                |                                                             |
+| BRPOP      | √                |                                                             |
+| BRPOPLPUSH | X                |                                                             |
+| LINDEX     | √                | `O(N)` operation, do not use it when the list is too long   |
+| LINSERT    | √                | `O(N)` operation, do not use it when the list is too long   |
+| LLEN       | √                |                                                             |
+| LPOP       | √                |                                                             |
+| LPUSH      | √                |                                                             |
+| LPUSHX     | √                |                                                             |
+| LRANGE     | √                |                                                             |
+| LREM       | √                | `O(N)` operation, do not use it when the list is too long   |
+| LSET       | √                |                                                             |
+| LTRIM      | √                | `O(N)` operation, do not use it when the list is too long   |
+| RPOP       | √                |                                                             |
+| RPOPLPUSH  | √                |                                                             |
+| RPUSH      | √                |                                                             |
+| RPUSHX     | √                |                                                             |
+| LMOVE      | √                |                                                             |
+| BLMOVE     | √                |                                                             |
+| LPOS       | √                |                                                             |
+| LMPOP      | √                |                                                             |
+| BLMPOP     | √                |                                                             |
 
 ## Set commands
 
 | Command     | Supported OR Not | Desc                                  |
 |-------------|------------------|---------------------------------------|
-| sadd        | √                |                                       |
-| scard       | √                |                                       |
-| sdiff       | √                |                                       |
-| sdiffstore  | √                |                                       |
-| sinter      | √                |                                       |
-| sintercard  | √                |                                       |
-| sinterstore | √                |                                       |
-| sismember   | √                |                                       |
-| smembers    | √                |                                       |
-| smove       | √                |                                       |
-| spop        | √                | pop the member with key order         |
-| srandmember | √                | always first N members if not changed |
-| srem        | √                |                                       |
-| sunion      | √                |                                       |
-| sunionstore | √                |                                       |
-| sscan       | √                |                                       |
+| SADD        | √                |                                       |
+| SCARD       | √                |                                       |
+| SDIFF       | √                |                                       |
+| SDIFFSTORE  | √                |                                       |
+| SINTER      | √                |                                       |
+| SINTERCARD  | √                |                                       |
+| SINTERSTORE | √                |                                       |
+| SISMEMBER   | √                |                                       |
+| SMEMBERS    | √                |                                       |
+| SMOVE       | √                |                                       |
+| SPOP        | √                | pop members in the order of keys      |
+| SRANDMEMBER | √                | always first N members if not changed |
+| SREM        | √                |                                       |
+| SUNION      | √                |                                       |
+| SUNIONSTORE | √                |                                       |
+| SSCAN       | √                |                                       |
 
 ## ZSet commands
 
 | Command          | Supported OR Not | Desc         |
 |------------------|------------------|--------------|
-| bzmpop           | √                |              |
-| bzpopmin         | √                |              |
-| bzpopmax         | √                |              |
-| zadd             | √                |              |
-| zcard            | √                |              |
-| zcount           | √                |              |
-| zincrby          | √                |              |
-| zinterstore      | √                |              |
-| zlexcount        | √                |              |
-| zmpop            | √                |              |
-| zmscore          | √                | multi zscore |
-| zpopmin          | √                |              |
-| zpopmax          | √                |              |
-| zrangestore      | √                |              |
-| zrange           | √                |              |
-| zrangebylex      | √                |              |
-| zrangebyscore    | √                |              |
-| zrank            | √                |              |
-| zrem             | √                |              |
-| zremrangebylex   | √                |              |
-| zremrangebyrank  | √                |              |
-| zremrangebyscore | √                |              |
-| zrevrank         | √                |              |
-| zrevrange        | √                |              |
-| zrevrangebylex   | √                |              |
-| zrevrangebyscore | √                |              |
-| zscan            | √                |              |
-| zscore           | √                |              |
-| zunion           | √                |              |
-| zunionstore      | √                |              |
+| BZMPOP           | √                |              |
+| BZPOPMIN         | √                |              |
+| BZPOPMAX         | √                |              |
+| ZADD             | √                |              |
+| ZCARD            | √                |              |
+| ZCOUNT           | √                |              |
+| ZINCRBY          | √                |              |
+| ZINTERSTORE      | √                |              |
+| ZLEXCOUNT        | √                |              |
+| ZMPOP            | √                |              |
+| ZMSCORE          | √                | multi ZSCORE |
+| ZPOPMIN          | √                |              |
+| ZPOPMAX          | √                |              |
+| ZRANGESTORE      | √                |              |
+| ZRANGE           | √                |              |
+| ZRANGEBYLEX      | √                |              |
+| ZRANGEBYSCORE    | √                |              |
+| ZRANK            | √                |              |
+| ZREM             | √                |              |
+| ZREMRANGEBYLEX   | √                |              |
+| ZREMRANGEBYRANK  | √                |              |
+| ZREMRANGEBYSCORE | √                |              |
+| ZREVRANK         | √                |              |
+| ZREVRANGE        | √                |              |
+| ZREVRANGEBYLEX   | √                |              |
+| ZREVRANGEBYSCORE | √                |              |
+| ZSCAN            | √                |              |
+| ZSCORE           | √                |              |
+| ZUNION           | √                |              |
+| ZUNIONSTORE      | √                |              |
 
 ## Key commands
 
 | Command   | Supported OR Not | Desc                                                                                                         |
 |-----------|------------------|--------------------------------------------------------------------------------------------------------------|
-| del       | √                |                                                                                                              |
-| dump      | X                |                                                                                                              |
-| exists    | √                |                                                                                                              |
-| expire    | √                |                                                                                                              |
-| expireat  | √                |                                                                                                              |
-| keys      | √                |                                                                                                              |
-| persist   | √                |                                                                                                              |
-| pexpire   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| pexpireat | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| pttl      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| ttl       | √                |                                                                                                              |
-| type      | √                |                                                                                                              |
-| scan      | √                |                                                                                                              |
-| rename    | X                |                                                                                                              |
-| randomkey | √                |                                                                                                              |
-| unlink    | √                |                                                                                                              |
-| move      | √                | if key does not exist, the command returns 0, otherwise it will always returns 1                             |
+| DEL       | √                |                                                                                                              |
+| DUMP      | X                |                                                                                                              |
+| EXISTS    | √                |                                                                                                              |
+| EXPIRE    | √                |                                                                                                              |
+| EXPIREAT  | √                |                                                                                                              |
+| KEYS      | √                |                                                                                                              |
+| PERSIST   | √                |                                                                                                              |
+| PEXPIRE   | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PEXPIREAT | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PTTL      | √                | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| TTL       | √                |                                                                                                              |
+| TYPE      | √                |                                                                                                              |
+| SCAN      | √                |                                                                                                              |
+| RENAME    | X                |                                                                                                              |
+| RANDOMKEY | √                |                                                                                                              |
+| UNLINK    | √                |                                                                                                              |
+| MOVE      | √                | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
 
 ## Bit commands
 
 | Command  | Supported OR Not | Desc |
 |----------|------------------|------|
-| getbit   | √                |      |
-| setbit   | √                |      |
-| bitcount | √                |      |
-| bitpos   | √                |      |
-| bitfield | X                |      |
-| bitop    | √                |      |
+| GETBIT   | √                |      |
+| SETBIT   | √                |      |
+| BITCOUNT | √                |      |
+| BITPOS   | √                |      |
+| BITFIELD | X                |      |
+| BITOP    | √                |      |
 
 :::note
 
@@ -176,98 +176,98 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 
 | Command    | Supported OR Not | Desc                                               |
 |------------|------------------|----------------------------------------------------|
-| eval       | √                |                                                    |
-| evalsha    | √                |                                                    |
-| eval_ro    | √                |                                                    |
-| evalsha_ro | √                |                                                    |
-| script     | √                | script kill and debug subcommand are not supported |
+| EVAL       | √                |                                                    |
+| EVALSHA    | √                |                                                    |
+| EVAL_RO    | √                |                                                    |
+| EVALSHA_RO | √                |                                                    |
+| SCRIPT     | √                | SCRIPT KILL and DEBUG subcommand are not supported |
 
 ## PubSub commands
 
 | Command      | Supported OR Not | Desc |
 |--------------|------------------|------|
-| psubscribe   | √                |      |
-| publish      | √                |      |
-| mpublish      | √                |      |
-| pubsub       | √                |      |
-| punsubscribe | √                |      |
-| subscribe    | √                |      |
-| unsubscribe  | √                |      |
+| PSUBSCRIBE   | √                |      |
+| PUBLISH      | √                |      |
+| MPUBLISH     | √                |      |
+| PUBSUB       | √                |      |
+| PUNSUBSCRIBE | √                |      |
+| SUBSCRIBE    | √                |      |
+| UNSUBSCRIBE  | √                |      |
 
 ## Transaction commands
 
 | Command | Supported OR Not | Desc |
 |---------|------------------|------|
-| multi   | √                |      |
-| exec    | √                |      |
-| discard | √                |      |
-| watch   | √                |      |
-| unwatch | √                |      |
+| MULTI   | √                |      |
+| EXEC    | √                |      |
+| DISCARD | √                |      |
+| WATCH   | √                |      |
+| UNWATCH | √                |      |
 
 ## SortedInt commands
 
-| Command           | Supported OR Not | Desc                                               |
-|-------------------|------------------|----------------------------------------------------|
-| sicard            | √                | like scard                                         |
-| siadd             | √                | like sadd, but member is int                       |
-| sirem             | √                | like srem, but member is int                       |
-| sirange           | √                | sirange key offset count cursor since_id           |
-| sirevrange        | √                | sirevrange key offset count cursor max_id          |
-| siexists          | √                | siexists key member1 (member2 ...)                 |
-| sirangebyvalue    | √                | sirangebyvalue key min max (LIMIT offset count)    |
-| sirevrangebyvalue | √                | sirevrangebyvalue key max min (LIMIT offset count) |
+| Command           | Supported OR Not | Desc                                                |
+|-------------------|------------------|-----------------------------------------------------|
+| SICARD            | √                | like SCARD                                          |
+| SIADD             | √                | like SADD, but members are integers                 |
+| SIREM             | √                | like SREM, but members are integers                 |
+| SIRANGE           | √                | `SIRANGE key offset count cursor since_id`          |
+| SIREVRANGE        | √                | `SIREVRANGE key offset count cursor max_id`         |
+| SIEXISTS          | √                | `SIEXISTS key member1 [member2 ...]`                |
+| SIRANGEBYVALUE    | √                | `SIRANGEBYVALUE key min max [LIMIT offset count]`   |
+| SIREVRANGEBYVALUE | √                | `SIREVRANGEBYVALUE key max min [LIMIT offset count]`|
 
 ## Cluster commands
 
 These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
-| Subcommand | Supported OR Not | Desc |
+| SUBCOMMAND | Supported OR Not | Desc |
 |------------|------------------|------|
-| info       | √                |      |
-| nodes      | √                |      |
-| slots      | √                |      |
-| keyslot    | √                |      |
+| INFO       | √                |      |
+| NODES      | √                |      |
+| SLOTS      | √                |      |
+| KEYSLOT    | √                |      |
 
 ## Server commands
 
 | Command     | Supported OR Not | Desc                                                                                                                    |
 |-------------|------------------|-------------------------------------------------------------------------------------------------------------------------|
-| bgsave      | √                |                                                                                                                         |
-| lastsave    | √                |                                                                                                                         |
-| ping        | √                |                                                                                                                         |
-| select      | √                | simply returns OK                                                                                                       |
-| echo        | √                |                                                                                                                         |
-| monitor     | √                |                                                                                                                         |
-| shutdown    | √                |                                                                                                                         |
-| info        | √                |                                                                                                                         |
-| role        | √                |                                                                                                                         |
-| config      | √                |                                                                                                                         |
-| dbsize      | √                |                                                                                                                         |
-| disk        | √                | `disk usage user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
-| memory      | √                | MEMORY USAGE command is an alias to DISK USAGE command                                                                  |
-| debug       | √                | only DEBUG SLEEP is supported                                                                                           |
-| namespace   | √                |                                                                                                                         |
-| flushdb     | √                |                                                                                                                         |
-| flushall    | √                |                                                                                                                         |
-| flushbackup | √                |                                                                                                                         |
+| BGSAVE      | √                |                                                                                                                         |
+| LASTSAVE    | √                |                                                                                                                         |
+| PING        | √                |                                                                                                                         |
+| SELECT      | √                | simply returns OK                                                                                                       |
+| ECHO        | √                |                                                                                                                         |
+| MONITOR     | √                |                                                                                                                         |
+| SHUTDOWN    | √                |                                                                                                                         |
+| INFO        | √                |                                                                                                                         |
+| ROLE        | √                |                                                                                                                         |
+| CONFIG      | √                |                                                                                                                         |
+| DBSIZE      | √                |                                                                                                                         |
+| DISK        | √                | `DISK USAGE user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
+| MEMORY      | √                | MEMORY USAGE command is an alias to DISK USAGE command                                                                  |
+| DEBUG       | √                | only DEBUG SLEEP is supported                                                                                           |
+| NAMESPACE   | √                |                                                                                                                         |
+| FLUSHDB     | √                |                                                                                                                         |
+| FLUSHALL    | √                |                                                                                                                         |
+| FLUSHBACKUP | √                |                                                                                                                         |
 | command     | √                |                                                                                                                         |
-| client      | √                |                                                                                                                         |
-| auth        | √                |                                                                                                                         |
-| quit        | √                |                                                                                                                         |
-| slaveof     | √                |                                                                                                                         |
-| slowlog     | √                |                                                                                                                         |
-| perflog     | √                |                                                                                                                         |
-| hello       | √                |                                                                                                                         |
-| time        | √                |                                                                                                                         |
-| stats       | √                | dump the rocksdb statistics in JSON format                                                                              |
-| restore     | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
-| compact     | √                |                                                                                                                         |
-| rdb         | √                | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
+| CLIENT      | √                |                                                                                                                         |
+| AUTH        | √                |                                                                                                                         |
+| QUIT        | √                |                                                                                                                         |
+| SLAVEOF     | √                |                                                                                                                         |
+| SLOWLOG     | √                |                                                                                                                         |
+| PERFLOG     | √                |                                                                                                                         |
+| HELLO       | √                |                                                                                                                         |
+| TIME        | √                |                                                                                                                         |
+| STATS       | √                | dump the rocksdb statistics in JSON format                                                                              |
+| RESTORE     | √                | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
+| COMPACT     | √                |                                                                                                                         |
+| RDB         | √                | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
 
 
 :::note
 
-The db size is updated async after execute `dbsize scan` command.
+The db size is updated async after execute `DBSIZE SCAN` command.
 
 :::
 
@@ -275,35 +275,35 @@ The db size is updated async after execute `dbsize scan` command.
 
 | Command              | Supported OR Not | Desc |
 |----------------------|------------------|------|
-| geoadd               | √                |      |
-| geodist              | √                |      |
-| geohash              | √                |      |
-| geopos               | √                |      |
-| georadius            | √                |      |
-| georadius_ro         | √                |      |
-| georadiusbymember    | √                |      |
-| georadiusbymember_ro | √                |      |
-| geosearch            | √                |      |
-| getsearchstore       | √                |      |
+| GEOADD               | √                |      |
+| GEODIST              | √                |      |
+| GEOHASH              | √                |      |
+| GEOPOS               | √                |      |
+| GEORADIUS            | √                |      |
+| GEORADIUS_ro         | √                |      |
+| GEORADIUSBYMEMBER    | √                |      |
+| GEORADIUSBYMEMBER_ro | √                |      |
+| GEOSEARCH            | √                |      |
+| GETSEARCHSTORE       | √                |      |
 
 ## Stream commands
 
 | Command    | Supported OR Not | Desc        |
 |------------|------------------|-------------|
-| xadd       | √                |             |
-| xdel       | √                |             |
-| xinfo      | √                | STREAM only |
-| xlen       | √                |             |
-| xrange     | √                |             |
-| xread      | √                |             |
-| xrevrange  | √                |             |
-| xtrim      | √                |             |
-| xclaim     | X                |             |
-| xautoclaim | X                |             |
-| xgroup     | X                |             |
-| xpending   | X                |             |
-| xreadgroup | X                |             |
-| xsetid     | √                |             |
+| XADD       | √                |             |
+| XDEL       | √                |             |
+| XINFO      | √                | STREAM only |
+| XLEN       | √                |             |
+| XRANGE     | √                |             |
+| XREAD      | √                |             |
+| XREVRANGE  | √                |             |
+| XTRIM      | √                |             |
+| XCLAIM     | X                |             |
+| XAUTOCLAIM | X                |             |
+| XGROUP     | X                |             |
+| XPENDING   | X                |             |
+| XREADGROUP | X                |             |
+| XSETID     | √                |             |
 
 ## BloomFilter commands
 
@@ -340,10 +340,10 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.ARRAPPEND   | √                |             |
 | JSON.ARRINDEX    | X                |             |
 | JSON.ARRINSERT   | X                |             |
-| JSON.ARRLEN      | X                |             |
+| JSON.ARRLEN      | √                |             |
 | JSON.ARRPOP      | X                |             |
 | JSON.ARRTRIM     | X                |             |
-| JSON.CLEAR       | X                |             |
+| JSON.CLEAR       | √                |             |
 | JSON.DEL         | X                |             |
 | JSON.FORGET      | X                |             |
 | JSON.GET         | √                |             |
