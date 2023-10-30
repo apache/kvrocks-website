@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     imgPath: require('@site/static/img/high-available.png').default,
-    title: 'High Available',
+    title: 'High Availability',
     description: (
         <>
           Support Redis sentinel to failover when master or replica was failed
