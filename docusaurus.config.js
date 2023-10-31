@@ -95,7 +95,7 @@ const config = {
             items: [
               {label: 'Foundation', to: 'https://www.apache.org/'},
               {label: 'License', to: 'https://www.apache.org/licenses/'},
-              {label: 'Events', to: 'https://www.apache.org/events/current-event'},
+              {label: 'Events', to: 'https://www.apache.org/events/current-event.html'},
               {label: 'Security', to: 'https://www.apache.org/security/'},
               {label: 'Sponsorship', to: 'https://www.apache.org/foundation/sponsorship.html'},
               {label: 'Privacy', to: 'https://privacy.apache.org/policies/privacy-policy-public.html'},
