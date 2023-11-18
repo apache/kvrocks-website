@@ -338,16 +338,16 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | Command          | Supported OR Not | Desc        |
 |------------------|------------------|-------------|
 | JSON.ARRAPPEND   | √                |             |
-| JSON.ARRINDEX    | X                |             |
-| JSON.ARRINSERT   | X                |             |
+| JSON.ARRINDEX    | √                |             |
+| JSON.ARRINSERT   | √                |             |
 | JSON.ARRLEN      | √                |             |
-| JSON.ARRPOP      | X                |             |
-| JSON.ARRTRIM     | X                |             |
+| JSON.ARRPOP      | √                |             |
+| JSON.ARRTRIM     | √                |             |
 | JSON.CLEAR       | √                |             |
 | JSON.DEL         | X                |             |
 | JSON.FORGET      | X                |             |
 | JSON.GET         | √                |             |
-| JSON.MERGE       | X                |             |
+| JSON.MERGE       | √                |             |
 | JSON.MGET        | X                |             |
 | JSON.MSET        | X                |             |
 | JSON.NUMINCRBY   | X                |             |
@@ -358,6 +358,6 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.SET         | √                |             |
 | JSON.STRAPPEND   | X                |             |
 | JSON.STRLEN      | X                |             |
-| JSON.TOGGLE      | X                |             |
+| JSON.TOGGLE      | √                |             |
 | JSON.TYPE        | √                |             |
 
