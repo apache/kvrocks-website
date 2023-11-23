@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 2. Pull the latest image and start a container:
 
 ```shell
-docker run -it -p 6666:6666 apache/kvrocks
+docker run -it -p 6666:6666 apache/kvrocks --bind 0.0.0.0
 ```
 
 Now you can use the `redis-cli` to run the kvrocks server as Redis on port `6666`:
