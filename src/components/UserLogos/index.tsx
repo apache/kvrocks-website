@@ -87,6 +87,11 @@ const userData = [
         img: '/media/users/netease.jpg',
         title: 'Netease Hangzhou Institute',
         site: 'https://research.netease.com/',
+    },
+    {
+        img: '/media/users/zto.png',
+        title: 'ZTO Express',
+        site: 'https://www.zto.com/',
     }
 ]
 
