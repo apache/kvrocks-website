@@ -142,7 +142,7 @@ Hi [invitee name],
 
 The Kvrocks Project Management Committee (PMC)
 
-hereby offers you committer privileges to the project.
+Hereby, we offer you committer privileges to the project.
 These privileges are offered on the understanding that you'll use them
 reasonably and with common sense. We like to work on trust
 rather than unnecessary constraints.
@@ -159,27 +159,24 @@ probably find that you spend more time here.
 Of course, you can decline and instead remain as a
 contributor, participating as you do now.
 
-Of course, you can decline and instead remain as a
-contributor, participating as you do now.
-
 This personal invitation is a chance for you to accept or decline in private.
 Please let us know in reply to this message whether you accept or decline.
 
-If you accept, you will need an Apache account (id) with privileges.
+If you accept, you will need an Apache account (ID) with privileges.
 Please follow these instructions.
 
 A. If you already have an ICLA on file:
 
-    1. If you already have an Apache account, let us know your id and we
+    1. If you already have an Apache account, let us know your ID, and we
 will grant you privileges on the project repositories.
 
     2. If you have previously sent an ICLA, let us know the email address
-and public name used on the ICLA and your preferred Apache id, and
+and public name used on the ICLA and your preferred Apache ID, and
 we will request your account.
 
     3. If the email address on the previously submitted ICLA is no longer
 valid, let us know the email address and public name used on the new ICLA,
-and your preferred Apache id. Continue to step B below and file your new ICLA.
+and your preferred Apache ID. Continue to step B below and file your new ICLA.
 
 Look to see if your preferred ID is already taken at
 https://people.apache.org/committer-index.html
