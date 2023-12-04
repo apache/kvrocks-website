@@ -3,6 +3,11 @@ id: vote-a-core-developer
 title: Vote a new committer or PMC member
 ---
 
+````mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+````
+
 Kvrocks PMC member should be responsible for assessing the contributions of candidates.
 
 Like many Apache projects, Kvrocks welcome all contributions, including code contributions, documentation improvement, blog entries, guides for new users, public speeches, and enhancement of the project in various ways.
@@ -135,6 +140,9 @@ The invitation email is sent to the invitee with a CC to `private@kvrocks.apache
 
 The following is an example of an email inviting candidates:
 
+<Tabs>
+  <TabItem value="committer" label="Committer" default>
+
 ```text
 Subject: Invitation to become Kvrocks committer: [invitee name]
 
@@ -207,7 +215,88 @@ receive a follow-up message with the next steps for
 establishing you as a committer.
 ```
 
-For inviting the PMC member, the mail template can refer [this](https://incubator.apache.org/guides/ppmc-offer.txt).
+  </TabItem>
+  <TabItem value="pmc-member" label="PMC Member">
+
+```text
+Subject: Invitation to become Kvrocks PMC member: [invitee name]
+
+Hi [invitee name],
+
+The Kvrocks Project Management Committee (PMC)
+
+Hereby, we offer you membership in the PMC, and committer privileges
+to the project if you do not have already.
+
+These privileges are offered on the understanding that you'll use them
+reasonably and with common sense. We like to work on trust
+rather than unnecessary constraints.
+
+Being a PMC member enables you to guide
+the direction of the project.
+
+Being a committer enables you to more easily make
+changes without needing to go through the patch
+submission process. 
+
+Being a PMC member does not require you to
+participate any more than you already do. It does
+tend to make one even more committed.  You will
+probably find that you spend more time here.
+
+Of course, you can decline and instead remain as a
+contributor, participating as you do now.
+
+This personal invitation is a chance for you to accept or decline in private.
+Please let us know in reply to this message whether you accept or decline.
+
+If you accept, you will need an Apache account (ID) with privileges.
+Please follow these instructions.
+
+A. If you already have an ICLA on file:
+
+    1. If you already have an Apache account, let us know your ID, and we
+will grant you privileges on the project repositories.
+
+    2. If you have previously sent an ICLA, let us know the email address
+and public name used on the ICLA and your preferred Apache ID, and
+we will request your account.
+
+    3. If the email address on the previously submitted ICLA is no longer
+valid, let us know the email address and public name used on the new ICLA,
+and your preferred Apache ID. Continue to step B below and file your new ICLA.
+
+Look to see if your preferred ID is already taken at
+https://people.apache.org/committer-index.html
+
+B. If there is not already an ICLA on file, you need to submit an ICLA:
+
+    1. Details of the ICLA and the forms are found
+    through this link: https://www.apache.org/licenses/#clas
+
+    2. Instructions for its completion and return to
+    the Secretary of the ASF are found at
+    https://www.apache.org/licenses/contributor-agreements.html#submitting
+
+    Do not copy the project or any other individual on your message
+    to Secretary, as the form contains Personally Identifiable Information
+    that should be kept private.
+
+    3. When you complete the ICLA form, be sure to include in the form
+    the Apache Kvrocks project and choose a
+    unique Apache ID. Look to see if your preferred
+    ID is already taken at
+    https://people.apache.org/committer-index.html
+    This will allow the Secretary to notify the PMC
+    when your ICLA has been recorded.
+
+When recording of your ICLA is noted, you will
+receive a follow-up message with the next steps for
+establishing you as a committer.
+```
+
+  </TabItem>
+</Tabs>
 
 ## Processing after accepting the invitation
 
