@@ -163,7 +163,7 @@
 | SETBIT   | √                |      |
 | BITCOUNT | √                |      |
 | BITPOS   | √                |      |
-| BITFIELD | X                |      |
+| BITFIELD | √                |      |
 | BITOP    | √                |      |
 
 :::note
@@ -344,20 +344,20 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.ARRPOP      | √                |             |
 | JSON.ARRTRIM     | √                |             |
 | JSON.CLEAR       | √                |             |
-| JSON.DEL         | X                |             |
-| JSON.FORGET      | X                |             |
+| JSON.DEL         | √                |             |
+| JSON.FORGET      | √                |             |
 | JSON.GET         | √                |             |
 | JSON.MERGE       | √                |             |
 | JSON.MGET        | X                |             |
 | JSON.MSET        | X                |             |
-| JSON.NUMINCRBY   | X                |             |
-| JSON.NUMMULTBY   | X                |             |
+| JSON.NUMINCRBY   | √                |             |
+| JSON.NUMMULTBY   | √                |             |
 | JSON.OBJKEYS     | √                |             |
-| JSON.OBJLEN      | X                |             |
+| JSON.OBJLEN      | √                |             |
 | JSON.RESP        | X                |             |
 | JSON.SET         | √                |             |
-| JSON.STRAPPEND   | X                |             |
-| JSON.STRLEN      | X                |             |
+| JSON.STRAPPEND   | √                |             |
+| JSON.STRLEN      | √                |             |
 | JSON.TOGGLE      | √                |             |
 | JSON.TYPE        | √                |             |
 
