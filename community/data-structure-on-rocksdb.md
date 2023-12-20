@@ -104,11 +104,6 @@ We store the hash keys/values into a single key-value, assume we store millions 
 
 :::
 
-:::note What can we do if the user key is conflicted with the composed key?
-
-We store the metadata key and composed key in different column families, so it wouldn't happen.
-
-:::
 
 ## Set
 
