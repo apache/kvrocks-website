@@ -260,3 +260,32 @@ The sub-key in a stream is composed by the stream key, version and the entry ID.
 key|version|EID MS|EID SEQ => |     encoded value     |
                               +-----------------------+
 ```
+
+## Bloom Filter
+
+Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as a Redis module (https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
+
+The underlying structure of a Bloom filter is a bit array, which is a fixed-size array of bits, typically implemented as a contiguous block of memory and storage. We choose "split block bloom filter", as described in section 2.1 of [Network Applications of Bloom Filters: A Survey](https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf). In a split block bloom filter, the bit array is divided into fixed-size blocks, and each block is treated as an independent Bloom filter. This approach allows for more efficient memory usage, especially when dealing with relatively large Bloom filters. The split block bloom filter is utilized in various systems such as RocksDB, Parquet, and Impala. For further details, please refer to the [BloomFilter.md](https://github.com/apache/parquet-format/blob/master/BloomFilter.md) document.
+
+We also enable users to scale the Bloom filter without needing to know the specific number of elements. As the number of elements in a Bloom filter grows, the probability of false positives also increases. To address this, one approach is to utilize a layered Bloom filter, also known as a cascading Bloom filter. In a layered Bloom filter, multiple independent Bloom filters are used in a cascading fashion. When checking for membership, the element is first checked against the first (top) filter. If it is not found, it is then checked against the second filter, and so on. This approach allows for a more controlled false positive rate, as each layer can be tuned to a different false positive probability. Additionally, when a layer becomes full, a new layer can be added, allowing the Bloom filter to dynamically adapt to changes in the number of elements. This layered structure effectively maintains the efficiency and effectiveness of the Bloom filter as the number of elements grows.
+
+#### Bloom Filter metadata
+
+```text
+              +---------+---------+---------+---------+-----------------------+-----------+---------------+------------+-------------+
+              | flags   | expire  | version |  size   | number of sub-filters | expansion | base_capacity | error_rate | bloom_bytes |
+ key =>       +---------+---------+---------+---------+-----------------------+-----------+---------------+------------+-------------+
+              | (1byte) | (Ebyte) | (8byte) | (Sbyte) | (2byte)               | (2byte)   | (4byte)       | (8byte)    | (4byte)     |
+              +---------+---------+---------+---------+-----------------------+-----------+---------------+------------+-------------+
+```
+
+#### Bloom Filter sub keys-values
+
+We break the bitmap values into fragments(each fragment is a split block bloom filter with size `base_capacity * (expansion ^ index)`), and subkey is the index of the fragment.
+
+```text
+             +---------------+
+key|index => |    filter     |
+             +---------------+
+```
+
