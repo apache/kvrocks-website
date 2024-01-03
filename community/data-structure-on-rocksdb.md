@@ -265,7 +265,7 @@ key|version|EID MS|EID SEQ => |     encoded value     |
 
 ## Bloom Filter
 
-Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as a Redis module (https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
+Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as [a Redis module](https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
 
 The underlying structure of a Bloom filter is a bit array, which is a fixed-size array of bits, typically implemented as a contiguous block of memory and storage. We choose "split block bloom filter", as described in section 2.1 of [Network Applications of Bloom Filters: A Survey](https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf). In a split block bloom filter, the bit array is divided into fixed-size blocks, and each block is treated as an independent Bloom filter. This approach allows for more efficient memory usage, especially when dealing with relatively large Bloom filters. The split block bloom filter is utilized in various systems such as RocksDB, Parquet, and Impala. For further details, please refer to the [BloomFilter.md](https://github.com/apache/parquet-format/blob/master/BloomFilter.md) document.
 
