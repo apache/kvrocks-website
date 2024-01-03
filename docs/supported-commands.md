@@ -19,7 +19,7 @@
 | MSET        | √                | v1.0.0        |                                                              |
 | MSETNX      | √                | v1.3.0        |                                                              |
 | PSETEX      | √                | v1.3.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| SET         | √                | v1.0.0        |                                                              |
+| SET         | √                | v1.0.0        | supported `KEEPTTL` and `GET` options since v2.8.0           |
 | SETEX       | √                | v1.0.0        |                                                              |
 | SETNX       | √                | v1.0.0        |                                                              |
 | SETRANGE    | √                | v1.0.0        |                                                              |
