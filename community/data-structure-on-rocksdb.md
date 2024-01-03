@@ -42,8 +42,10 @@ The values encoded for other data types in flags can be found in the table below
 | Set        |          4 |
 | ZSet       |          5 |
 | Bitmap     |          6 |
-| Sortedint  |          7 |
+| SortedInt  |          7 |
 | Stream     |          8 |
+| BloomFilter|          9 |
+| JSON       |         10 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -263,7 +265,7 @@ key|version|EID MS|EID SEQ => |     encoded value     |
 
 ## Bloom Filter
 
-Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as a Redis module (https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
+Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as [a Redis module](https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
 
 The underlying structure of a Bloom filter is a bit array, which is a fixed-size array of bits, typically implemented as a contiguous block of memory and storage. We choose "split block bloom filter", as described in section 2.1 of [Network Applications of Bloom Filters: A Survey](https://www.eecs.harvard.edu/~michaelm/postscripts/im2005b.pdf). In a split block bloom filter, the bit array is divided into fixed-size blocks, and each block is treated as an independent Bloom filter. This approach allows for more efficient memory usage, especially when dealing with relatively large Bloom filters. The split block bloom filter is utilized in various systems such as RocksDB, Parquet, and Impala. For further details, please refer to the [BloomFilter.md](https://github.com/apache/parquet-format/blob/master/BloomFilter.md) document.
 
@@ -289,3 +291,24 @@ key|index => |    filter     |
              +---------------+
 ```
 
+## JSON
+
+Kvrocks supports the JSON data type just like [RedisJSON](https://redis.io/docs/data-types/json/), which implements various data operations on [ECMA-404 The JSON Data Interchange Standard](https://ecma-international.org/publications-and-standards/standards/ecma-404/).
+
+The current underlying encoding of JSON data type is relatively simple and similar to String:
+
+```
+        +----------+------------+-----------+--------------------+
+key =>  |  flags   |  expire    |  format   |       payload      |
+        | (1byte)  | (Ebyte)    |  (1byte)  |       (Nbyte)      |
+        +----------+------------+-----------+--------------------+
+```
+
+where the `payload` is a string encoded in the corresponding `format`:
+
+| format     | enum value |
+|------------|------------|
+| JSON       |          0 |
+| CBOR       |          1 |
+
+Also, if we decide to add a more IO-friendly format to avoid reading all payload to the memory before searching an element via JSONPath or seperate a relatively large JSON to multiple key-values, we can take advantage of the `format` field.
