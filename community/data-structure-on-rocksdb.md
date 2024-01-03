@@ -42,8 +42,10 @@ The values encoded for other data types in flags can be found in the table below
 | Set        |          4 |
 | ZSet       |          5 |
 | Bitmap     |          6 |
-| Sortedint  |          7 |
+| SortedInt  |          7 |
 | Stream     |          8 |
+| BloomFilter|          9 |
+| JSON       |         10 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -289,3 +291,24 @@ key|index => |    filter     |
              +---------------+
 ```
 
+## JSON
+
+Kvrocks supports the JSON data type just like [RedisJSON](https://redis.io/docs/data-types/json/), which implements various data operations on [ECMA-404 The JSON Data Interchange Standard](https://ecma-international.org/publications-and-standards/standards/ecma-404/).
+
+The current underlying encoding of JSON data type is relatively simple and similar to String:
+
+```
+        +----------+------------+-----------+--------------------+
+key =>  |  flags   |  expire    |  format   |       payload      |
+        | (1byte)  | (Ebyte)    |  (1byte)  |       (Nbyte)      |
+        +----------+------------+-----------+--------------------+
+```
+
+where the `payload` is a string encoded in the corresponding `format`:
+
+| format     | enum value |
+|------------|------------|
+| JSON       |          0 |
+| CBOR       |          1 |
+
+Also, if we decide to add a more IO-friendly format to avoid read all payload to the memory before searching an element via JSONPath or seperate a relatively large JSON to multiple key-values, we can take advantage of the `format` field.
