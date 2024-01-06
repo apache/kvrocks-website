@@ -142,8 +142,8 @@
 | EXISTS      | √                | v1.0.0        |                                                                                                              |
 | EXPIRE      | √                | v1.0.0        |                                                                                                              |
 | EXPIREAT    | √                | v1.0.0        |                                                                                                              |
-| EXPIRETIME  | √                | -             |                                                                                                              |
-| PEXPIRETIME | √                | -             |                                                                                                              |
+| EXPIRETIME  | √                | unstable      |                                                                                                              |
+| PEXPIRETIME | √                | unstable      |                                                                                                              |
 | KEYS        | √                | v1.0.0        |                                                                                                              |
 | PERSIST     | √                | v1.0.0        |                                                                                                              |
 | PEXPIRE     | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
@@ -166,7 +166,7 @@
 | BITCOUNT    | √                | v1.0.0        |      |
 | BITPOS      | √                | v1.0.0        |      |
 | BITFIELD    | √                | v2.7.0        |      |
-| BITFIELD_RO | √                | -             |      |
+| BITFIELD_RO | √                | unstable      |      |
 | BITOP       | √                | v2.1.0        |      |
 
 :::note
@@ -266,7 +266,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | COMPACT     | √                | v1.0.0        |                                                                                                                         |
 | RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
-| ANALYZE     | √                | -             | use to export the perf/iostat of the current command                                                                    |
+| ANALYZE     | √                | unstable      | use to export the perf/iostat of the current command                                                                    |
 
 :::note
 
@@ -351,7 +351,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.FORGET    | √                | v2.7.0        |      |
 | JSON.GET       | √                | v2.7.0        |      |
 | JSON.MERGE     | √                | v2.7.0        |      |
-| JSON.MGET      | X                | -             |      |
+| JSON.MGET      | X                | unstable      |      |
 | JSON.MSET      | X                | -             |      |
 | JSON.NUMINCRBY | √                | v2.7.0        |      |
 | JSON.NUMMULTBY | √                | v2.7.0        |      |
