@@ -157,14 +157,15 @@
 
 ## Bit commands
 
-| Command  | Supported OR Not | Since Version | Desc |
-| -------- | ---------------- | ------------- | ---- |
-| GETBIT   | √                | v1.0.0        |      |
-| SETBIT   | √                | v1.0.0        |      |
-| BITCOUNT | √                | v1.0.0        |      |
-| BITPOS   | √                | v1.0.0        |      |
-| BITFIELD | √                | v2.7.0        |      |
-| BITOP    | √                | v2.1.0        |      |
+| Command     | Supported OR Not | Since Version | Desc |
+| ----------- | ---------------- | ------------- | ---- |
+| GETBIT      | √                | v1.0.0        |      |
+| SETBIT      | √                | v1.0.0        |      |
+| BITCOUNT    | √                | v1.0.0        |      |
+| BITPOS      | √                | v1.0.0        |      |
+| BITFIELD    | √                | v2.7.0        |      |
+| BITFIELD_RO | √                | -             |      |
+| BITOP       | √                | v2.1.0        |      |
 
 :::note
 
