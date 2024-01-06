@@ -2,31 +2,31 @@
 
 ## String commands
 
-| Command     | Supported OR Not | Since Version | Desc                                                         |
-| ----------- | ---------------- | ------------- | ------------------------------------------------------------ |
-| APPEND      | √                | v1.0.0        |                                                              |
-| DECR        | √                | v1.0.0        |                                                              |
-| DECRBY      | √                | v1.0.0        |                                                              |
-| GET         | √                | v1.0.0        |                                                              |
-| GETEX       | √                | v2.2.0        |                                                              |
-| GETRANGE    | √                | v1.0.0        |                                                              |
-| SUBSTR      | √                | v2.4.0        |                                                              |
-| GETSET      | √                | v1.0.0        |                                                              |
-| INCR        | √                | v1.0.0        |                                                              |
-| INCRBY      | √                | v1.0.0        |                                                              |
-| INCRBYFLOAT | √                | v1.0.0        |                                                              |
-| MGET        | √                | v1.0.0        |                                                              |
-| MSET        | √                | v1.0.0        |                                                              |
-| MSETNX      | √                | v1.3.0        |                                                              |
+| Command     | Supported OR Not | Since Version | Desc                                                                                                         |
+| ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
+| APPEND      | √                | v1.0.0        |                                                                                                              |
+| DECR        | √                | v1.0.0        |                                                                                                              |
+| DECRBY      | √                | v1.0.0        |                                                                                                              |
+| GET         | √                | v1.0.0        |                                                                                                              |
+| GETEX       | √                | v2.2.0        |                                                                                                              |
+| GETRANGE    | √                | v1.0.0        |                                                                                                              |
+| SUBSTR      | √                | v2.4.0        |                                                                                                              |
+| GETSET      | √                | v1.0.0        |                                                                                                              |
+| INCR        | √                | v1.0.0        |                                                                                                              |
+| INCRBY      | √                | v1.0.0        |                                                                                                              |
+| INCRBYFLOAT | √                | v1.0.0        |                                                                                                              |
+| MGET        | √                | v1.0.0        |                                                                                                              |
+| MSET        | √                | v1.0.0        |                                                                                                              |
+| MSETNX      | √                | v1.3.0        |                                                                                                              |
 | PSETEX      | √                | v1.3.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| SET         | √                | v1.0.0        | supported `KEEPTTL` and `GET` options since v2.8.0           |
-| SETEX       | √                | v1.0.0        |                                                              |
-| SETNX       | √                | v1.0.0        |                                                              |
-| SETRANGE    | √                | v1.0.0        |                                                              |
-| STRLEN      | √                | v1.0.0        |                                                              |
-| CAS         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)       |
-| CAD         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)       |
-| GETDEL      | √                | v2.2.0        |                                                              |
+| SET         | √                | v1.0.0        | supported `KEEPTTL` and `GET` options since v2.8.0                                                           |
+| SETEX       | √                | v1.0.0        |                                                                                                              |
+| SETNX       | √                | v1.0.0        |                                                                                                              |
+| SETRANGE    | √                | v1.0.0        |                                                                                                              |
+| STRLEN      | √                | v1.0.0        |                                                                                                              |
+| CAS         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| CAD         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
+| GETDEL      | √                | v2.2.0        |                                                                                                              |
 
 ## Hash commands
 
@@ -135,25 +135,27 @@
 
 ## Key commands
 
-| Command   | Supported OR Not | Since Version | Desc                                                         |
-| --------- | ---------------- | ------------- | ------------------------------------------------------------ |
-| DEL       | √                | v1.0.0        |                                                              |
-| DUMP      | X                | -             |                                                              |
-| EXISTS    | √                | v1.0.0        |                                                              |
-| EXPIRE    | √                | v1.0.0        |                                                              |
-| EXPIREAT  | √                | v1.0.0        |                                                              |
-| KEYS      | √                | v1.0.0        |                                                              |
-| PERSIST   | √                | v1.0.0        |                                                              |
-| PEXPIRE   | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| PEXPIREAT | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| PTTL      | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| TTL       | √                | v1.0.0        |                                                              |
-| TYPE      | √                | v1.0.0        |                                                              |
-| SCAN      | √                | v1.0.0        |                                                              |
-| RENAME    | X                | -             |                                                              |
-| RANDOMKEY | √                | v1.0.0        |                                                              |
-| UNLINK    | √                | v2.1.0        |                                                              |
-| MOVE      | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1 |
+| Command     | Supported OR Not | Since Version | Desc                                                                                                         |
+| ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
+| DEL         | √                | v1.0.0        |                                                                                                              |
+| DUMP        | X                | -             |                                                                                                              |
+| EXISTS      | √                | v1.0.0        |                                                                                                              |
+| EXPIRE      | √                | v1.0.0        |                                                                                                              |
+| EXPIREAT    | √                | v1.0.0        |                                                                                                              |
+| EXPIRETIME  | √                | -             |                                                                                                              |
+| PEXPIRETIME | √                | -             |                                                                                                              |
+| KEYS        | √                | v1.0.0        |                                                                                                              |
+| PERSIST     | √                | v1.0.0        |                                                                                                              |
+| PEXPIRE     | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PEXPIREAT   | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PTTL        | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| TTL         | √                | v1.0.0        |                                                                                                              |
+| TYPE        | √                | v1.0.0        |                                                                                                              |
+| SCAN        | √                | v1.0.0        |                                                                                                              |
+| RENAME      | X                | -             |                                                                                                              |
+| RANDOMKEY   | √                | v1.0.0        |                                                                                                              |
+| UNLINK      | √                | v2.1.0        |                                                                                                              |
+| MOVE        | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
 
 ## Bit commands
 
@@ -231,40 +233,40 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 ## Server commands
 
-| Command     | Supported OR Not | Since Version | Desc                                                         |
-| ----------- | ---------------- | ------------- | ------------------------------------------------------------ |
-| BGSAVE      | √                | v1.0.0        |                                                              |
-| LASTSAVE    | √                | v2.6.0        |                                                              |
-| PING        | √                | v1.0.0        |                                                              |
-| SELECT      | √                | v1.0.0        | simply returns OK                                            |
-| ECHO        | √                | v2.0.6        |                                                              |
-| MONITOR     | √                | v1.0.0        |                                                              |
-| SHUTDOWN    | √                | v1.0.0        |                                                              |
-| INFO        | √                | v1.0.0        |                                                              |
-| ROLE        | √                | v1.1.30       |                                                              |
-| CONFIG      | √                | v1.0.0        |                                                              |
-| DBSIZE      | √                | v1.0.0        |                                                              |
+| Command     | Supported OR Not | Since Version | Desc                                                                                                                    |
+| ----------- | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| BGSAVE      | √                | v1.0.0        |                                                                                                                         |
+| LASTSAVE    | √                | v2.6.0        |                                                                                                                         |
+| PING        | √                | v1.0.0        |                                                                                                                         |
+| SELECT      | √                | v1.0.0        | simply returns OK                                                                                                       |
+| ECHO        | √                | v2.0.6        |                                                                                                                         |
+| MONITOR     | √                | v1.0.0        |                                                                                                                         |
+| SHUTDOWN    | √                | v1.0.0        |                                                                                                                         |
+| INFO        | √                | v1.0.0        |                                                                                                                         |
+| ROLE        | √                | v1.1.30       |                                                                                                                         |
+| CONFIG      | √                | v1.0.0        |                                                                                                                         |
+| DBSIZE      | √                | v1.0.0        |                                                                                                                         |
 | DISK        | √                | v2.2.0        | `DISK USAGE user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
-| MEMORY      | √                | v2.4.0        | MEMORY USAGE command is an alias to DISK USAGE command       |
-| DEBUG       | √                | v1.3.0        | only DEBUG SLEEP is supported                                |
-| NAMESPACE   | √                | v1.0.0        |                                                              |
-| FLUSHDB     | √                | v1.0.0        |                                                              |
-| FLUSHALL    | √                | v1.0.0        |                                                              |
-| FLUSHBACKUP | √                | v1.3.1        |                                                              |
-| COMMAND     | √                | v2.0.1        |                                                              |
-| CLIENT      | √                | v1.0.0        |                                                              |
-| AUTH        | √                | v1.0.0        |                                                              |
-| QUIT        | √                | v1.0.0        |                                                              |
-| SLAVEOF     | √                | v1.0.0        |                                                              |
-| SLOWLOG     | √                | v1.0.0        |                                                              |
-| PERFLOG     | √                | v1.0.0        |                                                              |
-| HELLO       | √                | v2.2.0        |                                                              |
-| TIME        | √                | v2.4.0        |                                                              |
-| STATS       | √                | v1.0.0        | dump the rocksdb statistics in JSON format                   |
-| RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types |
-| COMPACT     | √                | v1.0.0        |                                                              |
-| RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks |
-
+| MEMORY      | √                | v2.4.0        | MEMORY USAGE command is an alias to DISK USAGE command                                                                  |
+| DEBUG       | √                | v1.3.0        | only DEBUG SLEEP is supported                                                                                           |
+| NAMESPACE   | √                | v1.0.0        |                                                                                                                         |
+| FLUSHDB     | √                | v1.0.0        |                                                                                                                         |
+| FLUSHALL    | √                | v1.0.0        |                                                                                                                         |
+| FLUSHBACKUP | √                | v1.3.1        |                                                                                                                         |
+| COMMAND     | √                | v2.0.1        |                                                                                                                         |
+| CLIENT      | √                | v1.0.0        |                                                                                                                         |
+| AUTH        | √                | v1.0.0        |                                                                                                                         |
+| QUIT        | √                | v1.0.0        |                                                                                                                         |
+| SLAVEOF     | √                | v1.0.0        |                                                                                                                         |
+| SLOWLOG     | √                | v1.0.0        |                                                                                                                         |
+| PERFLOG     | √                | v1.0.0        |                                                                                                                         |
+| HELLO       | √                | v2.2.0        |                                                                                                                         |
+| TIME        | √                | v2.4.0        |                                                                                                                         |
+| STATS       | √                | v1.0.0        | dump the rocksdb statistics in JSON format                                                                              |
+| RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
+| COMPACT     | √                | v1.0.0        |                                                                                                                         |
+| RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
+| ANALYZE     | √                | -             | use to export the perf/iostat of the current coomand                                                                    |
 
 :::note
 
@@ -361,4 +363,3 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.STRLEN    | √                | v2.7.0        |      |
 | JSON.TOGGLE    | √                | v2.7.0        |      |
 | JSON.TYPE      | √                | v2.7.0        |      |
-
