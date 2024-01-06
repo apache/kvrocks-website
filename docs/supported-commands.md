@@ -266,7 +266,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | COMPACT     | √                | v1.0.0        |                                                                                                                         |
 | RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
-| ANALYZE     | √                | -             | use to export the perf/iostat of the current coomand                                                                    |
+| ANALYZE     | √                | -             | use to export the perf/iostat of the current command                                                                    |
 
 :::note
 
