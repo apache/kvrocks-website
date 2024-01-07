@@ -5,7 +5,7 @@ title: Apache Kvrocks 2023 In Review
 
 The year 2023 is a small milestone for the community in open source, and it is also a new starting point. **Kvrocks successfully graduated from the incubator to become an Apache top-level project in June, which is a great affirmation for the community's health and sustainability**. At the same time, there are also some exciting progress in the project and community.
 
-Beofre that, we would like to thanks all the contributors and users who have been supporting Apache Kvrocks. We can't make it without you!
+Beofre we start, we would like to thanks all the contributors and users who have been supporting Apache Kvrocks. We can't make it without you!
 
 <!--truncate-->
 
