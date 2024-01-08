@@ -20,7 +20,7 @@ We collected a lot of feedback from users and developers in the discussion: [202
 - Watch/Unwatch command
 - Lua Functions
 - Replication with TLS
-- 65 bits expire time and size
+- Allow to enable 64 bits expiration time(precision is millisecond instead of second), and the length of List/Hash/Set/ZSET/Stream can be also extended from 32 to 64 bits.
 - Allow to use `LOAD RDB` command to load Redis RDB file
 - Allow to dynamically adjust the number of Worker threads
 - Enable Namespace replication
