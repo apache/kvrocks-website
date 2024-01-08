@@ -11,7 +11,7 @@ Before we start, we would like to thanks all the contributors and users who have
 
 ### Project Retrospective
 
-We collected a lot of feedback from users and developers in the discussion: [2023 Planning(Want your feedback)](https://github.com/apache/kvrocks/discussions/1226), some of them have been resolved in 2023, and some of them are still in the plan list:
+We collected a lot of feedback from users and developers in the discussion: [2023 Planning(Want your feedback)](https://github.com/apache/kvrocks/discussions/1226), some of them have been resolved in 2023, and some of them are still in the plan list.
 
 **The key progresses in 2023:**
 
