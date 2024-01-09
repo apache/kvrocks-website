@@ -36,7 +36,7 @@ We collected a lot of feedback from users and developers in the discussion: [202
 
 - Allow to use the Raft protocol for replication
 - HyperLogLog
-- RedisGraph, no plan to support since it's deprecated by the Redis community.
+- RedisGraph, no plan to support since it's deprecated by the Redis community
 - Semi-sync replication
 - Client-side caching
 
