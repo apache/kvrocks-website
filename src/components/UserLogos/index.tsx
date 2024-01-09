@@ -97,6 +97,11 @@ const userData = [
         img: '/media/users/iqiyi.png',
         title: 'iQIYI',
         site: 'https://www.iqiyi.com/',
+    },
+    {
+        img: '/media/users/gcore.jpg',
+        title: 'Gcore',
+        site: 'https://gcore.com/',
     }
 ]
 
