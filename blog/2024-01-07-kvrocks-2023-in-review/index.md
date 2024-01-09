@@ -35,7 +35,8 @@ We collected a lot of feedback from users and developers in the discussion: [202
 **What still in the backlog:**
 
 - Allow to use the Raft protocol for replication
-- HyperLogLog/RedisGraph data structure
+- HyperLogLog
+- RedisGraph, no plan to support since it's deprecated by the Redis community.
 - Semi-sync replication
 - Client-side caching
 
