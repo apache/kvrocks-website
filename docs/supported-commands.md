@@ -132,6 +132,8 @@
 | ZSCORE           | √                | v1.0.0        |              |
 | ZUNION           | √                | v2.5.0        |              |
 | ZUNIONSTORE      | √                | v1.0.0        |              |
+| ZINTER           | √                | unstable      |              |
+| ZINTERCARD       | √                | unstable      |              |
 
 ## Key commands
 
