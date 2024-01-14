@@ -198,6 +198,8 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | PUNSUBSCRIBE | √                | v1.0.0        |      |
 | SUBSCRIBE    | √                | v1.0.0        |      |
 | UNSUBSCRIBE  | √                | v1.0.0        |      |
+| SSUBSCRIBE   | √                | unstable      |      |
+| SUNSUBSCRIBE | √                | unstable      |      |
 
 ## Transaction commands
 
