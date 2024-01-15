@@ -134,6 +134,7 @@
 | ZUNIONSTORE      | √                | v1.0.0        |              |
 | ZINTER           | √                | unstable      |              |
 | ZINTERCARD       | √                | unstable      |              |
+| ZRANDMEMBER      | √                | unstable      |              |
 
 ## Key commands
 
