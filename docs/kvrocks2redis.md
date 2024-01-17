@@ -1,6 +1,6 @@
 ## kvrocks2redis
 
-kvrocks2redis is used to migrate the data from Kvrocks to Redis(as well as Kvrocks itself). It will read and parse data from the local dir first and then use the psync command to read the remain change streams from the target host.
+kvrocks2redis is used to migrate the data from Apache Kvrocks™ to Redis (as well as Kvrocks itself). It will read and parse data from the local dir first and then use the psync command to read the remain change streams from the target host.
 
 ## How to build
 

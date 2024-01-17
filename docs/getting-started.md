@@ -5,6 +5,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ````
 
+You can either get started with Apache Kvrocks™ with Docker or compile a binary from source.
+
 ## Run Kvrocks with Docker
 
 1. Follow Docker's [installation instructions](https://docs.docker.com/engine/installation/) to install Docker.

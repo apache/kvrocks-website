@@ -1,6 +1,6 @@
 # Namespace
 
-Like the Redis database, Kvrocks uses the namespace to isolate the data between users. But unlike Redis, each namespace has its own password. The data would be stored in the default namespace when using `requirepass`. The namespace would have no effect when the cluster mode was enabled like the Redis DB.
+Like the Redis database, Apache Kvrocks™ uses the namespace to isolate the data between users. But unlike Redis, each namespace has its own password. The data would be stored in the default namespace when using `requirepass`. The namespace would have no effect when the cluster mode was enabled like the Redis DB.
 
 ## Manage Namespace
 

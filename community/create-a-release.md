@@ -1,6 +1,6 @@
 ---
 id: create-a-release
-title: Create a Kvrocks release
+title: Create a release
 ---
 
 This document mainly introduces how the Release Manager releases a new version in accordance with the Apache requirements.
@@ -8,7 +8,7 @@ This document mainly introduces how the Release Manager releases a new version i
 ## Introduction
 
 * Source Release is the key point which Apache values, also, is necessary for a release;
-* Binary Release is optional. Kvrocks can choose whether to release the binary package to the Apache repository or not.
+* Binary Release is optional. Apache Kvrocks™ can choose whether to release the binary package to the Apache repository or not.
 
 Note that for binary distribution packages, it is necessary to check that the new version does not contain third-party dependencies.
 

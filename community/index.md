@@ -42,7 +42,7 @@ If you email us with a code snippet, make sure that:
 
 ## Slack
 
-You can join the [Apache Kvrocks community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
+You can join the [Apache Kvrocks™ community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
 
 There are a couple of community rules:
 

@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Apache Kvrocks',
+  title: 'Apache Kvrocks™',
   tagline: 'A distributed key value NoSQL database that uses RocksDB as storage engine and is compatible with Redis protocol.',
   url: 'https://kvrocks.apache.org',
   baseUrl: '/',

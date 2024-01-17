@@ -1,4 +1,8 @@
-# FAQs
+---
+sidebar_label: FAQs
+---
+
+# Apache Kvrocks™ FAQs
 
 **Question: How do I get keys num in Kvrocks?**
 
