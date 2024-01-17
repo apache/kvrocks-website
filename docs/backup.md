@@ -1,5 +1,7 @@
 # Backup
 
+Apache Kvrocks™ supports full backup and incremental backup.
+
 ## Full backup
 
 You can use `bgsave` command to trigger Kvrocks to generate a backup, and use `rsync` tool to copy all files of backup to remote server.

@@ -1,4 +1,8 @@
-# Kvrocks Exporter
+---
+sidebar_label: Metrics Exporter
+---
+
+# Exporter for Apache Kvrocks™
 
 Like the Redis metrics monitor, Kvrocks also exports the internal metrics to INFO commands.
 

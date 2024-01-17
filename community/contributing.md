@@ -3,14 +3,14 @@ id: contributing
 title: How to Contribute
 ---
 
-In order to build an active community to improve Kvrocks, we welcome and are eager to your contributions of all kinds, including but not limited to:
+In order to build an active community to improve Apache Kvrocks™, we welcome and are eager to your contributions of all kinds, including but not limited to:
 
 - suggesting new ideas or feature requests (please refer to the [Community](index.md) page);
 - reporting bugs and defects you find (please refer to the [Community](index.md) page);
 - contributing code changes (whether they are minor typo fixes, improvements, or major feature contributions);
 - fixing or improving the documentation or the project website.
 
-## Submit patches to Kvrocks
+## Submit patches
 
 ### Prerequisite
 

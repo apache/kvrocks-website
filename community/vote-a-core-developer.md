@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ````
 
-Kvrocks PMC member should be responsible for assessing the contributions of candidates.
+Apache Kvrocks™ PMC member should be responsible for assessing the contributions of candidates.
 
 Like many Apache projects, Kvrocks welcome all contributions, including code contributions, documentation improvement, blog entries, guides for new users, public speeches, and enhancement of the project in various ways.
 
