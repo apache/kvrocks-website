@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kvrocks.apache.org/blog</id>
-    <title>Apache Kvrocks Blog</title>
+    <title>Apache Kvrocks™ Blog</title>
     <updated>2024-01-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kvrocks.apache.org/blog"/>
-    <subtitle>Apache Kvrocks Blog</subtitle>
+    <subtitle>Apache Kvrocks™ Blog</subtitle>
     <icon>https://kvrocks.apache.org/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Apache Kvrocks 2023 In Review]]></title>
