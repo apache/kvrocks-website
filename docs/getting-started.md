@@ -87,7 +87,7 @@ The binary file `kvrocks` will be generated at `build` dir if everything goes we
 Run the Kvrocks server by:
 
 ```shell
-./build/kvrocks
+./build/kvrocks -c kvrocks.conf
 ```
 
 Now you can use the `redis-cli` to run the kvrocks server as Redis on port `6666`:
