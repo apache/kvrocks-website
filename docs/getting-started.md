@@ -22,6 +22,36 @@ Now you can use the `redis-cli` to run the kvrocks server as Redis on port `6666
 redis-cli -p 6666
 ```
 
+For persisted data, prefer using a docker volume over a bind-mounted volume to avoid file permission or performance problems. Eg:
+```sh
+# create docker volume once, eg:
+docker volume create kvrocks_data
+
+docker run --volume kvrocks_data:/kvrocks_data \
+  --interactive --tty --publish 6666:6666 apache/kvrocks:2.7.0 --bind 0.0.0.0 --dir /kvrocks_data
+
+# note: the default data dir is /var/lib/kvrocks. The above example changes the location from default to /kvrocks_data.
+```
+
+Any command line switches in the the Docker CMD position are passed to the kvrocks app. For example, to change the "workers" setting from default to 16, you could include `--workers 16`
+
+```sh
+docker run -it --rm -p 6666:6666 apache/kvrocks --bind 0.0.0.0 --workers 16
+```
+
+To set an admin password, use the `requirepass` directive:
+
+```sh
+# assuming password exported on environment variable "KVROCKS_ADMIN_SECRET":
+docker run -it --rm -p 6666:6666 apache/kvrocks --bind 0.0.0.0 --requirepass $KVROCKS_ADMIN_SECRET
+
+# redis-cli on host looks like:
+REDISCLI_AUTH=$KVROCKS_ADMIN_SECRET redis-cli -p 6666 ping
+```
+
+Alternatively, you might mount the entire [kvrocks.conf](https://github.com/apache/kvrocks/blob/v2.7.0/kvrocks.conf) file to the container. The default config location is `/var/lib/kvrocks/kvrocks.conf`. NOTE: if bind-mounting, it must be an entire directory (and so would look like `./my_conf_dir:/var/lib/kvrocks`.) To change the config file location, override the Docker entrypoint. (See Dockerfile as a guideline.) 
+
+
 ## Build and run Kvrocks from source
 
 ### Install dependencies
