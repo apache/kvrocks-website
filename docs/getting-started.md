@@ -33,15 +33,17 @@ docker run --volume kvrocks_data:/kvrocks_data \
 # note: the default data dir is /var/lib/kvrocks. The above example changes the location from default to /kvrocks_data.
 ```
 
+### Tuning Docker
+
 Any command line switches in the the Docker CMD position are passed to the kvrocks app. For example, to change the "workers" setting from default to 16, you could include `--workers 16`
 
-```sh
+```shell
 docker run -it --rm -p 6666:6666 apache/kvrocks --bind 0.0.0.0 --workers 16
 ```
 
 To set an admin password, use the `requirepass` directive:
 
-```sh
+```shell
 # assuming password exported on environment variable "KVROCKS_ADMIN_SECRET":
 docker run -it --rm -p 6666:6666 apache/kvrocks --bind 0.0.0.0 --requirepass $KVROCKS_ADMIN_SECRET
 
