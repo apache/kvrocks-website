@@ -202,6 +202,8 @@ key =>  |  flags   |  expire    |  version  |  size     |
 
 We break the bitmap values into fragments(1KiB, 8192 bits/fragment), and subkey is the index of the fragment. For example, when the request to set the bit of 1024 would locate in the first fragment with index 0, to set a bit of 80970 would locate in 10th fragment with index 9.
 
+We use least-significant bit (LSB) numbering (also known as bit-endianness). This means that within a group of 8 bits, we read right-to-left. This is different from applying "bit" commands to string.
+
 ```text
                      +---------------+
 key|version|index => |    fragment   |
