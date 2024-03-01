@@ -4,7 +4,7 @@ import Link from "@docusaurus/Link";
 
 const userData = [
     {
-        img: '/media/users/cvat.svg',
+        img: '/media/users/cvat.png',
         title: 'CVAT',
         site: 'https://www.cvat.ai/',
     },
