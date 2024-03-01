@@ -4,6 +4,11 @@ import Link from "@docusaurus/Link";
 
 const userData = [
     {
+        img: '/media/users/cvat.svg',
+        title: 'CVAT',
+        site: 'https://www.cvat.ai/',
+    },
+    {
         img: '/media/users/meitu.png',
         title: 'Meitu',
         site: 'https://pc.meitu.com/',
