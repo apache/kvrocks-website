@@ -22,6 +22,7 @@ const committers: CommitterData[] = [
     {name: 'Hulk Lin', apacheId: 'hulk', githubId: 'git-hulk', isPMC: true},
     {name: 'Jean-Baptiste Onofré', apacheId: 'jbonofre', githubId: 'jbonofre', isPMC: true},
     {name: 'Jean Lai', apacheId: 'jeanbone', githubId: 'jeanbone', isPMC: false},
+    {name: 'Ji Huayu', apacheId: 'jihuayu', githubId: 'jihuayu', isPMC: false},
     {name: 'Miuyong Liu', apacheId: 'karelrooted', githubId: 'karelrooted', isPMC: false},
     {name: 'Xuwei Fu', apacheId: 'maplefu', githubId: 'mapleFU', isPMC: false},
     {name: 'Shang Xiong', apacheId: 'shang', githubId: 'shangxiaoxiong', isPMC: false},
@@ -32,6 +33,7 @@ const committers: CommitterData[] = [
     {name: 'Von Gosling', apacheId: 'vongosling', githubId: 'vongosling', isPMC: true},
     {name: 'Yuan Wang', apacheId: 'wangyuan', githubId: 'ShooterIT', isPMC: true},
     {name: 'Xiaobiao Zhao', apacheId: 'xiaobiao', githubId: 'xiaobiaozhao', isPMC: false},
+    {name: 'Shixi Yang', apacheId: 'yangshixi', githubId: 'Yangsx-1', isPMC: false}
 ]
 
 export default function Committers(): JSX.Element {
