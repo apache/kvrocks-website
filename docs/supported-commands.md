@@ -56,7 +56,7 @@
 | ---------- | ---------------- | ------------- | --------------------------------------------------------- |
 | BLPOP      | √                | v1.0.0        |                                                           |
 | BRPOP      | √                | v1.0.0        |                                                           |
-| BRPOPLPUSH | X                | -             |                                                           |
+| BRPOPLPUSH | X                | -             | deprecated                                                |
 | LINDEX     | √                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
 | LINSERT    | √                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
 | LLEN       | √                | v1.0.0        |                                                           |
@@ -132,9 +132,9 @@
 | ZSCORE           | √                | v1.0.0        |              |
 | ZUNION           | √                | v2.5.0        |              |
 | ZUNIONSTORE      | √                | v1.0.0        |              |
-| ZINTER           | √                | unstable      |              |
-| ZINTERCARD       | √                | unstable      |              |
-| ZRANDMEMBER      | √                | unstable      |              |
+| ZINTER           | √                | v2.8.0        |              |
+| ZINTERCARD       | √                | v2.8.0        |              |
+| ZRANDMEMBER      | √                | v2.8.0        |              |
 
 ## Key commands
 
@@ -145,8 +145,8 @@
 | EXISTS      | √                | v1.0.0        |                                                                                                              |
 | EXPIRE      | √                | v1.0.0        |                                                                                                              |
 | EXPIREAT    | √                | v1.0.0        |                                                                                                              |
-| EXPIRETIME  | √                | unstable      |                                                                                                              |
-| PEXPIRETIME | √                | unstable      |                                                                                                              |
+| EXPIRETIME  | √                | v2.8.0        |                                                                                                              |
+| PEXPIRETIME | √                | v2.8.0        |                                                                                                              |
 | KEYS        | √                | v1.0.0        |                                                                                                              |
 | PERSIST     | √                | v1.0.0        |                                                                                                              |
 | PEXPIRE     | √                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
@@ -169,7 +169,7 @@
 | BITCOUNT    | √                | v1.0.0        |      |
 | BITPOS      | √                | v1.0.0        |      |
 | BITFIELD    | √                | v2.7.0        |      |
-| BITFIELD_RO | √                | unstable      |      |
+| BITFIELD_RO | √                | v2.8.0        |      |
 | BITOP       | √                | v2.1.0        |      |
 
 :::note
@@ -199,8 +199,8 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | PUNSUBSCRIBE | √                | v1.0.0        |      |
 | SUBSCRIBE    | √                | v1.0.0        |      |
 | UNSUBSCRIBE  | √                | v1.0.0        |      |
-| SSUBSCRIBE   | √                | unstable      |      |
-| SUNSUBSCRIBE | √                | unstable      |      |
+| SSUBSCRIBE   | √                | v2.8.0        |      |
+| SUNSUBSCRIBE | √                | v2.8.0        |      |
 
 ## Transaction commands
 
@@ -271,7 +271,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | COMPACT     | √                | v1.0.0        |                                                                                                                         |
 | RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
-| ANALYZE     | √                | unstable      | use to export the perf/iostat of the current command                                                                    |
+| ANALYZE     | √                | v2.8.0        | use to export the perf/iostat of the current command                                                                    |
 
 :::note
 
@@ -308,9 +308,9 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XTRIM      | √                | v2.2.0        |             |
 | XCLAIM     | X                | -             |             |
 | XAUTOCLAIM | X                | -             |             |
-| XGROUP     | X                | -             |             |
+| XGROUP     | X                | unstable      |             |
 | XPENDING   | X                | -             |             |
-| XREADGROUP | X                | -             |             |
+| XREADGROUP | X                | unstable      |             |
 | XSETID     | √                | v2.3.0        |             |
 
 ## BloomFilter commands
@@ -356,7 +356,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.FORGET    | √                | v2.7.0        |      |
 | JSON.GET       | √                | v2.7.0        |      |
 | JSON.MERGE     | √                | v2.7.0        |      |
-| JSON.MGET      | X                | unstable      |      |
+| JSON.MGET      | √                | v2.8.0        |      |
 | JSON.MSET      | X                | -             |      |
 | JSON.NUMINCRBY | √                | v2.7.0        |      |
 | JSON.NUMMULTBY | √                | v2.7.0        |      |
