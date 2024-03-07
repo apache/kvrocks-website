@@ -361,6 +361,11 @@ Binding votes:
 - Xiaoqiao He
 - donghui liu
 
+No Binding votes:
+- XXX
+- XXX
+- XXX
+
 Vote thread:
 
 ${vote_thread_url}
