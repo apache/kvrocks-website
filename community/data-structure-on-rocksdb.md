@@ -46,6 +46,7 @@ The values encoded for other data types in flags can be found in the table below
 | Stream     |          8 |
 | BloomFilter|          9 |
 | JSON       |         10 |
+| Hyperloglog|         12 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -317,4 +318,25 @@ Also, if we decide to add a more IO-friendly format to avoid reading all payload
 
 ## Hyperloglog
 
-TODO
+Redis hyperloglog can be thought of as a static array with a length of 16384. The array elements are called registers, which are used to store the maximum count of consecutive 0s. This register array is the input parameter for the hyperloglog algorithm. 
+In Kvrocks, the hyperloglog data structure is stored in following two parts:
+ 
+#### hyperloglog metadata
+
+```text
+        +----------+------------+-----------+-----------+
+key =>  |  flags   |  expire    |  version  |  size     |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
+        +----------+------------+-----------+-----------+
+```
+- `size` records the number of registers, which is a constant, even no element is added.
+
+#### hyperloglog sub keys-values
+
+```text
+                              +---------------+
+key|version|register_index => |     0s count  |
+                              +---------------+
+```
+The register index is calculated using the first 14 bits of the user key's hash value (64 bits), which is why the register array length is 16384.
+The length of consecutive zeros is calculated using the last 50 digits of the hash value of the user key.
