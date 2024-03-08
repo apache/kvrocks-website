@@ -314,3 +314,7 @@ where the `payload` is a string encoded in the corresponding `format`:
 | CBOR       |          1 |
 
 Also, if we decide to add a more IO-friendly format to avoid reading all payload to the memory before searching an element via JSONPath or seperate a relatively large JSON to multiple key-values, we can take advantage of the `format` field.
+
+## Hyperloglog
+
+TODO
