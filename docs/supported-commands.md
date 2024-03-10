@@ -27,6 +27,7 @@
 | CAS         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
 | CAD         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
 | GETDEL      | √                | v2.2.0        |                                                                                                              |
+| LCS         | √                | unstable      |                                                                                                              |
 
 ## Hash commands
 
