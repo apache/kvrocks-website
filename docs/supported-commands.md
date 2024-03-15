@@ -237,6 +237,24 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | SLOTS      | √                | v2.0.2        |      |
 | KEYSLOT    | √                | v2.0.2        |      |
 
+## ClusterX commands
+
+These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Desc |
+| ---------- | ---------------- | ------------- | ---- |
+| VERSION    | √                | v2.0.2        |      |
+| SETNODEID  | √                | v2.0.2        |      |
+| SETNODES   | √                | v2.0.2        |      |
+| SETSLOT    | √                | v2.0.6        |      |
+| MIGRATE    | √                | v2.0.6        |      |
+
+:::note
+
+To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `CLUSTERX` to prevent the topology can being modified casually, but we can still use the `CLUSTER` command to fetch the cluster topology information.
+
+:::
+
 ## Server commands
 
 | Command     | Supported OR Not | Since Version | Desc                                                                                                                    |
