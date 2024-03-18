@@ -228,6 +228,15 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 
 ## Cluster commands
 
+| SUBCOMMAND | Supported OR Not | Since Version | Desc |
+| ---------- | ---------------- | ------------- | ---- |
+| CLUSTER    | √                | v2.0.2        |      |
+| CLUSTERX   | √                | v2.0.2        |      |
+| READONLY   | √                | unstable      |      |
+| READWRITE  | √                | unstable      |      |
+
+### CLUSTER subcommands
+
 These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Desc |
@@ -237,7 +246,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | SLOTS      | √                | v2.0.2        |      |
 | KEYSLOT    | √                | v2.0.2        |      |
 
-## ClusterX commands
+### CLUSTERX subcommands
 
 These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
 
@@ -327,9 +336,10 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XTRIM      | √                | v2.2.0        |             |
 | XCLAIM     | X                | -             |             |
 | XAUTOCLAIM | X                | -             |             |
-| XGROUP     | X                | unstable      |             |
+| XGROUP     | √                | unstable      |             |
 | XPENDING   | X                | -             |             |
-| XREADGROUP | X                | unstable      |             |
+| XREADGROUP | √                | unstable      |             |
+| XACK       | √                | unstable      |             |
 | XSETID     | √                | v2.3.0        |             |
 
 ## BloomFilter commands
