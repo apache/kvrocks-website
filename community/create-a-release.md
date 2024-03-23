@@ -280,6 +280,14 @@ docker buildx inspect --bootstrap
 docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12 --build-arg http_proxy=${your_http_proxy} --build-arg https_proxy=${your_https_proxy}
 ```
 
+## Draft release note
+
+[Draft a new release note](https://github.com/apache/kvrocks/releases/new). 
+
+You should choose the current release candidate tag. GitHub can automatically generate the content of release note, but you need to group it. 
+
+For some important content, highlight it at the beginning.
+
 ## Voting
 
 ### Kvrocks community vote
@@ -398,6 +406,12 @@ docker buildx imagetools create -t apache/kvrocks:latest ${your_dockerhub_userna
 If you don't have the permission, you can ask someone with access to apache org to do that.
 
 :::
+
+### Publish release note
+
+Edit the title of the draft release note and use the new ${release_version} tag, which github will create automatically.
+
+Then, publish release.
 
 ### Update website links
 
