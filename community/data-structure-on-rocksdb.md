@@ -329,14 +329,13 @@ key =>  |  flags   |  expire    |  version  |  size     |
         | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
 ```
-- `size` records the number of registers, which is a constant, even no element is added.
-
 #### hyperloglog sub keys-values
 
 ```text
-                              +---------------+
-key|version|register_index => |     0s count  |
-                              +---------------+
+                              +-----------------------+-----+
+key|version|register_index => |     0s count (1byte)  | ... |
+                              +-----------------------+-----+
 ```
-The register index is calculated using the first 14 bits of the user key's hash value (64 bits), which is why the register array length is 16384.
+The register index is calculated using the first 14 bits of the user element's hash value (64 bits), which is why the register array length is 16384.
 The length of consecutive zeros is calculated using the last 50 digits of the hash value of the user key.
+Inspired by the bitmap implementation, hyperloglog divides the register array into 16 segments, each with 1024 registers.
