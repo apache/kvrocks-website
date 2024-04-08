@@ -160,6 +160,7 @@
 | RANDOMKEY   | √                | v1.0.0        |                                                                                                              |
 | UNLINK      | √                | v2.1.0        |                                                                                                              |
 | MOVE        | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
+| MOVEX       | √                | unstable      | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                                                     |
 
 ## Bit commands
 
