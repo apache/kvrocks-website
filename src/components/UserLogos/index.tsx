@@ -25,6 +25,7 @@ const userData = [
     { title: 'ZTO Express', img: '/media/users/zto.png', site: 'https://www.zto.com/' },
     { title: 'iFlytek ADX', img: '/media/users/iflytek-adx.jpg', site: 'https://www.voiceads.cn/' },
     { title: 'iQIYI', img: '/media/users/iqiyi.png', site: 'https://www.iqiyi.com/' },
+    { title: 'WakaTime', img: '/media/users/wakatime.png', site: 'https://wakatime.com/' },
 ]
 
 export default function UserLogos(): JSX.Element {
