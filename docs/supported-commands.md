@@ -160,7 +160,8 @@
 | RANDOMKEY   | √                | v1.0.0        |                                                                                                              |
 | UNLINK      | √                | v2.1.0        |                                                                                                              |
 | MOVE        | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
-| MOVEX       | √                | unstable      | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                                                     |
+| MOVEX       | √                | unstable      | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
+| COPY        | √                | unstable      |                                                                                                              |
 
 ## Bit commands
 
@@ -246,6 +247,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | NODES      | √                | v2.0.2        |      |
 | SLOTS      | √                | v2.0.2        |      |
 | KEYSLOT    | √                | v2.0.2        |      |
+| RESET      | √                | unstable      |      |
 
 ### CLUSTERX subcommands
 
@@ -300,7 +302,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | COMPACT     | √                | v1.0.0        |                                                                                                                         |
 | RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
-| ANALYZE     | √                | v2.8.0        | use to export the perf/iostat of the current command                                                                    |
+| DUMP        | √                | unstable      |                                                                                                                         |
 
 :::note
 
@@ -387,7 +389,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.GET       | √                | v2.7.0        |      |
 | JSON.MERGE     | √                | v2.7.0        |      |
 | JSON.MGET      | √                | v2.8.0        |      |
-| JSON.MSET      | X                | -             |      |
+| JSON.MSET      | √                | unstable      |      |
 | JSON.NUMINCRBY | √                | v2.7.0        |      |
 | JSON.NUMMULTBY | √                | v2.7.0        |      |
 | JSON.OBJKEYS   | √                | v2.7.0        |      |
