@@ -248,6 +248,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | SLOTS      | √                | v2.0.2        |      |
 | KEYSLOT    | √                | v2.0.2        |      |
 | RESET      | √                | unstable      |      |
+| REPLICAS   | √                | unstable      |      |
 
 ### CLUSTERX subcommands
 
