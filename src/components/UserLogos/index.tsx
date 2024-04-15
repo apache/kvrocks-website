@@ -2,8 +2,7 @@ import React from "react"
 import styles from "./index.module.css"
 import Link from "@docusaurus/Link";
 
-// Please sort the data by title in alphabetical order.
-const userData = [
+let userData = [
     { title: 'Ahoy Games', img: '/media/users/ahoygames.png', site: 'https://www.ahoygames.com/' },
     { title: 'BaiShanCloud', img: '/media/users/baishancloud.png', site: 'https://intl.baishancloud.com/' },
     { title: 'Baidu', img: '/media/users/baidu.png', site: 'https://www.baidu.com/' },
@@ -27,6 +26,16 @@ const userData = [
     { title: 'iQIYI', img: '/media/users/iqiyi.png', site: 'https://www.iqiyi.com/' },
     { title: 'WakaTime', img: '/media/users/wakatime.png', site: 'https://wakatime.com/' },
 ]
+
+// Sort the data by title in alphabetical order.
+userData.sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+
+    if (titleA < titleB) return -1;
+    if (titleA > titleB) return 1;
+    return 0;
+});
 
 export default function UserLogos(): JSX.Element {
     return <>
