@@ -142,7 +142,7 @@
 | Command     | Supported OR Not | Since Version | Desc                                                                                                         |
 | ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
 | DEL         | √                | v1.0.0        |                                                                                                              |
-| DUMP        | X                | -             |                                                                                                              |
+| DUMP        | √                | unstable      |                                                                                                              |
 | EXISTS      | √                | v1.0.0        |                                                                                                              |
 | EXPIRE      | √                | v1.0.0        |                                                                                                              |
 | EXPIREAT    | √                | v1.0.0        |                                                                                                              |
@@ -156,12 +156,14 @@
 | TTL         | √                | v1.0.0        |                                                                                                              |
 | TYPE        | √                | v1.0.0        |                                                                                                              |
 | SCAN        | √                | v1.0.0        |                                                                                                              |
-| RENAME      | X                | -             |                                                                                                              |
+| RENAME      | √                | v2.8.0        |                                                                                                              |
+| RENAMENX    | √                | v2.8.0        |                                                                                                              |
 | RANDOMKEY   | √                | v1.0.0        |                                                                                                              |
 | UNLINK      | √                | v2.1.0        |                                                                                                              |
 | MOVE        | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
 | MOVEX       | √                | unstable      | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
 | COPY        | √                | unstable      |                                                                                                              |
+| SORT        | √                | unstable      |                                                                                                              |
 
 ## Bit commands
 
@@ -236,6 +238,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | CLUSTERX   | √                | v2.0.2        |      |
 | READONLY   | √                | unstable      |      |
 | READWRITE  | √                | unstable      |      |
+| ASKING     | √                | unstable      |      |
 
 ### CLUSTER subcommands
 
@@ -338,7 +341,7 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XREAD      | √                | v2.2.0        |             |
 | XREVRANGE  | √                | v2.2.0        |             |
 | XTRIM      | √                | v2.2.0        |             |
-| XCLAIM     | X                | -             |             |
+| XCLAIM     | √                | unstable      |             |
 | XAUTOCLAIM | X                | -             |             |
 | XGROUP     | √                | unstable      |             |
 | XPENDING   | X                | -             |             |
