@@ -267,7 +267,14 @@ key|version|EID MS|EID SEQ => |     encoded value     |
 
 #### stream consumer group metadata
 
-The consumer group metadata contains the basic information of the consumer group used in XINFO GROUPS. The key is composed by the stream key, version, group name and a metadata delimiter. The metadata delimiter is a const string `METADATA` in the implementation. The value is composed by consumer number, pending number, last delivered id, entries read and lag.
+The consumer group metadata contains the basic information of the consumer group used in the `XINFO GROUPS` command.
+The key starts with the stream name, version, consumer group name. The next segment is a delimiter - a string `METADATA` (hardcoded value).
+After the delimiter, there are:
+- number of consumers in the group
+- the length of the group's PEL (pending entries list)
+- the ID of the last entry delivered to the group's consumers
+- the ID of the last entry delivered to the group's consumers
+- the number of entries in the stream that are still waiting to be delivered to the group's consumers.
 
 ```text
                                    +-----------------+----------------+-------------------+--------------+-------+
@@ -278,18 +285,23 @@ key|version|group_name|METADATA => | consumer number | pending number | last del
 
 #### stream consumer metadata
 
-A consumer group contains several consumer and each consumer also has a metadata which is used in XINFO CONSUMERS. The key is composed by the stream key, version, group name, consumer name and a metadata delimiter. The metadata delimiter is a const string `METADATA` in the implementation. The value is composed by pending number, last idle time and last active time.
+A consumer group contains several consumers and each consumer also has its own metadata which is used in the `XINFO CONSUMERS` command.
+The key starts with the stream key, version, consumer group name, consumer name. The next segment is a delimiter - a string `METADATA` (hardcoded value).
+After the delimiter, there are:
+- the number of entries in the PEL
+- the timestamp of the last consumer interaction
+- the timestamp of the last successful consumer interaction (actually read or claimed some entries).
 
 ```text
-                                                 +----------------+----------------+------------------+
-key|version|group_name|consumer_name|METADATA => | pending number | last idle time | last active time |
-                                                 |     (8byte)    |     (8byte)    |     (8byte)      |
-                                                 +----------------+----------------+------------------+
+                                                 +----------------+-----------------------+----------------------------------+
+key|version|group_name|consumer_name|METADATA => | pending number | last interaction time | last successful interaction time |
+                                                 |     (8byte)    |        (8byte)        |            (8byte)               |
+                                                 +----------------+-----------------------+----------------------------------+
 ```
 
 #### PEL entries
 
-A PEL entry is created after XREADGROUP command and each entry contains some metadata. The key is composed by the stream key, version, group name and the entry ID. The value is composed by last delivery time, last delivery count and consumer name. The consumer name indicates the owner of the entry and can be quickly changed by XCLAIM command.
+A PEL entry is created after `XREADGROUP` command and each entry contains some metadata. The key is composed by the stream key, version, group name and the entry ID. The value is composed by last delivery time, last delivery count and consumer name. The consumer name indicates the owner of the entry and can be quickly changed by XCLAIM command.
 
 ```text
                                          +--------------------+---------------------+---------------+
