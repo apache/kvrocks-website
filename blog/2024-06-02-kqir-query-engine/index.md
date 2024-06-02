@@ -154,7 +154,7 @@ Currently, KQIR cannot be enabled in the [cluster mode](https://kvrocks.apache.o
 ### High experimental!
 
 The current implementation of KQIR is in its early experimental stage.
-As we do not guarantee compatibility and there may be unexpected errors, we advise users against using it in a production environment.
+We advise users to consider carefully when using KQIR functionalities in a production environment, as we do not guarantee compatibility, and there may be unexpected errors.
 
 ## Future outlook
 
