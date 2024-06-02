@@ -26,7 +26,7 @@ Unlike Redis which stores data in memory, Kvrocks persists data on disk for impr
 
 ### The capability to query
 
-In recent decades, NoSQL databases have gained prominence over traditional databases for their superior performance, scalability, and versatility across various industries.
+In recent years, NoSQL databases have become more popular than traditional databases because they perform better, scale easily, and are more flexible for different industries.
 
 However, many users are unwilling to abandon the essential features of SQL databases just for performance reasons.
 These include ACID transactions, expressive query capabilities inherent in SQL, as well as optimization and abstraction possibilities offered by structured data and relational algebra.
