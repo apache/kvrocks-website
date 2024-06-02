@@ -110,7 +110,7 @@ Subsequently, Kvrocks retrieves query results through iterative execution.
 ### On-disk indexing
 
 Unlike Redis, which stores index data in memory, Kvrocks requires the construction of indexes on the disk.
-This means that for any field type (e.g. tag, numeric), we need an encoding to reduce such index to rocksdb key-values.
+This means that for any field type (e.g. tag, numeric), we need an encoding to reduce such index to RocksDB's key-values.
 
 Furthermore, we incrementally create indexes before and after JSON or HASH commands getting executed to guarantee that query results are in real-time.
 
