@@ -12,6 +12,8 @@ TL;DR:
 
 Pretty cool, right? Let's dive in!
 
+(The full example is provided in [the final section](/blog/kqir-query-engine/#try-it).)
+
 <!--truncate-->
 
 ### Apache Kvrocks
