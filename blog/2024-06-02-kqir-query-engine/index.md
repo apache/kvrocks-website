@@ -4,8 +4,6 @@ title: "KQIR: a query engine for Apache Kvrocks that supports both SQL and RediS
 authors: [twice]
 ---
 
-<!--truncate-->
-
 ## Intro
 
 TL;DR:
@@ -13,6 +11,8 @@ TL;DR:
 ![ftsearch-demo](./images/ftsearch-demo.png)
 
 Pretty cool, right? Let's dive in!
+
+<!--truncate-->
 
 ### Apache Kvrocks
 
