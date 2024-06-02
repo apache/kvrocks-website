@@ -75,7 +75,7 @@ We plan to accomplish this through [KQIR](https://github.com/apache/kvrocks/tree
 
 ### KQIR: a multiple-level IR
 
-To support both SQL and RediSearch queries simultaneously, an intermediate language is needed to handle them consistently in subsequent processes without concern for the user's input language.
+To support both SQL and RediSearch queries, an intermediate language (IR) is necessary to handle them consistently in subsequent processes without concern for the user's input language.
 
 We have developed parsers for a subset of MySQL syntax and RediSearch queries, converting the resulting syntax tree into KQIR.
 
