@@ -135,14 +135,14 @@ Currently, the transaction guarantee of KQIR is weak, which may lead to unexpect
 [Another project in the Kvrocks community](https://github.com/apache/kvrocks/issues/2331) aims to enhance Kvrocks' transaction support by establishing a structured framework.
 We will leverage these efforts to uphold the ACID properties of KQIR and release an official version incorporating KQIR after that.
 
-### Limitation on KQIR optimizer
+### Limitation on IR optimizer
 
 Currently, KQIR needs to enhance the optimization implementation of plan operators such as `Sort`.
 
 Furthermore, KQIR does not currently utilize optimizations based on runtime statistics.
 Our future focus will be on integrating runtime statistics into the cost model for more precise index selection.
 
-### Relationship with other features in Kvrocks
+### Relationship with other features
 
 KQIR integrates well with the [namespace](https://kvrocks.apache.org/docs/namespace) feature.
 Any index created is restricted to the current namespace and cannot be accessed in other namespaces, aligning with how other data is accessed within the namespace.
