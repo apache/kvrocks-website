@@ -28,7 +28,7 @@ Unlike Redis which stores data in memory, Kvrocks persists data on disk for impr
 
 In recent decades, NoSQL databases have gained prominence over traditional databases for their superior performance, scalability, and versatility across various industries.
 
-However, many users are reluctant to completely forego the essential features of SQL databases just for performance reasons.
+However, many users are unwilling to abandon the essential features of SQL databases just for performance reasons.
 These include ACID transactions, expressive query capabilities inherent in SQL, as well as optimization and abstraction possibilities offered by structured data and relational algebra.
 Consequently, a new category of databases known as NewSQL has emerged gradually.
 
