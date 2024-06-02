@@ -414,4 +414,4 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | FT.INFO        | √                | unstable      |      |
 | FT._LIST       | √                | unstable      |      |
 | FT.SEARCH      | √                | unstable      |      |
-| FT.SEARCHSQL   | √                | unstable      | extension for SQL quires: FT.SEARCHSQL 'select ...' |
+| FT.SEARCHSQL   | √                | unstable      | extension for SQL quires: `FT.SEARCHSQL <sql>` |
