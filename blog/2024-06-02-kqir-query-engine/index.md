@@ -61,7 +61,7 @@ Secondly, SQL enjoys broader usage and is familiar to more individuals. It is si
 
 Finally, RediSearch query syntax suffers from some historical designs. For example, the operator precedence of AND and OR (represented by space and `|` operator in RediSearch queries) varies across different dialect versions (dialect 1 vs. dialect 2). This tribal knowledge might lead users to prefer established query languages.
 
-Considering these factors leads us to believe that incorporating support for SQL as a querying language would also be advantageous.
+To sum up, we believe that supporting SQL as a querying language would be a good decision.
 
 ## How we support both?
 
