@@ -34,7 +34,7 @@ Consequently, a new category of databases known as NewSQL has emerged gradually.
 
 Kvrocks is a NoSQL database.
 While not classified as NewSQL, Kvrocks aims to strike a balance between NoSQL and NewSQL paradigms:
-It endeavors to uphold the high performance associated with NoSQL while bolstering transactional guarantees alongside supporting more expressive query methods.
+It aims to maintain the high performance of NoSQL while also implementing transaction guarantees and supporting more complex queries.
 
 ### RediSearch?
 
