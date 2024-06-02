@@ -57,7 +57,7 @@ RediSearch uses a unique syntax for queries, but there are some issues to consid
 Firstly, RediSearch's schema (a.k.a. index, created with `FT.CREATE`) can be regarded as a table in an SQL database. Its query syntax also aligns semantically with SQL queries.
 Given this similarity, supporting SQL should not increase significant challenges; why not include SQL support as well?
 
-Secondly, SQL enjoys broader usage and is familiar to more individuals. It is simpler to learn at the syntax level. While developers may need time to understand RediSearch query syntax, adapting to a new SQL database often requires less effort. Furthermore, SQL offers robust support for various query features, enhanced expressive capabilities (like JOINs, subqueries, aggregations), and greater scalability.
+Secondly, SQL enjoys broader usage and is familiar to more individuals. It is simpler to learn at the syntax level. While developers may need time to understand RediSearch query syntax, adapting to a new SQL database often requires less effort. Furthermore, SQL offers robust support for various query features, enhanced expressive capabilities (like JOINs, subqueries, aggregations).
 
 Finally, RediSearch query syntax suffers from some historical designs. For example, the operator precedence of AND and OR (represented by space and `|` operator in RediSearch queries) varies across different dialect versions (dialect 1 vs. dialect 2). This tribal knowledge might lead users to prefer established query languages.
 
