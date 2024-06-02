@@ -404,3 +404,14 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.STRLEN    | √                | v2.7.0        |      |
 | JSON.TOGGLE    | √                | v2.7.0        |      |
 | JSON.TYPE      | √                | v2.7.0        |      |
+| JSON.DEBUG     | √                | unstable      | supported subcommands: MEMORY |
+
+## Search commands
+
+| Command        | Supported OR Not | Since Version | Desc |
+| -------------- | ---------------- | ------------- | ---- |
+| FT.CREATE      | √                | unstable      |      |
+| FT.INFO        | √                | unstable      |      |
+| FT._LIST       | √                | unstable      |      |
+| FT.SEARCH      | √                | unstable      |      |
+| FT.SEARCHSQL   | √                | unstable      | extension for SQL quires: FT.SEARCHSQL 'select ...' |
