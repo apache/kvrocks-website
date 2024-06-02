@@ -139,7 +139,8 @@ We will leverage these efforts to uphold the ACID properties of KQIR and release
 
 ### Limitation on IR optimizer
 
-Currently, KQIR needs to enhance the optimization implementation of plan operators such as `Sort`.
+Currently, KQIR does not use the cost model when optimizing record sorting.
+Instead, it relies on specialized logic. This could be an area for improvement soon.
 
 Furthermore, KQIR does not currently utilize optimizations based on runtime statistics.
 Our future focus will be on integrating runtime statistics into the cost model for more precise index selection.
