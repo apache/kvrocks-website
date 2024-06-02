@@ -54,7 +54,7 @@ If Kvrocks can be compatible with RediSearch, it could benefit from these ecosys
 
 RediSearch uses a unique syntax for queries, but there are some issues to consider:
 
-Firstly, RediSearch's schema (an index created with `FT.CREATE`) can be regarded as a table in an SQL database. Its query syntax also aligns semantically with SQL queries.
+Firstly, RediSearch's schema (a.k.a. index, created with `FT.CREATE`) can be regarded as a table in an SQL database. Its query syntax also aligns semantically with SQL queries.
 Given this similarity, supporting SQL should not pose significant challenges; why not incorporate it?
 
 Secondly, SQL enjoys broader usage and is familiar to more individuals. It is simpler to grasp and learn at the syntax level. While developers may need time to understand RediSearch query syntax when using it, adapting to a new SQL database typically requires less effort. Furthermore, SQL offers robust support for various query features, enhanced expressive capabilities (like JOINs, subqueries, aggregation), and greater scalability.
