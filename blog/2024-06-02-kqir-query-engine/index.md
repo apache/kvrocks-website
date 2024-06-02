@@ -151,6 +151,13 @@ Any index created is restricted to the current namespace and cannot be accessed 
 
 Currently, KQIR cannot be enabled in the [cluster mode](https://kvrocks.apache.org/docs/cluster).
 
+### Compliance
+
+While KQIR is designed to be compatible with RediSearch at the interface level, it does not include any code from RediSearch.
+As previously mentioned, KQIR features a completely new framework, and its query architecture (including parsing, optimization, execution) is independent of RediSearch.
+
+This distinction is important due to the proprietary license under which RediSearch is released.
+
 ### High experimental!
 
 The current implementation of KQIR is in its early experimental stage.
