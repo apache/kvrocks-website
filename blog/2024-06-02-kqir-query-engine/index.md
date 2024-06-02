@@ -151,6 +151,7 @@ KQIR integrates well with the [namespace](https://kvrocks.apache.org/docs/namesp
 Any index created is restricted to the current namespace and cannot be accessed in other namespaces, aligning with how other data is accessed within the namespace.
 
 Currently, KQIR cannot be enabled in the [cluster mode](https://kvrocks.apache.org/docs/cluster).
+Cluster mode support may not be implemented in the short term, but we encourage anyone to submit discussions, design proposals, or suggestions.
 
 ### Compliance
 
