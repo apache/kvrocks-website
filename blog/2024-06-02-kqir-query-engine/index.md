@@ -59,7 +59,7 @@ Given this similarity, supporting SQL should not increase significant challenges
 
 Secondly, SQL enjoys broader usage and is familiar to more individuals. It is simpler to learn at the syntax level. While developers may need time to understand RediSearch query syntax, adapting to a new SQL database often requires less effort. Furthermore, SQL offers robust support for various query features, enhanced expressive capabilities (like JOINs, subqueries, aggregations).
 
-Finally, RediSearch query syntax suffers from some historical designs. For example, the operator precedence of AND and OR (represented by space and `|` operator in RediSearch queries) varies across different dialect versions (dialect 1 vs. dialect 2). This tribal knowledge might lead users to prefer established query languages.
+Finally, RediSearch query syntax suffers from some historical designs. For example, the operator precedence of AND and OR (represented by space and `|` operator in RediSearch queries) [varies across different dialect versions](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/query_syntax/#basic-syntax) (dialect 1 vs. dialect 2). This tribal knowledge might lead users to prefer established query languages.
 
 To sum up, we believe that supporting SQL as a querying language would be a good decision.
 
