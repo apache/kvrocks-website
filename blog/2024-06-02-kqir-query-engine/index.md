@@ -8,7 +8,7 @@ authors: [twice]
 
 TL;DR:
 
-![ftsearch-demo](./images/ftsearch-demo.png)
+![demo](./images/demo.png)
 
 Pretty cool, right? Let's dive in!
 
