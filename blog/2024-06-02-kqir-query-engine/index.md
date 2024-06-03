@@ -200,34 +200,36 @@ Our primary focus will remain on transaction processing rather than analytical t
 ## Try it!
 
 First, we can easily set up a Kvrocks instance via Docker images.
-You also have the choice to manually build executable from the source code in the 'unstable' branch.
+You also have the choice to [manually build executable from the source code](/docs/getting-started#build-and-run-kvrocks-from-source) in the `unstable` branch.
 
-```
+```shell
 docker run -it -p 6666:6666 apache/kvrocks:nightly --log-dir stdout
 ```
 
 Then, we can connect to kvrocks locally using `redis-cli`,
 and create an index named `testidx` consisting a tag field `a` and numeric field `b` with the following command:
-```
+```js
 FT.CREATE testidx ON JSON PREFIX 1 'test:' SCHEMA a TAG b NUMERIC
 ```
 
 Next, we can add some new data using Redis JSON commands:
 (Note that it is also possible to add data before running `FT.CREATE`.)
-```
+```js
 JSON.SET test:k1 $ '{"a": "x,y", "b": 11}'
 JSON.SET test:k2 $ '{"a": "y,z", "b": 22}'
 JSON.SET test:k3 $ '{"a": "x,z", "b": 33}'
 ```
 
 Finally, we can execute some SQL queries to get the desired results:
-```
+```js
 FT.SEARCHSQL 'select * from testidx where a hastag "z" and b < 30'
 ```
 
 Or an equivalent RediSearch query:
-```
+```js
 FT.SEARCH testidx '@a:{z} @b:[-inf (30]'
 ``` 
+
+If you experience any issues with KQIR, please feel free to [report them](https://github.com/apache/kvrocks/issues).
 
 Enjoy it!
