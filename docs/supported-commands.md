@@ -411,6 +411,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | Command        | Supported OR Not | Since Version | Desc |
 | -------------- | ---------------- | ------------- | ---- |
 | FT.CREATE      | √                | unstable      |      |
+| FT.DROPINDEX   | √                | unstable      |      |
 | FT.INFO        | √                | unstable      |      |
 | FT._LIST       | √                | unstable      |      |
 | FT.SEARCH      | √                | unstable      |      |
