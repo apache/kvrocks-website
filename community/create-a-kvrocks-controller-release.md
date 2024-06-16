@@ -7,8 +7,10 @@ This document mainly introduces how the Release Manager releases a new version i
 
 ## Introduction
 
+Apache Kvrocks™ Controller is a cluster management tool for Apache Kvrocks™. And the release process and policy of Apache Kvrocks Controller is similar to Apache Kvrocks™:
+
 * Source Release is the key point which Apache values, also, is necessary for a release;
-* Binary Release is optional. Apache Kvrocks™ can choose whether to release the binary package to the Apache repository or not.
+* Binary Release is optional. Apache Kvrocks™ Controller can choose whether to release the binary package to the Apache repository or not.
 
 Note that for binary distribution packages, it is necessary to check that the new version does not contain third-party dependencies.
 
@@ -129,13 +131,9 @@ The vote to release Apache Kvrocks Controller ${release_version} has passed.
 The vote PASSED with xxx binding +1 and 0 -1 votes:
 
 Binding votes:
-- Yuan Wang
-- tison
-- hulk
-- Liang Chen
-- Jean-Baptiste Onofré
-- Xiaoqiao He
-- donghui liu
+- XXX
+- XXX
+- XXX
 
 No Binding votes:
 - XXX
@@ -168,7 +166,7 @@ Then, publish release.
 
 ### Update website links
 
-Update [releases data file](https://github.com/apache/kvrocks-website/blob/main/src/components/Releases/index.tsx).
+Update [releases data file](https://github.com/apache/kvrocks-website/blob/main/src/components/Releases/kvrocks-controller.tsx).
 
 ### Send the announcement
 
@@ -184,8 +182,12 @@ Hi all,
 The Apache Kvrocks community is pleased to announce
 that Apache Kvrocks Controller ${release_version} has been released!
 
-Kvrocks is a distributed key value NoSQL database that uses RocksDB
-as storage engine and is compatible with Redis protocol.
+Apache Kvrocks Controller is a cluster management tool for Apache Kvrocks, including the following key features:
+
+- Failover - controller will failover or remove the master/slave node when probing failed
+- Scale out the cluster in one line command
+- Manage many clusters in one controller cluster
+- Support multi metadata storages like etcd and so on
 
 This release contains a number of new features, bug fixes and
 improvements compared to the last version released before.
@@ -199,7 +201,7 @@ https://github.com/apache/kvrocks-controller/releases/tag/v${release_version}
 
 Apache Kvrocks website: https://kvrocks.apache.org/
 
-Download Links: https://kvrocks.apache.org/download
+Download Links: https://kvrocks.apache.org/download/kvrocks-controller
 
 Kvrocks Resources:
 - Issue: https://github.com/apache/kvrocks-controller/issues
