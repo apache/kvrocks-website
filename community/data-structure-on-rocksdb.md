@@ -265,6 +265,51 @@ key|version|EID MS|EID SEQ => |     encoded value     |
                               +-----------------------+
 ```
 
+#### stream consumer group metadata
+
+The consumer group metadata contains the basic information of the consumer group used in the `XINFO GROUPS` command.
+The key starts with the stream name, version, consumer group name. The next segment is a delimiter - a string `METADATA` (hardcoded value).
+After the delimiter, there are:
+- number of consumers in the group
+- the length of the group's PEL (pending entries list)
+- the ID of the last entry delivered to the group's consumers
+- the ID of the last entry delivered to the group's consumers
+- the number of entries in the stream that are still waiting to be delivered to the group's consumers.
+
+```text
+                                   +-----------------+----------------+-------------------+--------------+-------+
+key|version|group_name|METADATA => | consumer number | pending number | last delivered id | entries read |  lag  |
+                                   |     (8byte)     |     (8byte)    |      (8byte)      |    (8byte)   |(8byte)|
+                                   +-----------------+----------------+-------------------+--------------+-------+
+```
+
+#### stream consumer metadata
+
+A consumer group contains several consumers and each consumer also has its own metadata which is used in the `XINFO CONSUMERS` command.
+The key starts with the stream key, version, consumer group name, consumer name. The next segment is a delimiter - a string `METADATA` (hardcoded value).
+After the delimiter, there are:
+- the number of entries in the PEL
+- the timestamp of the last consumer interaction
+- the timestamp of the last successful consumer interaction (actually read or claimed some entries).
+
+```text
+                                                 +----------------+-----------------------+----------------------------------+
+key|version|group_name|consumer_name|METADATA => | pending number | last interaction time | last successful interaction time |
+                                                 |     (8byte)    |        (8byte)        |            (8byte)               |
+                                                 +----------------+-----------------------+----------------------------------+
+```
+
+#### PEL entries
+
+A PEL entry is created after `XREADGROUP` command and each entry contains some metadata. The key is composed by the stream key, version, group name and the entry ID. The value is composed by last delivery time, last delivery count and consumer name. The consumer name indicates the owner of the entry and can be quickly changed by XCLAIM command.
+
+```text
+                                         +--------------------+---------------------+---------------+
+key|version|group_name|EID MS|EID SEQ => | last delivery time | last delivery count | consumer name |
+                                         |       (8byte)      |       (8byte)       |    (Nbyte)    |
+                                         +--------------------+---------------------+---------------+
+```
+
 ## Bloom Filter
 
 Redis Bloom filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It's implemented as [a Redis module](https://redis.io/docs/data-types/probabilistic/bloom-filter/), which means it can be used to efficiently perform set membership tests.
