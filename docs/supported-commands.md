@@ -342,7 +342,7 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XREVRANGE  | √                | v2.2.0        |             |
 | XTRIM      | √                | v2.2.0        |             |
 | XCLAIM     | √                | unstable      |             |
-| XAUTOCLAIM | X                | -             |             |
+| XAUTOCLAIM | √                | unstable      |             |
 | XGROUP     | √                | unstable      |             |
 | XPENDING   | X                | -             |             |
 | XREADGROUP | √                | unstable      |             |
