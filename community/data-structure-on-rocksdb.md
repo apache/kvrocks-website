@@ -46,7 +46,7 @@ The values encoded for other data types in flags can be found in the table below
 | Stream     |          8 |
 | BloomFilter|          9 |
 | JSON       |         10 |
-| Hyperloglog|         12 |
+| Hyperloglog|         11 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -316,26 +316,41 @@ where the `payload` is a string encoded in the corresponding `format`:
 
 Also, if we decide to add a more IO-friendly format to avoid reading all payload to the memory before searching an element via JSONPath or seperate a relatively large JSON to multiple key-values, we can take advantage of the `format` field.
 
-## Hyperloglog
+## HyperLogLog
 
-Redis hyperloglog can be thought of as a static array with a length of 16384. The array elements are called registers, which are used to store the maximum count of consecutive 0s. This register array is the input parameter for the hyperloglog algorithm. 
+Redis HyperLogLog is a probabilistic data structure that estimates the cardinality of a set. The idea comes from [original paper](http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf) and [paper from Google](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf).  It is particularly useful for applications that require the estimation of unique elements in massive datasets, such as network traffic analysis, data warehousing, and large-scale databases.
+
+The principle behind HyperLogLog is based on the idea that the number of leading zeros in the binary representation of a hash value can be used to infer the size of the set. It includes:
+1. Hashing: Each element in the dataset is passed through a hash function, which produces a fixed-size binary string.
+2. Register Array: The algorithm maintains an array of registers, each corresponding to a subset of the hash space. The size of the array is 2^p, where p is a precision parameter that determines the trade-off between accuracy and memory usage.  The HyperLogLog algorithm uses a subset of the hash value to determine the index in the register array. Specifically, it takes the first p bits of the hash value.
+
+For the remaining bits of the hash value (after the first p bits), the algorithm counts the number of leading zeros. Each entry in the array keeps track of the maximum observed for all elements that hash to the same index. If the newly encountered value is greater than the current value in the register, it updates the register with this new value.
+
+Redis HyperLogLog can be thought of as a static array with a length of 16384. The array elements are called registers, which are used to store the maximum count of consecutive 0s. This register array is the input parameter for the HyperLogLog algorithm. The Redis HyperLogLog implementation uses up to 12 KB and provides a standard error of 0.81%.
+
 In Kvrocks, the hyperloglog data structure is stored in following two parts:
  
-#### hyperloglog metadata
+#### HyperLogLog metadata
 
 ```text
-        +----------+------------+-----------+-----------+
-key =>  |  flags   |  expire    |  version  |  size     |
-        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
-        +----------+------------+-----------+-----------+
+        +----------+------------+-----------+--------------+
+key =>  |  flags   |  expire    |  version  |  HLLType     |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (1byte)      |
+        +----------+------------+-----------+--------------+
 ```
+
+HLLType = 0 means a "dense" representation with Redis-like modified MurmurHash2 and 16384 registers with 6bit LSB numbers,
+the values is stored like Bitmap but has smaller segment(768 bytes per segment).
+
 #### hyperloglog sub keys-values
 
 ```text
-                              +-----------------------+-----+
-key|version|register_index => |     0s count (1byte)  | ... |
-                              +-----------------------+-----+
+                     +---------------+
+key|version|index => |    fragment   |
+                     +---------------+
 ```
+
 The register index is calculated using the first 14 bits of the user element's hash value (64 bits), which is why the register array length is 16384.
 The length of consecutive zeros is calculated using the last 50 digits of the hash value of the user key.
-Inspired by the bitmap implementation, hyperloglog divides the register array into 16 segments, each with 1024 registers.
+
+Inspired by the bitmap implementation, HyperLogLog divides the register array into 16 segments, each with 1024 registers.
