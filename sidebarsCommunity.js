@@ -23,6 +23,7 @@ const sidebars = {
       },
       items: [
         'create-a-release',
+        'create-a-kvrocks-controller-release',
         'verify-a-release-candidate',
       ]
     },

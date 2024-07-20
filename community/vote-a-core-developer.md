@@ -28,11 +28,11 @@ In the discussion email, the proposer should clearly state the candidate's contr
 The following is a sample discussion email:
 
 ```text
-[DISCUSS] XXXXXX for Kvrocks [committer|PMC member]
+[DISCUSS] [Nominee] for Kvrocks [Committer|PMC member]
 
-I nominate XXXXXX as an Kvrocks [committer|PMC member]
+I nominate [Nominee] as an Kvrocks [Committer|PMC member]
 
-Judging from the contributions in recent months, XXXXXX has submitted many
+Judging from the contributions in recent months, [Nominee] has submitted many
 implementations[1][2] to the project and improved the management module for
 the project.
 
@@ -40,10 +40,10 @@ During the optimization and improvement period of the project, it is hoped that
 more people will participate in the actual project optimization and improvement,
 to let the project more perfect and easier to use.
 
-So I nominated XXXXXX as a [committer|PMC member] of the Kvrocks project.
+So I nominated [Nominee] as a [Committer|PMC member] of the Kvrocks project.
 
-[1] https://github.com/apache/kvrocks/issues/created_by/XXXXXX
-[2] https://github.com/apache/kvrocks/commits?author=XXXXXX
+[1] https://github.com/apache/kvrocks/issues/created_by/[Nominee GitHub Username]
+[2] https://github.com/apache/kvrocks/commits?author=[Nominee GitHub Username]
 ```
 
 ## Initiate vote in the community private mailing group
@@ -55,9 +55,9 @@ The voting email is sent to `private@kvrocks.apache.org` for at least 72 hours, 
 The following is a sample poll email:
 
 ```text
-[VOTE] XXXXXX as a Kvrocks [Committer|PMC member]
+[VOTE] [Nominee] as a Kvrocks [Committer|PMC member]
 
-Judging from contributions in recent months, XXXXXX has submitted many
+Judging from contributions in recent months, [Nominee] has submitted many
 implementations[1][2] to the project and improved the management module for
 the project.
 
@@ -65,9 +65,9 @@ During the optimization and improvement period of the project, it is hoped that
 more people will participate in the actual project optimization and improvement,
 to let the project more perfect and easier to use.
 
-I think making him/her a [committer|PMC member] will be a recognition of his/her
-outstanding work for Kvrocks. So, I am happy to call VOTE to accept XXXXXX as a
-Kvrocks [committer|PMC member]
+I think making him/her a [Committer|PMC member] will be a recognition of his/her
+outstanding work for Kvrocks. So, I am happy to call VOTE to accept [Nominee] as a
+Kvrocks [Committer|PMC member]
 
 Voting will continue for at least 72 hours or until the required number of votes is reached.
 
@@ -79,8 +79,8 @@ Please vote accordingly:
 
 Here are some links to his/her contributions to Kvrocks:
 
-[1] Issues: https://github.com/apache/kvrocks/issues/created_by/XXXXXX
-[2] PRs   : https://github.com/apache/kvrocks/pulls/created_by/XXXXXX
+[1] Issues: https://github.com/apache/kvrocks/issues/created_by/[Nominee GitHub Username]
+[2] PRs   : https://github.com/apache/kvrocks/pulls/created_by/[Nominee GitHub Username]
 ```
 
 ## Feedback on voting results
@@ -90,11 +90,11 @@ After the voting email is over, the initiator of the vote needs to remind the vo
 The following is a sample vote summary email:
 
 ```text
-[RESULTS][VOTE] XXXXXX as a Kvrocks[committer|PMC member]
+[RESULTS][VOTE] [Nominee] as a Kvrocks[Committer|PMC member]
 
 Hi everyone,
 
-The vote for "XXXXXX as a Kvrocks [committer/PMC member]" has PASSED and closed now.
+The vote for "[Nominee] as a Kvrocks [Committer/PMC member]" has PASSED and closed now.
 
 The result is as follows:
 
@@ -105,12 +105,12 @@ The result is as follows:
 
 Vote thread: https://lists.apache.org/thread/aaaaaxxxx
 
-Then I'm going to invite XXXXXX to join us.
+Then I'm going to invite [Nominee] to join us.
 
 Thanks for everyone's support!
 ```
 
-Note: If it is not passed, the result is "The vote for "XXXXXX as a Kvrocks [committer|PMC member]" has FAILED and closed now."
+Note: If it is not passed, the result is "The vote for "[Nominee] as a Kvrocks [Committer|PMC member]" has FAILED and closed now."
 
 ## Newly added PMC member notification email
 
@@ -121,11 +121,11 @@ Voting initiators need to send notification emails to Board's mailing group and 
 The following is an example of a new PMC notification email:
 
 ```text
-[NOTICE] XXXXXX for Apache Kvrocks PMC member
+[NOTICE] [Nominee] for Apache Kvrocks PMC member
 
 Hi everyone,
 
-Apache Kvrocks proposes to invite XXXXXX to join the PMC.
+Apache Kvrocks proposes to invite [Nominee] to join the PMC.
 
 The vote result is available here: https://lists.apache.org/...
 
@@ -144,9 +144,9 @@ The following is an example of an email inviting candidates:
   <TabItem value="committer" label="Committer" default>
 
 ```text
-Subject: Invitation to become Kvrocks committer: [invitee name]
+Subject: Invitation to become Kvrocks committer: [Invitee name]
 
-Hi [invitee name],
+Hi [Invitee name],
 
 The Kvrocks Project Management Committee (PMC)
 
@@ -219,9 +219,9 @@ establishing you as a committer.
   <TabItem value="pmc-member" label="PMC Member">
 
 ```text
-Subject: Invitation to become Kvrocks PMC member: [invitee name]
+Subject: Invitation to become Kvrocks PMC member: [Invitee name]
 
-Hi [invitee name],
+Hi [Invitee name],
 
 The Kvrocks Project Management Committee (PMC)
 
@@ -311,15 +311,15 @@ The voting initiator needs to add project team members, open a permission accoun
 After the above steps are completed, the vote initiator must send a notification email to the `dev@kvrocks.apache.org` mail group. The following is a sample notification email:
 
 ```text
-[ANNOUNCE] New [committer|PMC member]: XXXXXX
+[ANNOUNCE] New [Committer|PMC member]: [Nominee]
 
 Hi everyone,
 
-The Project Management Committee(PMC) for Apache Kvrocks has invited XXXXXX to become a [committer|PMC member] and we are pleased to announce that he/she has accepted.
+The Project Management Committee(PMC) for Apache Kvrocks has invited [Nominee] to become a [Committer|PMC member] and we are pleased to announce that he/she has accepted.
 
-XXXXXX is being active in the Kvrocks community, and we are glad to see his/her more interactions with the community in the future.
+[Nominee] is being active in the Kvrocks community, and we are glad to see his/her more interactions with the community in the future.
 
-Welcome XXXXXX, and please enjoy your journey.:)
+Welcome [Nominee], and please enjoy your journey.:)
 
 Thanks!
 ```

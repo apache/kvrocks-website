@@ -27,6 +27,7 @@
 | CAS         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
 | CAD         | √                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
 | GETDEL      | √                | v2.2.0        |                                                                                                              |
+| LCS         | √                | v2.9.0        |                                                                                                              |
 
 ## Hash commands
 
@@ -141,7 +142,6 @@
 | Command     | Supported OR Not | Since Version | Desc                                                                                                         |
 | ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
 | DEL         | √                | v1.0.0        |                                                                                                              |
-| DUMP        | X                | -             |                                                                                                              |
 | EXISTS      | √                | v1.0.0        |                                                                                                              |
 | EXPIRE      | √                | v1.0.0        |                                                                                                              |
 | EXPIREAT    | √                | v1.0.0        |                                                                                                              |
@@ -155,10 +155,14 @@
 | TTL         | √                | v1.0.0        |                                                                                                              |
 | TYPE        | √                | v1.0.0        |                                                                                                              |
 | SCAN        | √                | v1.0.0        |                                                                                                              |
-| RENAME      | X                | -             |                                                                                                              |
+| RENAME      | √                | v2.8.0        |                                                                                                              |
+| RENAMENX    | √                | v2.8.0        |                                                                                                              |
 | RANDOMKEY   | √                | v1.0.0        |                                                                                                              |
 | UNLINK      | √                | v2.1.0        |                                                                                                              |
 | MOVE        | √                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
+| MOVEX       | √                | v2.9.0        | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
+| COPY        | √                | v2.9.0        |                                                                                                              |
+| SORT        | √                | v2.9.0        |                                                                                                              |
 
 ## Bit commands
 
@@ -227,6 +231,16 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 
 ## Cluster commands
 
+| SUBCOMMAND | Supported OR Not | Since Version | Desc |
+| ---------- | ---------------- | ------------- | ---- |
+| CLUSTER    | √                | v2.0.2        |      |
+| CLUSTERX   | √                | v2.0.2        |      |
+| READONLY   | √                | v2.9.0        |      |
+| READWRITE  | √                | v2.9.0        |      |
+| ASKING     | √                | v2.9.0        |      |
+
+### CLUSTER subcommands
+
 These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Desc |
@@ -235,6 +249,26 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | NODES      | √                | v2.0.2        |      |
 | SLOTS      | √                | v2.0.2        |      |
 | KEYSLOT    | √                | v2.0.2        |      |
+| RESET      | √                | v2.9.0        |      |
+| REPLICAS   | √                | v2.9.0        |      |
+
+### CLUSTERX subcommands
+
+These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Desc |
+| ---------- | ---------------- | ------------- | ---- |
+| VERSION    | √                | v2.0.2        |      |
+| SETNODEID  | √                | v2.0.2        |      |
+| SETNODES   | √                | v2.0.2        |      |
+| SETSLOT    | √                | v2.0.6        |      |
+| MIGRATE    | √                | v2.0.6        |      |
+
+:::note
+
+To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `CLUSTERX` to prevent the topology can being modified casually, but we can still use the `CLUSTER` command to fetch the cluster topology information.
+
+:::
 
 ## Server commands
 
@@ -271,7 +305,7 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | RESTORE     | √                | v2.6.0        | create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                       |
 | COMPACT     | √                | v1.0.0        |                                                                                                                         |
 | RDB         | √                | v2.7.0        | RDB LOAD command is used to load RDB file from local path into Kvrocks                                                  |
-| ANALYZE     | √                | v2.8.0        | use to export the perf/iostat of the current command                                                                    |
+| DUMP        | √                | v2.9.0        |                                                                                                                         |
 
 :::note
 
@@ -306,11 +340,12 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XREAD      | √                | v2.2.0        |             |
 | XREVRANGE  | √                | v2.2.0        |             |
 | XTRIM      | √                | v2.2.0        |             |
-| XCLAIM     | X                | -             |             |
-| XAUTOCLAIM | X                | -             |             |
-| XGROUP     | X                | unstable      |             |
+| XCLAIM     | √                | unstable      |             |
+| XAUTOCLAIM | √                | unstable      |             |
+| XGROUP     | √                | unstable      |             |
 | XPENDING   | X                | -             |             |
-| XREADGROUP | X                | unstable      |             |
+| XREADGROUP | √                | unstable      |             |
+| XACK       | √                | unstable      |             |
 | XSETID     | √                | v2.3.0        |             |
 
 ## BloomFilter commands
@@ -357,7 +392,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.GET       | √                | v2.7.0        |      |
 | JSON.MERGE     | √                | v2.7.0        |      |
 | JSON.MGET      | √                | v2.8.0        |      |
-| JSON.MSET      | X                | -             |      |
+| JSON.MSET      | √                | v2.9.0        |      |
 | JSON.NUMINCRBY | √                | v2.7.0        |      |
 | JSON.NUMMULTBY | √                | v2.7.0        |      |
 | JSON.OBJKEYS   | √                | v2.7.0        |      |
@@ -368,3 +403,17 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.STRLEN    | √                | v2.7.0        |      |
 | JSON.TOGGLE    | √                | v2.7.0        |      |
 | JSON.TYPE      | √                | v2.7.0        |      |
+| JSON.DEBUG     | √                | v2.9.0      | supported subcommands: MEMORY |
+
+## Search commands
+
+| Command        | Supported OR Not | Since Version | Desc |
+| -------------- | ---------------- | ------------- | ---- |
+| FT.CREATE      | √                | unstable      |      |
+| FT.DROPINDEX   | √                | unstable      |      |
+| FT.INFO        | √                | unstable      |      |
+| FT._LIST       | √                | unstable      |      |
+| FT.SEARCH      | √                | unstable      |      |
+| FT.SEARCHSQL   | √                | unstable      | extension for SQL quires: `FT.SEARCHSQL <sql>` |
+| FT.EXPLAIN     | √                | unstable      |      |
+| FT.EXPLAINSQL  | √                | unstable      | extension for SQL quires: `FT.EXPLAINSQL <sql>` |
