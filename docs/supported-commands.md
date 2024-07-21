@@ -343,7 +343,7 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XCLAIM     | √                | unstable      |             |
 | XAUTOCLAIM | √                | unstable      |             |
 | XGROUP     | √                | unstable      |             |
-| XPENDING   | X                | unstable      |             |
+| XPENDING   | √                | unstable      |             |
 | XREADGROUP | √                | unstable      |             |
 | XACK       | √                | unstable      |             |
 | XSETID     | √                | v2.3.0        |             |
