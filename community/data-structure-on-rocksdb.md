@@ -212,6 +212,8 @@ key|version|index => |    fragment   |
 
 When the user requests to get it of position P, Kvrocks would first fetch the metadata with bitmap's key and calculate the index of the fragment with bit position, then fetch the bitmap fragment with composed key and find the bit in fragment offset. For example, `getbit bitmap 8193`, the fragment index is `1` (8193/8192) and subkey is `bitmap|1|1024` (when the version is 1, and fragment index is `1`, kvrocks will use `1 * 1024` as the index key), then fetch the subkey from RocksDB and check if the bit of offset `1`(8193%8192) is set or not.
 
+An non exists segment means all bits are 0 in this segment. The bitmap design is very efficient when the bitmap is sparse. Besides, an segment could be less than 1KiB, and the "padding" bits are always regarded as 0.
+
 ## SortedInt
 
 SortedInt is a set with members being type int and sorted in ascending order:
