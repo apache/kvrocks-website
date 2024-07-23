@@ -1,6 +1,11 @@
 import React from "react";
 
-const controller_versions = []
+const controller_versions = [
+    {
+        version: '1.0.0',
+        vtag: '1.0.0'
+    },
+]
 
 type ReleaseData = {
     name: string,
@@ -11,7 +16,7 @@ type ReleaseData = {
 
 function createReleaseData(version: string, vtag?: string): ReleaseData {
     const fixedVTag = vtag ?? version;
-    const archive = `https://downloads.apache.org/kvrocks/kvrocks-controller/${version}/apache-kvrocks-controller-${fixedVTag}-src.tar.gz`
+    const archive = `https://downloads.apache.org/kvrocks/kvrocks-controller/${version}/apache-kvrocks-controller-src-${fixedVTag}.tar.gz`
     return {
         name: fixedVTag,
         archive: archive,

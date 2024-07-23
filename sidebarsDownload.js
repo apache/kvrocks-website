@@ -2,6 +2,7 @@
 const sidebars = {
     docs: [
         'index',
+        'kvrocks-controller',
         'third-party-packages',
     ],
 };
