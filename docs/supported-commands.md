@@ -397,7 +397,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.NUMMULTBY | √                | v2.7.0        |      |
 | JSON.OBJKEYS   | √                | v2.7.0        |      |
 | JSON.OBJLEN    | √                | v2.7.0        |      |
-| JSON.RESP      | X                | unstable      |      |
+| JSON.RESP      | √                | unstable      |      |
 | JSON.SET       | √                | v2.7.0        |      |
 | JSON.STRAPPEND | √                | v2.7.0        |      |
 | JSON.STRLEN    | √                | v2.7.0        |      |
