@@ -1,45 +1,9 @@
 import React from "react";
 
-const versions = [
+const controller_versions = [
     {
-        version: '2.9.0',
-        vtag: '2.9.0'
-    },
-    {
-        version: '2.8.0',
-        vtag: '2.8.0'
-    },
-    {
-        version: '2.7.0',
-        vtag: '2.7.0'
-    },
-    {
-        version: '2.6.0',
-        vtag: '2.6.0'
-    },
-    {
-        version: '2.5.1',
-        vtag: '2.5.1'
-    },
-    {
-        version: '2.5.0',
-        vtag: '2.5.0'
-    },
-    {
-        version: '2.4.0',
-        vtag: '2.4.0-incubating'
-    },
-    {
-        version: '2.3.0',
-        vtag: '2.3.0-incubating'
-    },
-    {
-        version: '2.2.0',
-        vtag: '2.2.0-incubating'
-    },
-    {
-        version: '2.1.0',
-        vtag: '2.1.0-incubating'
+        version: '1.0.0',
+        vtag: '1.0.0'
     },
 ]
 
@@ -52,7 +16,7 @@ type ReleaseData = {
 
 function createReleaseData(version: string, vtag?: string): ReleaseData {
     const fixedVTag = vtag ?? version;
-    const archive = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
+    const archive = `https://downloads.apache.org/kvrocks/kvrocks-controller/${version}/apache-kvrocks-controller-src-${fixedVTag}.tar.gz`
     return {
         name: fixedVTag,
         archive: archive,
@@ -62,7 +26,7 @@ function createReleaseData(version: string, vtag?: string): ReleaseData {
 }
 
 export default function Releases(): JSX.Element {
-    const releases = versions.map(({ version, vtag }) => createReleaseData(version, vtag))
+    const releases = controller_versions.map(({ version, vtag }) => createReleaseData(version, vtag))
     return <>
         <table>
             <thead>

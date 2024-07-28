@@ -9,3 +9,9 @@ vmihailenco:
   title: Grumpy Gopher
   url: https://github.com/vmihailenco
   image_url: https://github.com/vmihailenco.png
+
+twice:
+  name: PragmaTwice
+  title: Apache Kvrocks PMC Member
+  url: https://github.com/pragmatwice
+  image_url: https://github.com/pragmatwice.png

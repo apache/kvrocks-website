@@ -24,8 +24,16 @@ However, you should clearly state which checks you did. The release manager need
 
 Use the following command to download all artifacts, replace "${release_version}-${rc_version}" with the version ID of the version to be released:
 
+### Kvrocks
+
 ```shell
 svn co https://dist.apache.org/repos/dist/dev/kvrocks/${release_version}-${rc_version}/
+```
+
+### Kvrocks Controller
+
+```shell
+svn co https://dist.apache.org/repos/dist/dev/kvrocks/kvrocks-controller/${release_version}-${rc_version}/
 ```
 
 ## Verify signature and hash
@@ -139,6 +147,8 @@ else
 fi
 ```
 2. verify the sign and checksum
+
+### Kvrocks
 
 ```shell
 ./release-verify.sh apache-kvrocks-${release_version}-src.tar.gz
