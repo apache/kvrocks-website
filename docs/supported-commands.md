@@ -159,7 +159,7 @@
 | RENAMENX    | ✓                | v2.8.0        |                                                                                                              |
 | RANDOMKEY   | ✓                | v1.0.0        |                                                                                                              |
 | UNLINK      | ✓                | v2.1.0        |                                                                                                              |
-| MOVE        | ✓                | v2.6.0        | if the key does not eXist, the command returns 0, otherwise it will always return 1                          |
+| MOVE        | ✓                | v2.6.0        | if the key does not exist, the command returns 0, otherwise it will always return 1                          |
 | MOVEX       | ✓                | v2.9.0        | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
 | COPY        | ✓                | v2.9.0        |                                                                                                              |
 | SORT        | ✓                | v2.9.0        |                                                                                                              |
@@ -224,10 +224,10 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | SIADD             | ✓                | v1.0.2        | like SADD, but members are integers                  |
 | SIREM             | ✓                | v1.0.2        | like SREM, but members are integers                  |
 | SIRANGE           | ✓                | v1.0.2        | `SIRANGE key offset count cursor since_id`           |
-| SIREVRANGE        | ✓                | v1.0.2        | `SIREVRANGE key offset count cursor maX_id`          |
-| SIEXISTS          | ✓                | v1.1.20       | `SIEXISTS key member1 [member2 ...]`                 |
-| SIRANGEBYVALUE    | ✓                | v1.1.31       | `SIRANGEBYVALUE key min maX [LIMIT offset count]`    |
-| SIREVRANGEBYVALUE | ✓                | v1.1.31       | `SIREVRANGEBYVALUE key maX min [LIMIT offset count]` |
+| SIREVRANGE        | ✓                | v1.0.2        | `SIREVRANGE key offset count cursor max_id`          |
+| SIEXISTS          | ✓                | v1.1.20       | `SIExISTS key member1 [member2 ...]`                 |
+| SIRANGEBYVALUE    | ✓                | v1.1.31       | `SIRANGEBYVALUE key min max [LIMIT offset count]`    |
+| SIREVRANGEBYVALUE | ✓                | v1.1.31       | `SIREVRANGEBYVALUE key max min [LIMIT offset count]` |
 
 ## Cluster commands
 
@@ -309,7 +309,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 :::note
 
-The db size is updated async after eXecute `DBSIZE SCAN` command.
+The db size is updated async after execute `DBSIZE SCAN` command.
 
 :::
 
@@ -372,7 +372,7 @@ The db size is updated async after eXecute `DBSIZE SCAN` command.
 :::note
 
 Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
-In addition, `LISTFUNC` subcommand is added as an eXtension to list all functions and their libraries in which they are located.
+In addition, `LISTFUNC` subcommand is added as an extension to list all functions and their libraries in which they are located.
 
 :::
 
@@ -414,9 +414,9 @@ In addition, `LISTFUNC` subcommand is added as an eXtension to list all function
 | FT.INFO        | ✓                | unstable      |      |
 | FT._LIST       | ✓                | unstable      |      |
 | FT.SEARCH      | ✓                | unstable      |      |
-| FT.SEARCHSQL   | ✓                | unstable      | eXtension for SQL quires: `FT.SEARCHSQL <sql>` |
+| FT.SEARCHSQL   | ✓                | unstable      | extension for SQL quires: `FT.SEARCHSQL <sql>` |
 | FT.EXPLAIN     | ✓                | unstable      |      |
-| FT.EXPLAINSQL  | ✓                | unstable      | eXtension for SQL quires: `FT.EXPLAINSQL <sql>` |
+| FT.EXPLAINSQL  | ✓                | unstable      | extension for SQL quires: `FT.EXPLAINSQL <sql>` |
 
 ## HyperLogLog commands
 
