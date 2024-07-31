@@ -225,7 +225,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | SIREM             | ✓                | v1.0.2        | like SREM, but members are integers                  |
 | SIRANGE           | ✓                | v1.0.2        | `SIRANGE key offset count cursor since_id`           |
 | SIREVRANGE        | ✓                | v1.0.2        | `SIREVRANGE key offset count cursor max_id`          |
-| SIEXISTS          | ✓                | v1.1.20       | `SIExISTS key member1 [member2 ...]`                 |
+| SIEXISTS          | ✓                | v1.1.20       | `SIEXISTS key member1 [member2 ...]`                 |
 | SIRANGEBYVALUE    | ✓                | v1.1.31       | `SIRANGEBYVALUE key min max [LIMIT offset count]`    |
 | SIREVRANGEBYVALUE | ✓                | v1.1.31       | `SIREVRANGEBYVALUE key max min [LIMIT offset count]` |
 
