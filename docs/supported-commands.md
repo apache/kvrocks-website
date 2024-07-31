@@ -8,7 +8,7 @@
 | DECR        | ✓                | v1.0.0        |                                                                                                              |
 | DECRBY      | ✓                | v1.0.0        |                                                                                                              |
 | GET         | ✓                | v1.0.0        |                                                                                                              |
-| GETE𐄂       | ✓                | v2.2.0        |                                                                                                              |
+| GETEX       | ✓                | v2.2.0        |                                                                                                              |
 | GETRANGE    | ✓                | v1.0.0        |                                                                                                              |
 | SUBSTR      | ✓                | v2.4.0        |                                                                                                              |
 | GETSET      | ✓                | v1.0.0        |                                                                                                              |
@@ -17,11 +17,11 @@
 | INCRBYFLOAT | ✓                | v1.0.0        |                                                                                                              |
 | MGET        | ✓                | v1.0.0        |                                                                                                              |
 | MSET        | ✓                | v1.0.0        |                                                                                                              |
-| MSETN𐄂      | ✓                | v1.3.0        |                                                                                                              |
-| PSETE𐄂      | ✓                | v1.3.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| MSETNX      | ✓                | v1.3.0        |                                                                                                              |
+| PSETEX      | ✓                | v1.3.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
 | SET         | ✓                | v1.0.0        | supported `KEEPTTL` and `GET` options since v2.8.0                                                           |
-| SETE𐄂       | ✓                | v1.0.0        |                                                                                                              |
-| SETN𐄂       | ✓                | v1.0.0        |                                                                                                              |
+| SETEX       | ✓                | v1.0.0        |                                                                                                              |
+| SETNX       | ✓                | v1.0.0        |                                                                                                              |
 | SETRANGE    | ✓                | v1.0.0        |                                                                                                              |
 | STRLEN      | ✓                | v1.0.0        |                                                                                                              |
 | CAS         | ✓                | v2.0.5        | see [#415](https://github.com/apache/kvrocks/pull/415)                                                       |
@@ -34,7 +34,7 @@
 | Command      | Supported OR Not | Since Version | Desc |
 | ------------ | ---------------- | ------------- | ---- |
 | HDEL         | ✓                | v1.0.0        |      |
-| HE𐄂ISTS      | ✓                | v1.0.0        |      |
+| HEXISTS      | ✓                | v1.0.0        |      |
 | HGET         | ✓                | v1.0.0        |      |
 | HGETALL      | ✓                | v1.0.0        |      |
 | HINCRBY      | ✓                | v1.0.0        |      |
@@ -43,9 +43,9 @@
 | HLEN         | ✓                | v1.0.0        |      |
 | HMGET        | ✓                | v1.0.0        |      |
 | HMSET        | ✓                | v1.0.0        |      |
-| HRANGEBYLE𐄂  | ✓                | v2.3.0        |      |
+| HRANGEBYLEX  | ✓                | v2.3.0        |      |
 | HSET         | ✓                | v1.0.0        |      |
-| HSETN𐄂       | ✓                | v1.0.0        |      |
+| HSETNX       | ✓                | v1.0.0        |      |
 | HSTRLEN      | ✓                | v1.0.0        |      |
 | HVALS        | ✓                | v1.0.0        |      |
 | HSCAN        | ✓                | v1.0.0        |      |
@@ -58,12 +58,12 @@
 | BLPOP      | ✓                | v1.0.0        |                                                           |
 | BRPOP      | ✓                | v1.0.0        |                                                           |
 | BRPOPLPUSH | 𐄂                | -             | deprecated                                                |
-| LINDE𐄂     | ✓                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
+| LINDEX     | ✓                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
 | LINSERT    | ✓                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
 | LLEN       | ✓                | v1.0.0        |                                                           |
 | LPOP       | ✓                | v1.0.0        |                                                           |
 | LPUSH      | ✓                | v1.0.0        |                                                           |
-| LPUSH𐄂     | ✓                | v1.0.0        |                                                           |
+| LPUSHX     | ✓                | v1.0.0        |                                                           |
 | LRANGE     | ✓                | v1.0.0        |                                                           |
 | LREM       | ✓                | v1.0.0        | `O(N)` operation, do not use it when the list is too long |
 | LSET       | ✓                | v1.0.0        |                                                           |
@@ -71,7 +71,7 @@
 | RPOP       | ✓                | v1.0.0        |                                                           |
 | RPOPLPUSH  | ✓                | v1.0.0        |                                                           |
 | RPUSH      | ✓                | v1.0.0        |                                                           |
-| RPUSH𐄂     | ✓                | v1.0.0        |                                                           |
+| RPUSHX     | ✓                | v1.0.0        |                                                           |
 | LMOVE      | ✓                | v2.1.0        |                                                           |
 | BLMOVE     | ✓                | v2.6.0        |                                                           |
 | LPOS       | ✓                | v2.6.0        |                                                           |
@@ -105,29 +105,29 @@
 | ---------------- | ---------------- | ------------- | ------------ |
 | BZMPOP           | ✓                | v2.5.0        |              |
 | BZPOPMIN         | ✓                | v2.5.0        |              |
-| BZPOPMA𐄂         | ✓                | v2.5.0        |              |
+| BZPOPMAX         | ✓                | v2.5.0        |              |
 | ZADD             | ✓                | v1.0.0        |              |
 | ZCARD            | ✓                | v1.0.0        |              |
 | ZCOUNT           | ✓                | v1.0.0        |              |
 | ZINCRBY          | ✓                | v1.0.0        |              |
 | ZINTERSTORE      | ✓                | v1.0.0        |              |
-| ZLE𐄂COUNT        | ✓                | v1.0.0        |              |
+| ZLEXCOUNT        | ✓                | v1.0.0        |              |
 | ZMPOP            | ✓                | v2.5.0        |              |
 | ZMSCORE          | ✓                | v1.1.20       | multi ZSCORE |
 | ZPOPMIN          | ✓                | v1.0.0        |              |
-| ZPOPMA𐄂          | ✓                | v1.0.0        |              |
+| ZPOPMAX          | ✓                | v1.0.0        |              |
 | ZRANGESTORE      | ✓                | v2.5.0        |              |
 | ZRANGE           | ✓                | v1.0.0        |              |
-| ZRANGEBYLE𐄂      | ✓                | v1.0.0        |              |
+| ZRANGEBYLEX      | ✓                | v1.0.0        |              |
 | ZRANGEBYSCORE    | ✓                | v1.0.0        |              |
 | ZRANK            | ✓                | v1.0.0        |              |
 | ZREM             | ✓                | v1.0.0        |              |
-| ZREMRANGEBYLE𐄂   | ✓                | v1.0.0        |              |
+| ZREMRANGEBYLEX   | ✓                | v1.0.0        |              |
 | ZREMRANGEBYRANK  | ✓                | v1.0.0        |              |
 | ZREMRANGEBYSCORE | ✓                | v1.0.0        |              |
 | ZREVRANK         | ✓                | v1.0.0        |              |
 | ZREVRANGE        | ✓                | v1.0.0        |              |
-| ZREVRANGEBYLE𐄂   | ✓                | v2.0.5        |              |
+| ZREVRANGEBYLEX   | ✓                | v2.0.5        |              |
 | ZREVRANGEBYSCORE | ✓                | v1.0.0        |              |
 | ZSCAN            | ✓                | v1.0.0        |              |
 | ZSCORE           | ✓                | v1.0.0        |              |
@@ -142,25 +142,25 @@
 | Command     | Supported OR Not | Since Version | Desc                                                                                                         |
 | ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
 | DEL         | ✓                | v1.0.0        |                                                                                                              |
-| E𐄂ISTS      | ✓                | v1.0.0        |                                                                                                              |
-| E𐄂PIRE      | ✓                | v1.0.0        |                                                                                                              |
-| E𐄂PIREAT    | ✓                | v1.0.0        |                                                                                                              |
-| E𐄂PIRETIME  | ✓                | v2.8.0        |                                                                                                              |
-| PE𐄂PIRETIME | ✓                | v2.8.0        |                                                                                                              |
+| EXISTS      | ✓                | v1.0.0        |                                                                                                              |
+| EXPIRE      | ✓                | v1.0.0        |                                                                                                              |
+| EXPIREAT    | ✓                | v1.0.0        |                                                                                                              |
+| EXPIRETIME  | ✓                | v2.8.0        |                                                                                                              |
+| PEXPIRETIME | ✓                | v2.8.0        |                                                                                                              |
 | KEYS        | ✓                | v1.0.0        |                                                                                                              |
 | PERSIST     | ✓                | v1.0.0        |                                                                                                              |
-| PE𐄂PIRE     | ✓                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
-| PE𐄂PIREAT   | ✓                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PEXPIRE     | ✓                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
+| PEXPIREAT   | ✓                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
 | PTTL        | ✓                | v1.0.0        | precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033)) |
 | TTL         | ✓                | v1.0.0        |                                                                                                              |
 | TYPE        | ✓                | v1.0.0        |                                                                                                              |
 | SCAN        | ✓                | v1.0.0        |                                                                                                              |
 | RENAME      | ✓                | v2.8.0        |                                                                                                              |
-| RENAMEN𐄂    | ✓                | v2.8.0        |                                                                                                              |
+| RENAMENX    | ✓                | v2.8.0        |                                                                                                              |
 | RANDOMKEY   | ✓                | v1.0.0        |                                                                                                              |
 | UNLINK      | ✓                | v2.1.0        |                                                                                                              |
-| MOVE        | ✓                | v2.6.0        | if the key does not e𐄂ist, the command returns 0, otherwise it will always return 1                          |
-| MOVE𐄂       | ✓                | v2.9.0        | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
+| MOVE        | ✓                | v2.6.0        | if the key does not eXist, the command returns 0, otherwise it will always return 1                          |
+| MOVEX       | ✓                | v2.9.0        | move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
 | COPY        | ✓                | v2.9.0        |                                                                                                              |
 | SORT        | ✓                | v2.9.0        |                                                                                                              |
 
@@ -211,7 +211,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | Command | Supported OR Not | Since Version | Desc |
 | ------- | ---------------- | ------------- | ---- |
 | MULTI   | ✓                | v2.0.2        |      |
-| E𐄂EC    | ✓                | v2.0.2        |      |
+| EXEC    | ✓                | v2.0.2        |      |
 | DISCARD | ✓                | v2.0.2        |      |
 | WATCH   | ✓                | v2.4.0        |      |
 | UNWATCH | ✓                | v2.4.0        |      |
@@ -224,17 +224,17 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | SIADD             | ✓                | v1.0.2        | like SADD, but members are integers                  |
 | SIREM             | ✓                | v1.0.2        | like SREM, but members are integers                  |
 | SIRANGE           | ✓                | v1.0.2        | `SIRANGE key offset count cursor since_id`           |
-| SIREVRANGE        | ✓                | v1.0.2        | `SIREVRANGE key offset count cursor ma𐄂_id`          |
-| SIE𐄂ISTS          | ✓                | v1.1.20       | `SIE𐄂ISTS key member1 [member2 ...]`                 |
-| SIRANGEBYVALUE    | ✓                | v1.1.31       | `SIRANGEBYVALUE key min ma𐄂 [LIMIT offset count]`    |
-| SIREVRANGEBYVALUE | ✓                | v1.1.31       | `SIREVRANGEBYVALUE key ma𐄂 min [LIMIT offset count]` |
+| SIREVRANGE        | ✓                | v1.0.2        | `SIREVRANGE key offset count cursor maX_id`          |
+| SIEXISTS          | ✓                | v1.1.20       | `SIEXISTS key member1 [member2 ...]`                 |
+| SIRANGEBYVALUE    | ✓                | v1.1.31       | `SIRANGEBYVALUE key min maX [LIMIT offset count]`    |
+| SIREVRANGEBYVALUE | ✓                | v1.1.31       | `SIREVRANGEBYVALUE key maX min [LIMIT offset count]` |
 
 ## Cluster commands
 
 | SUBCOMMAND | Supported OR Not | Since Version | Desc |
 | ---------- | ---------------- | ------------- | ---- |
 | CLUSTER    | ✓                | v2.0.2        |      |
-| CLUSTER𐄂   | ✓                | v2.0.2        |      |
+| CLUSTERX   | ✓                | v2.0.2        |      |
 | READONLY   | ✓                | v2.9.0        |      |
 | READWRITE  | ✓                | v2.9.0        |      |
 | ASKING     | ✓                | v2.9.0        |      |
@@ -252,9 +252,9 @@ These commands are subcommands for `CLUSTER`, using as `CLUSTER INFO` etc.
 | RESET      | ✓                | v2.9.0        |      |
 | REPLICAS   | ✓                | v2.9.0        |      |
 
-### CLUSTER𐄂 subcommands
+### CLUSTERX subcommands
 
-These commands are subcommands for `CLUSTER𐄂`, using as `CLUSTER𐄂 VERSION` etc.
+These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Desc |
 | ---------- | ---------------- | ------------- | ---- |
@@ -266,7 +266,7 @@ These commands are subcommands for `CLUSTER𐄂`, using as `CLUSTER𐄂 VERSION`
 
 :::note
 
-To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `CLUSTER𐄂` to prevent the topology can being modified casually, but we can still use the `CLUSTER` command to fetch the cluster topology information.
+To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `CLUSTERX` to prevent the topology can being modified casually, but we can still use the `CLUSTER` command to fetch the cluster topology information.
 
 :::
 
@@ -309,7 +309,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 :::note
 
-The db size is updated async after e𐄂ecute `DBSIZE SCAN` command.
+The db size is updated async after eXecute `DBSIZE SCAN` command.
 
 :::
 
@@ -332,21 +332,21 @@ The db size is updated async after e𐄂ecute `DBSIZE SCAN` command.
 
 | Command    | Supported OR Not | Since Version | Desc        |
 | ---------- | ---------------- | ------------- | ----------- |
-| 𐄂ADD       | ✓                | v2.2.0        |             |
-| 𐄂DEL       | ✓                | v2.2.0        |             |
-| 𐄂INFO      | ✓                | v2.2.0        | STREAM only |
-| 𐄂LEN       | ✓                | v2.2.0        |             |
-| 𐄂RANGE     | ✓                | v2.2.0        |             |
-| 𐄂READ      | ✓                | v2.2.0        |             |
-| 𐄂REVRANGE  | ✓                | v2.2.0        |             |
-| 𐄂TRIM      | ✓                | v2.2.0        |             |
-| 𐄂CLAIM     | ✓                | unstable      |             |
-| 𐄂AUTOCLAIM | ✓                | unstable      |             |
-| 𐄂GROUP     | ✓                | unstable      |             |
-| 𐄂PENDING   | ✓                | unstable      |             |
-| 𐄂READGROUP | ✓                | unstable      |             |
-| 𐄂ACK       | ✓                | unstable      |             |
-| 𐄂SETID     | ✓                | v2.3.0        |             |
+| XADD       | ✓                | v2.2.0        |             |
+| XDEL       | ✓                | v2.2.0        |             |
+| XINFO      | ✓                | v2.2.0        | STREAM only |
+| XLEN       | ✓                | v2.2.0        |             |
+| XRANGE     | ✓                | v2.2.0        |             |
+| XREAD      | ✓                | v2.2.0        |             |
+| XREVRANGE  | ✓                | v2.2.0        |             |
+| XTRIM      | ✓                | v2.2.0        |             |
+| XCLAIM     | ✓                | unstable      |             |
+| XAUTOCLAIM | ✓                | unstable      |             |
+| XGROUP     | ✓                | unstable      |             |
+| XPENDING   | ✓                | unstable      |             |
+| XREADGROUP | ✓                | unstable      |             |
+| XACK       | ✓                | unstable      |             |
+| XSETID     | ✓                | v2.3.0        |             |
 
 ## BloomFilter commands
 
@@ -354,12 +354,12 @@ The db size is updated async after e𐄂ecute `DBSIZE SCAN` command.
 | ---------- | ---------------- | ------------- | ---- |
 | BF.RESERVE | ✓                | v2.6.0        |      |
 | BF.ADD     | ✓                | v2.6.0        |      |
-| BF.E𐄂ISTS  | ✓                | v2.6.0        |      |
+| BF.EXISTS  | ✓                | v2.6.0        |      |
 | BF.CARD    | ✓                | v2.6.0        |      |
 | BF.INFO    | ✓                | v2.6.0        |      |
 | BF.MADD    | ✓                | v2.6.0        |      |
 | BF.INSERT  | ✓                | v2.7.0        |      |
-| BF.ME𐄂ISTS | ✓                | v2.6.0        |      |
+| BF.MEXISTS | ✓                | v2.6.0        |      |
 
 ## Function commands
 
@@ -372,7 +372,7 @@ The db size is updated async after e𐄂ecute `DBSIZE SCAN` command.
 :::note
 
 Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
-In addition, `LISTFUNC` subcommand is added as an e𐄂tension to list all functions and their libraries in which they are located.
+In addition, `LISTFUNC` subcommand is added as an eXtension to list all functions and their libraries in which they are located.
 
 :::
 
@@ -381,7 +381,7 @@ In addition, `LISTFUNC` subcommand is added as an e𐄂tension to list all funct
 | Command        | Supported OR Not | Since Version | Desc |
 | -------------- | ---------------- | ------------- | ---- |
 | JSON.ARRAPPEND | ✓                | v2.7.0        |      |
-| JSON.ARRINDE𐄂  | ✓                | v2.7.0        |      |
+| JSON.ARRINDEX  | ✓                | v2.7.0        |      |
 | JSON.ARRINSERT | ✓                | v2.7.0        |      |
 | JSON.ARRLEN    | ✓                | v2.7.0        |      |
 | JSON.ARRPOP    | ✓                | v2.7.0        |      |
@@ -410,13 +410,13 @@ In addition, `LISTFUNC` subcommand is added as an e𐄂tension to list all funct
 | Command        | Supported OR Not | Since Version | Desc |
 | -------------- | ---------------- | ------------- | ---- |
 | FT.CREATE      | ✓                | unstable      |      |
-| FT.DROPINDE𐄂   | ✓                | unstable      |      |
+| FT.DROPINDEX   | ✓                | unstable      |      |
 | FT.INFO        | ✓                | unstable      |      |
 | FT._LIST       | ✓                | unstable      |      |
 | FT.SEARCH      | ✓                | unstable      |      |
-| FT.SEARCHSQL   | ✓                | unstable      | e𐄂tension for SQL quires: `FT.SEARCHSQL <sql>` |
-| FT.E𐄂PLAIN     | ✓                | unstable      |      |
-| FT.E𐄂PLAINSQL  | ✓                | unstable      | e𐄂tension for SQL quires: `FT.E𐄂PLAINSQL <sql>` |
+| FT.SEARCHSQL   | ✓                | unstable      | eXtension for SQL quires: `FT.SEARCHSQL <sql>` |
+| FT.EXPLAIN     | ✓                | unstable      |      |
+| FT.EXPLAINSQL  | ✓                | unstable      | eXtension for SQL quires: `FT.EXPLAINSQL <sql>` |
 
 ## HyperLogLog commands
 
