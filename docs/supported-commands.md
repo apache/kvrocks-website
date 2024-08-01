@@ -424,4 +424,4 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | -------------- | ---------------- | ------------- | ---- |
 | PFADD          | ✓                | unstable      |      |
 | PFCOUNT        | ✓                | unstable      |      |
-| PFMERGE        | 𐄂                | unstable      |      |
+| PFMERGE        | ✓                | unstable      |      |
