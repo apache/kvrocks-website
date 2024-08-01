@@ -12,6 +12,7 @@ const sidebars = {
       },
       items: [
         'data-structure-on-rocksdb',
+        'kvrocks-search-index-encoding',
       ]
     },
     {
