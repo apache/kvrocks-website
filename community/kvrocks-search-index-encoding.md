@@ -150,8 +150,7 @@ which is used to quickly get corresponding data in subsequent query processes.
 ```
 | namespace | FIELD   | index name | field name |   level   |    hnsw type   | user key   |      | num of neighbours | vector dimension |      vector data      |
 |-----------|---------|------------|------------|-----------|----------------|------------|  ->  |-------------------|------------------|-----------------------|
-| 1+X bytes | 1 byte  | 4+Y bytes  | 4+Z bytes  |  2 bytes  |  NODE (1 byte) | 4+B bytes  |  ->  |       2 bytes     |      2 bytes     |
-  dimension * 8 bytes |
+| 1+X bytes | 1 byte  | 4+Y bytes  | 4+Z bytes  |  2 bytes  |  NODE (1 byte) | 4+B bytes  |  ->  |       2 bytes     |      2 bytes     |  dimension * 8 bytes |
 ```
 
 #### HNSW edge index encoding
