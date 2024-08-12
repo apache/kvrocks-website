@@ -28,7 +28,7 @@ For persisted data, prefer using a docker volume over a bind-mounted volume to a
 docker volume create kvrocks_data
 
 docker run --volume kvrocks_data:/kvrocks_data \
-  --interactive --tty --publish 6666:6666 apache/kvrocks:2.7.0 --bind 0.0.0.0 --dir /kvrocks_data
+  --interactive --tty --publish 6666:6666 apache/kvrocks --bind 0.0.0.0 --dir /kvrocks_data
 
 # note: the default data dir is /var/lib/kvrocks. The above example changes the location from default to /kvrocks_data.
 ```
