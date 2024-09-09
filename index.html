@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Redis Command Documentation</h1>
+    </header>
+
+    <nav class="sidebar">
+        <h2>Categories</h2>
+        <ul>
+
+            <li><a href="#hash-commands">Hash Commands</a></li>
+            <li><a href="#set-commands">Set Commands</a></li>
+            <li><a href="#zset-commands">ZSet Commands</a></li>
+            <li><a href="#stream-commands">Stream Commands</a></li>
+            <li><a href="#bloomfilter-commands">BloomFilter Commands</a></li>
+            <li><a href="#json-commands">JSON Commands</a></li>
+            <li><a href="#search-commands">Search Commands</a></li>
+            <li><a href="#hyperloglog-commands">HyperLogLog Commands</a></li>
+        </ul>
+    </nav>
+
+
+
+    <main>
+        <section id="hash-commands" class="command-section">
+            <h2>1. Hash Commands</h2>
+            <div class="command">
+                <h3>1.1. HEXPIRE</h3>
+                <p><strong>Syntax:</strong> <code>HEXPIRE {key} {field} {seconds}</code></p>
+                <p><strong>Function:</strong> Sets a time-to-live (TTL) on a specific field within a hash.</p>
+                <p><strong>Return Value:</strong> Returns <code>1</code> if the timeout is set successfully,
+                    <code>0</code> if the key or field does not exist.</p>
+                <p><strong>Notes:</strong> Currently, only the HEXPIRE command is supported for setting TTL on hash
+                    fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.2. HEXPIREAT</h3>
+                <p><strong>Syntax:</strong> <code>HEXPIREAT {key} {field} {timestamp}</code></p>
+                <p><strong>Function:</strong> Sets an expiration time on a specific field in a hash, using an absolute
+                    UNIX timestamp.</p>
+                <p><strong>Return Value:</strong> Returns <code>1</code> if the timeout is set successfully,
+                    <code>0</code> if the key or field does not exist.</p>
+                <p><strong>Notes:</strong> Currently, only the HEXPIREAT command is supported for setting absolute
+                    expiration times on hash fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.3. HEXPIRETIME</h3>
+                <p><strong>Syntax:</strong> <code>HEXPIRETIME {key} {field}</code></p>
+                <p><strong>Function:</strong> Returns the expiration time of a specific field in a hash as a UNIX
+                    timestamp.</p>
+                <p><strong>Return Value:</strong> Returns the timestamp of the field's expiration, or <code>-1</code> if
+                    the field does not have an expiration time.</p>
+                <p><strong>Notes:</strong> Currently, only the HEXPIRETIME command is supported for querying the
+                    expiration time of hash fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.4. HPERSIST</h3>
+                <p><strong>Syntax:</strong> <code>HPERSIST {key} {field}</code></p>
+                <p><strong>Function:</strong> Removes the expiration time from a field in a hash, making it persistent.
+                </p>
+                <p><strong>Return Value:</strong> Returns <code>1</code> if the timeout is removed, <code>0</code> if
+                    the key or field does not exist.</p>
+                <p><strong>Notes:</strong> Currently, only the HPERSIST command is supported for removing expiration
+                    times on hash fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.5. HPEXPIRE</h3>
+                <p><strong>Syntax:</strong> <code>HPEXPIRE {key} {field} {milliseconds}</code></p>
+                <p><strong>Function:</strong> Sets a time-to-live (TTL) on a specific field within a hash in
+                    milliseconds.</p>
+                <p><strong>Return Value:</strong> Returns <code>1</code> if the timeout is set successfully,
+                    <code>0</code> if the key or field does not exist.</p>
+                <p><strong>Notes:</strong> Currently, only the HPEXPIRE command is supported for setting TTL in
+                    milliseconds on hash fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.6. HTTL</h3>
+                <p><strong>Syntax:</strong> <code>HTTL {key} {field}</code></p>
+                <p><strong>Function:</strong> Returns the TTL of a specific field in a hash in seconds.</p>
+                <p><strong>Return Value:</strong> Returns the remaining TTL in seconds, or <code>-2</code> if the key or
+                    field does not exist, or <code>-1</code> if the field does not have an expiration time.</p>
+                <p><strong>Notes:</strong> Currently, only the HTTL command is supported for querying the TTL in seconds
+                    of hash fields.</p>
+            </div>
+            <div class="command">
+                <h3>1.7. HRANDFIELD</h3>
+                <p><strong>Syntax:</strong> <code>HRANDFIELD {key} [count] [WITHVALUES]</code></p>
+                <p><strong>Function:</strong> Retrieves one or more random fields from a hash, optionally with their
+                    values.</p>
+                <p><strong>Return Value:</strong> Returns the randomly selected field(s) or field-value pairs.</p>
+                <p><strong>Notes:</strong> Currently, only the HRANDFIELD command is supported for retrieving random
+                    fields from a hash.</p>
+            </div>
+        </section>
+
+        <section id="set-commands" class="command-section">
+            <h2>2. Set Commands</h2>
+            <div class="command">
+                <h3>2.1. SMISMEMBER</h3>
+                <p><strong>Syntax:</strong> <code>SMISMEMBER {key} {member} [member ...]</code></p>
+                <p><strong>Function:</strong> Checks whether each specified member is a member of the set stored at the
+                    key.</p>
+                <p><strong>Return Value:</strong> Returns an array of integers, with <code>1</code> for members that are
+                    in the set and <code>0</code> for those that are not.</p>
+                <p><strong>Notes:</strong> Currently, only the SMISMEMBER command is supported for checking multiple
+                    memberships in a set.</p>
+            </div>
+        </section>
+
+        <section id="zset-commands" class="command-section">
+            <h2>3. ZSet Commands</h2>
+            <div class="command">
+                <h3>3.1. ZDIFF</h3>
+                <p><strong>Syntax:</strong> <code>ZDIFF {numkeys} {key} [key ...]</code></p>
+                <p><strong>Function:</strong> Computes the difference between multiple sorted sets.</p>
+                <p><strong>Return Value:</strong> Returns the members of the resulting sorted set.</p>
+                <p><strong>Notes:</strong> Currently, only the ZDIFF command is supported for performing set difference
+                    operations on sorted sets.</p>
+            </div>
+            <div class="command">
+                <h3>3.2. ZDIFFSTORE</h3>
+                <p><strong>Syntax:</strong> <code>ZDIFFSTORE {destination} {numkeys} {key} [key ...]</code></p>
+                <p><strong>Function:</strong> Computes the difference between multiple sorted sets and stores the result
+                    in a destination key.</p>
+                <p><strong>Return Value:</strong> Returns the number of elements in the resulting sorted set stored at
+                    the destination key.</p>
+                <p><strong>Notes:</strong> Currently, only the ZDIFFSTORE command is supported for storing set
+                    differences into a sorted set.</p>
+            </div>
+        </section>
+
+        <section id="stream-commands" class="command-section">
+            <h2>4. Stream Commands</h2>
+            <div class="command">
+                <h3>4.1. XGROUP CREATE</h3>
+                <p><strong>Syntax:</strong> <code>XGROUP CREATE {stream} {groupname} {id or $} [MKSTREAM]</code></p>
+                <p><strong>Function:</strong> Creates a consumer group in a stream.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the group is created successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the XGROUP CREATE command is supported for creating consumer
+                    groups in streams.</p>
+            </div>
+            <div class="command">
+                <h3>4.2. XGROUP DESTROY</h3>
+                <p><strong>Syntax:</strong> <code>XGROUP DESTROY {stream} {groupname}</code></p>
+                <p><strong>Function:</strong> Removes a consumer group from a stream.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the group is removed successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the XGROUP DESTROY command is supported for removing consumer
+                    groups from streams.</p>
+            </div>
+            <div class="command">
+                <h3>4.3. XGROUP SETID</h3>
+                <p><strong>Syntax:</strong> <code>XGROUP SETID {stream} {groupname} {id}</code></p>
+                <p><strong>Function:</strong> Sets the last delivered ID of a consumer group to a specific ID.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the ID is set successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the XGROUP SETID command is supported for setting the ID of
+                    consumer groups in streams.</p>
+            </div>
+            <div class="command">
+                <h3>4.4. XPENDING</h3>
+                <p><strong>Syntax:</strong> <code>XPENDING {stream} [groupname]</code></p>
+                <p><strong>Function:</strong> Returns information about pending messages in a stream consumer group.</p>
+                <p><strong>Return Value:</strong> Returns information about pending messages and their state.</p>
+                <p><strong>Notes:</strong> Currently, only the XPENDING command is supported for querying pending
+                    messages in streams.</p>
+            </div>
+            <div class="command">
+                <h3>4.5. XINFO GROUPS</h3>
+                <p><strong>Syntax:</strong> <code>XINFO GROUPS {stream}</code></p>
+                <p><strong>Function:</strong> Retrieves information about consumer groups associated with a stream.</p>
+                <p><strong>Return Value:</strong> Returns information about the consumer groups of the stream.</p>
+                <p><strong>Notes:</strong> Currently, only the XINFO GROUPS command is supported for querying
+                    information about consumer groups.</p>
+            </div>
+            <div class="command">
+                <h3>4.6. XGROUP DELCONSUMER</h3>
+                <p><strong>Syntax:</strong> <code>XGROUP DELCONSUMER {stream} {groupname} {consumername}</code></p>
+                <p><strong>Function:</strong> Removes a consumer from a consumer group.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the consumer is removed successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the XGROUP DELCONSUMER command is supported for removing
+                    consumers from a group.</p>
+            </div>
+            <div class="command">
+                <h3>4.7. XGROUP CREATECONSUMER</h3>
+                <p><strong>Syntax:</strong> <code>XGROUP CREATECONSUMER {stream} {groupname} {consumername}</code></p>
+                <p><strong>Function:</strong> Creates a consumer within a consumer group.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the consumer is created successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the XGROUP CREATECONSUMER command is supported for adding
+                    consumers to a group.</p>
+            </div>
+        </section>
+
+        <section id="bloomfilter-commands" class="command-section">
+            <h2>5. BloomFilter Commands</h2>
+            <div class="command">
+                <h3>5.1. BF.LOADCHUNK</h3>
+                <p><strong>Syntax:</strong> <code>BF.LOADCHUNK {key} {chunk}</code></p>
+                <p><strong>Function:</strong> Loads a chunk of data into a Bloom filter.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the chunk is loaded successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the BF.LOADCHUNK command is supported for loading data into
+                    Bloom filters.</p>
+            </div>
+            <div class="command">
+                <h3>5.2. BF.SCANDUMP</h3>
+                <p><strong>Syntax:</strong> <code>BF.SCANDUMP {key} {iterator}</code></p>
+                <p><strong>Function:</strong> Scans and dumps the contents of a Bloom filter.</p>
+                <p><strong>Return Value:</strong> Returns a serialized dump of the Bloom filter's contents.</p>
+                <p><strong>Notes:</strong> Currently, only the BF.SCANDUMP command is supported for dumping Bloom filter
+                    data.</p>
+            </div>
+        </section>
+
+        <section id="json-commands" class="command-section">
+            <h2>6. JSON Commands</h2>
+            <div class="command">
+                <h3>6.1. JSON.DEBUG MEMORY</h3>
+                <p><strong>Syntax:</strong> <code>JSON.DEBUG MEMORY {key}</code></p>
+                <p><strong>Function:</strong> Provides memory usage statistics for a JSON document.</p>
+                <p><strong>Return Value:</strong> Returns memory usage statistics for the specified JSON document.</p>
+                <p><strong>Notes:</strong> Currently, only the JSON.DEBUG MEMORY command is supported for analyzing JSON
+                    document memory usage.</p>
+            </div>
+        </section>
+
+        <section id="search-commands" class="command-section">
+            <h2>7. Search Commands</h2>
+            <div class="command">
+                <h3>7.1. FT.AGGREGATE</h3>
+                <p><strong>Syntax:</strong> <code>FT.AGGREGATE {index} {query}</code></p>
+                <p><strong>Function:</strong> Performs aggregation queries on search indexes.</p>
+                <p><strong>Return Value:</strong> Returns aggregated results based on the query.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.AGGREGATE command is supported for aggregation
+                    queries.</p>
+            </div>
+            <div class="command">
+                <h3>7.2. FT.ALIASADD</h3>
+                <p><strong>Syntax:</strong> <code>FT.ALIASADD {alias} {index}</code></p>
+                <p><strong>Function:</strong> Adds an alias for a search index.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the alias is added successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.ALIASADD command is supported for adding aliases to
+                    search indexes.</p>
+            </div>
+            <div class="command">
+                <h3>7.3. FT.ALIASDEL</h3>
+                <p><strong>Syntax:</strong> <code>FT.ALIASDEL {alias}</code></p>
+                <p><strong>Function:</strong> Deletes an alias for a search index.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the alias is deleted successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.ALIASDEL command is supported for removing aliases
+                    from search indexes.</p>
+            </div>
+            <div class="command">
+                <h3>7.4. FT.ALIASUPDATE</h3>
+                <p><strong>Syntax:</strong> <code>FT.ALIASUPDATE {alias} {index}</code></p>
+                <p><strong>Function:</strong> Updates an alias to point to a different search index.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the alias is updated successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.ALIASUPDATE command is supported for updating search
+                    index aliases.</p>
+            </div>
+            <div class="command">
+                <h3>7.5. FT.ALTER</h3>
+                <p><strong>Syntax:</strong> <code>FT.ALTER {index} {options}</code></p>
+                <p><strong>Function:</strong> Alters the configuration of a search index.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the index is altered successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.ALTER command is supported for altering search index
+                    configurations.</p>
+            </div>
+            <div class="command">
+                <h3>7.6. FT.CONFIG GET</h3>
+                <p><strong>Syntax:</strong> <code>FT.CONFIG GET {name}</code></p>
+                <p><strong>Function:</strong> Retrieves the configuration of a search index or Redisearch module.</p>
+                <p><strong>Return Value:</strong> Returns the configuration details.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.CONFIG GET command is supported for retrieving
+                    configuration settings.</p>
+            </div>
+            <div class="command">
+                <h3>7.7. FT.CONFIG SET</h3>
+                <p><strong>Syntax:</strong> <code>FT.CONFIG SET {name} {value}</code></p>
+                <p><strong>Function:</strong> Sets the configuration of a search index or Redisearch module.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the configuration is set successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.CONFIG SET command is supported for setting
+                    configuration values.</p>
+            </div>
+            <div class="command">
+                <h3>7.8. FT.CURSOR DEL</h3>
+                <p><strong>Syntax:</strong> <code>FT.CURSOR DEL {cursor}</code></p>
+                <p><strong>Function:</strong> Deletes a search cursor.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the cursor is deleted successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.CURSOR DEL command is supported for deleting search
+                    cursors.</p>
+            </div>
+            <div class="command">
+                <h3>7.9. FT.CURSOR READ</h3>
+                <p><strong>Syntax:</strong> <code>FT.CURSOR READ {cursor}</code></p>
+                <p><strong>Function:</strong> Reads data from a search cursor.</p>
+                <p><strong>Return Value:</strong> Returns the data read from the cursor.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.CURSOR READ command is supported for reading from
+                    search cursors.</p>
+            </div>
+            <div class="command">
+                <h3>7.10. FT.DICTADD</h3>
+                <p><strong>Syntax:</strong> <code>FT.DICTADD {dict} {word} [word ...]</code></p>
+                <p><strong>Function:</strong> Adds words to a search dictionary.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the words are added successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.DICTADD command is supported for managing search
+                    dictionaries.</p>
+            </div>
+            <div class="command">
+                <h3>7.11. FT.DICTDEL</h3>
+                <p><strong>Syntax:</strong> <code>FT.DICTDEL {dict} {word} [word ...]</code></p>
+                <p><strong>Function:</strong> Deletes words from a search dictionary.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the words are deleted successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.DICTDEL command is supported for removing words from
+                    search dictionaries.</p>
+            </div>
+            <div class="command">
+                <h3>7.12. FT.DICTDUMP</h3>
+                <p><strong>Syntax:</strong> <code>FT.DICTDUMP {dict}</code></p>
+                <p><strong>Function:</strong> Dumps the contents of a search dictionary.</p>
+                <p><strong>Return Value:</strong> Returns a serialized dump of the dictionary.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.DICTDUMP command is supported for dumping search
+                    dictionary contents.</p>
+            </div>
+            <div class="command">
+                <h3>7.13. FT.EXPLAINCLI</h3>
+                <p><strong>Syntax:</strong> <code>FT.EXPLAINCLI {query}</code></p>
+                <p><strong>Function:</strong> Explains a search query.</p>
+                <p><strong>Return Value:</strong> Returns an explanation of the query execution.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.EXPLAINCLI command is supported for explaining search
+                    queries.</p>
+            </div>
+            <div class="command">
+                <h3>7.14. FT.PROFILE</h3>
+                <p><strong>Syntax:</strong> <code>FT.PROFILE {index} {query}</code></p>
+                <p><strong>Function:</strong> Profiles the execution of a search query.</p>
+                <p><strong>Return Value:</strong> Returns profiling information about the query.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.PROFILE command is supported for profiling search
+                    queries.</p>
+            </div>
+            <div class="command">
+                <h3>7.15. FT.SPELLCHECK</h3>
+                <p><strong>Syntax:</strong> <code>FT.SPELLCHECK {index} {query}</code></p>
+                <p><strong>Function:</strong> Performs spell checking on a search query.</p>
+                <p><strong>Return Value:</strong> Returns spelling suggestions based on the query.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.SPELLCHECK command is supported for spell checking
+                    search queries.</p>
+            </div>
+            <div class="command">
+                <h3>7.16. FT.SYNDUMP</h3>
+                <p><strong>Syntax:</strong> <code>FT.SYNDUMP {index}</code></p>
+                <p><strong>Function:</strong> Dumps the contents of a synonym dictionary.</p>
+                <p><strong>Return Value:</strong> Returns a serialized dump of the synonym dictionary.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.SYNDUMP command is supported for dumping synonym
+                    dictionaries.</p>
+            </div>
+            <div class="command">
+                <h3>7.17. FT.SYNUPDATE</h3>
+                <p><strong>Syntax:</strong> <code>FT.SYNUPDATE {index} {synonym}</code></p>
+                <p><strong>Function:</strong> Updates a synonym dictionary in a search index.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the dictionary is updated successfully.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.SYNUPDATE command is supported for updating synonym
+                    dictionaries.</p>
+            </div>
+            <div class="command">
+                <h3>7.18. FT.TAGVALS</h3>
+                <p><strong>Syntax:</strong> <code>FT.TAGVALS {index} {tag}</code></p>
+                <p><strong>Function:</strong> Retrieves all tag values for a given tag in a search index.</p>
+                <p><strong>Return Value:</strong> Returns a list of tag values.</p>
+                <p><strong>Notes:</strong> Currently, only the FT.TAGVALS command is supported for retrieving tag
+                    values.</p>
+            </div>
+        </section>
+
+        <section id="hyperloglog-commands" class="command-section">
+            <h2>8. HyperLogLog Commands</h2>
+            <div class="command">
+                <h3>8.1. PFSELFTEST</h3>
+                <p><strong>Syntax:</strong> <code>PFSELFTEST</code></p>
+                <p><strong>Function:</strong> Performs a self-test on the HyperLogLog data structure to check its
+                    integrity.</p>
+                <p><strong>Return Value:</strong> Returns <code>OK</code> if the test is successful, otherwise returns
+                    an error.</p>
+                <p><strong>Notes:</strong> Currently, only the PFSELFTEST command is supported for testing HyperLogLog
+                    integrity.</p>
+            </div>
+            <div class="command">
+                <h3>8.2. PFDEBUG</h3>
+                <p><strong>Syntax:</strong> <code>PFDEBUG {subcommand} [arguments ...]</code></p>
+                <p><strong>Function:</strong> Provides debugging information about the HyperLogLog data structure.</p>
+                <p><strong>Return Value:</strong> Returns debugging information based on the subcommand and arguments.
+                </p>
+                <p><strong>Notes:</strong> Currently, only the PFDEBUG command is supported for debugging HyperLogLog
+                    data structures.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Redis Command Documentation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.command-section');
+            const links = document.querySelectorAll('.sidebar a');
+    
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+    
+                    // Smooth scroll to the target section
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 20, // Adjust to account for fixed header if needed
+                        behavior: 'smooth'
+                    });
+    
+                    // Optionally, highlight the active section or link
+                    links.forEach(link => link.classList.remove('active'));
+                    e.target.classList.add('active');
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
