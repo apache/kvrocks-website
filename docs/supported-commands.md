@@ -341,12 +341,12 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | XREAD      | ✓                | v2.2.0        | Reads entries from one or more streams.                                                                       |
 | XREVRANGE  | ✓                | v2.2.0        | Returns a range of entries from a stream in reverse order.                                                    |
 | XTRIM      | ✓                | v2.2.0        | Trims a stream to a specified number of entries or to a maximum ID.                                           |
-| XCLAIM     | ✓                | unstable      | Changes the ownership of pending stream entries to a different consumer.                                      |
-| XAUTOCLAIM | ✓                | unstable      | Automatically claims pending entries in a stream, returning them to a consumer.                               |
-| XGROUP     | ✓                | unstable      | Manages consumer groups for streams.                                                                          |
-| XPENDING   | ✓                | unstable      | Shows information about pending entries in a stream for a specific consumer group.                            |
-| XREADGROUP | ✓                | unstable      | Reads entries from a stream as part of a consumer group.                                                      |
-| XACK       | ✓                | unstable      | Acknowledges the processing of one or more entries in a stream.                                               |
+| XCLAIM     | ✓                | v2.10.0       | Changes the ownership of pending stream entries to a different consumer.                                      |
+| XAUTOCLAIM | ✓                | v2.10.0       | Automatically claims pending entries in a stream, returning them to a consumer.                               |
+| XGROUP     | ✓                | v2.10.0       | Manages consumer groups for streams.                                                                          |
+| XPENDING   | ✓                | v2.10.0       | Shows information about pending entries in a stream for a specific consumer group.                            |
+| XREADGROUP | ✓                | v2.10.0       | Reads entries from a stream as part of a consumer group.                                                      |
+| XACK       | ✓                | v2.10.0       | Acknowledges the processing of one or more entries in a stream.                                               |
 | XSETID     | ✓                | v2.3.0        | Sets the last delivered ID of a stream to a specific value.                                                   |
 
 ## BloomFilter commands
@@ -398,7 +398,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | JSON.NUMMULTBY | ✓                | v2.7.0        | Multiplies a numeric value in a JSON document.                                                            |
 | JSON.OBJKEYS   | ✓                | v2.7.0        | Returns the keys in a JSON object.                                                                        |
 | JSON.OBJLEN    | ✓                | v2.7.0        | Returns the number of keys in a JSON object.                                                              |
-| JSON.RESP      | ✓                | unstable      | Converts a JSON value to RESP (Redis Serialization Protocol) format.                                      |
+| JSON.RESP      | ✓                | v2.10.0       | Converts a JSON value to RESP (Redis Serialization Protocol) format.                                      |
 | JSON.SET       | ✓                | v2.7.0        | Sets the value of a JSON key.                                                                             |
 | JSON.STRAPPEND | ✓                | v2.7.0        | Appends a string to a value in a JSON document.                                                           |
 | JSON.STRLEN    | ✓                | v2.7.0        | Returns the length of a string in a JSON document.                                                        |
@@ -418,11 +418,12 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | FT.SEARCHSQL   | ✓                | unstable      | Extension for SQL queries: `FT.SEARCHSQL <sql>`                                                           |
 | FT.EXPLAIN     | ✓                | unstable      | Explains how a full-text search query is executed.                                                        |
 | FT.EXPLAINSQL  | ✓                | unstable      | Extension for SQL queries: `FT.EXPLAINSQL <sql>`                                                          |
+| FT.TAGVALS     | ✓                | unstable      | Returns all distinct tags in a tag index.                                                                 |
 
 ## HyperLogLog commands
 
 | Command        | Supported OR Not | Since Version | Description                                                                                               |
 | -------------- | ---------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| PFADD          | ✓                | unstable      | Adds elements to a HyperLogLog data structure.                                                            |
-| PFCOUNT        | ✓                | unstable      | Returns the approximate cardinality (number of unique elements) in a HyperLogLog.                         |
-| PFMERGE        | ✓                | unstable      | Merges multiple HyperLogLog structures into a single structure.                                              |
+| PFADD          | ✓                | v2.10.0       | Adds elements to a HyperLogLog data structure.                                                            |
+| PFCOUNT        | ✓                | v2.10.0       | Returns the approximate cardinality (number of unique elements) in a HyperLogLog.                         |
+| PFMERGE        | ✓                | v2.10.0       | Merges multiple HyperLogLog structures into a single structure.                                              |
