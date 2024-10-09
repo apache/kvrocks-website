@@ -51,6 +51,19 @@ There are a couple of community rules:
 * Use Slack threads to keep parallel conversations from overwhelming a channel.
 * Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
 
+## Zulip
+
+You can join the [Apache Kvrocks™ community on Zulip](https://kvrocks.zulipchat.com/).
+
+There are a couple of community rules:
+
+* Be respectful - This is the most important rule!
+* All important decisions and conclusions must be reflected back to the mailing lists. "If it didn't happen on a mailing list, it didn't happen." - The [Apache Mottos](https://theapacheway.com/on-list/)
+* Please read [the official guide](https://zulip.com/help/getting-started-with-zulip) to learn how to use Zulip.
+* Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
+
+Thanks to [Zulip](https://zulip.com/) for sponsoring free Zulip Cloud Standard hosting for the Kvrocks community.
+
 ## Issue tracker
 
 We use GitHub Issues to track all code related issues: https://github.com/apache/kvrocks/issues
