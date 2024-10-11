@@ -33,9 +33,9 @@ function HomepageHeader() {
           </Link>
           <Link
               className="button button--secondary button--lg"
-              to="https://kvrocks.slack.com/join/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w#/shared-invite/email">
-            <div className='header-slack-link' style={{marginRight:'10px'}}></div>
-            SLACK
+              to="https://kvrocks.zulipchat.com/">
+            <div className='header-zulip-link' style={{marginRight:'10px'}}></div>
+            ZULIP
           </Link>
         </div>
       </header>
