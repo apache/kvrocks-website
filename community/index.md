@@ -40,17 +40,6 @@ If you email us with a code snippet, make sure that:
 * you keep formatting when pasting code in order to keep the code readable
 * there are enough import statements to avoid ambiguities
 
-## Slack
-
-You can join the [Apache Kvrocks™ community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
-
-There are a couple of community rules:
-
-* Be respectful - This is the most important rule!
-* All important decisions and conclusions must be reflected back to the mailing lists. "If it didn't happen on a mailing list, it didn't happen." - The [Apache Mottos](https://theapacheway.com/on-list/)
-* Use Slack threads to keep parallel conversations from overwhelming a channel.
-* Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
-
 ## Zulip
 
 You can join the [Apache Kvrocks™ community on Zulip](https://kvrocks.zulipchat.com/).
@@ -63,6 +52,17 @@ There are a couple of community rules:
 * Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
 
 Thanks to [Zulip](https://zulip.com/) for sponsoring free Zulip Cloud Standard hosting for the Kvrocks community.
+
+## Slack
+
+You can join the [Apache Kvrocks™ community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
+
+There are a couple of community rules:
+
+* Be respectful - This is the most important rule!
+* All important decisions and conclusions must be reflected back to the mailing lists. "If it didn't happen on a mailing list, it didn't happen." - The [Apache Mottos](https://theapacheway.com/on-list/)
+* Use Slack threads to keep parallel conversations from overwhelming a channel.
+* Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
 
 ## Issue tracker
 
