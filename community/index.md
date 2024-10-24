@@ -53,17 +53,6 @@ There are a couple of community rules:
 
 Thanks to [Zulip](https://zulip.com/) for sponsoring free Zulip Cloud Standard hosting for the Kvrocks community.
 
-## Slack
-
-You can join the [Apache Kvrocks™ community on Slack](https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w).
-
-There are a couple of community rules:
-
-* Be respectful - This is the most important rule!
-* All important decisions and conclusions must be reflected back to the mailing lists. "If it didn't happen on a mailing list, it didn't happen." - The [Apache Mottos](https://theapacheway.com/on-list/)
-* Use Slack threads to keep parallel conversations from overwhelming a channel.
-* Please do not direct message people for troubleshooting, issue assigning and PR review. These should be picked-up voluntarily.
-
 ## Issue tracker
 
 We use GitHub Issues to track all code related issues: https://github.com/apache/kvrocks/issues
