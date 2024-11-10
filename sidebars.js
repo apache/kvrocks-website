@@ -4,6 +4,7 @@ const sidebars = {
         'getting-started',
         'namespace',
         'cluster',
+        'kvrocks-search',
         'replication',
         {
             "type": "category",
