@@ -6,7 +6,7 @@ In addition to being compatible with many commands and the query syntax of [Redi
 
 Kvrocks Search is currently in the experimental stage and only available on the `unstable` branch. We do not provide compatibility guarantees at this time. If you encounter any problems, please submit them to [GitHub issues](https://github.com/apache/kvrocks/issues).
 
-For its implementation details, please refer to [this blog post](../blog/kqir-query-engine).
+For its implementation details, please refer to [this blog post](/blog/kqir-query-engine).
 
 ## Supported Commands
 
