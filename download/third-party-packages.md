@@ -20,3 +20,9 @@ is maintained by [@PragmaTwice](https://github.com/pragmatwice).
 
 Note that, like other AUR packages, the package does not contain binary files itself,
 since all binaries will be built by [makepkg](https://wiki.archlinux.org/title/makepkg) from the package scripts.
+
+### Conda Forge
+
+A [kvrocks](https://anaconda.org/conda-forge/kvrocks) package is maintained in the [conda-forge](https://conda-forge.org/), which can be installed within one command like `conda install conda-forge::kvrocks`, via [conda](https://github.com/conda/conda) or [mamba](https://github.com/mamba-org/mamba).
+
+You can check its source code [here](https://github.com/conda-forge/kvrocks-feedstock).
