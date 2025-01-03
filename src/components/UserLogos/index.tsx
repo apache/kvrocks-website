@@ -25,6 +25,7 @@ let userData = [
     { title: 'iFlytek ADX', img: '/media/users/iflytek-adx.jpg', site: 'https://www.voiceads.cn/' },
     { title: 'iQIYI', img: '/media/users/iqiyi.png', site: 'https://www.iqiyi.com/' },
     { title: 'WakaTime', img: '/media/users/wakatime.png', site: 'https://wakatime.com/' },
+	{ title: 'Biqutex', img: '/media/users/biqutex.jpg', site: 'https://biqutex.com/' },
 ]
 
 // Sort the data by title in alphabetical order.
