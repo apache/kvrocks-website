@@ -298,6 +298,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | AUTH        | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                        |
 | QUIT        | ✓                | v1.0.0        | Closes the connection with the server.                                                                       |
 | SLAVEOF     | ✓                | v1.0.0        | Configures the server to replicate from a specified master.                                                  |
+| REPLICAOF   | ✓                | unstable      | Configures the server to replicate from a specified master.                                                  |
 | SLOWLOG     | ✓                | v1.0.0        | Manages and retrieves the slow query log.                                                                    |
 | PERFLOG     | ✓                | v1.0.0        | Manages performance logging.                                                                                 |
 | HELLO       | ✓                | v2.2.0        | Negotiates the protocol version with the server.                                                             |
