@@ -297,7 +297,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | AUTH        | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                        |
 | QUIT        | ✓                | v1.0.0        | Closes the connection with the server.                                                                       |
 | SLAVEOF     | ✓                | v1.0.0        | Configures the server to replicate from a specified master.                                                  |
-| REPLICAOF   | ✓                | unstable      | Configures the server to replicate from a specified master.                                                  |
+| REPLICAOF   | ✓                | v2.11.0       | Configures the server to replicate from a specified master.                                                  |
 | SLOWLOG     | ✓                | v1.0.0        | Manages and retrieves the slow query log.                                                                    |
 | PERFLOG     | ✓                | v1.0.0        | Manages performance logging.                                                                                 |
 | HELLO       | ✓                | v2.2.0        | Negotiates the protocol version with the server.                                                             |
@@ -410,15 +410,15 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 
 | Command        | Supported OR Not | Since Version | Description                                                                                               |
 | -------------- | ---------------- | ------------- | --------------------------------------------------------------------------------------------------------- |    
-| FT.CREATE      | ✓                | unstable      | Creates a new full-text search index.                                                                     |
-| FT.DROPINDEX   | ✓                | unstable      | Deletes a full-text search index.                                                                         |
-| FT.INFO        | ✓                | unstable      | Provides information about a full-text search index.                                                      |
-| FT._LIST       | ✓                | unstable      | Lists all available full-text search indexes.                                                             |
-| FT.SEARCH      | ✓                | unstable      | Searches a full-text index for documents matching a query.                                                |
-| FT.SEARCHSQL   | ✓                | unstable      | Extension for SQL queries: `FT.SEARCHSQL <sql>`                                                           |
-| FT.EXPLAIN     | ✓                | unstable      | Explains how a full-text search query is executed.                                                        |
-| FT.EXPLAINSQL  | ✓                | unstable      | Extension for SQL queries: `FT.EXPLAINSQL <sql>`                                                          |
-| FT.TAGVALS     | ✓                | unstable      | Returns all distinct tags in a tag index.                                                                 |
+| FT.CREATE      | ✓                | v2.11.0       | Creates a new full-text search index.                                                                     |
+| FT.DROPINDEX   | ✓                | v2.11.0       | Deletes a full-text search index.                                                                         |
+| FT.INFO        | ✓                | v2.11.0       | Provides information about a full-text search index.                                                      |
+| FT._LIST       | ✓                | v2.11.0       | Lists all available full-text search indexes.                                                             |
+| FT.SEARCH      | ✓                | v2.11.0       | Searches a full-text index for documents matching a query.                                                |
+| FT.SEARCHSQL   | ✓                | v2.11.0       | Extension for SQL queries: `FT.SEARCHSQL <sql>`                                                           |
+| FT.EXPLAIN     | ✓                | v2.11.0       | Explains how a full-text search query is executed.                                                        |
+| FT.EXPLAINSQL  | ✓                | v2.11.0       | Extension for SQL queries: `FT.EXPLAINSQL <sql>`                                                          |
+| FT.TAGVALS     | ✓                | v2.11.0       | Returns all distinct tags in a tag index.                                                                 |
 
 ## HyperLogLog commands
 
