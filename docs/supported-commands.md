@@ -223,8 +223,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | SICARD            | ✓                | v1.0.2        | Returns the number of elements in a sorted integer set. (similar to SCARD)                             |
 | SIADD             | ✓                | v1.0.2        | Adds one or more integers to a sorted integer set. (like SADD, but members are integers)               |
 | SIREM             | ✓                | v1.0.2        | Removes one or more integers from a sorted integer set. (like SREM, but members are integers)          |
-| SIRANGE           | ✓                | v1.0.2        | Returns a range of elements from a sorted integer set by index.
-(`SIRANGE key offset count cursor since_id`) |
+| SIRANGE           | ✓                | v1.0.2        | Returns a range of elements from a sorted integer set by index. (`SIRANGE key offset count cursor since_id`) |
 | SIREVRANGE        | ✓                | v1.0.2        | Returns a range of elements from a sorted integer set by index, in reverse order. (`SIREVRANGE key offset count cursor max_id`)  |
 | SIEXISTS          | ✓                | v1.1.20       | Checks if an integer exists in a sorted integer set. (`SIEXISTS key member1 [member2 ...]`)            |
 | SIRANGEBYVALUE    | ✓                | v1.1.31       | Returns elements in a sorted integer set within a specified range of values. (`SIRANGEBYVALUE key min max [LIMIT offset count]`) |
@@ -324,9 +323,9 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 | GEOHASH              | ✓                | v1.1.12       | Returns the Geohash representation of one or more members in a geospatial index.                    |
 | GEOPOS               | ✓                | v1.1.12       | Returns the longitude and latitude of one or more members in a geospatial index.                    |
 | GEORADIUS            | ✓                | v1.1.12       | Returns members of a geospatial index within a radius around a given point.                         |
-| GEORADIUS_ro         | ✓                | v1.1.12       | A read-only variant of GEORADIUS, for use with read replicas.                                       |
+| GEORADIUS_RO         | ✓                | v1.1.12       | A read-only variant of GEORADIUS, for use with read replicas.                                       |
 | GEORADIUSBYMEMBER    | ✓                | v1.1.12       | Returns members of a geospatial index within a radius around a member's location.                   |
-| GEORADIUSBYMEMBER_ro | ✓                | v1.1.12       | A read-only variant of GEORADIUSBYMEMBER, for use with read replicas.                               |
+| GEORADIUSBYMEMBER_RO | ✓                | v1.1.12       | A read-only variant of GEORADIUSBYMEMBER, for use with read replicas.                               |
 | GEOSEARCH            | ✓                | v2.6.0        | Performs more complex geospatial searches, supporting multiple criteria like bounding boxes and ordering by distance.   |
 | GEOSEARCHSTORE       | ✓                | v2.6.0        | Stores the result of a GEOSEARCH query in a new key.                                                |
 
