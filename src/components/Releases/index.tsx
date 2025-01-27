@@ -64,12 +64,13 @@ type ReleaseData = {
 
 function createReleaseData(version: string, vtag?: string): ReleaseData {
     const fixedVTag = vtag ?? version;
-    const archive = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
+    const archive = `https://www.apache.org/dyn/closer.lua/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
+    const downloadURL = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
     return {
         name: fixedVTag,
         archive: archive,
-        checksum: `${archive}.sha512`,
-        signature: `${archive}.asc`,
+        checksum: `${downloadURL}.sha512`,
+        signature: `${downloadURL}.asc`,
     };
 }
 
