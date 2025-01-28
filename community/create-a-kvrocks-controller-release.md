@@ -57,6 +57,24 @@ svn status # check svn status
 svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 ```
 
+## Build and push Docker images
+
+:::info
+
+Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
+
+:::
+
+1. `docker login` to your own DockerHub account.
+2. Build and push docker images to your personal repository on DockerHub:
+3. MORE BUILD ARGS can be adjusted according to the performance of your computer
+
+```shell
+docker buildx create --name ${your_builder_name} --use --driver-opt network=host
+docker buildx inspect --bootstrap
+docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks-controller:${release_version} --tag ${your_dockerhub_username}/kvrocks-controller:latest . --output "type=registry"
+```
+
 ## Draft release note
 
 [Draft a new release note](https://github.com/apache/kvrocks-controller/releases/new).
@@ -157,6 +175,21 @@ Thanks
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/kvrocks/kvrocks-controller/${release_version} https://dist.apache.org/repos/dist/release/kvrocks/kvrocks-controller/${release_version} -m "Release ${release_version}"
 ```
+
+### Publish Docker images
+
+Copy the approved candidate docker images from your personal account to apache org:
+
+```shell
+docker buildx imagetools create -t apache/kvrocks-controller:${release_version} ${your_dockerhub_username}/kvrocks-controller:${release_version}
+docker buildx imagetools create -t apache/kvrocks-controller:latest ${your_dockerhub_username}/kvrocks-controller:latest
+```
+
+:::caution
+
+If you don't have the permission, you can ask someone with access to apache org to do that.
+
+:::
 
 ### Publish release note
 
