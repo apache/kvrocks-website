@@ -50,7 +50,7 @@
 | HVALS        | ✓                | v1.0.0        |      |
 | HSCAN        | ✓                | v1.0.0        |      |
 | HRANDFIELD   | ✓                | v2.6.0        |      |
-| HSETEXPIRE   | ✓                | unstable      |      |
+| HSETEXPIRE   | ✓                | unstable      | The combination of these two commands: HSET and EXPIRE                                                      |
 
 ## List commands
 
