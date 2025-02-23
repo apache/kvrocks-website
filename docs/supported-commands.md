@@ -50,6 +50,7 @@
 | HVALS        | ✓                | v1.0.0        |      |
 | HSCAN        | ✓                | v1.0.0        |      |
 | HRANDFIELD   | ✓                | v2.6.0        |      |
+| HSETEXPIRE   | ✓                | unstable      | The combination of these two commands: HSET and EXPIRE                                                      |
 
 ## List commands
 
@@ -427,3 +428,10 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | PFADD          | ✓                | v2.10.0       | Adds elements to a HyperLogLog data structure.                                                            |
 | PFCOUNT        | ✓                | v2.10.0       | Returns the approximate cardinality (number of unique elements) in a HyperLogLog.                         |
 | PFMERGE        | ✓                | v2.10.0       | Merges multiple HyperLogLog structures into a single structure.                                              |
+
+## TDigest commands
+
+| Command             | Supported OR Not | Since Version | Description                                                |
+| ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
+| TDIGEST.CREATE      | ✓                | unstable      |                                                            |
+| TDIGEST.INFO        | ✓                | unstable      |                                                            |
