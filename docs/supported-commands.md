@@ -45,11 +45,15 @@
 | HMSET        | ✓                | v1.0.0        | Sets multiple fields in a hash to multiple values.                                                          |
 | HRANGEBYLEX  | ✓                | v2.3.0        | Returns elements in a sorted set within a specific range defined by lexicographical ordering.               |
 | HSET         | ✓                | v1.0.0        | Sets the value of a field in a hash.                                                                        |
-| HSETNX       | ✓                | v1.0.0        |      |
-| HSTRLEN      | ✓                | v1.0.0        |      |
-| HVALS        | ✓                | v1.0.0        |      |
-| HSCAN        | ✓                | v1.0.0        |      |
-| HRANDFIELD   | ✓                | v2.6.0        |      |
+| HSETNX       | ✓                | v1.0.0        | Sets the value of a field in a hash only if the field does not exist.                           
+            |
+| HSTRLEN      | ✓                | v1.0.0        | Returns the length of string value for the specific field in a hash.                            
+            |
+| HVALS        | ✓                | v1.0.0        | Returns all values stored in a hash.                                                            
+            |
+| HSCAN        | ✓                | v1.0.0        | SCAN for fields of a hash.                                                                      
+            |
+| HRANDFIELD   | ✓                | v2.6.0        | Returns some random fields in a hash.                                                                       |
 | HSETEXPIRE   | ✓                | unstable      | The combination of these two commands: HSET and EXPIRE                                                      |
 
 ## List commands
@@ -263,7 +267,7 @@ These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
 | SETNODEID  | ✓                | v2.0.2        | Sets or updates the node ID in the cluster configuration.                                                     |
 | SETNODES   | ✓                | v2.0.2        | Configures the nodes in the cluster, often used for initializing or changing the cluster's topology.          |
 | SETSLOT    | ✓                | v2.0.6        | Manages slot assignments, moving slots between nodes.                                                       |
-| MIGRATE    | ✓                | v2.0.6        |      |
+| MIGRATE    | ✓                | v2.0.6        | Migrate slots between cluster nodes. |
 
 :::note
 
