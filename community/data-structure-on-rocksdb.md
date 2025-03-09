@@ -47,6 +47,7 @@ The values encoded for other data types in flags can be found in the table below
 | BloomFilter|          9 |
 | JSON       |         10 |
 | Hyperloglog|         11 |
+| TDigest    |         12 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -401,3 +402,54 @@ The register index is calculated using the first 14 bits of the user element's h
 The length of consecutive zeros is calculated using the last 50 digits of the hash value of the user key.
 
 Inspired by the bitmap implementation, HyperLogLog divides the register array into 16 segments, each with 1024 registers.
+
+## TDigest
+
+[Redis TDigest](https://redis.io/blog/t-digest-in-redis-stack/) is a data structure that estimates the quantiles of a dataset.
+It could be used for monitoring, online gaming, predictive analytics, and other applications that require real-time data analysis.
+
+[The original paper](https://arxiv.org/abs/1902.04023) is based on the idea of clustering data points into centroids, which are then used to estimate the quantiles of the dataset.
+
+The key points of TDigest are parts below:
+
+1. Scale function: the scale function determines the distribution of the centroids. For a certain scale, one parameter called compression will change the density of the centroids.
+2. Merge: when the number of centroids exceeds a certain threshold, the TDigest will merge the centroids to reduce the memory usage and let it satisfy the compression parameter after merging. The merge could also be used to merge two TDigests.
+3. Quantile estimation: when try to calculate the quantile, the TDigest will find the nearest two centroids and interpolate the quantile value.
+
+In Kvrocks, the TDigest data structure is stored in following three parts:
+
+1. TDigest metadata
+2. TDigest buffer of data for batch inserting and merging into centroids
+3. TDigest centroids
+
+#### TDigest metadata
+
+```text
+            +----------+------------+-----------+----------------+----------------+-----------------+-----------------+---------------+----------------+----------------+--------------------+--------------+
+    key =>  |  flags   |  expire    |  version  |  compression   |  capacity      |  unmerged_nodes |  merged_nodes   | total_weight  |   minimum      |   maximum      | total_observations | merge_times  |
+            | (1byte)  | (Ebyte)    |  (8byte)  |  uint32(4byte) |  uint32(4byte) |  uint64(8byte)  |  uint64(8byte)  | uint64(8byte) | double(8byte)  | double(8byte)  |   uint64(8byte)    | uint64(8byte)|
+            +----------+------------+-----------+----------------+----------------+-----------------+-----------------+---------------+----------------+----------------+--------------------+--------------+
+```
+
+#### TDigest buffer sub keys-values
+
+`buffer` is serialized as a list of double values.
+
+```text
+                               +--------------+
+    key|version|BUFFER_FLAG => |    buffer    |
+                               +--------------+
+```
+
+#### TDigest centroids sub keys-values
+
+`mean` is the mean of each centroid and use [memcomparable serialization](https://github.com/apache/kvrocks/blob/80168018b6fdbc0bdd549cf78cd5798556eb070f/src/common/encoding.cc#L32) to make iteration keep the original order of mean.
+
+During each merge, we will flush the buffer to the centroids and merge the centroids to satisfy the compression parameter.
+
+```text
+                                       +----------------+
+    key|version|CENTROID_FLAG|mean =>  |      weight    |
+                                       | (8byte) double |
+                                       +----------------+
+```

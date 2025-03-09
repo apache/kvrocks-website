@@ -439,3 +439,6 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
 | TDIGEST.CREATE      | ✓                | unstable      |                                                            |
 | TDIGEST.INFO        | ✓                | unstable      |                                                            |
+| TDIGEST.ADD         | ✓                | unstable      |                                                            |
+| TDIGEST.MIN         | ✓                | unstable      |                                                            |
+| TDIGEST.MAX         | ✓                | unstable      |                                                            |
