@@ -280,7 +280,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | Command     | Supported OR Not | Since Version | Description                                                                                                  |
 | ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
 | BGSAVE      | ✓                | v1.0.0        | Initiates a background save of the dataset to disk.                                                          |
-| LASTSAVE | ✓ | v2.6.0 | Returns the time of the last successful save to disk. By default ``LASTSAVE`` returns a Unix timestamp. If `ISO8601` is specified as an argument, it returns the time in ISO8601 format. |
+| LASTSAVE    | ✓                | v2.6.0        | Returns the time of the last successful save to disk. By default ``LASTSAVE`` returns a Unix timestamp. If `ISO8601` is specified as an argument, it returns the time in ISO8601 format. |
 | PING        | ✓                | v1.0.0        | Checks if the server is alive, responding with "PONG."                                                       |
 | SELECT      | ✓                | v1.0.0        | simply returns OK.                                                                                           |
 | ECHO        | ✓                | v2.0.6        | Echoes back the input string, useful for testing.                                                            |
