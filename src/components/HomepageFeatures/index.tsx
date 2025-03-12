@@ -52,7 +52,7 @@ function Feature({imgPath,title, description}: FeatureItem) {
     <div className={clsx('col col--6')}>
       <div className="text--center padding-horiz--md" style={{width:"100%",height:"100%",margin:'30px 0px'}}>
         <img className={styles.imgItem} src={imgPath} alt={title}/>
-        <h3>{title}</h3>
+        <h3 className={styles.featureTitle}>{title}</h3>
         <div className={styles.itemDes}>
           <p>{description}</p>
         </div>

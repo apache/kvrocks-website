@@ -50,6 +50,10 @@
   color:rgba(59, 61, 63, 1)
 }
 
+[data-theme='dark'] .blueLine + p {
+  color:rgba(220, 220, 220, 1);
+}
+
 .redisCompatible{
   display:flex;
   flex-direction:row;
@@ -113,8 +117,20 @@
   color:rgba(59, 61, 63, 1);
 }
 
+[data-theme='dark'] .itemDes {
+  color:rgba(220, 220, 220, 1);
+}
+
 .itemDes p{
   width: 50%;
+}
+
+.featureTitle {
+  color: #333333;
+}
+
+[data-theme='dark'] .featureTitle {
+  color: #ffffff;
 }
 
 .container{
