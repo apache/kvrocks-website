@@ -18,3 +18,11 @@ Choose a source distribution in the *tar* format, and [verify](https://www.apach
 
 For fast downloads, current source distributions are hosted on mirror servers; older source distributions are in the
 [archive](https://archive.apache.org/dist/kvrocks/kvrocks-controller). If a download from a mirror fails, retry, and the second download will likely succeed.
+
+### Docker Images
+
+Since `1.1.0`, every released version of Apache Kvrocks Controller has a corresponding [official Docker image on Docker Hub](https://hub.docker.com/r/apache/kvrocks-controller), which includes prebuilt binaries for both amd64 and arm64 architecture. You can obtain it via:
+
+```shell
+docker pull apache/kvrocks-controller:$VERSION_NUMBER
+```
