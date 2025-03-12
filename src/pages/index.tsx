@@ -12,7 +12,7 @@ function HomepageHeader() {
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className={clsx(styles.container)}>
           <div className={clsx(styles.titles)}>
-            <h1 className="hero__title" style={{color:'black'}}>{siteConfig.title}</h1>
+            <h1 className="hero__title">{siteConfig.title}</h1>
             <div className={clsx('hero__subtitle',styles.tagline)}>{siteConfig.tagline}</div>
           </div>
           <div className={clsx(styles.image)}>
