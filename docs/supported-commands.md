@@ -203,7 +203,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | ------------ | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
 | PSUBSCRIBE   | ✓                | v1.0.0        | Subscribes to channels using pattern matching. Receives messages sent to channels that match the pattern.   |
 | PUBLISH      | ✓                | v1.0.0        | Sends a message to a specific channel.                                                                      |
-| MPUBLISH     | ✓                | v2.6.0        | Publishes messages to multiple channels at once.                                                            |
+| MPUBLISH     | ✓                | v2.6.0        | Publishes a message to multiple channels at once.                                                            |
 | PUBSUB       | ✓                | v1.0.0        | Provides information about the current Pub/Sub system, including channels and subscriptions.                |
 | PUNSUBSCRIBE | ✓                | v1.0.0        | Unsubscribes from channels using pattern matching, stopping the receipt of messages.                        |
 | SUBSCRIBE    | ✓                | v1.0.0        | Subscribes to a specific channel to receive messages sent to that channel.                                  |
