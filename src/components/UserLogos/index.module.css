@@ -17,6 +17,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ffffff;
+}
+
+[data-theme='dark'] .link {
+    background-color: #ffffff;
+    border: 1px solid #3a3a3a;
 }
 
 .imgWrapper img {
