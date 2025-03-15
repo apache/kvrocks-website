@@ -78,3 +78,164 @@
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NzMuMTIgNzczLjEyIj48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1MGFkZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3ODc3ZmMiLz48L2xpbmVhckdyYWRpZW50PjxjaXJjbGUgY3g9IjM4Ni41NiIgY3k9IjM4Ni41NiIgcj0iMzg2LjU2IiBmaWxsPSJ1cmwoI2EpIi8+PHBhdGggZD0iTTU2Ni42NiA1MjcuMjVjMCAzMy4wMy0yNC4yMyA2MC4wNS01My44NCA2MC4wNUgyNjAuMjljLTI5LjYxIDAtNTMuODQtMjcuMDItNTMuODQtNjAuMDUgMC0yMC4yMiA5LjA5LTM4LjIgMjIuOTMtNDkuMDlsMTM0LjM3LTEyMGMyLjUtMi4xNCA1Ljc0IDEuMzEgMy45NCA0LjE5bC00OS4yOSA5OC42OWMtMS4zOCAyLjc2LjQxIDYuMTYgMy4yNSA2LjE2aDE5MS4xOGMyOS42MSAwIDUzLjgzIDI3LjAzIDUzLjgzIDYwLjA1em0wLTI4MS4zOWMwIDIwLjIyLTkuMDkgMzguMi0yMi45MyA0OS4wOWwtMTM0LjM3IDEyMGMtMi41IDIuMTQtNS43NC0xLjMxLTMuOTQtNC4xOWw0OS4yOS05OC42OWMxLjM4LTIuNzYtLjQxLTYuMTYtMy4yNS02LjE2SDI2MC4yOWMtMjkuNjEgMC01My44NC0yNy4wMi01My44NC02MC4wNXMyNC4yMy02MC4wNSA1My44NC02MC4wNWgyNTIuNTRjMjkuNjEgMCA1My44MyAyNy4wMiA1My44MyA2MC4wNXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=")
     no-repeat;
 }
+
+/* Navbar styling */
+.navbar {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.navbar__logo {
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.navbar__logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar__brand {
+  font-weight: 600;
+}
+
+.navbar__link {
+  font-weight: 500;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.navbar__link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--ifm-color-primary);
+  transition: width 0.3s ease;
+}
+
+.navbar__link:hover:after {
+  width: 100%;
+}
+
+/* Dropdown menu styling */
+.navbar__item.dropdown .navbar__link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__item.dropdown .navbar__link:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--ifm-navbar-link-color);
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.navbar__item.dropdown:hover .navbar__link:after {
+  transform: rotate(180deg);
+}
+
+.dropdown__menu {
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .dropdown__menu {
+  background-color: #2a2e33;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown__link {
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown__link:hover {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .dropdown__link:hover {
+  background-color: rgba(78, 147, 205, 0.15);
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Mobile navbar styling */
+@media (max-width: 996px) {
+  .navbar__toggle {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-sidebar {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  
+  .navbar-sidebar__brand {
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-sidebar__items {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-sidebar__item {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .navbar-sidebar__back {
+    background-color: var(--ifm-color-primary-lightest);
+    color: var(--ifm-color-primary-darkest);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin: 0.5rem 1rem;
+  }
+  
+  .menu__link {
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .menu__link:hover {
+    background-color: var(--ifm-color-primary-lightest);
+  }
+  
+  /* Mobile dropdown styling */
+  .navbar-sidebar .navbar__item.dropdown .menu__link {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .navbar-sidebar .navbar__item.dropdown .menu {
+    padding-left: 1rem;
+  }
+  
+  .navbar-sidebar .dropdown__menu {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .navbar-sidebar .dropdown__link {
+    border-radius: 4px;
+    margin: 0.25rem 0;
+  }
+}
