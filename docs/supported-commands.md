@@ -181,6 +181,25 @@
 | BITFIELD_RO | ✓                | v2.8.0        | Reads the values of specific bit fields in a string without modifying them (read-only variant of BITFIELD).  |
 | BITOP       | ✓                | v2.1.0        | Performs bitwise operations (AND, OR, XOR, NOT) on multiple keys containing string values and stores the result in a destination key. |
 
+### BITFIELD subcommands
+
+These commands are subcommands for `BITFIELD`, using as `BITFIELD key GET` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| GET       | ✓                | v2.7.0        | Returns the specified bit field.                                                          |
+| SET      | ✓                | v2.7.0        | Set the specified bit field and returns its old value.                                                    |
+| INCRBY      | ✓                | v2.7.0        | Increments or decrements (if a negative increment is given) the specified bit field and returns the new value.                                                                   |
+| OVERFLOW    | ✓                | v2.7.0        | Changes the behavior of successive INCRBY and SET subcommands calls by setting the overflow behavior: (WRAP/ SAT/ FAIL).                                                                        |
+
+### BITFIELD_RO subcommands
+
+These commands are subcommands for `BITFIELD_RO`, using as `BITFIELD_RO key GET` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| GET       | ✓                | v2.8.0        | Read-only variant of the BITFIELD command, can safely be used in read-only replicas.                                                          |
+
 :::note
 
 String and bitmap are different types in Kvrocks, so you _cannot_ do bit operations with string, and vice versa.
