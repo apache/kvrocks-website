@@ -17,7 +17,7 @@ In Kvrocks cluster design, we want to integrate advantages of both solutions: th
 
 Each Kvrocks node can act as Redis node which can offer the cluster topology directly, and the Redis cluster client can also work on the Kvrocks cluster without any modifications. The topology is managed by the other control panel component which can avoid the complexity of the Gossip protocol(Redis community takes many years to complete the Gossip on cluster solution).
 
-![cluster](assets/cluster.png)
+![cluster](assets/cluster.jpeg)
 
 ## Topology management
 
