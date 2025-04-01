@@ -230,6 +230,18 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | SSUBSCRIBE   | ✓                | v2.8.0        | Subscribes the client to the specified shard channels.                                                      |
 | SUNSUBSCRIBE | ✓                | v2.8.0        | Unsubscribes the client from the specified shard channels.                                                  |
 
+### PUBSUB subcommands
+
+These commands are subcommands for `PUBSUB`, using as `PUBSUB CHANNELS` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| CHANNELS       | ✓                | v1.0.0        | Returns the active channels.                                                          |
+| NUMPAT      | ✓                | v1.0.0        | Returns a count of the unique pattern subscriptions.                                                    |
+| NUMSUB      | ✓                | v1.0.0        | Returns a count of subscribers to channels.                                                                   |
+| SHARDCHANNELS      | ✓                | v1.0.0        | Returns the active shared channels.                                                                   |
+| SHARDNUMSUB      | ✓                | v1.0.0        | Returns the count of subscribers of shard channels.                                                                   |
+
 ## Transaction commands
 
 | Command | Supported OR Not | Since Version | Description                                                                                                      |
@@ -337,6 +349,41 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 The db size is updated async after execute `DBSIZE SCAN` command.
 
 :::
+
+### CONFIG subcommands
+
+These commands are subcommands for `CONFIG`, using as `CONFIG GET` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| GET       | ✓                | v1.0.0        | Returns the effective values of configuration parameters.                                                          |
+| SET      | ✓                | v1.0.0        | Sets configuration parameters in-flight.                                                    |
+| REWRITE      | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                                   |
+| RESETSTAT      | x                | -        | Resets the server's statistics.                                                                   |
+
+### CLIENT subcommands
+
+These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| CACHING       | x                | -        | Instructs the server whether to track the keys in the next request.                                                          |
+| GETNAME      | ✓                | v1.0.0        | Returns the name of the connection.                                                    |
+| GETREDIR      | x                | -        | Returns the client ID to which the connection's tracking notifications are redirected.                                                                   |
+| ID      | ✓                | v1.0.0        | Returns the unique client ID of the connection.                                                                   |
+| INFO      | ✓                | v2.4.0        | Returns information about the connection.                                                                   |
+| KILL       | ✓                | v1.0.0        | Terminates open connections.                                                          |
+| LIST      | ✓                | v1.0.0        | List open connections.                                                    |
+| NO-EVICT      | x                | -        | Set the client eviction mode of the connection.                                                                   |
+| NO-TOUCH      | x                | -        | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                                                                   |
+| PAUSE      | x                | -        | Suspends commands processing.                                                                   |
+| REPLY       | x                | -        | Instructs the server whether to reply to commands.                                                          |
+| SETINFO      | x                | -        | Sets information specific to the client or connection.                                                    |
+| SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                   |
+| TRACKING      | x                | -        | Controls server-assisted client-side caching for the connection.                                                                   |
+| TRACKINGINFO      | x                | -        | Returns information about the server-assisted client-side caching for the connection.                                                                   |
+| UNBLOCK      | x                | -        | Unblocks a client blocked by a blocking command from a different connection.                                                                   |
+| UNPAUSE      | x                | -        | Resumes processing commands from paused clients.                                                                   |
 
 ## GEO commands
 
