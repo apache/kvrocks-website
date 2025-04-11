@@ -154,7 +154,7 @@
 | PEXPIREAT   | ✓                | v1.0.0        | Sets a key's time to live based on a Unix timestamp in milliseconds. (Precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033))) |
 | PTTL        | ✓                | v1.0.0        | Returns the remaining time to live of a key in milliseconds. (precision is in seconds if old encoding is used (see [#1033](https://github.com/apache/kvrocks/issues/1033))) |
 | TTL         | ✓                | v1.0.0        | Returns the remaining time to live of a key in seconds.                                                      |
-| OBJECT         | ✓                | v1.0.1        | This is a container command for object introspection commands.                                                      |
+| OBJECT      | ✓                | v1.0.1        | This is a container command for object introspection commands.                                                     |
 | TYPE        | ✓                | v1.0.0        | Returns the data type of the value stored at a key.                                                          |
 | SCAN        | ✓                | v1.0.0        | Incrementally iterates over keys in the keyspace.                                                            |
 | RENAME      | ✓                | v2.8.0        | Renames a key.                                                                                               |
@@ -173,10 +173,10 @@ These commands are subcommands for `OBJECT`, using as `OBJECT DUMP` etc.
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | DUMP       | ✓                | v1.0.1        | Returns a serialized representation of the value stored at key.                                                          |
-| ENCODING       | x                | -        | Returns the internal encoding of a object.                                                          |
-| FREQ       | x                | -        | Returns the logarithmic access frequency counter of a object.                                                          |
-| IDLETIME       | x                | -        | Returns the time since the last access to a object.                                                          |
-| REFCOUNT       | x                | -        | Returns the reference count of a value of  key.                                                          |
+| ENCODING   | x                | -             | Returns the internal encoding of a object.                                                       |
+| FREQ       | x                | -             | Returns the logarithmic access frequency counter of a object.                                                       |
+| IDLETIME   | x                | -             | Returns the time since the last access to a object.                                                       |
+| REFCOUNT   | x                | -             | Returns the reference count of a value of  key.                                                          |
 
 ## Bit commands
 
