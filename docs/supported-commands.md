@@ -172,7 +172,7 @@ These commands are subcommands for `OBJECT`, using as `OBJECT DUMP` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| DUMP       | ✓                | v1.0.1        | Returns a serialized representation of the value stored at key.                                               |
+| DUMP       | ✓                | v1.0.1        | Dump the detailed information of the key.                                               |
 | ENCODING   | x                | -             | Returns the internal encoding of a object.                                                                    |
 | FREQ       | x                | -             | Returns the logarithmic access frequency counter of a object.                                                 |
 | IDLETIME   | x                | -             | Returns the time since the last access to a object.                                                           |
