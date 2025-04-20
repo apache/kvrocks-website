@@ -4,7 +4,7 @@
 
 In addition to being compatible with many commands and the query syntax of [RediSearch](https://redis.io/docs/latest/develop/interact/search-and-query/) (e.g. [FT.CREATE](#ftcreate) and [FT.SEARCH](#ftsearch)), Kvrocks Search also offers support for SQL syntax to accommodate various scenarios (via [FT.SEARCHSQL](#ftsearchsql-extension) and other related commands).
 
-Kvrocks Search is currently in the experimental stage and only available on the `unstable` branch. We do not provide compatibility guarantees at this time. If you encounter any problems, please submit them to [GitHub issues](https://github.com/apache/kvrocks/issues).
+Kvrocks Search is released since version 2.11.0, and currently still quite experimental. If you encounter any problems, please submit them to [GitHub issues](https://github.com/apache/kvrocks/issues).
 
 For its implementation details, please refer to [this blog post](/blog/kqir-query-engine).
 
@@ -120,8 +120,6 @@ The output format of this command is like:
    3) ...
 ```
 
-Note that the output format may change as Kvrocks Search is currently experimental.
-
 ### FT.SEARCHSQL (extension)
 
 ```
@@ -139,7 +137,7 @@ Additional parameters:
 ```
 FT.EXPLAINSQL sql
   [PARAMS nargs name value [ name value ...]] 
-  [SIMPLE | DOT]
+  [SIMPLE | DOT | DEBUG]
 ```
 
 `FT.EXPLAINSQL` is to obtain a plan on how Kvrocks will execute the `sql` query (a.k.a. the query plan).
@@ -147,7 +145,8 @@ FT.EXPLAINSQL sql
 Additional parameters:
 - `PARAMS`: same as in `FT.SEARCHSQL`;
 - `SIMPLE`: print a simple representation of the query plan;
-- `DOT`: print the query plan in Graphviz [DOT](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) format (which can be used to generate a graphical representation of a directed graph).
+- `DOT`: print the query plan in Graphviz [DOT](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) format (which can be used to generate a graphical representation of a directed graph);
+- `DEBUG`: print the (syntax or plan) IR in simple representation after each transformation pass, similiar to `-print-after-all` in LLVM.
 
 ## SQL syntax
 
