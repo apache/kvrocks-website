@@ -2,6 +2,10 @@ import React from "react";
 
 const versions = [
     {
+        version: '2.12.0',
+        vtag: '2.12.0'
+    },
+    {
         version: '2.11.1',
         vtag: '2.11.1'
     },
