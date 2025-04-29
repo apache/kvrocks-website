@@ -359,40 +359,60 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 
 :::
 
+### COMMAND subcommands
+
+These commands are subcommands for `COMMAND`, using as `COMMAND COUNT` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| COUNT      | ✓                | v2.0.1        | Returns a count of commands.                                                                                  |
+| GETKEYS    | ✓                | v2.0.1        | Extracts the key names from an arbitary command.                                                              |
+| INFO       | ✓                | v2.0.1        | Returns information about one, multiple or all commands.                                                      |
+
 ### CONFIG subcommands
 
 These commands are subcommands for `CONFIG`, using as `CONFIG GET` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| GET       | ✓                | v1.0.0        | Returns the effective values of configuration parameters.                                                          |
-| SET      | ✓                | v1.0.0        | Sets configuration parameters in-flight.                                                    |
-| REWRITE      | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                                   |
-| RESETSTAT      | x                | -        | Resets the server's statistics.                                                                   |
+| GET        | ✓                | v1.0.0        | Returns the effective values of configuration parameters.                                                     |
+| SET        | ✓                | v1.0.0        | Sets configuration parameters in-flight.                                                                      |
+| REWRITE    | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                             |
+| RESETSTAT  | x                | -             | Resets the server's statistics.                                                                               |
 
 ### CLIENT subcommands
 
 These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 
+| SUBCOMMAND   | Supported OR Not | Since Version | Description                                                                                                   |
+| ------------ | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| CACHING      | x                | -             | Instructs the server whether to track the keys in the next request.                                           |
+| GETNAME      | ✓                | v1.0.0        | Returns the name of the connection.                                                                           |
+| GETREDIR     | x                | -             | Returns the client ID to which the connection's tracking notifications are redirected.                        |
+| ID           | ✓                | v1.0.0        | Returns the unique client ID of the connection.                                                               |
+| INFO         | ✓                | v2.4.0        | Returns information about the connection.                                                                     |
+| KILL         | ✓                | v1.0.0        | Terminates open connections.                                                                                  |
+| LIST         | ✓                | v1.0.0        | List open connections.                                                                                        |
+| NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
+| NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
+| PAUSE        | x                | -             | Suspends commands processing.                                                                                 |
+| REPLY        | x                | -             | Instructs the server whether to reply to commands.                                                            |
+| SETINFO      | x                | -             | Sets information specific to the client or connection.                                                        |
+| SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
+| TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
+| TRACKINGINFO | x                | -             | Returns information about the server-assisted client-side caching for the connection.                         |
+| UNBLOCK      | x                | -             | Unblocks a client blocked by a blocking command from a different connection.                                  |
+| UNPAUSE      | x                | -             | Resumes processing commands from paused clients.                                                              |
+
+### SLOWLOG subcommands
+
+These commands are subcommands for `SLOWLOG`, using as `SLOWLOG GET` etc.
+
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| CACHING       | x                | -        | Instructs the server whether to track the keys in the next request.                                                          |
-| GETNAME      | ✓                | v1.0.0        | Returns the name of the connection.                                                    |
-| GETREDIR      | x                | -        | Returns the client ID to which the connection's tracking notifications are redirected.                                                                   |
-| ID      | ✓                | v1.0.0        | Returns the unique client ID of the connection.                                                                   |
-| INFO      | ✓                | v2.4.0        | Returns information about the connection.                                                                   |
-| KILL       | ✓                | v1.0.0        | Terminates open connections.                                                          |
-| LIST      | ✓                | v1.0.0        | List open connections.                                                    |
-| NO-EVICT      | x                | -        | Set the client eviction mode of the connection.                                                                   |
-| NO-TOUCH      | x                | -        | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                                                                   |
-| PAUSE      | x                | -        | Suspends commands processing.                                                                   |
-| REPLY       | x                | -        | Instructs the server whether to reply to commands.                                                          |
-| SETINFO      | x                | -        | Sets information specific to the client or connection.                                                    |
-| SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                   |
-| TRACKING      | x                | -        | Controls server-assisted client-side caching for the connection.                                                                   |
-| TRACKINGINFO      | x                | -        | Returns information about the server-assisted client-side caching for the connection.                                                                   |
-| UNBLOCK      | x                | -        | Unblocks a client blocked by a blocking command from a different connection.                                                                   |
-| UNPAUSE      | x                | -        | Resumes processing commands from paused clients.                                                                   |
+| GET        | ✓                | v1.0.0        | Returns the slow log's entries.                                                                               |
+| LEN        | ✓                | v1.0.0        | Returns the number of entries in the slow log.                                                                |
+| RESET      | ✓                | v1.0.0        | Clears all entries from the slow log.                                                                         |
 
 ## GEO commands
 
