@@ -482,10 +482,22 @@ These commands are subcommands for `SLOWLOG`, using as `SLOWLOG GET` etc.
 | FCALL    | ✓                | v2.7.0        | Calls a function by its name with specified arguments, allowing for custom script execution.                    |
 | FCALL_RO | ✓                | v2.7.0        | Calls a read-only function, ensuring it does not modify data, suitable for use in replicas.                     |
 
+### FUNCTION subcommands
+
+These commands are subcommands for `FUNCTION`, using as `FUNCTION LOAD` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| LOAD       | ✓                | v2.7.0        | Creates a library.                                                                                            |
+| DELETE     | ✓                | v2.7.0        | Deletes a library and its functions.                                                                          |
+| LIST       | ✓                | v2.7.0        | Returns the information about all libraries and their code (enabled via `with_code`).                         |
+| LISTLIB    | ✓                | v2.7.0        | Returns detailed information of a specific library.                                                           |
+| LISTFUNC   | ✓                | v2.7.0        | Returns the information about all functions and libraries they are located in.                                |
+
 :::note
 
-Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
-In addition, `LISTFUNC` subcommand is added as an extension to list all functions and their libraries in which they are located.
+It is required to load the library to lua runtime before listing (calling LISTLIB)
+i.e. it will output nothing if the library is only in storage but not loaded.
 
 :::
 
