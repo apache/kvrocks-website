@@ -366,7 +366,7 @@ These commands are subcommands for `COMMAND`, using as `COMMAND COUNT` etc.
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | COUNT      | ✓                | v2.0.1        | Returns a count of commands.                                                                                  |
-| GETKEYS    | ✓                | v2.0.1        | Extracts the key names from an arbitary command.                                                              |
+| GETKEYS    | ✓                | v2.0.1        | Extracts the key names from an arbitrary command.                                                             |
 | INFO       | ✓                | v2.0.1        | Returns information about one, multiple or all commands.                                                      |
 
 ### CONFIG subcommands
