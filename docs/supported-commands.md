@@ -54,8 +54,8 @@
 
 ## List commands
 
-| Command    | Supported OR Not | Since Version | Desc                                                      |
-| ---------- | ---------------- | ------------- | --------------------------------------------------------- |
+| Command    | Supported OR Not | Since Version | Desc                                                                                                          |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | BLPOP      | ✓                | v1.0.0        | Removes and returns the first element of a list, or blocks until one is available.                            |
 | BRPOP      | ✓                | v1.0.0        | Removes and returns the last element of a list, or blocks until one is available.                             |
 | BRPOPLPUSH | 𐄂                | -             | Pops the last element from a list, pushes it to another list, and returns it; blocks until an element is available.(DEPRECATED) |
@@ -93,7 +93,7 @@
 | SISMEMBER   | ✓                | v1.0.0        | Checks if a member is part of a set.                                                                         |
 | SMEMBERS    | ✓                | v1.0.0        | Returns all the members in a set.                                                                            |
 | SMOVE       | ✓                | v1.0.0        | Moves a member from one set to another.                                                                      |
-| SPOP        | ✓                | v1.0.0        | Pop members in the order of keys      |
+| SPOP        | ✓                | v1.0.0        | Pop members in the order of keys                                                                             |
 | SRANDMEMBER | ✓                | v1.0.0        | Returns one or more random members from a set without removing them. (always first N members if not changed) |
 | SREM        | ✓                | v1.0.0        | Removes one or more members from a set.                                                                      |
 | SUNION      | ✓                | v1.0.0        | Returns the union of multiple sets.                                                                          |
@@ -172,7 +172,7 @@ These commands are subcommands for `OBJECT`, using as `OBJECT DUMP` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| DUMP       | ✓                | v1.0.1        | Dump the detailed information of the key.                                               |
+| DUMP       | ✓                | v1.0.1        | Dump the detailed information of the key.                                                                     |
 | ENCODING   | x                | -             | Returns the internal encoding of a object.                                                                    |
 | FREQ       | x                | -             | Returns the logarithmic access frequency counter of a object.                                                 |
 | IDLETIME   | x                | -             | Returns the time since the last access to a object.                                                           |
@@ -196,10 +196,10 @@ These commands are subcommands for `BITFIELD`, using as `BITFIELD key GET` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| GET       | ✓                | v2.7.0        | Returns the specified bit field.                                                          |
-| SET      | ✓                | v2.7.0        | Set the specified bit field and returns its old value.                                                    |
-| INCRBY      | ✓                | v2.7.0        | Increments or decrements (if a negative increment is given) the specified bit field and returns the new value.                                                                   |
-| OVERFLOW    | ✓                | v2.7.0        | Changes the behavior of successive INCRBY and SET subcommands calls by setting the overflow behavior: (WRAP/ SAT/ FAIL).                                                                        |
+| GET        | ✓                | v2.7.0        | Returns the specified bit field.                                                                              |
+| SET        | ✓                | v2.7.0        | Set the specified bit field and returns its old value.                                                        |
+| INCRBY     | ✓                | v2.7.0        | Increments or decrements (if a negative increment is given) the specified bit field and returns the new value.|
+| OVERFLOW   | ✓                | v2.7.0        | Changes the behavior of successive INCRBY and SET subcommands calls by setting the overflow behavior: (WRAP/ SAT/ FAIL).  |
 
 ### BITFIELD_RO subcommands
 
@@ -207,7 +207,7 @@ These commands are subcommands for `BITFIELD_RO`, using as `BITFIELD_RO key GET`
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| GET       | ✓                | v2.8.0        | Read-only variant of the BITFIELD command, can safely be used in read-only replicas.                                                          |
+| GET       | ✓                | v2.8.0        | Read-only variant of the BITFIELD command, can safely be used in read-only replicas.                           |
 
 :::note
 
@@ -231,7 +231,7 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | ------------ | ---------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
 | PSUBSCRIBE   | ✓                | v1.0.0        | Subscribes to channels using pattern matching. Receives messages sent to channels that match the pattern.   |
 | PUBLISH      | ✓                | v1.0.0        | Sends a message to a specific channel.                                                                      |
-| MPUBLISH     | ✓                | v2.6.0        | Publishes a message to multiple channels at once.                                                            |
+| MPUBLISH     | ✓                | v2.6.0        | Publishes a message to multiple channels at once.                                                           |
 | PUBSUB       | ✓                | v1.0.0        | Provides information about the current Pub/Sub system, including channels and subscriptions.                |
 | PUNSUBSCRIBE | ✓                | v1.0.0        | Unsubscribes from channels using pattern matching, stopping the receipt of messages.                        |
 | SUBSCRIBE    | ✓                | v1.0.0        | Subscribes to a specific channel to receive messages sent to that channel.                                  |
@@ -243,13 +243,13 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 
 These commands are subcommands for `PUBSUB`, using as `PUBSUB CHANNELS` etc.
 
-| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
-| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| CHANNELS       | ✓                | v1.0.0        | Returns the active channels.                                                          |
-| NUMPAT      | ✓                | v1.0.0        | Returns a count of the unique pattern subscriptions.                                                    |
-| NUMSUB      | ✓                | v1.0.0        | Returns a count of subscribers to channels.                                                                   |
-| SHARDCHANNELS      | ✓                | v1.0.0        | Returns the active shared channels.                                                                   |
-| SHARDNUMSUB      | ✓                | v1.0.0        | Returns the count of subscribers of shard channels.                                                                   |
+| SUBCOMMAND    | Supported OR Not | Since Version | Description                                                                                                   |
+| ------------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| CHANNELS      | ✓                | v1.0.0        | Returns the active channels.                                                                                  |
+| NUMPAT        | ✓                | v1.0.0        | Returns a count of the unique pattern subscriptions.                                                          |
+| NUMSUB        | ✓                | v1.0.0        | Returns a count of subscribers to channels.                                                                   |
+| SHARDCHANNELS | ✓                | v1.0.0        | Returns the active shared channels.                                                                           |
+| SHARDNUMSUB   | ✓                | v1.0.0        | Returns the count of subscribers of shard channels.                                                           |
 
 ## Transaction commands
 
@@ -306,7 +306,7 @@ These commands are subcommands for `CLUSTERX`, using as `CLUSTERX VERSION` etc.
 | VERSION    | ✓                | v2.0.2        | Displays the version of the CLUSTERX command set or protocol.                                                 |
 | SETNODEID  | ✓                | v2.0.2        | Sets or updates the node ID in the cluster configuration.                                                     |
 | SETNODES   | ✓                | v2.0.2        | Configures the nodes in the cluster, often used for initializing or changing the cluster's topology.          |
-| SETSLOT    | ✓                | v2.0.6        | Manages slot assignments, moving slots between nodes.                                                       |
+| SETSLOT    | ✓                | v2.0.6        | Manages slot assignments, moving slots between nodes.                                                         |
 | MIGRATE    | ✓                | v2.0.6        | Migrate slots between cluster nodes. |
 
 :::note
@@ -359,40 +359,60 @@ The db size is updated async after execute `DBSIZE SCAN` command.
 
 :::
 
+### COMMAND subcommands
+
+These commands are subcommands for `COMMAND`, using as `COMMAND COUNT` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| COUNT      | ✓                | v2.0.1        | Returns a count of commands.                                                                                  |
+| GETKEYS    | ✓                | v2.0.1        | Extracts the key names from an arbitrary command.                                                             |
+| INFO       | ✓                | v2.0.1        | Returns information about one, multiple or all commands.                                                      |
+
 ### CONFIG subcommands
 
 These commands are subcommands for `CONFIG`, using as `CONFIG GET` etc.
 
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| GET       | ✓                | v1.0.0        | Returns the effective values of configuration parameters.                                                          |
-| SET      | ✓                | v1.0.0        | Sets configuration parameters in-flight.                                                    |
-| REWRITE      | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                                   |
-| RESETSTAT      | x                | -        | Resets the server's statistics.                                                                   |
+| GET        | ✓                | v1.0.0        | Returns the effective values of configuration parameters.                                                     |
+| SET        | ✓                | v1.0.0        | Sets configuration parameters in-flight.                                                                      |
+| REWRITE    | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                             |
+| RESETSTAT  | x                | -             | Resets the server's statistics.                                                                               |
 
 ### CLIENT subcommands
 
 These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 
+| SUBCOMMAND   | Supported OR Not | Since Version | Description                                                                                                   |
+| ------------ | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| CACHING      | x                | -             | Instructs the server whether to track the keys in the next request.                                           |
+| GETNAME      | ✓                | v1.0.0        | Returns the name of the connection.                                                                           |
+| GETREDIR     | x                | -             | Returns the client ID to which the connection's tracking notifications are redirected.                        |
+| ID           | ✓                | v1.0.0        | Returns the unique client ID of the connection.                                                               |
+| INFO         | ✓                | v2.4.0        | Returns information about the connection.                                                                     |
+| KILL         | ✓                | v1.0.0        | Terminates open connections.                                                                                  |
+| LIST         | ✓                | v1.0.0        | List open connections.                                                                                        |
+| NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
+| NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
+| PAUSE        | x                | -             | Suspends commands processing.                                                                                 |
+| REPLY        | x                | -             | Instructs the server whether to reply to commands.                                                            |
+| SETINFO      | x                | -             | Sets information specific to the client or connection.                                                        |
+| SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
+| TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
+| TRACKINGINFO | x                | -             | Returns information about the server-assisted client-side caching for the connection.                         |
+| UNBLOCK      | x                | -             | Unblocks a client blocked by a blocking command from a different connection.                                  |
+| UNPAUSE      | x                | -             | Resumes processing commands from paused clients.                                                              |
+
+### SLOWLOG subcommands
+
+These commands are subcommands for `SLOWLOG`, using as `SLOWLOG GET` etc.
+
 | SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
 | ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| CACHING       | x                | -        | Instructs the server whether to track the keys in the next request.                                                          |
-| GETNAME      | ✓                | v1.0.0        | Returns the name of the connection.                                                    |
-| GETREDIR      | x                | -        | Returns the client ID to which the connection's tracking notifications are redirected.                                                                   |
-| ID      | ✓                | v1.0.0        | Returns the unique client ID of the connection.                                                                   |
-| INFO      | ✓                | v2.4.0        | Returns information about the connection.                                                                   |
-| KILL       | ✓                | v1.0.0        | Terminates open connections.                                                          |
-| LIST      | ✓                | v1.0.0        | List open connections.                                                    |
-| NO-EVICT      | x                | -        | Set the client eviction mode of the connection.                                                                   |
-| NO-TOUCH      | x                | -        | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                                                                   |
-| PAUSE      | x                | -        | Suspends commands processing.                                                                   |
-| REPLY       | x                | -        | Instructs the server whether to reply to commands.                                                          |
-| SETINFO      | x                | -        | Sets information specific to the client or connection.                                                    |
-| SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                   |
-| TRACKING      | x                | -        | Controls server-assisted client-side caching for the connection.                                                                   |
-| TRACKINGINFO      | x                | -        | Returns information about the server-assisted client-side caching for the connection.                                                                   |
-| UNBLOCK      | x                | -        | Unblocks a client blocked by a blocking command from a different connection.                                                                   |
-| UNPAUSE      | x                | -        | Resumes processing commands from paused clients.                                                                   |
+| GET        | ✓                | v1.0.0        | Returns the slow log's entries.                                                                               |
+| LEN        | ✓                | v1.0.0        | Returns the number of entries in the slow log.                                                                |
+| RESET      | ✓                | v1.0.0        | Clears all entries from the slow log.                                                                         |
 
 ## GEO commands
 
@@ -506,7 +526,7 @@ In addition, `LISTFUNC` subcommand is added as an extension to list all function
 | -------------- | ---------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
 | PFADD          | ✓                | v2.10.0       | Adds elements to a HyperLogLog data structure.                                                            |
 | PFCOUNT        | ✓                | v2.10.0       | Returns the approximate cardinality (number of unique elements) in a HyperLogLog.                         |
-| PFMERGE        | ✓                | v2.10.0       | Merges multiple HyperLogLog structures into a single structure.                                              |
+| PFMERGE        | ✓                | v2.10.0       | Merges multiple HyperLogLog structures into a single structure.                                           |
 
 ## TDigest commands
 
