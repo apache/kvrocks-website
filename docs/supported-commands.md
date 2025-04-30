@@ -223,7 +223,19 @@ String and bitmap are different types in Kvrocks, so you _cannot_ do bit operati
 | EVALSHA    | ✓                | v2.0.4        | Executes a Lua script using its SHA1 hash, which is useful when the script is already cached on the server.   |
 | EVAL_RO    | ✓                | v2.2.0        | Executes a Lua script server-side in read-only mode, allowing it in replica instances (similar to EVAL, but read-only). |
 | EVALSHA_RO | ✓                | v2.2.0        | Executes a Lua script in read-only mode using its SHA1 hash (similar to EVALSHA, but read-only).              |
-| SCRIPT     | ✓                | v2.0.4        | Manages the Redis script cache, with subcommands for loading, flushing, and checking for script existence. (SCRIPT KILL and DEBUG subcommand are not supported) |
+| SCRIPT     | ✓                | v2.0.4        | Manages the Redis script cache, with subcommands for loading, flushing, and checking for script existence.    |
+
+### SCRIPT subcommands
+
+These commands are subcommands for `SCRIPT`, using as `SCRIPT EXISTS` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| EXISTS     | ✓                | v2.0.4        | Determines whether server-side Lua scripts exists in the script cache.                                        |
+| FLUSH      | ✓                | v2.0.4        | Removes all servser-side Luad scripts from the script cache.                                                  |
+| LOAD       | ✓                | v2.0.4        | Loads a server-side Lua script to the script cache.                                                           |
+| KILL       | x                | v2.0.4        | Terminates a server-side Lua script during execution.                                                         |
+| DEBUG      | x                | v2.0.4        | Sets the debug mode of server-side Lua scripts.                                                               |
 
 ## PubSub commands
 
@@ -470,10 +482,22 @@ These commands are subcommands for `SLOWLOG`, using as `SLOWLOG GET` etc.
 | FCALL    | ✓                | v2.7.0        | Calls a function by its name with specified arguments, allowing for custom script execution.                    |
 | FCALL_RO | ✓                | v2.7.0        | Calls a read-only function, ensuring it does not modify data, suitable for use in replicas.                     |
 
+### FUNCTION subcommands
+
+These commands are subcommands for `FUNCTION`, using as `FUNCTION LOAD` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| LOAD       | ✓                | v2.7.0        | Creates a library.                                                                                            |
+| DELETE     | ✓                | v2.7.0        | Deletes a library and its functions.                                                                          |
+| LIST       | ✓                | v2.7.0        | Returns the information about all libraries and their code (enabled via `with_code`).                         |
+| LISTLIB    | ✓                | v2.7.0        | Returns detailed information of a specific library.                                                           |
+| LISTFUNC   | ✓                | v2.7.0        | Returns the information about all functions and libraries they are located in.                                |
+
 :::note
 
-Currently only `LOAD`, `DELETE`, `LIST` subcommands are supported in `FUNCTION`.
-In addition, `LISTFUNC` subcommand is added as an extension to list all functions and their libraries in which they are located.
+It is required to load the library to lua runtime before listing (calling LISTLIB)
+i.e. it will output nothing if the library is only in storage but not loaded.
 
 :::
 
