@@ -50,7 +50,7 @@
 | HVALS        | ✓                | v1.0.0        | Returns all values stored in a hash.                                                                        |
 | HSCAN        | ✓                | v1.0.0        | SCAN for fields of a hash.                                                                                  |
 | HRANDFIELD   | ✓                | v2.6.0        | Returns some random fields in a hash.                                                                       |
-| HSETEXPIRE   | ✓                | unstable      | The combination of these two commands: HSET and EXPIRE                                                      |
+| HSETEXPIRE   | ✓                | v2.12.0       | The combination of these two commands: HSET and EXPIRE                                                      |
 
 ## List commands
 
@@ -165,6 +165,7 @@
 | MOVEX       | ✓                | v2.9.0        | Move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
 | COPY        | ✓                | v2.9.0        | Copies a key to a new key.                                                                                   |
 | SORT        | ✓                | v2.9.0        | Sorts the elements in a list, set, or sorted set.                                                            |
+| KMETADATA   | ✓                | v2.12.0       | Get Kvrocks-specific metadata information for a key.                                                         |
 
 ### OBJECT subcommands
 
@@ -364,6 +365,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | COMPACT     | ✓                | v1.0.0        | Compacts database storage. (RocksDB)                                                                         |
 | RDB         | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                   |
 | DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
+| POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                              |
 
 :::note
 
