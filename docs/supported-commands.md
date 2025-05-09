@@ -235,8 +235,8 @@ These commands are subcommands for `SCRIPT`, using as `SCRIPT EXISTS` etc.
 | EXISTS     | ✓                | v2.0.4        | Determines whether server-side Lua scripts exists in the script cache.                                        |
 | FLUSH      | ✓                | v2.0.4        | Removes all servser-side Luad scripts from the script cache.                                                  |
 | LOAD       | ✓                | v2.0.4        | Loads a server-side Lua script to the script cache.                                                           |
-| KILL       | x                | v2.0.4        | Terminates a server-side Lua script during execution.                                                         |
-| DEBUG      | x                | v2.0.4        | Sets the debug mode of server-side Lua scripts.                                                               |
+| KILL       | x                | -             | Terminates a server-side Lua script during execution.                                                         |
+| DEBUG      | x                | -             | Sets the debug mode of server-side Lua scripts.                                                               |
 
 ## PubSub commands
 
@@ -410,7 +410,7 @@ These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 | NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
 | NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
 | PAUSE        | x                | -             | Suspends commands processing.                                                                                 |
-| REPLY        | x                | -             | Instructs the server whether to reply to commands.                                                            |
+| REPLY        | ✓                | unstable      | Instructs the server whether to reply to commands.                                                            |
 | SETINFO      | x                | -             | Sets information specific to the client or connection.                                                        |
 | SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
 | TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
