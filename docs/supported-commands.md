@@ -564,3 +564,4 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.MIN         | ✓                | unstable      |                                                            |
 | TDIGEST.MAX         | ✓                | unstable      |                                                            |
 | TDIGEST.RESET       | ✓                | unstable      |                                                            |
+| TDIGEST.QUANTILE    | ✓                | unstable      |                                                            |
