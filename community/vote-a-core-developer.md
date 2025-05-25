@@ -290,8 +290,7 @@ The voting initiator needs to add project team members, open a permission accoun
 
 ### Newly add a PMC member
 
-Once the candicate accept the invitation, we can just use the [Whimsy Roster](https://whimsy.apache.org/roster/committee/kvrocks) tool to do everything. It automatically send out the NOTICE email to the board and private email list. After that, please remeber to remind the candidate to subscribe the private email list.
-
+Once the candidate accepts the invitation, we can use the [Whimsy Roster](https://whimsy.apache.org/roster/committee/kvrocks) tool to do everything. It automatically sends out the NOTICE email to the board and private email list. After that, please remember to remind the candidate to subscribe to the private email list.
 
 ## ANNOUNCE to the community
 
