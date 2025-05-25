@@ -112,26 +112,6 @@ Thanks for everyone's support!
 
 Note: If it is not passed, the result is "The vote for "[Nominee] as a Kvrocks [Committer|PMC member]" has FAILED and closed now."
 
-## Newly added PMC member notification email
-
-This step is only processed for the PMC member that passed the vote. If the election is Committer, this step is skipped and not executed.
-
-Voting initiators need to send notification emails to Board's mailing group and wait at least 72 hours; email owners send `board@apache.org` and CC `private@kvrocks.apache.org`; Board will analyze compliance Until there is no doubt.
-
-The following is an example of a new PMC notification email:
-
-```text
-[NOTICE] [Nominee] for Apache Kvrocks PMC member
-
-Hi everyone,
-
-Apache Kvrocks proposes to invite [Nominee] to join the PMC.
-
-The vote result is available here: https://lists.apache.org/...
-
-Thanks!
-```
-
 ## Initiate invitation email
 
 After the result summary email is sent, the poll initiator must send an invitation email to the candidates.
@@ -237,7 +217,7 @@ the direction of the project.
 
 Being a committer enables you to more easily make
 changes without needing to go through the patch
-submission process. 
+submission process.
 
 Being a PMC member does not require you to
 participate any more than you already do. It does
@@ -300,11 +280,17 @@ establishing you as a committer.
 
 ## Processing after accepting the invitation
 
+### Newly add a committer
+
 Create an Apache account and add the candidate account to the project. After the candidate accepts the invitation, if the candidate does not have an apache email account, the voting initiator needs to assist the candidate to create an Apache account according to the guidelines.
 
 When signing the ICLA, the candidate needs to write the project name of "Apache Kvrocks" in the "notify project:" column, so that the candidate account will be added to the list of corresponding project personnel by Apache.
 
 The voting initiator needs to add project team members, open a permission account for the Apache project, and confirm that the candidate's Apache account has been added to the project address: http://people.apache.org/phonebook.html?podling=kvrocks.
+
+### Newly add a PMC member
+
+Once the candidate accepts the invitation, we can use the [Whimsy Roster](https://whimsy.apache.org/roster/committee/kvrocks) tool to do everything. It automatically sends out the NOTICE email to the board and private email list. After that, please remember to remind the candidate to subscribe to the private email list.
 
 ## ANNOUNCE to the community
 
