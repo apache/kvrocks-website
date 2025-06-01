@@ -77,6 +77,7 @@ Enhancements or new feature proposals are also welcome. The more concrete and ra
 
 * Kvrocks core repository: https://github.com/apache/kvrocks
 * Kvrocks website repository: https://github.com/apache/kvrocks-website
+* Kvrocks controller repository: https://github.com/apache/kvrocks-controller
 
 ## People
 
