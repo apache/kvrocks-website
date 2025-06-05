@@ -366,7 +366,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | RDB         | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                   |
 | DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
-| KPROFILE    | ✓                | unstable      | Enabl, disable or dump Profiling heap memory if Kvrocks is building with Jemalloc.                           |
+| KPROFILE    | ✓                | unstable      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
 
 :::note
 
