@@ -15,6 +15,7 @@ const sidebars = {
             },
             items: [
                 'backup',
+                'how-to-profile-memory',
                 'kvrocks-exporter',
                 'kvrocks2redis',
             ]
