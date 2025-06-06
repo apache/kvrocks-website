@@ -28,7 +28,7 @@ Once Kvrocks is running with the above environment variable set, you can use the
 $ redis-cli> KPROFILE MEMORY ENABLE
 
 # Dump memory profiling data to a file in the specified directory,
-# the profiling filename will be starting with `jeprof-` prefix
+# the profiling filename will be prefixed with `jeprof-`
 $ redis-cli> KPROFILE MEMORY DUMP [dir]
 
 # Disable memory profiling
