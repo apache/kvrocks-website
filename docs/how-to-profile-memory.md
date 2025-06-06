@@ -1,6 +1,6 @@
 # How to profile memory
 
-To make the memory profiling easier, Kvrocks provides the command `KPROFILE` to active/deactive and dump the memory profiling data. But it's only supported when building with the Jemalloc memory allocator(built by default).
+To make the memory profiling easier, Kvrocks provides the command `KPROFILE` to active/deactive and dump the memory profiling data. Note that it is only available while Jemalloc is enabled in the building phase.
 
 ## Prerequisites
 
