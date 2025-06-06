@@ -4,7 +4,7 @@ To make the memory profiling easier, Kvrocks provides the command `KPROFILE` to 
 
 ## Prerequisites
 
-Before profiling, you need to run Kvrocks server with the following environment variable set:
+Before profiling, you need to run Kvrocks server with the following environment variables:
 
 ```bash
 export MALLOC_CONF="prof:true,background_thread:true"
