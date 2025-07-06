@@ -4,8 +4,7 @@ Different from [the encoding method of other data structures](https://kvrocks.ap
 Apache Kvrocks™ Search (a.k.a. Kvrocks Search) uses an independent column family (named `search`) 
 and a separately designed encoding format to store indexing-related metadata and data.
 
-WARNING: Kvrocks Search is currently in development and has not been officially released, 
-so its encoding format may undergo breaking changes.
+Kvrocks Search is released since 2.11.0, see [its docs](https://kvrocks.apache.org/docs/kvrocks-search).
 
 ## Common encoding
 
