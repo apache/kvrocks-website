@@ -330,43 +330,44 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 ## Server commands
 
-| Command     | Supported OR Not | Since Version | Description                                                                                                  |
-| ----------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
-| BGSAVE      | ✓                | v1.0.0        | Initiates a background save of the dataset to disk.                                                          |
-| LASTSAVE    | ✓                | v2.6.0        | Returns the timestamp of the last successful save to disk. Additionally, `LASTSAVE ISO8601` returns the time in ISO8601 format. |
-| PING        | ✓                | v1.0.0        | Checks if the server is alive, responding with "PONG."                                                       |
-| SELECT      | ✓                | v1.0.0        | simply returns OK.                                                                                           |
-| ECHO        | ✓                | v2.0.6        | Echoes back the input string, useful for testing.                                                            |
-| MONITOR     | ✓                | v1.0.0        | Streams every command processed by the server in real time.                                                  |
-| SHUTDOWN    | ✓                | v1.0.0        | Stops the server, optionally saving the dataset to disk.                                                     |
-| INFO        | ✓                | v1.0.0        | Provides detailed information about the server.                                                              |
-| ROLE        | ✓                | v1.1.30       | Displays the role of the instance (master, slave, etc.)                                                      |
-| CONFIG      | ✓                | v1.0.0        | Manages the server's configuration parameters.                                                               |
-| DBSIZE      | ✓                | v1.0.0        | Returns the number of keys in the currently selected database.                                               |
-| DISK        | ✓                | v2.2.0        | `DISK USAGE user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874) |
-| MEMORY      | ✓                | v2.4.0        | MEMORY USAGE command is an alias to DISK USAGE command.                                                      |
-| DEBUG       | ✓                | v1.3.0        | A collection of debugging commands for developers and administrators. (Only DEBUG SLEEP is supported.)       |
-| NAMESPACE   | ✓                | v1.0.0        | Used to manage namespaces.                                                                                   |
-| FLUSHDB     | ✓                | v1.0.0        | Removes all keys from the currently selected database.                                                       |
-| FLUSHALL    | ✓                | v1.0.0        | Removes all keys from all databases.                                                                         |
-| FLUSHBACKUP | ✓                | v1.3.1        | Flushes backup data.                                                                                         |
-| COMMAND     | ✓                | v2.0.1        | Returns details about available commands.                                                                    |
-| CLIENT      | ✓                | v1.0.0        | Manages client connections and their settings.                                                               |
-| AUTH        | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                        |
-| QUIT        | ✓                | v1.0.0        | Closes the connection with the server.                                                                       |
-| SLAVEOF     | ✓                | v1.0.0        | Configures the server to replicate from a specified master.                                                  |
-| REPLICAOF   | ✓                | v2.11.0       | Configures the server to replicate from a specified master.                                                  |
-| SLOWLOG     | ✓                | v1.0.0        | Manages and retrieves the slow query log.                                                                    |
-| PERFLOG     | ✓                | v1.0.0        | Manages performance logging.                                                                                 |
-| HELLO       | ✓                | v2.2.0        | Negotiates the protocol version with the server.                                                             |
-| TIME        | ✓                | v2.4.0        | Returns the current server time as a Unix timestamp and microseconds.                                        |
-| STATS       | ✓                | v1.0.0        | Dump the RocksDB statistics in JSON format.                                                                  |
-| RESTORE     | ✓                | v2.6.0        | Create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types            |
-| COMPACT     | ✓                | v1.0.0        | Compacts database storage. (RocksDB)                                                                         |
-| RDB         | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                   |
-| DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
-| POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
-| KPROFILE    | ✓                | unstable      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
+| Command         | Supported OR Not | Since Version | Description                                                                                                                     |
+|-----------------|------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------|
+| BGSAVE          | ✓                | v1.0.0        | Initiates a background save of the dataset to disk.                                                                             |
+| LASTSAVE        | ✓                | v2.6.0        | Returns the timestamp of the last successful save to disk. Additionally, `LASTSAVE ISO8601` returns the time in ISO8601 format. |
+| PING            | ✓                | v1.0.0        | Checks if the server is alive, responding with "PONG."                                                                          |
+| SELECT          | ✓                | v1.0.0        | simply returns OK.                                                                                                              |
+| ECHO            | ✓                | v2.0.6        | Echoes back the input string, useful for testing.                                                                               |
+| MONITOR         | ✓                | v1.0.0        | Streams every command processed by the server in real time.                                                                     |
+| SHUTDOWN        | ✓                | v1.0.0        | Stops the server, optionally saving the dataset to disk.                                                                        |
+| INFO            | ✓                | v1.0.0        | Provides detailed information about the server.                                                                                 |
+| ROLE            | ✓                | v1.1.30       | Displays the role of the instance (master, slave, etc.)                                                                         |
+| CONFIG          | ✓                | v1.0.0        | Manages the server's configuration parameters.                                                                                  |
+| DBSIZE          | ✓                | v1.0.0        | Returns the number of keys in the currently selected database.                                                                  |
+| DISK            | ✓                | v2.2.0        | `DISK USAGE user_key` to get the disk usage of the `user_key`, see [#874](https://github.com/apache/kvrocks/issues/874)         |
+| MEMORY          | ✓                | v2.4.0        | MEMORY USAGE command is an alias to DISK USAGE command.                                                                         |
+| DEBUG           | ✓                | v1.3.0        | A collection of debugging commands for developers and administrators. (Only DEBUG SLEEP is supported.)                          |
+| NAMESPACE       | ✓                | v1.0.0        | Used to manage namespaces.                                                                                                      |
+| FLUSHDB         | ✓                | v1.0.0        | Removes all keys from the currently selected database.                                                                          |
+| FLUSHALL        | ✓                | v1.0.0        | Removes all keys from all databases.                                                                                            |
+| FLUSHBACKUP     | ✓                | v1.3.1        | Flushes backup data.                                                                                                            |
+| FLUSHBLOCKCACHE | ✓                | unstable      | Flushes unreferred items in block cache to reduce memory usage.                                                                 |
+| COMMAND         | ✓                | v2.0.1        | Returns details about available commands.                                                                                       |
+| CLIENT          | ✓                | v1.0.0        | Manages client connections and their settings.                                                                                  |
+| AUTH            | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                                           |
+| QUIT            | ✓                | v1.0.0        | Closes the connection with the server.                                                                                          |
+| SLAVEOF         | ✓                | v1.0.0        | Configures the server to replicate from a specified master.                                                                     |
+| REPLICAOF       | ✓                | v2.11.0       | Configures the server to replicate from a specified master.                                                                     |
+| SLOWLOG         | ✓                | v1.0.0        | Manages and retrieves the slow query log.                                                                                       |
+| PERFLOG         | ✓                | v1.0.0        | Manages performance logging.                                                                                                    |
+| HELLO           | ✓                | v2.2.0        | Negotiates the protocol version with the server.                                                                                |
+| TIME            | ✓                | v2.4.0        | Returns the current server time as a Unix timestamp and microseconds.                                                           |
+| STATS           | ✓                | v1.0.0        | Dump the RocksDB statistics in JSON format.                                                                                     |
+| RESTORE         | ✓                | v2.6.0        | Create the new key with Redis serialized value, now supports String/List/Hash/Set/ZSet data types                               |
+| COMPACT         | ✓                | v1.0.0        | Compacts database storage. (RocksDB)                                                                                            |
+| RDB             | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                                      |
+| DUMP            | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                                                  |
+| POLLUPDATES     | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                                       |
+| KPROFILE        | ✓                | unstable      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                                             |
 
 :::note
 
