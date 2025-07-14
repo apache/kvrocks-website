@@ -350,6 +350,8 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | FLUSHDB     | ✓                | v1.0.0        | Removes all keys from the currently selected database.                                                       |
 | FLUSHALL    | ✓                | v1.0.0        | Removes all keys from all databases.                                                                         |
 | FLUSHBACKUP | ✓                | v1.3.1        | Flushes backup data.                                                                                         |
+| FLUSHMEMTABLE | ✓                | unstable        | Flushes memtables into SSTs.                                                                             |
+| FLUSHBLOCKCACHE | ✓                | unstable        | Removes all free-to-release block cache.                                                               |
 | COMMAND     | ✓                | v2.0.1        | Returns details about available commands.                                                                    |
 | CLIENT      | ✓                | v1.0.0        | Manages client connections and their settings.                                                               |
 | AUTH        | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                        |
