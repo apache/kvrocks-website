@@ -19,7 +19,8 @@ FT.SEARCH index query
   [RETURN count identifier [ identifier ...]] 
   [SORTBY sortby [ ASC | DESC]] 
   [LIMIT offset num] 
-  [PARAMS nargs name value [ name value ...]] 
+  [PARAMS nargs name value [ name value ...]]
+  [DIALECT 2]
 ```
 
 `FT.SEARCH` is to perform a `query` (in RediSearch query syntax) on a given `index` (created by `FT.CREATE`).
