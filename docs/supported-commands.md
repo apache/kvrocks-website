@@ -369,6 +369,8 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
 | KPROFILE    | ✓                | unstable      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
+| WAIT        | ✓                | unstable      | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
+
 
 :::note
 
