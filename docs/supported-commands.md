@@ -570,3 +570,4 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.MAX         | ✓                | unstable      |                                                            |
 | TDIGEST.RESET       | ✓                | unstable      |                                                            |
 | TDIGEST.QUANTILE    | ✓                | unstable      |                                                            |
+| TDIGEST.MERGE       | ✓                | unstable      |                                                            |
