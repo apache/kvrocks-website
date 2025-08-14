@@ -350,8 +350,8 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | FLUSHDB     | ✓                | v1.0.0        | Removes all keys from the currently selected database.                                                       |
 | FLUSHALL    | ✓                | v1.0.0        | Removes all keys from all databases.                                                                         |
 | FLUSHBACKUP | ✓                | v1.3.1        | Flushes backup data.                                                                                         |
-| FLUSHMEMTABLE | ✓                | unstable        | Flushes memtables into SSTs.                                                                             |
-| FLUSHBLOCKCACHE | ✓                | unstable        | Removes all free-to-release block cache.                                                               |
+| FLUSHMEMTABLE | ✓                | v2.13.0        | Flushes memtables into SSTs.                                                                             |
+| FLUSHBLOCKCACHE | ✓                | v2.13.0        | Removes all free-to-release block cache.                                                               |
 | COMMAND     | ✓                | v2.0.1        | Returns details about available commands.                                                                    |
 | CLIENT      | ✓                | v1.0.0        | Manages client connections and their settings.                                                               |
 | AUTH        | ✓                | v1.0.0        | Authenticates a client to the server with a password.                                                        |
@@ -368,7 +368,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | RDB         | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                   |
 | DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
-| KPROFILE    | ✓                | unstable      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
+| KPROFILE    | ✓                | v2.13.0      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
 | WAIT        | ✓                | unstable      | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
 
 
@@ -415,7 +415,7 @@ These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 | NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
 | NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
 | PAUSE        | x                | -             | Suspends commands processing.                                                                                 |
-| REPLY        | ✓                | unstable      | Instructs the server whether to reply to commands.                                                            |
+| REPLY        | ✓                | v2.13.0      | Instructs the server whether to reply to commands.                                                            |
 | SETINFO      | x                | -             | Sets information specific to the client or connection.                                                        |
 | SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
 | TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
