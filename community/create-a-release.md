@@ -400,8 +400,8 @@ Docker and Docker Buildx is required for this step. Docker Buildx should be bund
 Create a new tag for the release version and push it to Docker Hub:
 
 ```shell
-docker buildx imagetools create -t apache/kvrocks:${release_version} apache/kvrocks:nightly-${YYMMDD}-v${release_version}-${commit_sha}
-docker buildx imagetools create -t apache/kvrocks:latest apache/kvrocks:nightly-${YYMMDD}-v${release_version}-${commit_sha}
+docker buildx imagetools create -t apache/kvrocks:${release_version} apache/kvrocks:nightly-${YYYYMMDD}-v${release_version}-${commit_sha}
+docker buildx imagetools create -t apache/kvrocks:latest apache/kvrocks:nightly-${YYYYMMDD}-v${release_version}-${commit_sha}
 ```
 
 :::caution
