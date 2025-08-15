@@ -303,7 +303,7 @@ Hello Apache Kvrocks PMC and Community,
 
     Docker image:
 
-    https://hub.docker.com/layers/apache/kvrocks/nightly-${20xxxxxx}-v${release_version}-${commit_sha}/images/sha256-${sha256_value}
+    https://hub.docker.com/layers/apache/kvrocks/nightly-${YYYYMMDD}-v${release_version}-${commit_sha}/images/sha256-${sha256_value}
 
     Please download, verify, and test.
 
