@@ -199,6 +199,13 @@ SVN is required for this step.
 
 :::
 
+:::caution
+
+Updating release branch requires the permission of PMC member.
+If you are not a PMC member, please ask a PMC member to help you with this step.
+
+:::
+
 The svn repository of the release branch is: https://dist.apache.org/repos/dist/release/kvrocks
 
 Please always add the public key to KEYS in the release branch:
@@ -254,31 +261,8 @@ svn commit -m "Prepare for ${release_version}"     # commit to SVN remote server
 
 ## Build and push Docker images
 
-:::info
-
-Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
-
-:::
-
-1. `docker login` to your own DockerHub account.
-2. Build and push docker images to your personal repository on DockerHub:
-3. MORE BUILD ARGS can be adjusted according to the performance of your computer
-
-```shell
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12
-```
-
-:::info
-
-If you encounter some network problems, you can try the following methods with an HTTP proxy.
-
-:::
-
-```shell
-docker buildx create --name ${your_builder_name} --use --driver-opt network=host
-docker buildx inspect --bootstrap
-docker buildx build --platform linux/amd64,linux/arm64 --tag ${your_dockerhub_username}/kvrocks:${release_version} --tag ${your_dockerhub_username}/kvrocks:latest . --output "type=registry" --build-arg MORE_BUILD_ARGS=-j12 --build-arg http_proxy=${your_http_proxy} --build-arg https_proxy=${your_https_proxy}
-```
+1. Check the nightly GitHub Actions workflow triggered by the tag `${release_version}-rc${candidate_number}` to ensure that the Docker image is built successfully.
+2. Go to [Kvrocks Docker Hub repository](https://hub.docker.com/r/apache/kvrocks/tags) to check if the image is published successfully.
 
 ## Draft release note
 
@@ -319,7 +303,7 @@ Hello Apache Kvrocks PMC and Community,
 
     Docker image:
 
-    https://hub.docker.com/layers/${your_dockerhub_username}/kvrocks/${release_version}/images/sha256-${sha256_value}
+    https://hub.docker.com/layers/apache/kvrocks/nightly-${YYYYMMDD}-v${release_version}-${commit_sha}/images/sha256-${sha256_value}
 
     Please download, verify, and test.
 
@@ -388,17 +372,36 @@ Thanks
 
 ### Publish artifacts to SVN RELEASE branch
 
+:::info
+
+SVN is required for this step.
+
+:::
+
+:::caution
+
+Updating release branch requires the permission of PMC member.
+If you are not a PMC member, please ask a PMC member to help you with this step.
+
+:::
+
 ```shell
 svn mv https://dist.apache.org/repos/dist/dev/kvrocks/${release_version} https://dist.apache.org/repos/dist/release/kvrocks/${release_version} -m "Release ${release_version}"
 ```
 
 ### Publish Docker images
 
-Copy the approved candidate docker images from your personal account to apache org:
+:::info
+
+Docker and Docker Buildx is required for this step. Docker Buildx should be bundled with Docker Desktop. If you don't use Docker Desktop, please follow the [installation guide](https://docs.docker.com/build/install-buildx/) to install it.
+
+:::
+
+Create a new tag for the release version and push it to Docker Hub:
 
 ```shell
-docker buildx imagetools create -t apache/kvrocks:${release_version} ${your_dockerhub_username}/kvrocks:${release_version}
-docker buildx imagetools create -t apache/kvrocks:latest ${your_dockerhub_username}/kvrocks:latest
+docker buildx imagetools create -t apache/kvrocks:${release_version} apache/kvrocks:nightly-${YYYYMMDD}-v${release_version}-${commit_sha}
+docker buildx imagetools create -t apache/kvrocks:latest apache/kvrocks:nightly-${YYYYMMDD}-v${release_version}-${commit_sha}
 ```
 
 :::caution
