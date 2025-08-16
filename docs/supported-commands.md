@@ -500,6 +500,7 @@ These commands are subcommands for `FUNCTION`, using as `FUNCTION LOAD` etc.
 | LIST       | ✓                | v2.7.0        | Returns the information about all libraries and their code (enabled via `with_code`).                         |
 | LISTLIB    | ✓                | v2.7.0        | Returns detailed information of a specific library.                                                           |
 | LISTFUNC   | ✓                | v2.7.0        | Returns the information about all functions and libraries they are located in.                                |
+| FLUSH      | ✓                | unstable       | Deletes all function libraries.                                |
 
 :::note
 
