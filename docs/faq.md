@@ -42,3 +42,13 @@ But after PR [#1489](https://github.com/apache/kvrocks/pull/1489)(since v2.5.0),
 127.0.0.1:6666> config set redis-cursor-compatible yes
 OK
 ```
+
+***Question: encounter "stdlib.h file not found" error while building Kvrocks in MacOS**
+
+This issue occurs on certain versions of macOS where the `SYSROOT` cannot be found.
+You can work around it by setting `CMAKE_OSX_SYSROOT` to the path of `MacOSX.sdk`.
+
+```
+./x.py build -DCMAKE_OSX_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+```
+
