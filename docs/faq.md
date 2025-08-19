@@ -42,3 +42,14 @@ But after PR [#1489](https://github.com/apache/kvrocks/pull/1489)(since v2.5.0),
 127.0.0.1:6666> config set redis-cursor-compatible yes
 OK
 ```
+
+**Question: Build encounter "stdlib.h file not found" error in MacOS**
+
+This is a problem with the MacOS that can not find SYSROOT in some versions. 
+
+You can compile by specifying  CMAKE_OSX_SYSROOT with the path of MacOSX.sdk.
+
+```
+./x.py build -DCMAKE_OSX_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+```
+
