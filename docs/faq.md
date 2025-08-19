@@ -43,11 +43,10 @@ But after PR [#1489](https://github.com/apache/kvrocks/pull/1489)(since v2.5.0),
 OK
 ```
 
-**Question: Build encounter "stdlib.h file not found" error in MacOS**
+***Question: encounter "stdlib.h file not found" error while building Kvrocks in MacOS**
 
-This is a problem with the MacOS that can not find SYSROOT in some versions. 
-
-You can compile by specifying CMAKE_OSX_SYSROOT with the path of MacOSX.sdk.
+This issue occurs on certain versions of macOS where the `SYSROOT` cannot be found.
+You can work around it by setting `CMAKE_OSX_SYSROOT` to the path of `MacOSX.sdk`.
 
 ```
 ./x.py build -DCMAKE_OSX_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
