@@ -47,7 +47,7 @@ OK
 
 This is a problem with the MacOS that can not find SYSROOT in some versions. 
 
-You can compile by specifying  CMAKE_OSX_SYSROOT with the path of MacOSX.sdk.
+You can compile by specifying CMAKE_OSX_SYSROOT with the path of MacOSX.sdk.
 
 ```
 ./x.py build -DCMAKE_OSX_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
