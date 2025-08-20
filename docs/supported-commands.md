@@ -572,3 +572,11 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.RESET       | ✓                | unstable      |                                                            |
 | TDIGEST.QUANTILE    | ✓                | unstable      |                                                            |
 | TDIGEST.MERGE       | ✓                | unstable      |                                                            |
+
+## TimeSeries commands
+
+| Command             | Supported OR Not | Since Version | Description                                                |
+| ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
+| TS.CREATE           | ✓                | unstable      |                                                            |
+| TS.ADD              | ✓                | unstable      |                                                            |
+| TS.MADD             | ✓                | unstable      |                                                            |
