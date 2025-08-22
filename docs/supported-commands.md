@@ -374,7 +374,10 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 :::note
 
-The db size is updated async after execute `DBSIZE SCAN` command.
+The response of `DBSIZE` and keyspace section of `INFO` is updated asynchronously after executing `DBSIZE SCAN` command.
+
+In Kvrocks the `SELECT` command is just a placeholder and does not switch between dbs.
+Use [the namespace feature](https://kvrocks.apache.org/docs/namespace) instead if multiple dbs are needed.
 
 :::
 
