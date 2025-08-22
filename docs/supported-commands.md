@@ -580,3 +580,4 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.CREATE           | ✓                | unstable      |                                                            |
 | TS.ADD              | ✓                | unstable      |                                                            |
 | TS.MADD             | ✓                | unstable      |                                                            |
+| TS.INFO             | ✓                | unstable      |                                                            |
