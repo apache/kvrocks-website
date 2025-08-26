@@ -584,3 +584,5 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.ADD              | ✓                | unstable      |                                                            |
 | TS.MADD             | ✓                | unstable      |                                                            |
 | TS.INFO             | ✓                | unstable      |                                                            |
+| TS.RANGE            | ✓                | unstable      |                                                            |
+| TS.GET              | ✓                | unstable      |                                                            |
