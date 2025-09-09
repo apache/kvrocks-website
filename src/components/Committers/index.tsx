@@ -10,7 +10,7 @@ type CommitterData = {
 
 // sorted by apacheId
 const committers: CommitterData[] = [
-    {name: 'Aleks Lozoviuk', apacheId: 'aleksraiden', githubId: 'aleksraiden', isPMC: false},
+    {name: 'Aleks Lozoviuk', apacheId: 'aleksraiden', githubId: 'aleksraiden', isPMC: true},
     {name: 'Donghui Liu', apacheId: 'alfejik', githubId: 'Alfejik', isPMC: true},
     {name: 'Beihao Zhou', apacheId: 'beihao', githubId: 'Beihao-Zhou', isPMC: false},
     {name: 'Binbin Zhu', apacheId: 'binbin', githubId: 'enjoy-binbin', isPMC: false},
@@ -36,7 +36,8 @@ const committers: CommitterData[] = [
     {name: 'Von Gosling', apacheId: 'vongosling', githubId: 'vongosling', isPMC: true},
     {name: 'Yuan Wang', apacheId: 'wangyuan', githubId: 'ShooterIT', isPMC: true},
     {name: 'Xiaobiao Zhao', apacheId: 'xiaobiao', githubId: 'xiaobiaozhao', isPMC: false},
-    {name: 'Shixi Yang', apacheId: 'yangshixi', githubId: 'Yangsx-1', isPMC: false}
+    {name: 'Shixi Yang', apacheId: 'yangshixi', githubId: 'Yangsx-1', isPMC: false},
+    {name: 'Agnik Misra', apacheId: 'agnik', githubId: 'Jitmisra', isPMC: false}
 ]
 
 export default function Committers(): JSX.Element {
