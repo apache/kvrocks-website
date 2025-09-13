@@ -586,3 +586,6 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.INFO             | ✓                | unstable      |                                                            |
 | TS.RANGE            | ✓                | unstable      |                                                            |
 | TS.GET              | ✓                | unstable      |                                                            |
+| TS.CREATERULE       | ✓                | unstable      |                                                            |
+| TS.MGET             | ✓                | unstable      |                                                            |
+| TS.MRANGE           | ✓                | unstable      |                                                            |
