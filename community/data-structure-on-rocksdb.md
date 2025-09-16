@@ -453,3 +453,88 @@ During each merge, we will flush the buffer to the centroids and merge the centr
                                        | (8byte) double |
                                        +----------------+
 ```
+
+## TimeSeries
+
+RedisTimeSeries is a Redis module that enables a full-featured time-series database within Redis. To bring this powerful capability to Kvrocks, we've implemented a compatible TimeSeries data structure, leveraging RocksDB for efficient storage and retrieval.
+
+#### TimeSeries metadata
+
+The metadata stores the overall configuration for a single time series, such as retention, duplicate policy and chunk settings. 
+
+```text
+        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+
+key =>  |  flags   |  expire  |  version  | size(chunkCount) | retentionTime  | chunkSize | chunkType | duplicatePolicy| sourceKey_size | sourceKey |
+        | (1byte)  |  (Ebyte) |  (8byte)  |      (Sbyte)     |    (8byte)     |  (8byte)  |  (1byte)  |    (1byte)     |    (4byte)     |  (Xbyte)  |
+        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+
+```
+- `retentionTime`: Maximum age (in milliseconds) for samples compared to the latest timestamp. A value of `0` disables retention.
+- `chunkSize`: The preferred number of samples per data chunk.
+- `chunkType`: The storage format of the chunk (compressed or uncompressed).
+- `duplicatePolicy`: An enum represents the policy to handle samples with duplicate timestamps (e.g., BLOCK, FIRST, LAST).
+- `sourceKey`: If this series is a downstream target for compaction, this field stores the key of the source series.
+
+#### TimeSeries sub keys-values
+
+Internally, TimeSeries data structure uses several types of sub-keys to store its components: **time chunks**, **labels**, and **downstream rule metadata**. A **key type** enum is used as a prefix in the key to differentiate between them.
+
+| key type     | enum value |
+| ------------ | ---------- |
+| `CHUNK`      | 0          |
+| `LABEL`      | 1          |
+| `DOWNSTREAM` | 2          |
+
+##### CHUNK sub keys
+The actual time series data is stored in sequential blocks called **chunks**. Each chunk is identified by a `chunk_id`, which corresponds to the timestamp of the first sample within that chunk.
+
+```text
+                              +--------+------------+----------+------------+----------+   +------------+----------+
+key|version|CHUNK|chunk_id => | count  | timestamp1 |  value1  | timestamp2 |  value2  |...| timestampN |  valueN  |
+                              |(8byte) |  (8byte)   |  (8byte) |  (8byte)   |  (8byte) |...|  (8byte)   |  (8byte) |
+                              +--------+------------+----------+------------+----------+   +------------+----------+
+```
+
+##### LABEL sub keys
+These sub keys store label key-value pairs associated with the time series.
+
+```text
+                                   +----------------+
+key|version|LABEL|label_key1 =>    |  label_value1  |
+                                   |    (Xbyte)     |
+                                   +----------------+
+                                   +----------------+
+key|version|LABEL|label_key2 =>    |  label_value2  |
+                                   |    (Xbyte)     |
+                                   +----------------+
+...
+```
+
+##### DOWNSTREAM sub keys
+Kvrocks supports RedisTimeSeries's compaction rules, which automatically aggregate data from a source series into a destination (or downstream) series. This sub-key stores the configuration for each compaction rule applied to the source series.
+
+```text
+                                          +-------------+----------------+-------------+---------------------+------------+
+key|version|DOWNSTREAM|downstream_key =>  |  aggregator |bucket_duration |  alignment  | latest_bucket_index |  auxinfo   |
+                                          |   (1byte)   |   (8byte)      |   (8byte)   |       (8byte)       |  (XByte)   |
+                                          +-------------+----------------+-------------+---------------------+------------+
+```
+- `aggregator`, `bucket_duration`, `alignment` are the parameters defined by the [compaction rule](https://redis.io/docs/latest/commands/ts.createrule/).
+- `latest_bucket_index`: Tracks the index of the latest bucket to optimize ongoing aggregations.
+- `auxinfo`: Auxiliary data to speed up aggregations without re-scanning the entire bucket. Upon appending samples, it is [updated whenever a new chunk is created](https://github.com/apache/kvrocks/blob/b5b419995c8327bd07a6d63090da367d98f59b72/src/types/redis_timeseries.cc#L322) in the source series.
+
+#### label-based reverse index
+
+To enable fast, label-based queries, a reverse index is maintained. This index is critical for efficiently locating all time series that match a given set of label filters. It is stored in a dedicated `Index` Column Family.
+
+```text
++-------------+-------------+------------+--------------+---------+
+|  namespace  | index type  | label_key  | label_value  |   key   | => null
+|  (1+Xbyte)  |  (1byte)    | (4+Ybyte)  |  (4+Zbyte)   | (Kbyte) |
++-------------+-------------+------------+--------------+---------+
+
+```
+`index type` is an enum that distinguishes between different types of indexes. For TimeSeries, it currently includes the following value:
+
+| index type     | enum value |
+| ------------   | ---------- |
+| `TS_LABEL`     | 0          |
