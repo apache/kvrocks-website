@@ -48,6 +48,7 @@ The values encoded for other data types in flags can be found in the table below
 | JSON       |         10 |
 | Hyperloglog|         11 |
 | TDigest    |         12 |
+| TimeSeries |         13 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -463,16 +464,17 @@ RedisTimeSeries is a Redis module that enables a full-featured time-series datab
 The metadata stores the overall configuration for a single time series, such as retention, duplicate policy and chunk settings. 
 
 ```text
-        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+
-key =>  |  flags   |  expire  |  version  | size(chunkCount) | retentionTime  | chunkSize | chunkType | duplicatePolicy| sourceKey_size | sourceKey |
-        | (1byte)  |  (Ebyte) |  (8byte)  |      (Sbyte)     |    (8byte)     |  (8byte)  |  (1byte)  |    (1byte)     |    (4byte)     |  (Xbyte)  |
-        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+
+        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+----------------+
+key =>  |  flags   |  expire  |  version  | size(chunkCount) | retentionTime  | chunkSize | chunkType | duplicatePolicy| sourceKey_size | sourceKey | lastTimestamp  |
+        | (1byte)  |  (Ebyte) |  (8byte)  |      (Sbyte)     |    (8byte)     |  (8byte)  |  (1byte)  |    (1byte)     |    (4byte)     |  (Xbyte)  |   (8byte)      |
+        +----------+----------+-----------+------------------+----------------+-----------+-----------+----------------+----------------+-----------+----------------+
 ```
 - `retentionTime`: Maximum age (in milliseconds) for samples compared to the latest timestamp. A value of `0` disables retention.
 - `chunkSize`: The preferred number of samples per data chunk.
 - `chunkType`: The storage format of the chunk (compressed or uncompressed).
 - `duplicatePolicy`: An enum represents the policy to handle samples with duplicate timestamps (e.g., BLOCK, FIRST, LAST).
 - `sourceKey`: If this series is a downstream target for compaction, this field stores the key of the source series.
+- `lastTimestamp`: An approximate latest timestamp in the time series.
 
 #### TimeSeries sub keys-values
 
