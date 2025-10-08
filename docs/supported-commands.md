@@ -589,3 +589,6 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.CREATERULE       | ✓                | unstable      |                                                            |
 | TS.MGET             | ✓                | unstable      |                                                            |
 | TS.MRANGE           | ✓                | unstable      |                                                            |
+| TS.DEL              | ✓                | unstable      |                                                            |
+| TS.INCRBY           | ✓                | unstable      |                                                            |
+| TS.DECRBY           | ✓                | unstable      |                                                            |
