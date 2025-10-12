@@ -2,6 +2,10 @@ import React from "react";
 
 const controller_versions = [
     {
+        version: '1.2.0',
+        vtag: '1.2.0'
+    },
+    {
         version: '1.1.0',
         vtag: '1.1.0'
     },
