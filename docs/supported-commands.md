@@ -402,6 +402,18 @@ These commands are subcommands for `CONFIG`, using as `CONFIG GET` etc.
 | REWRITE    | ✓                | v1.0.0        | Persists the effective configuration to the file.                                                             |
 | RESETSTAT  | x                | -             | Resets the server's statistics.                                                                               |
 
+### NAMESPACE subcommands
+
+These commands are subcommands for `NAMESPACE`, using as `NAMESPACE GET` etc.
+
+| SUBCOMMAND | Supported OR Not | Since Version | Description                                                                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------- |
+| GET        | ✓                | v1.0.0        | Retrieve information of namespaces.         |
+| SET        | ✓                | v1.0.0        | Set the password of a namespace.            |
+| ADD        | ✓                | v1.0.0        | Add a new namespace.                        |
+| DEL        | ✓                | v1.0.0        | Deletes a namespace.                        |
+| CURRENT    | ✓                | unstable      | Returns the current namespace name.         |
+
 ### CLIENT subcommands
 
 These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
