@@ -604,3 +604,5 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.DEL              | ✓                | unstable      |                                                            |
 | TS.INCRBY           | ✓                | unstable      |                                                            |
 | TS.DECRBY           | ✓                | unstable      |                                                            |
+| TS.REVRANGE         | ✓                | unstable      |                                                            |
+| TS.MREVRANGE        | ✓                | unstable      |                                                            |
