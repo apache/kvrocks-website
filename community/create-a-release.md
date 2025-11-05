@@ -45,8 +45,8 @@ The Release Proposal should include at least the following:
 - A deadline for cherry-picking period (only applicable to Feature Releases)
 
 Where:
-Feature Release: Typically denoted as `X.Y.0`, this type of release introduces new features along with other enhancements and bug fixes.
-Patch Release: Usually represented as `X.Y.Z`, this type of release is based on the version `X.Y.0` and includes only bug-fix patches without any new features.
+- Feature Release: Typically denoted as `X.Y.0`, this type of release introduces new features along with other enhancements and bug fixes.
+- Patch Release: Usually represented as `X.Y.Z`, this type of release is based on the version `X.Y.0` and includes only bug-fix patches without any new features.
 
 ### Create the release branch
 
