@@ -607,3 +607,4 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TS.DECRBY           | ✓                | unstable      |                                                            |
 | TS.REVRANGE         | ✓                | unstable      |                                                            |
 | TS.MREVRANGE        | ✓                | unstable      |                                                            |
+| TS.QUERYINDEX       | ✓                | unstable      |                                                            |
