@@ -368,8 +368,8 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | RDB         | ✓                | v2.7.0        | RDB LOAD command is used to load RocksDB file from local path into Kvrocks                                   |
 | DUMP        | ✓                | v2.9.0        | Serializes a key and returns it to the client.                                                               |
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
-| KPROFILE    | ✓                | v2.13.0      | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
-| WAIT        | ✓                | unstable      | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
+| KPROFILE    | ✓                | v2.13.0       | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
+| WAIT        | ✓                | v2.14.0       | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
 
 
 :::note
@@ -412,7 +412,7 @@ These commands are subcommands for `NAMESPACE`, using as `NAMESPACE GET` etc.
 | SET        | ✓                | v1.0.0        | Set the password of a namespace.            |
 | ADD        | ✓                | v1.0.0        | Add a new namespace.                        |
 | DEL        | ✓                | v1.0.0        | Deletes a namespace.                        |
-| CURRENT    | ✓                | unstable      | Returns the current namespace name.         |
+| CURRENT    | ✓                | v2.14.0       | Returns the current namespace name.         |
 
 ### CLIENT subcommands
 
@@ -515,7 +515,7 @@ These commands are subcommands for `FUNCTION`, using as `FUNCTION LOAD` etc.
 | LIST       | ✓                | v2.7.0        | Returns the information about all libraries and their code (enabled via `with_code`).                         |
 | LISTLIB    | ✓                | v2.7.0        | Returns detailed information of a specific library.                                                           |
 | LISTFUNC   | ✓                | v2.7.0        | Returns the information about all functions and libraries they are located in.                                |
-| FLUSH      | ✓                | unstable       | Deletes all function libraries.                                |
+| FLUSH      | ✓                | v2.14.0       | Deletes all function libraries.                                |
 
 :::note
 
@@ -579,15 +579,15 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 
 | Command             | Supported OR Not | Since Version | Description                                                |
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
-| TDIGEST.CREATE      | ✓                | unstable      |                                                            |
-| TDIGEST.INFO        | ✓                | unstable      |                                                            |
-| TDIGEST.ADD         | ✓                | unstable      |                                                            |
-| TDIGEST.MIN         | ✓                | unstable      |                                                            |
-| TDIGEST.MAX         | ✓                | unstable      |                                                            |
-| TDIGEST.RESET       | ✓                | unstable      |                                                            |
-| TDIGEST.QUANTILE    | ✓                | unstable      |                                                            |
-| TDIGEST.MERGE       | ✓                | unstable      |                                                            |
-| TDIGEST.REVRANK     | ✓                | unstable      |                                                            |
+| TDIGEST.CREATE      | ✓                | v2.14.0      |                                                            |
+| TDIGEST.INFO        | ✓                | v2.14.0      |                                                            |
+| TDIGEST.ADD         | ✓                | v2.14.0      |                                                            |
+| TDIGEST.MIN         | ✓                | v2.14.0      |                                                            |
+| TDIGEST.MAX         | ✓                | v2.14.0      |                                                            |
+| TDIGEST.RESET       | ✓                | v2.14.0      |                                                            |
+| TDIGEST.QUANTILE    | ✓                | v2.14.0      |                                                            |
+| TDIGEST.MERGE       | ✓                | v2.14.0      |                                                            |
+| TDIGEST.REVRANK     | ✓                | v2.14.0      |                                                            |
 
 ## TimeSeries commands
 
