@@ -130,8 +130,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Slack',
-                href: 'https://join.slack.com/t/kvrockscommunity/shared_invite/zt-p5928e3r-OUAK8SUgC8GOceGM6dAz6w',
+                label: 'Zulip',
+                href: 'https://kvrocks.zulipchat.com/',
               },
               {
                 label: 'Issue Tracker',
