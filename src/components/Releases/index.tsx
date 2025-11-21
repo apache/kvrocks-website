@@ -80,17 +80,21 @@ type ReleaseData = {
     archive: string,
     checksum: string,
     signature: string,
+    github: string,
 }
 
 function createReleaseData(version: string, vtag?: string): ReleaseData {
     const fixedVTag = vtag ?? version;
     const tarballURL = `https://www.apache.org/dyn/closer.lua/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
     const signURL = `https://downloads.apache.org/kvrocks/${version}/apache-kvrocks-${fixedVTag}-src.tar.gz`
+    const githubURL = `https://github.com/apache/kvrocks/releases/tag/v${version}`
+
     return {
         name: fixedVTag,
         archive: tarballURL,
         checksum: `${signURL}.sha512`,
         signature: `${signURL}.asc`,
+        github: githubURL,
     };
 }
 
@@ -104,6 +108,7 @@ export default function Releases(): JSX.Element {
                 <th><b>Archive</b></th>
                 <th><b>Checksum</b></th>
                 <th><b>Signature</b></th>
+                <th><b>GitHub</b></th>
             </tr>
             </thead>
             <tbody>
@@ -113,6 +118,7 @@ export default function Releases(): JSX.Element {
                     <td><a href={v.archive}>tarball</a></td>
                     <td><a href={v.checksum}>sha512</a></td>
                     <td><a href={v.signature}>asc</a></td>
+                    <td><a href={v.github}>release note</a></td>
                 </tr>
             ))}
             </tbody>
