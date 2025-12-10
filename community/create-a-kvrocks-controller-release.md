@@ -110,7 +110,11 @@ Hello Apache Kvrocks PMC and Community,
 
     Git tag for the release:
 
-    https://github.com/apache/kvrocks-controller/releases/tag/${release_version}-rc${candidate_number}
+    https://github.com/apache/kvrocks-controller/releases/tag/v${release_version}-rc${candidate_number}
+
+    Docker images for the release candidate:
+
+    {docker_image_link}
 
     Please download, verify, and test.
 
@@ -132,8 +136,11 @@ Hello Apache Kvrocks PMC and Community,
       [ ] All source files have ASF headers
       [ ] Can compile from source
       [ ] All Tests Passed
+      [ ] Docker image with right version
+      [ ] Docker image contains license files
+      [ ] Docker image can work well
 
-      More detailed checklist  please refer to:
+      More detailed checklist, please refer to:
       https://kvrocks.apache.org/community/verify-a-release-candidate
 
 Thanks
