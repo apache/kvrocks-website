@@ -46,6 +46,17 @@ You can use `./x.py test go <BUILD_DIR> -run <PATTERN>` to run Golang test cases
 
 After opening your pull request (PR), you can choose some reviewers, although it is not mandatory. We suggest you to choose a reviewer recommended by GitHub based on code snippets you modified, or some active community members (which can be found in the [Community](index.md#people) page). After one or more committers have approved your PR and the rest of the community has no objections, congratulations, your PR will be merged into the unstable branch as soon as possible.
 
+## Guidelines for AI-assisted Contributions
+
+AI tools are welcome as helpers, not authors. Keep these practices in mind:
+
+- Stay accountable: only submit changes you understand and can justify; be ready to explain behavior, edge cases, and alignment with Kvrocks conventions. If an AI suggestion feels unclear, rewrite or drop it.
+- Keep humans in the loop: discuss non-trivial ideas early via Issues, Discussions, or Mailing Lists, especially when you are unsure about design or impact.
+- Use AI for acceleration, then verify: treat AI output as a draft for code, tests, or docs; run linters/tests and review the logic yourself.
+- Be transparent in PRs: note briefly if AI was used and for what (e.g., initial draft, test scaffolding), and call out any parts where you want extra review.
+- Respect ASF policy: ensure generated content does not introduce incompatible licenses or undisclosed third-party code; review the ASF Generative Tooling Guidance and licensing rules when in doubt.
+- Prefer focused patches over large dumps; if you cannot confidently explain an AI-produced change, open a well-described issue instead.
+
 ## Submit patches to document or project website
 
 Contributions to the documentation and the project website are strongly encouraged, as they are often much less frequent.
