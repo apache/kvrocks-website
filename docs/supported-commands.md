@@ -335,7 +335,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | BGSAVE      | ✓                | v1.0.0        | Initiates a background save of the dataset to disk.                                                          |
 | LASTSAVE    | ✓                | v2.6.0        | Returns the timestamp of the last successful save to disk. Additionally, `LASTSAVE ISO8601` returns the time in ISO8601 format. |
 | PING        | ✓                | v1.0.0        | Checks if the server is alive, responding with "PONG."                                                       |
-| SELECT      | ✓                | v1.0.0        | simply returns OK.                                                                                           |
+| SELECT      | ✓                | unstable      | Switches between databases when `redis-databases` > 0 (default 0: returns OK without switching). |
 | ECHO        | ✓                | v2.0.6        | Echoes back the input string, useful for testing.                                                            |
 | MONITOR     | ✓                | v1.0.0        | Streams every command processed by the server in real time.                                                  |
 | SHUTDOWN    | ✓                | v1.0.0        | Stops the server, optionally saving the dataset to disk.                                                     |
@@ -376,8 +376,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 The response of `DBSIZE` and keyspace section of `INFO` is updated asynchronously after executing `DBSIZE SCAN` command.
 
-In Kvrocks the `SELECT` command is just a placeholder and does not switch between dbs.
-Use [the namespace feature](https://kvrocks.apache.org/docs/namespace) instead if multiple dbs are needed.
+The `SELECT` command is a placeholder by default (`redis-databases = 0`). When `redis-databases` > 0, it switches between databases (0 to redis-databases-1). Database 0 uses the default namespace, databases 1-N use `db1`, `db2`, etc. Enabling this disables custom namespaces. Use [the namespace feature](https://kvrocks.apache.org/docs/namespace) for multiple isolated databases without `redis-databases`.
 
 :::
 
