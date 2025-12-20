@@ -589,6 +589,8 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.MERGE       | ✓                | v2.14.0      |                                                            |
 | TDIGEST.RANK        | ✓                | unstable     |                                                            |
 | TDIGEST.REVRANK     | ✓                | unstable     |                                                            |
+| TDIGEST.BYRANK      | ✓                | unstable     |                                                            |
+| TDIGEST.BYREVRANK   | ✓                | unstable     |                                                            |
 
 ## TimeSeries commands
 
