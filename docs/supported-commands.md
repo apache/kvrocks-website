@@ -167,6 +167,7 @@
 | MOVEX       | ✓                | v2.9.0        | Move a key between namespaces, see [#2225](https://github.com/apache/kvrocks/pull/2225)                      |
 | COPY        | ✓                | v2.9.0        | Copies a key to a new key.                                                                                   |
 | SORT        | ✓                | v2.9.0        | Sorts the elements in a list, set, or sorted set.                                                            |
+| SORT_RO     | ✓                | v2.9.0        | Sorts the elements in a list, set, or sorted set (read-only version).                                        |
 | KMETADATA   | ✓                | v2.12.0       | Get Kvrocks-specific metadata information for a key.                                                         |
 
 ### OBJECT subcommands
