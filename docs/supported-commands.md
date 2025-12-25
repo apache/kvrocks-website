@@ -91,6 +91,7 @@
 | SINTERCARD  | ✓                | v2.5.0        | Returns the cardinality (number of elements) in the intersection of sets.                                    |
 | SINTERSTORE | ✓                | v1.0.0        | Computes the intersection of multiple sets and stores the result in a destination set.                       |
 | SISMEMBER   | ✓                | v1.0.0        | Checks if a member is part of a set.                                                                         |
+| SMISMEMBER  | ✓                | v1.0.0        | Checks if members are part of a set.                                                                         |
 | SMEMBERS    | ✓                | v1.0.0        | Returns all the members in a set.                                                                            |
 | SMOVE       | ✓                | v1.0.0        | Moves a member from one set to another.                                                                      |
 | SPOP        | ✓                | v1.0.0        | Pop members in the order of keys                                                                             |
