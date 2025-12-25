@@ -137,6 +137,8 @@
 | ZINTER           | ✓                | v2.8.0        | Returns the intersection of multiple sorted sets.                                                       |
 | ZINTERCARD       | ✓                | v2.8.0        | Computes the cardinality (number of elements) in the intersection of multiple sorted sets.              |
 | ZRANDMEMBER      | ✓                | v2.8.0        | Returns one or more random members from a sorted set.                                                   |
+| ZDIFF            | ✓                | v2.8.0        | Returns the difference between sorted sets, with optional scores, from one or more keys.                |
+| ZDIFFSTORE       | ✓                | v2.8.0        | Stores the sorted-set difference result into a destination key, returning the result size.              |
 
 ## Key commands
 
