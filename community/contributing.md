@@ -54,7 +54,7 @@ AI tools are welcome as helpers, not authors. Keep these practices in mind:
 - Keep humans in the loop: discuss non-trivial ideas early via Issues, Discussions, or Mailing Lists, especially when you are unsure about design or impact.
 - Use AI for acceleration, then verify: treat AI output as a draft for code, tests, or docs; run linters/tests and review the logic yourself.
 - Be transparent in PRs: note briefly if AI was used and for what (e.g., initial draft, test scaffolding), and call out any parts where you want extra review.
-- Respect ASF policy: ensure generated content does not introduce incompatible licenses or undisclosed third-party code; review the ASF Generative Tooling Guidance and licensing rules when in doubt.
+- Respect ASF policy: ensure generated content does not introduce incompatible licenses or undisclosed third-party code; review the [ASF Generative Tooling Guidance](https://www.apache.org/legal/generative-tooling.html) and licensing rules when in doubt.
 - Prefer focused patches over large dumps; if you cannot confidently explain an AI-produced change, open a well-described issue instead.
 
 ## Submit patches to document or project website
