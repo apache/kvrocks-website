@@ -28,6 +28,8 @@
 | CAD         | ✓                | v2.0.5        | Executes a Compare-And-Delete operation, deleting a key only if it matches an expected value. (see [#415](https://github.com/apache/kvrocks/pull/415)) |
 | GETDEL      | ✓                | v2.2.0        | Retrieves the value of a key and deletes the key afterward.                                                  |
 | LCS         | ✓                | v2.9.0        | Finds the longest common substring between the string stored at a key and another string.                    |
+| DIGEST      | ✓                | unstable      | Compute the hash digest of the string.                                                                       |
+| MSETEX      | ✓                | unstable      | Set multiple string keys atomically in one command with expiration time.                                     |
 
 ## Hash commands
 
