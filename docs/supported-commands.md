@@ -30,6 +30,7 @@
 | LCS         | ✓                | v2.9.0        | Finds the longest common substring between the string stored at a key and another string.                    |
 | DIGEST      | ✓                | unstable      | Compute the hash digest of the string.                                                                       |
 | MSETEX      | ✓                | unstable      | Set multiple string keys atomically in one command with expiration time.                                     |
+| DELEX       | ✓                | unstable      | Delete a string key if the condition is satisfied.                                                           |
 
 ## Hash commands
 
