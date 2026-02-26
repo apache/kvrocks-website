@@ -29,6 +29,7 @@ const committers: CommitterData[] = [
     {name: 'Xuwei Fu', apacheId: 'maplefu', githubId: 'mapleFU', isPMC: true},
     {name: 'Shang Xiong', apacheId: 'shang', githubId: 'shangxiaoxiong', isPMC: false},
     {name: 'SiLe Zhou', apacheId: 'silezhou', githubId: 'PokIsemaine', isPMC: false},
+    {name: 'Xiaojun Yuan', apacheId: 'sryanyuan', githubId: 'sryanyuan', isPMC: false},
     {name: 'Ruixiang Tan', apacheId: 'tanruixiang', githubId: 'tanruixiang', isPMC: false},
     {name: 'Zili Chen', apacheId: 'tison', githubId: 'tisonkun', isPMC: true},
     {name: 'Yaroslav Stepanchuk', apacheId: 'torwig', githubId: 'torwig', isPMC: true},
