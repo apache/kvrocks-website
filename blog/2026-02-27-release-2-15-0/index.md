@@ -16,7 +16,7 @@ Beyond that, this release expands TimeSeries and TDigest command coverage and ti
 
 <!--truncate-->
 
-### Support SELECT  Database
+### Support SELECT Database
 
 Kvrocks uses a namespace mechanism as its multi-tenancy primitive, which differs from Redis's numbered logical databases. Before this release, issuing `SELECT` against Kvrocks was a no-op — the command was accepted but had no effect. v2.15.0 introduces the `redis-databases` option ([#3294](https://github.com/apache/kvrocks/pull/3294)) to bridge this gap and make `SELECT` behave as it does in Redis.
 
@@ -33,9 +33,9 @@ redis-databases 16
 Once enabled, clients can issue `SELECT` as they would against Redis:
 
 ```bash
-redis-cli -p 6666 SELECT 3
+127.0.0.1:6666> SELECT 3
 # OK
-redis-cli -p 6666 SET mykey "hello"
+127.0.0.1:6666[3]> SET mykey "hello"
 # OK — stored in database 3
 ```
 
@@ -45,22 +45,22 @@ Kvrocks's RedisTimeSeries compatibility layer gains three commands that are esse
 
 ```bash
 # Create series with labels
-TS.CREATE metrics:us-east:1 LABELS region us-east
-TS.CREATE metrics:us-east:2 LABELS region us-east
-TS.CREATE temperature:NYC LABELS sensor temperature location NYC
+127.0.0.1:6666> TS.CREATE metrics:us-east:1 LABELS region us-east
+127.0.0.1:6666> TS.CREATE metrics:us-east:2 LABELS region us-east
+127.0.0.1:6666> TS.CREATE temperature:NYC LABELS sensor temperature location NYC
 
 # Add samples
 TS.ADD metrics:us-east:1 * 42
-TS.ADD metrics:us-east:2 * 87
+127.0.0.1:6666> TS.ADD metrics:us-east:2 * 87
 
 # Query the last 10 samples across all "region=us-east" series, newest first
-TS.MREVRANGE - + FILTER region=us-east COUNT 10
+127.0.0.1:6666> TS.MREVRANGE - + FILTER region=us-east COUNT 10
 
 # Find series matching a label filter (no data returned)
-TS.QUERYINDEX sensor=temperature location=NYC
+127.0.0.1:6666> TS.QUERYINDEX sensor=temperature location=NYC
 
 # Change retention period on an existing series
-TS.ALTER temperature:NYC RETENTION 86400000
+127.0.0.1:6666> TS.ALTER temperature:NYC RETENTION 86400000
 ```
 
 ### New TDigest Commands
@@ -69,22 +69,22 @@ The TDigest sketch — useful for approximate quantile computation over streamin
 
 ```bash
 # Create a TDigest key
-TDIGEST.CREATE latency
+127.0.0.1:6666> TDIGEST.CREATE latency
 
 # Insert observations
-TDIGEST.ADD latency 120 95 200 340 88 150
+127.0.0.1:6666> TDIGEST.ADD latency 120 95 200 340 88 150
 
 # What rank is the value 150?
-TDIGEST.RANK latency 150
+127.0.0.1:6666> TDIGEST.RANK latency 150
 
 # What value sits at rank 4?
-TDIGEST.BYRANK latency 4
+127.0.0.1:6666> TDIGEST.BYRANK latency 4
 
 # What value sits at rank 4 counting from the top?
-TDIGEST.BYREVRANK latency 4
+127.0.0.1:6666> TDIGEST.BYREVRANK latency 4
 ```
 
 ## End
 
-
 Except for that, this release also includes a number of bug fixes and performance improvements. For the full list of changes, please refer to [changelog](https://github.com/apache/kvrocks/releases/tag/v2.15.0) to see all the details. We encourage users to upgrade to v2.15.0 to take advantage of these new features and improvements. As always, we welcome feedback and contributions from the community!
+
