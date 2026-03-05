@@ -376,7 +376,9 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 
 The response of `DBSIZE` and keyspace section of `INFO` is updated asynchronously after executing `DBSIZE SCAN` command.
 
-The `SELECT` command is a placeholder by default (`redis-databases = 0`). When `redis-databases` > 0, it switches between databases (0 to redis-databases-1). Database 0 uses the default namespace, databases 1-N use `db1`, `db2`, etc. Enabling this disables custom namespaces. Use [the namespace feature](https://kvrocks.apache.org/docs/namespace) for multiple isolated databases without `redis-databases`.
+Before 2.15.0, Kvrocks only allowed using [the namespace feature](https://kvrocks.apache.org/docs/namespace) to isolate your data. That said, the `SELECT` command is just a placeholder and does not switch between databases. And now, the Redis database mechanism is supported, and you can enable it by setting the `redis-database` to the database number you expect in the configuration file.
+
+To be noticed, we don't allow using the namespace feature and the Redis database at the same time.
 
 :::
 
