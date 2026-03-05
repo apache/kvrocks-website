@@ -335,7 +335,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | BGSAVE      | ✓                | v1.0.0        | Initiates a background save of the dataset to disk.                                                          |
 | LASTSAVE    | ✓                | v2.6.0        | Returns the timestamp of the last successful save to disk. Additionally, `LASTSAVE ISO8601` returns the time in ISO8601 format. |
 | PING        | ✓                | v1.0.0        | Checks if the server is alive, responding with "PONG."                                                       |
-| SELECT      | ✓                | v1.0.0      | Switches between databases when `redis-databases` > 0 (default 0: returns OK without switching) since 2.15.0. |
+| SELECT      | ✓                | v1.0.0        | Switches between databases when `redis-databases` > 0 (default 0: returns OK without switching) since 2.15.0. |
 | ECHO        | ✓                | v2.0.6        | Echoes back the input string, useful for testing.                                                            |
 | MONITOR     | ✓                | v1.0.0        | Streams every command processed by the server in real time.                                                  |
 | SHUTDOWN    | ✓                | v1.0.0        | Stops the server, optionally saving the dataset to disk.                                                     |
