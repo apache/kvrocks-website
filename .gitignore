@@ -23,6 +23,8 @@
 # Generated files
 .docusaurus
 .cache-loader
+/blog/authors.generated.yml
+/static/generated
 
 # Misc
 .DS_Store
