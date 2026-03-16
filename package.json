@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "sync:avatars": "node scripts/sync-github-avatars.js",
     "docusaurus": "docusaurus",
+    "prestart": "yarn sync:avatars",
     "start": "docusaurus start",
+    "prebuild": "yarn sync:avatars",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

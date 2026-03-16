@@ -53,6 +53,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          authorsMapPath: 'authors.generated.yml',
           editUrl: 'https://github.com/apache/kvrocks-website/tree/main/',
         },
         theme: {
