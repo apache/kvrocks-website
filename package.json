@@ -5,10 +5,8 @@
   "scripts": {
     "sync:avatars": "node scripts/sync-github-avatars.js",
     "docusaurus": "docusaurus",
-    "prestart": "yarn sync:avatars",
-    "start": "docusaurus start",
-    "prebuild": "yarn sync:avatars",
-    "build": "docusaurus build",
+    "start": "yarn sync:avatars && docusaurus start",
+    "build": "yarn sync:avatars && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -48,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@3.5.1",
   "engines": {
     "node": ">=16.14"
   }
