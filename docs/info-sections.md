@@ -334,7 +334,7 @@ Here is the meaning of all fields in the rocksdb section:
 
 The rocksdb section provides statistics on each RocksDB column family and all fields were exported by RocksDB, if the field was not explained clearly enough, you can also see more information on the RocksDB wiki.
 
-There are five column families on kvrocks:
+There are eight column families on kvrocks:
 
 | Column Family | Desc                                                                                                       |
 |---------------|------------------------------------------------------------------------------------------------------------|
@@ -344,6 +344,8 @@ There are five column families on kvrocks:
 | pubsub        | Used to propagate the pubsub message to replicas.                                                          |
 | propagate     | Used to propagate other commands to replicas except pubsub message.                                        |
 | stream        | Used to store the data of the stream type.                                                                 |
+| search        | Used to store index metadata and data for kvrocks search. |
+| index         | Used to store secondary index like timeseries label-based reverse index.  |
 
 ... and below statistics were column family related:
 
@@ -359,6 +361,10 @@ There are five column families on kvrocks:
 | pending_compaction_bytes_stop[xxx]      | Number of IO write stalls caused reaching the pending compaction bytes stop limit.                                                                           |
 | memtable_count_limit_slowdown[xxx]      | Number of IO write stalls caused by reaching the memtable count slowdown limit.                                                                              |
 | memtable_count_limit_stop[xxx]          | Number of IO write stalls caused by reaching the memtable count stop limit.                                                                                  |
+| estimate_pending_compaction_bytes[xxx]  | Estimated bytes pending compaction for the column family.                                                                                                      |
+| num_files_at_level[N][xxx]              | Number of SST files at level N (0-6) for the column family.                                                                                                    |
+| level0_file_limit_slowdown_with_ongoing_compaction[xxx] | Number of L0 file count slowdown with ongoing compaction.                                                                                |
+| level0_file_limit_stop_with_ongoing_compaction[xxx]     | Number of L0 file count stops with ongoing compaction.                                                                                   |
 
 ... those statistics were the entire rocksdb side:
 
