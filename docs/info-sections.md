@@ -344,8 +344,8 @@ There are eight column families on kvrocks:
 | pubsub        | Used to propagate the pubsub message to replicas.                                                          |
 | propagate     | Used to propagate other commands to replicas except pubsub message.                                        |
 | stream        | Used to store the data of the stream type.                                                                 |
-| search        | Used to store search index metadata for full-text and vector search.                                       |
-| index         | Used to store search index data for full-text and vector search.                                           |
+| search        | Used to store index metadata and data for kvrocks search. |
+| index         | Used to store secondary index like timeseries label-based reverse index.  |
 
 ... and below statistics were column family related:
 
