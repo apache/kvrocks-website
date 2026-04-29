@@ -377,6 +377,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
 | KPROFILE    | ✓                | v2.13.0       | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
 | WAIT        | ✓                | v2.14.0       | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
+| LATENCY     | ✓                | unstable      | Manages and queries latency events and history.                                                              |
 
 
 :::note
@@ -560,6 +561,7 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | JSON.TOGGLE    | ✓                | v2.7.0        | Toggles a boolean value in a JSON document.                                                               |
 | JSON.TYPE      | ✓                | v2.7.0        | Returns the type of a JSON value (e.g., object, array, string).                                           |
 | JSON.DEBUG     | ✓                | v2.9.0        | Provides debugging information about a JSON value. (supported subcommands: MEMORY)                        |
+| JSON.INFO      | ✓                | unstable      | Returns information about a JSON value stored at a key.                                                   |
 
 ## Search commands
 
@@ -599,12 +601,14 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.REVRANK     | ✓                | unstable     |                                                            |
 | TDIGEST.BYRANK      | ✓                | unstable     |                                                            |
 | TDIGEST.BYREVRANK   | ✓                | unstable     |                                                            |
+| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Returns the trimmed mean value from the t-digest sketch.   |
 
 ## TimeSeries commands
 
 | Command             | Supported OR Not | Since Version | Description                                                |
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
 | TS.CREATE           | ✓                | unstable      |                                                            |
+| TS.ALTER            | ✓                | unstable      | Alters an existing time series configuration.              |
 | TS.ADD              | ✓                | unstable      |                                                            |
 | TS.MADD             | ✓                | unstable      |                                                            |
 | TS.INFO             | ✓                | unstable      |                                                            |
