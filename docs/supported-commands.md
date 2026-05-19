@@ -121,18 +121,18 @@
 | ZMSCORE          | ✓                | v1.1.20       | Returns the scores of one or more members in a sorted set. (multi ZSCORE)                               |
 | ZPOPMIN          | ✓                | v1.0.0        | Removes and returns the member with the lowest score in a sorted set.                                   |
 | ZPOPMAX          | ✓                | v1.0.0        | Removes and returns the member with the highest score in a sorted set.                                  |
-| ZRANGESTORE      | ✓                | v2.5.0        | Stores a range of members from a sorted set into another sorted set.                                    |
-| ZRANGE           | ✓                | v1.0.0        | Returns a range of members in a sorted set, by index.                                                   |
-| ZRANGEBYLEX      | ✓                | v1.0.0        | Returns a range of members in a sorted set, by lexicographical range.                                   |
+| ZRANGESTORE      | ✓                | v2.5.0        | Stores a range of members from a sorted set into another sorted set. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
+| ZRANGE           | ✓                | v1.0.0        | Returns a range of members in a sorted set, by index. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
+| ZRANGEBYLEX      | ✓                | v1.0.0        | Returns a range of members in a sorted set, by lexicographical range. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
 | ZRANGEBYSCORE    | ✓                | v1.0.0        | Returns a range of members in a sorted set, by score.                                                   |
 | ZRANK            | ✓                | v1.0.0        | Determines the index of a member in a sorted set, based on score.                                       |
 | ZREM             | ✓                | v1.0.0        | Removes one or more members from a sorted set.                                                          |
-| ZREMRANGEBYLEX   | ✓                | v1.0.0        | Removes all members in a sorted set within the given lexicographical range.                             |
+| ZREMRANGEBYLEX   | ✓                | v1.0.0        | Removes all members in a sorted set within the given lexicographical range. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
 | ZREMRANGEBYRANK  | ✓                | v1.0.0        | Removes all members in a sorted set within the given index range.                                       |
 | ZREMRANGEBYSCORE | ✓                | v1.0.0        | Removes all members in a sorted set within the given score range.                                       |
 | ZREVRANK         | ✓                | v1.0.0        | Determines the index of a member in a sorted set, in reverse order, based on score.                     |
-| ZREVRANGE        | ✓                | v1.0.0        | Returns a range of members in a sorted set, in reverse order, by index.                                 |
-| ZREVRANGEBYLEX   | ✓                | v2.0.5        | Returns a range of members in a sorted set, in reverse order, by lexicographical range.                 |
+| ZREVRANGE        | ✓                | v1.0.0        | Returns a range of members in a sorted set, in reverse order, by index. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
+| ZREVRANGEBYLEX   | ✓                | v2.0.5        | Returns a range of members in a sorted set, in reverse order, by lexicographical range. Lexicographical order in kvrocks disregards scores; this may differ from Redis behavior when members have varying scores (see discussion [#3487](https://github.com/apache/kvrocks/discussions/3487)). |
 | ZREVRANGEBYSCORE | ✓                | v1.0.0        | Returns a range of members in a sorted set, in reverse order, by score.                                 |
 | ZSCAN            | ✓                | v1.0.0        | Incrementally iterates over elements in a sorted set.                                                   |
 | ZSCORE           | ✓                | v1.0.0        | Returns the score of a member in a sorted set.                                                          |
