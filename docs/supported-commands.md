@@ -28,9 +28,9 @@
 | CAD         | ✓                | v2.0.5        | Executes a Compare-And-Delete operation, deleting a key only if it matches an expected value. (see [#415](https://github.com/apache/kvrocks/pull/415)) |
 | GETDEL      | ✓                | v2.2.0        | Retrieves the value of a key and deletes the key afterward.                                                  |
 | LCS         | ✓                | v2.9.0        | Finds the longest common substring between the string stored at a key and another string.                    |
-| DIGEST      | ✓                | unstable      | Compute the hash digest of the string.                                                                       |
-| MSETEX      | ✓                | unstable      | Set multiple string keys atomically in one command with expiration time.                                     |
-| DELEX       | ✓                | unstable      | Delete a string key if the condition is satisfied.                                                           |
+| DIGEST      | ✓                | v2.15.0       | Compute the hash digest of the string.                                                                       |
+| MSETEX      | ✓                | v2.15.0       | Set multiple string keys atomically in one command with expiration time.                                     |
+| DELEX       | ✓                | v2.15.0       | Delete a string key if the condition is satisfied.                                                           |
 
 ## Hash commands
 
@@ -561,7 +561,7 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | JSON.TOGGLE    | ✓                | v2.7.0        | Toggles a boolean value in a JSON document.                                                               |
 | JSON.TYPE      | ✓                | v2.7.0        | Returns the type of a JSON value (e.g., object, array, string).                                           |
 | JSON.DEBUG     | ✓                | v2.9.0        | Provides debugging information about a JSON value. (supported subcommands: MEMORY)                        |
-| JSON.INFO      | ✓                | unstable      | Returns information about a JSON value stored at a key.                                                   |
+| JSON.INFO      | ✓                | v2.7.0        | Returns information about a JSON value stored at a key.                                                   |
 
 ## Search commands
 
@@ -597,29 +597,29 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.RESET       | ✓                | v2.14.0      |                                                            |
 | TDIGEST.QUANTILE    | ✓                | v2.14.0      |                                                            |
 | TDIGEST.MERGE       | ✓                | v2.14.0      |                                                            |
-| TDIGEST.RANK        | ✓                | unstable     |                                                            |
-| TDIGEST.REVRANK     | ✓                | unstable     |                                                            |
-| TDIGEST.BYRANK      | ✓                | unstable     |                                                            |
-| TDIGEST.BYREVRANK   | ✓                | unstable     |                                                            |
-| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Returns the trimmed mean value from the t-digest sketch.   |
+| TDIGEST.RANK        | ✓                | v2.15.0      |                                                            |
+| TDIGEST.REVRANK     | ✓                | v2.15.0      |                                                            |
+| TDIGEST.BYRANK      | ✓                | v2.15.0      |                                                            |
+| TDIGEST.BYREVRANK   | ✓                | v2.15.0      |                                                            |
+| TDIGEST.TRIMMED_MEAN | ✓               | v2.15.0      | Returns the trimmed mean value from the t-digest sketch.   |
 
 ## TimeSeries commands
 
 | Command             | Supported OR Not | Since Version | Description                                                |
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
-| TS.CREATE           | ✓                | unstable      |                                                            |
-| TS.ALTER            | ✓                | unstable      | Alters an existing time series configuration.              |
-| TS.ADD              | ✓                | unstable      |                                                            |
-| TS.MADD             | ✓                | unstable      |                                                            |
-| TS.INFO             | ✓                | unstable      |                                                            |
-| TS.RANGE            | ✓                | unstable      |                                                            |
-| TS.GET              | ✓                | unstable      |                                                            |
-| TS.CREATERULE       | ✓                | unstable      |                                                            |
-| TS.MGET             | ✓                | unstable      |                                                            |
-| TS.MRANGE           | ✓                | unstable      |                                                            |
-| TS.DEL              | ✓                | unstable      |                                                            |
-| TS.INCRBY           | ✓                | unstable      |                                                            |
-| TS.DECRBY           | ✓                | unstable      |                                                            |
-| TS.REVRANGE         | ✓                | unstable      |                                                            |
-| TS.MREVRANGE        | ✓                | unstable      |                                                            |
-| TS.QUERYINDEX       | ✓                | unstable      |                                                            |
+| TS.CREATE           | ✓                | v2.15.0       |                                                            |
+| TS.ALTER            | ✓                | v2.15.0       | Alters an existing time series configuration.              |
+| TS.ADD              | ✓                | v2.15.0       |                                                            |
+| TS.MADD             | ✓                | v2.15.0       |                                                            |
+| TS.INFO             | ✓                | v2.15.0       |                                                            |
+| TS.RANGE            | ✓                | v2.15.0       |                                                            |
+| TS.GET              | ✓                | v2.15.0       |                                                            |
+| TS.CREATERULE       | ✓                | v2.15.0       |                                                            |
+| TS.MGET             | ✓                | v2.15.0       |                                                            |
+| TS.MRANGE           | ✓                | v2.15.0       |                                                            |
+| TS.DEL              | ✓                | v2.15.0       |                                                            |
+| TS.INCRBY           | ✓                | v2.15.0       |                                                            |
+| TS.DECRBY           | ✓                | v2.15.0       |                                                            |
+| TS.REVRANGE         | ✓                | v2.15.0       |                                                            |
+| TS.MREVRANGE        | ✓                | v2.15.0       |                                                            |
+| TS.QUERYINDEX       | ✓                | v2.15.0       |                                                            |
