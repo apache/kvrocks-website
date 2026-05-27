@@ -438,14 +438,14 @@ These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 | LIST         | ✓                | v1.0.0        | List open connections.                                                                                        |
 | NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
 | NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
-| PAUSE        | x                | -             | Suspends commands processing.                                                                                 |
+| PAUSE        | ✓                | unstable      | Suspends commands processing.                                                                                 |
 | REPLY        | ✓                | v2.13.0      | Instructs the server whether to reply to commands.                                                            |
-| SETINFO      | x                | -             | Sets information specific to the client or connection.                                                        |
+| SETINFO      | ✓                | unstable      | Sets information specific to the client or connection.                                                        |
 | SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
 | TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
 | TRACKINGINFO | x                | -             | Returns information about the server-assisted client-side caching for the connection.                         |
 | UNBLOCK      | x                | -             | Unblocks a client blocked by a blocking command from a different connection.                                  |
-| UNPAUSE      | x                | -             | Resumes processing commands from paused clients.                                                              |
+| UNPAUSE      | ✓                | unstable      | Resumes processing commands from paused clients.                                                              |
 
 ### SLOWLOG subcommands
 
