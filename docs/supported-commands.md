@@ -601,7 +601,7 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.REVRANK     | ✓                | v2.15.0      |                                                            |
 | TDIGEST.BYRANK      | ✓                | v2.15.0      |                                                            |
 | TDIGEST.BYREVRANK   | ✓                | v2.15.0      |                                                            |
-| TDIGEST.TRIMMED_MEAN | ✓               | v2.15.0      | Returns the trimmed mean value from the t-digest sketch.   |
+| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Returns the trimmed mean value from the t-digest sketch.   |
 
 ## TimeSeries commands
 
