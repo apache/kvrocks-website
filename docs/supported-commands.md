@@ -53,9 +53,9 @@
 | HVALS        | ✓                | v1.0.0        | Returns all values stored in a hash.                                                                        |
 | HSCAN        | ✓                | v1.0.0        | SCAN for fields of a hash.                                                                                  |
 | HRANDFIELD   | ✓                | v2.6.0        | Returns some random fields in a hash.                                                                       |
-| HSETEXPIRE   | ✓                | v2.12.0       | The combination of these two commands: HSET and EXPIRE                                                      |
-| HEXPIRE      | ✓                | unstable      |                                                                                                             |
-| HPERSIST     | ✓                | unstable      |                                                                                                             |
+| HSETEXPIRE   | ✓                | v2.12.0       | The combination of these two commands: HSET and EXPIRE (NOTE: This is NOT HSETEX. Do NOT use it for hash field expiration.) |
+| HEXPIRE      | ✓                | unstable      | Sets expiration times in seconds for one or more hash fields.                                               |
+| HPERSIST     | ✓                | unstable      | Removes the expiration time from one or more hash fields.                                                   |
 
 ## List commands
 
@@ -591,37 +591,37 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 
 | Command             | Supported OR Not | Since Version | Description                                                |
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
-| TDIGEST.CREATE      | ✓                | v2.14.0      |                                                            |
-| TDIGEST.INFO        | ✓                | v2.14.0      |                                                            |
-| TDIGEST.ADD         | ✓                | v2.14.0      |                                                            |
-| TDIGEST.MIN         | ✓                | v2.14.0      |                                                            |
-| TDIGEST.MAX         | ✓                | v2.14.0      |                                                            |
-| TDIGEST.RESET       | ✓                | v2.14.0      |                                                            |
-| TDIGEST.QUANTILE    | ✓                | v2.14.0      |                                                            |
-| TDIGEST.MERGE       | ✓                | v2.14.0      |                                                            |
-| TDIGEST.RANK        | ✓                | v2.15.0      |                                                            |
-| TDIGEST.REVRANK     | ✓                | v2.15.0      |                                                            |
-| TDIGEST.BYRANK      | ✓                | v2.15.0      |                                                            |
-| TDIGEST.BYREVRANK   | ✓                | v2.15.0      |                                                            |
-| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Returns the trimmed mean value from the t-digest sketch.   |
+| TDIGEST.CREATE      | ✓                | v2.14.0      | Allocates memory and initializes a new t-digest sketch.     |
+| TDIGEST.INFO        | ✓                | v2.14.0      | Returns information and statistics about a t-digest sketch. |
+| TDIGEST.ADD         | ✓                | v2.14.0      | Adds one or more observations to a t-digest sketch.         |
+| TDIGEST.MIN         | ✓                | v2.14.0      | Returns the minimum observation value from a t-digest sketch. |
+| TDIGEST.MAX         | ✓                | v2.14.0      | Returns the maximum observation value from a t-digest sketch. |
+| TDIGEST.RESET       | ✓                | v2.14.0      | Resets a t-digest sketch by emptying and reinitializing it. |
+| TDIGEST.QUANTILE    | ✓                | v2.14.0      | Estimates the value smaller than each given fraction of observations in a t-digest sketch. |
+| TDIGEST.MERGE       | ✓                | v2.14.0      | Merges multiple t-digest sketches into a single sketch.     |
+| TDIGEST.RANK        | ✓                | v2.15.0      | Estimates the rank of one or more values in a t-digest sketch. |
+| TDIGEST.REVRANK     | ✓                | v2.15.0      | Estimates the reverse rank of one or more values in a t-digest sketch. |
+| TDIGEST.BYRANK      | ✓                | v2.15.0      | Estimates the value with each given rank in a t-digest sketch. |
+| TDIGEST.BYREVRANK   | ✓                | v2.15.0      | Estimates the value with each given reverse rank in a t-digest sketch. |
+| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Estimates the mean value from a t-digest sketch excluding values outside the given cutoff quantiles. |
 
 ## TimeSeries commands
 
 | Command             | Supported OR Not | Since Version | Description                                                |
 | ------------------- | ---------------- | ------------- | ---------------------------------------------------------- |
-| TS.CREATE           | ✓                | v2.15.0       |                                                            |
-| TS.ALTER            | ✓                | v2.15.0       | Alters an existing time series configuration.              |
-| TS.ADD              | ✓                | v2.15.0       |                                                            |
-| TS.MADD             | ✓                | v2.15.0       |                                                            |
-| TS.INFO             | ✓                | v2.15.0       |                                                            |
-| TS.RANGE            | ✓                | v2.15.0       |                                                            |
-| TS.GET              | ✓                | v2.15.0       |                                                            |
-| TS.CREATERULE       | ✓                | v2.15.0       |                                                            |
-| TS.MGET             | ✓                | v2.15.0       |                                                            |
-| TS.MRANGE           | ✓                | v2.15.0       |                                                            |
-| TS.DEL              | ✓                | v2.15.0       |                                                            |
-| TS.INCRBY           | ✓                | v2.15.0       |                                                            |
-| TS.DECRBY           | ✓                | v2.15.0       |                                                            |
-| TS.REVRANGE         | ✓                | v2.15.0       |                                                            |
-| TS.MREVRANGE        | ✓                | v2.15.0       |                                                            |
-| TS.QUERYINDEX       | ✓                | v2.15.0       |                                                            |
+| TS.CREATE           | ✓                | v2.15.0       | Creates a new time series.                                 |
+| TS.ALTER            | ✓                | v2.15.0       | Updates the retention, chunk size, duplicate policy, and labels of an existing time series. |
+| TS.ADD              | ✓                | v2.15.0       | Appends a sample to a time series.                         |
+| TS.MADD             | ✓                | v2.15.0       | Appends new samples to one or more time series.             |
+| TS.INFO             | ✓                | v2.15.0       | Returns information and statistics for a time series.       |
+| TS.RANGE            | ✓                | v2.15.0       | Queries a range from a time series in forward direction.    |
+| TS.GET              | ✓                | v2.15.0       | Returns the sample with the highest timestamp from a time series. |
+| TS.CREATERULE       | ✓                | v2.15.0       | Creates a compaction rule for a time series.                |
+| TS.MGET             | ✓                | v2.15.0       | Returns the latest samples from time series that match a filter. |
+| TS.MRANGE           | ✓                | v2.15.0       | Queries ranges across multiple time series by filters in forward direction. |
+| TS.DEL              | ✓                | v2.15.0       | Deletes samples between two timestamps from a time series.  |
+| TS.INCRBY           | ✓                | v2.15.0       | Increments the latest sample value of a time series, or creates one with the given increment. |
+| TS.DECRBY           | ✓                | v2.15.0       | Decrements the latest sample value of a time series, or creates one with the given decrement. |
+| TS.REVRANGE         | ✓                | v2.15.0       | Queries a range from a time series in reverse direction.    |
+| TS.MREVRANGE        | ✓                | v2.15.0       | Queries ranges across multiple time series by filters in reverse direction. |
+| TS.QUERYINDEX       | ✓                | v2.15.0       | Returns time series keys matching a filter list.            |
