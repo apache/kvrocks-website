@@ -54,6 +54,8 @@
 | HSCAN        | ✓                | v1.0.0        | SCAN for fields of a hash.                                                                                  |
 | HRANDFIELD   | ✓                | v2.6.0        | Returns some random fields in a hash.                                                                       |
 | HSETEXPIRE   | ✓                | v2.12.0       | The combination of these two commands: HSET and EXPIRE                                                      |
+| HEXPIRE      | ✓                | unstable      |                                                                                                             |
+| HPERSIST     | ✓                | unstable      |                                                                                                             |
 
 ## List commands
 
