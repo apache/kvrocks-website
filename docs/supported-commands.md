@@ -55,6 +55,13 @@
 | HRANDFIELD   | ✓                | v2.6.0        | Returns some random fields in a hash.                                                                       |
 | HSETEXPIRE   | ✓                | v2.12.0       | The combination of these two commands: HSET and EXPIRE (NOTE: This is NOT HSETEX. Do NOT use it for hash field expiration.) |
 | HEXPIRE      | ✓                | unstable      | Sets expiration times in seconds for one or more hash fields.                                               |
+| HPEXPIRE     | ✓                | unstable      | Sets expiration times in milliseconds for one or more hash fields.                                          |
+| HEXPIREAT    | ✓                | unstable      | Sets expiration times as Unix timestamps in seconds for one or more hash fields.                            |
+| HPEXPIREAT   | ✓                | unstable      | Sets expiration times as Unix timestamps in milliseconds for one or more hash fields.                       |
+| HTTL         | ✓                | unstable      | Returns the remaining expiration time in seconds for one or more hash fields.                               |
+| HPTTL        | ✓                | unstable      | Returns the remaining expiration time in milliseconds for one or more hash fields.                          |
+| HEXPIRETIME  | ✓                | unstable      | Returns the expiration Unix timestamp in seconds for one or more hash fields.                               |
+| HPEXPIRETIME | ✓                | unstable      | Returns the expiration Unix timestamp in milliseconds for one or more hash fields.                          |
 | HPERSIST     | ✓                | unstable      | Removes the expiration time from one or more hash fields.                                                   |
 
 ## List commands
