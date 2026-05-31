@@ -23,8 +23,8 @@ redis-cli -p 6666
 ```
 
 For persisted data, prefer using a docker volume over a bind-mounted volume to avoid file permission or performance problems. Eg:
-```sh
-# create docker volume once, eg:
+```shell
+# create docker volume once, e.g.
 docker volume create kvrocks_data
 
 docker run --volume kvrocks_data:/kvrocks_data \
