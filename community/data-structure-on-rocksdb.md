@@ -78,28 +78,48 @@ Redis hashmap(dict) is like the hashmap in many programming languages, it is use
 #### hash metadata
 
 ```text
+legacy encoding:
         +----------+------------+-----------+-----------+
 key =>  |  flags   |  expire    |  version  |  size     |
         | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   |
         +----------+------------+-----------+-----------+
+
+field expiration encoding:
+        +----------+------------+-----------+-----------+---------+-----------+-----------+-----------+
+key =>  |  flags   |  expire    |  version  |  size     |  mode   |  persist  |  lower    |  upper    |
+        | (1byte)  | (Ebyte)    |  (8byte)  | (Sbyte)   | (1byte) |  (8byte)  |  (8byte)  |  (8byte)  |
+        +----------+------------+-----------+-----------+---------+-----------+-----------+-----------+
 ```
+
+Field expiration encoding appends the hash field expiration fields after the legacy metadata fields.
 
 The value of key we call it metadata here, it stored the metadata of hash key includes:
 
 - `flags` like the string, the field shows what type this key is
 - `expire` is the same as the string type, record the expiration time
 - `version` is used to accomplish fast delete when the number of sub keys/values grew bigger
-- `size` records the number sub keys/values in this hash key
+- `size` records the number sub keys/values in this hash key; in field expiration encoding, it records the approximate number of field candidates
+- `mode` records the hash subkey value format: `0` means legacy encoding, and `1` means field expiration encoding
+- `persist` records the number of persistent physical fields whose field expiration is `0`
+- `lower` and `upper` record the lower and upper bound hints of TTL candidate expiration timestamps in milliseconds
 
 #### hash sub keys-values
 
 We use extra keys-values to store the hash keys-values, the format is like below:
 
 ```text
+legacy encoding:
                      +---------------+
 key|version|field => |     value     |
                      +---------------+
+
+field expiration encoding:
+                     +----------------+---------------+
+key|version|field => | expire (8byte) |     value     |
+                     +----------------+---------------+
 ```
+
+In field expiration encoding, each hash field value is prefixed with an 8-byte expiration timestamp in milliseconds, and `0` means the field is persistent.
 
 We prepend the hash `key` and `version` before the hash field, the value of `version` is from the metadata. For example, when the request `hget h1 f1` is received, Kvrocks fetches the metadata by hash key(here is `h1`), then concatenate the hash key, version, field as new key, then fetches the value with the new key.
 
