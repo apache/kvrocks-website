@@ -386,7 +386,7 @@ To guarantee the correctness of client SDK, we rename the `CLUSTER` command to `
 | POLLUPDATES | ✓                | v2.10.0       | Poll updates for data changes in Kvrocks.                                                                    |
 | KPROFILE    | ✓                | v2.13.0       | Enable, disable or dump heap memory profiling if Kvrocks is building with Jemalloc.                          |
 | WAIT        | ✓                | v2.14.0       | It's now waiting for the latest sequence number to be replicated to the specified number of replicas.        |
-| LATENCY     | ✓                | unstable      | Manages and queries latency events and history.                                                              |
+| LATENCY     | ✓                | v2.16.0       | Manages and queries latency events and history.                                                              |
 
 
 :::note
@@ -447,14 +447,14 @@ These commands are subcommands for `CLIENT`, using as `CLIENT INFO` etc.
 | LIST         | ✓                | v1.0.0        | List open connections.                                                                                        |
 | NO-EVICT     | x                | -             | Set the client eviction mode of the connection.                                                               |
 | NO-TOUCH     | x                | -             | Controls whether commands sent by the client affect the LRU/LFU of the accessed keys.                         |
-| PAUSE        | ✓                | unstable      | Suspends commands processing.                                                                                 |
+| PAUSE        | ✓                | v2.16.0       | Suspends commands processing.                                                                                 |
 | REPLY        | ✓                | v2.13.0      | Instructs the server whether to reply to commands.                                                            |
-| SETINFO      | ✓                | unstable      | Sets information specific to the client or connection.                                                        |
+| SETINFO      | ✓                | v2.16.0       | Sets information specific to the client or connection.                                                        |
 | SETNAME      | ✓                | v1.0.0        | Sets the connection name.                                                                                     |
 | TRACKING     | x                | -             | Controls server-assisted client-side caching for the connection.                                              |
 | TRACKINGINFO | x                | -             | Returns information about the server-assisted client-side caching for the connection.                         |
 | UNBLOCK      | x                | -             | Unblocks a client blocked by a blocking command from a different connection.                                  |
-| UNPAUSE      | ✓                | unstable      | Resumes processing commands from paused clients.                                                              |
+| UNPAUSE      | ✓                | v2.16.0       | Resumes processing commands from paused clients.                                                              |
 
 ### SLOWLOG subcommands
 
@@ -610,7 +610,7 @@ i.e. it will output nothing if the library is only in storage but not loaded.
 | TDIGEST.REVRANK     | ✓                | v2.15.0      | Estimates the reverse rank of one or more values in a t-digest sketch. |
 | TDIGEST.BYRANK      | ✓                | v2.15.0      | Estimates the value with each given rank in a t-digest sketch. |
 | TDIGEST.BYREVRANK   | ✓                | v2.15.0      | Estimates the value with each given reverse rank in a t-digest sketch. |
-| TDIGEST.TRIMMED_MEAN | ✓               | unstable     | Estimates the mean value from a t-digest sketch excluding values outside the given cutoff quantiles. |
+| TDIGEST.TRIMMED_MEAN | ✓               | v2.16.0      | Estimates the mean value from a t-digest sketch excluding values outside the given cutoff quantiles. |
 
 ## TimeSeries commands
 
