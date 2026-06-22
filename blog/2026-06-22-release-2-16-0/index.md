@@ -4,7 +4,7 @@ title: "Apache Kvrocks Release 2.16.0"
 authors: [hulk]
 ---
 
-Apache Kvrocks 2.16.0 lands with one of the strongest feature batches of the 2.x line — extending the `SET` command with native compare-and-set, adding operator-friendly traffic control via `CLIENT PAUSE`/`UNPAUSE`, sharpening cluster slot management with `CLUSTERX FLUSHSLOTS`, and growing the probabilistic-data-structure surface with `TDIGEST.TRIMMED_MEAN`.
+Apache Kvrocks 2.16.0 lands with many improvements and security fixes — extending the `SET` command with native compare-and-set, adding operator-friendly traffic control via `CLIENT PAUSE`/`UNPAUSE`, sharpening cluster slot management with `CLUSTERX FLUSHSLOTS`, and growing the probabilistic-data-structure surface with `TDIGEST.TRIMMED_MEAN`.
 
 Redis 7.0+ command compatibility moves another step forward through `BITPOS` `BYTE`/`BIT` range units, `CLIENT SETINFO`, and the `LATENCY` family. Under the hood, RocksDB is upgraded to v11.1.1, and a broad round of security hardening (Lua CVE patches, replication tightening, RDB validation) ships alongside.
 
