@@ -2,43 +2,51 @@
 
 The INFO command returns information and statistics about the Apache Kvrocks™ server in a format that is simple to parse by computers and easy to read by humans.
 
-The optional section parameter can be used to select a specific section of information in form `INFO section section ...`:
+The optional section parameters can be used to select one or more sections with `INFO [section [section ...]]`. Section names are case-insensitive. With no section parameter, or with the `all` parameter, all sections are returned.
 
-| Parameter    | Desc                                         |
-|--------------|----------------------------------------------|
-| server       | General information about the Kvrocks server |
-| clients      | Client connections information               |
-| memory       | Memory consumption related information       |
-| stats        | General statistics                           |
-| replication  | Master/replica replication information       |
-| cpu          | CPU consumption statistics                   |
-| commandstats | Kvrocks command statistics                   |
-| cluster      | Cluster section                              |
-| keyspace     | Database related statistics                  |
-| rocksdb      | RocksDB related statistics                   |
+| Parameter    | Desc                                               |
+|--------------|----------------------------------------------------|
+| all          | All sections                                       |
+| server       | General information about the Kvrocks server       |
+| clients      | Client connection information                      |
+| memory       | Memory consumption information                     |
+| persistence  | Backup and loading information                     |
+| stats        | General statistics                                 |
+| replication  | Primary/replica replication information            |
+| cpu          | CPU consumption statistics                         |
+| commandstats | Per-command execution and latency statistics       |
+| cluster      | Cluster mode information                           |
+| keyspace     | Database and disk usage statistics                 |
+| rocksdb      | RocksDB statistics                                 |
 
 ### Return value
 
-The return value of `INFO` command is bulk string: as a collection of text lines.
+With RESP2, the return value of `INFO` is a bulk string. With RESP3, it is a `txt` verbatim string. In either case, the content is a collection of text lines.
 
-Lines can contain a section name (starting with a # character) or a property. All the properties are in the form of `field:value` terminated by an empty line.
+Each line contains either a section name (starting with `#`) or a property in the form `field:value`. Sections are separated by an empty line.
 
-Sample return value:
+An abridged sample return value is shown below. Values depend on the build, configuration, workload, and host. Repeated per-column-family RocksDB fields and conditional fields are omitted here and described in the sections below.
 
 ```properties
 # Server
-version:unstable
-kvrocks_version:unstable
-redis_version:4.0.0
-git_sha1:0a2dcee
-kvrocks_git_sha1:0a2dcee
-os:Darwin 19.4.0 x86_64
-gcc_version:4.2.1
+version:2.16.0
+kvrocks_version:2.16.0
+redis_version:7.0.0
+git_sha1:28440b5
+kvrocks_git_sha1:28440b5
+redis_mode:standalone
+kvrocks_mode:standalone
+os:Linux 6.8.0 x86_64
+gcc_version:13.3.0
+rocksdb_version:11.1.1
 arch_bits:64
-process_id:1467
+process_id:12345
 tcp_port:6666
-uptime_in_seconds:8
+server_time_usec:1783785600000000
+uptime_in_seconds:42
 uptime_in_days:0
+executable:/usr/local/bin/kvrocks
+config_file:/etc/kvrocks/kvrocks.conf
 
 # Clients
 maxclients:10000
@@ -52,11 +60,12 @@ used_memory_rss_human:18.65M
 used_memory_lua:35840
 used_memory_lua_human:35.00K
 used_memory_startup:20357120
+mem_allocator:libc
 
 # Persistence
 loading:0
 bgsave_in_progress:0
-last_bgsave_time:1689584510
+last_bgsave_time:1783785580
 last_bgsave_status:ok
 last_bgsave_time_sec:0
 
@@ -71,6 +80,8 @@ instantaneous_output_kbps:0
 sync_full:0
 sync_partial_ok:0
 sync_partial_err:0
+keyspace_hits:0
+keyspace_misses:0
 pubsub_channels:0
 pubsub_patterns:0
 
@@ -82,8 +93,9 @@ master_repl_offset:0
 # CPU
 used_cpu_sys:0
 used_cpu_user:0
+worker_cpu_time:[0.000000,0.000000,0.000000,0.000000]
 
-# Commandstats
+# CommandStats
 cmdstat_command:calls=1,usec=904,usec_per_call=904
 cmdstat_info:calls=1,usec=0,usec_per_call=0
 
@@ -91,77 +103,39 @@ cmdstat_info:calls=1,usec=0,usec_per_call=0
 cluster_enabled:0
 
 # Keyspace
-# Last scan db time: Thu Jan  1 08:00:00 1970
+last_dbsize_scan_timestamp:0
 db0:keys=0,expires=0,avg_ttl=0,expired=0
 sequence:0
 used_db_size:0
 max_db_size:0
-used_percent: 0%
+used_percent:0%
 disk_capacity:499963174912
 used_disk_size:266419978240
-used_disk_percent: 53%
+used_disk_percent:53%
 
 # RocksDB
-estimate_keys[default]:0
-block_cache_usage[default]:0
+block_cache_usage:0
 block_cache_pinned_usage[default]:0
+estimate_keys[default]:0
 index_and_filter_cache_usage[default]:0
 level0_file_limit_slowdown[default]:
 level0_file_limit_stop[default]:
 pending_compaction_bytes_slowdown[default]:
 pending_compaction_bytes_stop[default]:
+level0_file_limit_stop_with_ongoing_compaction[default]:
+level0_file_limit_slowdown_with_ongoing_compaction[default]:
 memtable_count_limit_slowdown[default]:
 memtable_count_limit_stop[default]:
-estimate_keys[metadata]:0
-block_cache_usage[metadata]:0
-block_cache_pinned_usage[metadata]:0
-index_and_filter_cache_usage[metadata]:0
-level0_file_limit_slowdown[metadata]:
-level0_file_limit_stop[metadata]:
-pending_compaction_bytes_slowdown[metadata]:
-pending_compaction_bytes_stop[metadata]:
-memtable_count_limit_slowdown[metadata]:
-memtable_count_limit_stop[metadata]:
-estimate_keys[zset_score]:0
-block_cache_usage[zset_score]:0
-block_cache_pinned_usage[zset_score]:0
-index_and_filter_cache_usage[zset_score]:0
-level0_file_limit_slowdown[zset_score]:
-level0_file_limit_stop[zset_score]:
-pending_compaction_bytes_slowdown[zset_score]:
-pending_compaction_bytes_stop[zset_score]:
-memtable_count_limit_slowdown[zset_score]:
-memtable_count_limit_stop[zset_score]:
-estimate_keys[pubsub]:0
-block_cache_usage[pubsub]:0
-block_cache_pinned_usage[pubsub]:0
-index_and_filter_cache_usage[pubsub]:0
-level0_file_limit_slowdown[pubsub]:
-level0_file_limit_stop[pubsub]:
-pending_compaction_bytes_slowdown[pubsub]:
-pending_compaction_bytes_stop[pubsub]:
-memtable_count_limit_slowdown[pubsub]:
-memtable_count_limit_stop[pubsub]:
-estimate_keys[propagate]:0
-block_cache_usage[propagate]:0
-block_cache_pinned_usage[propagate]:0
-index_and_filter_cache_usage[propagate]:0
-level0_file_limit_slowdown[propagate]:
-level0_file_limit_stop[propagate]:
-pending_compaction_bytes_slowdown[propagate]:
-pending_compaction_bytes_stop[propagate]:
-memtable_count_limit_slowdown[propagate]:
-memtable_count_limit_stop[propagate]:
-estimate_keys[stream]:0
-block_cache_usage[stream]:0
-block_cache_pinned_usage[stream]:0
-index_and_filter_cache_usage[stream]:0
-level0_file_limit_slowdown[stream]:
-level0_file_limit_stop[stream]:
-pending_compaction_bytes_slowdown[stream]:
-pending_compaction_bytes_stop[stream]:
-memtable_count_limit_slowdown[stream]:
-memtable_count_limit_stop[stream]:
+num_files_at_level[default]:[0,0,0,0,0,0,0]
+estimate_pending_compaction_bytes[default]:0
+block_cache_data_hit:0
+block_cache_data_miss:0
+block_cache_filter_hit:0
+block_cache_filter_miss:0
+block_cache_hit:0
+block_cache_index_hit:0
+block_cache_index_miss:0
+block_cache_miss:0
 all_mem_tables:3520
 cur_mem_tables:3520
 snapshots:0
@@ -188,21 +162,27 @@ is_compacting:no
 
 Here is the meaning of all fields in the server section:
 
-| Property          | Desc                                                             |
-|-------------------|------------------------------------------------------------------|
-| version           | Version of the Kvrocks server                                    |
-| kvrocks_version   | Version of the Kvrocks server                                    |
-| redis_version     | Version of the compatible Redis server                           |
-| git_sha1          | Git SHA1                                                         |
-| kvrocks_git_sha1  | Git SHA1                                                         |
-| os                | Operating system hosting the Kvrocks server                      |
-| arch_bits         | Architecture (32 or 64 bits)                                     |
-| gcc_version       | Version of the GCC compiler used to compile the Kvrocks server   |
-| clang_version     | Version of the Clang compiler used to compile the Kvrocks server |
-| process_id        | PID of the server process                                        |
-| tcp_port          | TCP/IP listen port                                               |
-| uptime_in_seconds | Number of seconds since Kvrocks server start                     |
-| uptime_in_days    | Same value expressed in days                                     |
+| Property          | Desc                                                                                 |
+|-------------------|--------------------------------------------------------------------------------------|
+| version           | Deprecated alias of `kvrocks_version`                                                |
+| kvrocks_version   | Version of the Kvrocks server                                                        |
+| redis_version     | Redis compatibility version reported by Kvrocks                                     |
+| git_sha1          | Deprecated alias of `kvrocks_git_sha1`                                               |
+| kvrocks_git_sha1  | Git commit SHA used to build the server                                              |
+| redis_mode        | Redis-compatible mode name: `standalone` or `cluster`                               |
+| kvrocks_mode      | Kvrocks mode: `standalone` or `cluster`                                              |
+| os                | Operating system hosting the Kvrocks server                                          |
+| gcc_version       | GCC version used to compile Kvrocks; present only in GCC builds                      |
+| clang_version     | Clang version used to compile Kvrocks; present only in Clang builds                  |
+| rocksdb_version   | Version of RocksDB used by Kvrocks                                                   |
+| arch_bits         | Architecture (32 or 64 bits)                                                         |
+| process_id        | PID of the server process                                                            |
+| tcp_port          | TCP/IP listening port                                                                |
+| server_time_usec  | Current Unix timestamp on the server, in microseconds                                |
+| uptime_in_seconds | Number of seconds since the Kvrocks server started                                   |
+| uptime_in_days    | Uptime expressed in whole days                                                       |
+| executable        | Absolute path of the server executable; present only on Linux                        |
+| config_file       | Path of the configuration file used by the server                                   |
 
 ## Clients section
 
@@ -221,11 +201,12 @@ Here is the meaning of all fields in the memory section:
 
 | Property              | Desc                                                                                                                                                             |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| used_memory_rss       | Number of bytes that Kvrocks allocated as seen by the operating system (a.k.a resident set size). This is the number reported by tools such as top(1) and ps(1). |
-| used_memory_rss_human | Human-readable representation of previous value                                                                                                                  |
-| used_memory_lua       | Number of bytes used by the Lua engine                                                                                                                           |
-| used_memory_lua_human | Human-readable representation of previous value                                                                                                                  |
-| used_memory_startup   | Initial amount of memory consumed by Kvrocks at startup in bytes                                                                                                 |
+| used_memory_rss       | Resident set size (RSS) of the Kvrocks process in bytes, as reported by the operating system                                                                     |
+| used_memory_rss_human | Human-readable representation of `used_memory_rss`                                                                                                               |
+| used_memory_lua       | Number of bytes used by the Lua engines across worker threads                                                                                                    |
+| used_memory_lua_human | Human-readable representation of `used_memory_lua`                                                                                                               |
+| used_memory_startup   | Resident set size of Kvrocks at startup in bytes                                                                                                                 |
+| mem_allocator         | Name of the memory allocator used by the server                                                                                                                  |
 
 ## Stats section
 
@@ -243,12 +224,14 @@ Here is the meaning of all fields in the stats section:
 | sync_full                  | The number of full resyncs with replicas                    |
 | sync_partial_ok            | The number of accepted partial resync requests              |
 | sync_partial_err           | The number of denied partial resync requests                |
+| keyspace_hits              | Number of successful key lookups                            |
+| keyspace_misses            | Number of failed key lookups                                |
 | pubsub_channels            | Global number of pub/sub channels with client subscriptions |
-| pubsub_patterns            | Global number of pub/sub pattern with client subscriptions  |
+| pubsub_patterns            | Global number of pub/sub patterns with client subscriptions |
 
 ## CommandStats section
 
-The commandstats section provides statistics based on the command type, including the number of calls that reached command execution, the total CPU time consumed by these commands, the average CPU consumed per command execution.
+The commandstats section provides per-command statistics: the number of calls that reached command execution, total execution time in microseconds, and average execution time per call in microseconds.
 
 For each command type, the following line is added:
 
@@ -256,26 +239,38 @@ For each command type, the following line is added:
 cmdstat_XXX:calls=XXX,usec=XXX,usec_per_call=XXX
 ```
 
+If `histogram-bucket-boundaries` is configured, a latency histogram is also added for each command that has been called:
+
+```properties
+cmdstathist_XXX:BOUNDARY=COUNT,...,inf=COUNT,sum=USEC,count=CALLS
+```
+
+Each boundary and `inf` value is the count for that latency bucket. `sum` is the total latency in microseconds, and `count` is the number of calls.
+
 ## Persistence section
 
-Here is the meaning of all fields in the replication section:
+Here is the meaning of all fields in the persistence section:
 
 | Property              | Desc                                                     |
 |-----------------------|----------------------------------------------------------|
-| loading               | Flag indicating if the restore of the backup is on-going |
-| bgsave_in_progress    | Whether the bgsave was in-progress                       |
-| last_bgsave_time      | The last timestamp that bgsave command was executed      |
-| last_bgsave_status    | Whether the bgsave was ok or not (ok/err)                |
-| last_bgsave_time_sec  | The `bgsave` command elapsed seconds                     |
+| loading               | Whether the server is loading data from a backup         |
+| bgsave_in_progress    | Whether a background save is in progress                 |
+| last_bgsave_time      | Unix timestamp when the most recent background save began; server start time if no save has run |
+| last_bgsave_status    | Status of the most recent background save: `ok` or `err` |
+| last_bgsave_time_sec  | Duration of the most recent background save in seconds; `-1` if no save has run |
 
 ## Replication section
 
 Here is the meaning of all fields in the replication section:
 
+While the server is loading a backup, the section heading is returned without replication fields.
+
 | Property           | Desc                                                                                                                                                                                                 |
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| role               | Value is "master" if the instance is replica of no one, or "slave" if the instance is a replica of some master instance. Note that a replica can be master of another replica (chained replication). |
-| master_repl_offset | The server's current replication offset                                                                                                                                                              |
+| role               | `master` if the instance does not replicate another server, or `slave` if it does. A replica can still serve its own replicas in a chained replication topology.                                    |
+| connected_slaves   | Number of replicas connected to this server                                                                                                                                                          |
+| slaveN             | State of connected replica N in the form `ip=IP,port=PORT,offset=OFFSET,lag=LAG`; one field is returned per active replica, starting at `slave0`                                                    |
+| master_repl_offset | Current RocksDB sequence number used as the server's replication offset                                                                                                                              |
 
 If the instance is a replica, these additional fields are provided:
 
@@ -284,9 +279,9 @@ If the instance is a replica, these additional fields are provided:
 | master_host                     | Host or IP address of the master                         |
 | master_port                     | Master listening TCP port                                |
 | master_link_status              | Status of the link (up/down)                             |
-| master_sync_unrecoverable_error | Master sync unrecoverable error (yes/no)                 |
+| master_sync_unrecoverable_error | Whether replication encountered an unrecoverable error (`yes`/`no`) |
 | master_last_io_seconds_ago      | Number of seconds since the last interaction with master |
-| master_sync_in_progress         | Indicate the master is syncing to the replica            |
+| master_sync_in_progress         | Whether a full synchronization from the primary is in progress (`0`/`1`) |
 | slave_repl_offset               | The replication offset of the replica instance           |
 | slave_priority                  | The priority of the instance as a candidate for failover |
 
@@ -294,99 +289,117 @@ If the instance is a replica, these additional fields are provided:
 
 Here is the meaning of all fields in the cpu section:
 
-| Property      | Desc                                                                                                                                                         |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| used_cpu_sys  | System CPU consumed by the Kvrocks server, which is the sum of system CPU consumed by all threads of the server process (main thread and background threads) |
-| used_cpu_user | User CPU consumed by the Kvrocks server, which is the sum of user CPU consumed by all threads of the server process (main thread and background threads)     |
+| Property        | Desc                                                                                                                                                         |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| used_cpu_sys    | System CPU time consumed by all threads of the Kvrocks process, in seconds                                                                                   |
+| used_cpu_user   | User CPU time consumed by all threads of the Kvrocks process, in seconds                                                                                     |
+| worker_cpu_time | CPU time consumed by each worker thread, in seconds, represented as an array in worker order                                                                 |
 
 ## Cluster section
 
 Here is the meaning of all fields in the cluster section:
 
-| Property         | Desc                                                     |
-|------------------|----------------------------------------------------------|
-| cluster_enabled  | Indicate Kvrocks cluster is enabled                      |
+| Property        | Desc                                            |
+|-----------------|-------------------------------------------------|
+| cluster_enabled | Whether Kvrocks cluster mode is enabled (`0`/`1`) |
 
 ## Keyspace section
 
-The keyspace section provides statistics on the main dictionary of each database. The statistics are the number of keys, and the number of keys with an expiration. Note that Kvrocks only have `db0` and keys statistics wasn't manipulated in memory, so we need to use the `dbsize scan` to async scan and calculate the keys number like below:
+The keyspace section provides key-count statistics for `db0` in the current connection's namespace, as well as RocksDB and filesystem size information. Key counts are cached rather than maintained in memory for every write. Run `DBSIZE scan` to start an asynchronous scan that refreshes them.
 
 ```properties
-# Last scan db time: Sun Oct 31 17:13:14 2021
+last_dbsize_scan_timestamp:1635671594
 db0:keys=0,expires=0,avg_ttl=0,expired=0
 ```
 
-The line starts with `#` means the last scan was executed on `Oct 31 17:13:14 2021`.
+`last_dbsize_scan_timestamp` is updated when that scan completes. A value of `0` means that no scan has completed.
 
-| Property          | Desc                                                      |
-|-------------------|-----------------------------------------------------------|
-| sequence          | The sequence number of the RocksDB                        |
-| used_db_size      | The total disk size used by Kvrocks(NOT included the WAL) |
-| max_db_size       | Max disk size can be used by Kvrocks, 0 means unlimited.  |
-| used_percent      | Percent representation of used_db_size/max_db_size.       |
-| disk_capacity     | The capacity of the disk.                                 |
-| used_disk_size    | Total used size of the disk(NOT Kvrocks used disk size).  |
-| used_disk_percent | Percent representation of used_disk_size/disk_capacity.   |
+| Property                     | Desc                                                                                                  |
+|------------------------------|-------------------------------------------------------------------------------------------------------|
+| last_dbsize_scan_timestamp   | Unix timestamp in seconds when the most recent `DBSIZE scan` completed                                |
+| db0                          | Cached key statistics in the form `keys=...,expires=...,avg_ttl=...,expired=...`                      |
+| sequence                     | Latest RocksDB sequence number                                                                        |
+| used_db_size                 | Approximate bytes used by the current namespace; for the default namespace, total managed SST size; excludes the WAL |
+| max_db_size                  | Maximum database size in bytes; `0` means unlimited                                                   |
+| used_percent                 | Percentage of the configured maximum database size used; `0%` when `max_db_size` is unlimited         |
+| disk_capacity                | Capacity in bytes of the filesystem containing the database directory; omitted if the query fails     |
+| used_disk_size               | Bytes used on that filesystem by all files, not only Kvrocks; omitted if the query fails               |
+| used_disk_percent            | Percentage of that filesystem's capacity in use; omitted if the query fails                            |
 
 ## RocksDB section
 
 Here is the meaning of all fields in the rocksdb section:
 
-The rocksdb section provides statistics on each RocksDB column family and all fields were exported by RocksDB, if the field was not explained clearly enough, you can also see more information on the RocksDB wiki.
+The RocksDB section provides statistics for individual column families and for the database as a whole. Most values come from RocksDB properties and statistics.
 
-There are eight column families on kvrocks:
+While the server is loading a backup, the Keyspace and RocksDB section headings are returned without fields.
 
-| Column Family | Desc                                                                                                       |
-|---------------|------------------------------------------------------------------------------------------------------------|
-| default       | Used to store the subkeys of the complex data structure like hash/set/list/zset/geo.                       |
-| metadata      | Used to store the metadata of the complex data structure and string.                                       |
-| zset_score    | Used to store the mapping of zset's score to member, which would make the range by score operation faster. |
-| pubsub        | Used to propagate the pubsub message to replicas.                                                          |
-| propagate     | Used to propagate other commands to replicas except pubsub message.                                        |
-| stream        | Used to store the data of the stream type.                                                                 |
-| search        | Used to store index metadata and data for kvrocks search. |
-| index         | Used to store secondary index like timeseries label-based reverse index.  |
+Kvrocks 2.16.0 has eight column families:
 
-... and below statistics were column family related:
+| Column Family | Desc                                                                                                 |
+|---------------|------------------------------------------------------------------------------------------------------|
+| default       | Stores subkeys of aggregate data types such as hashes, sets, lists, sorted sets, and geospatial data |
+| metadata      | Stores metadata for data types and string values                                                     |
+| zset_score    | Stores sorted-set score-to-member mappings to support efficient score-range operations              |
+| pubsub        | Stores Pub/Sub messages that are propagated to replicas                                             |
+| propagate     | Stores non-Pub/Sub commands that are propagated to replicas                                         |
+| stream        | Stores stream data                                                                                    |
+| search        | Stores Kvrocks Search index metadata and data                                                       |
+| index         | Stores secondary indexes, such as the time-series label reverse index                               |
 
-| Property                                | Desc                                                                                                                                                         |
-|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| estimate_keys[xxx]                      | Estimate keys in the column family, may contains the tombstone and expired keys, it's a fast way to know how many keys on the column family but not precise. |
-| block_cache_usage[xxx]                  | Total block cache bytes used by this column family.                                                                                                          |
-| block_cache_pinned_usage[xxx]           | Total pinned bytes in this column family.                                                                                                                    |
-| index_and_filter_cache_usage[xxx]       | Total bytes was used to cache the index and filter block.                                                                                                    |
-| level0_file_limit_slowdown[xxx]         | Number of IO write stalls caused by reaching the level0 file slowdown limit.                                                                                 |
-| level0_file_limit_stop[xxx]             | Number of IO write stalls caused by reaching the level0 file stop limit.                                                                                     |
-| pending_compaction_bytes_slowdown[xxx]  | Number of IO write stalls caused reaching the pending compaction bytes slowdown limit.                                                                       |
-| pending_compaction_bytes_stop[xxx]      | Number of IO write stalls caused reaching the pending compaction bytes stop limit.                                                                           |
-| memtable_count_limit_slowdown[xxx]      | Number of IO write stalls caused by reaching the memtable count slowdown limit.                                                                              |
-| memtable_count_limit_stop[xxx]          | Number of IO write stalls caused by reaching the memtable count stop limit.                                                                                  |
-| estimate_pending_compaction_bytes[xxx]  | Estimated bytes pending compaction for the column family.                                                                                                      |
-| num_files_at_level[N][xxx]              | Number of SST files at level N (0-6) for the column family.                                                                                                    |
-| level0_file_limit_slowdown_with_ongoing_compaction[xxx] | Number of L0 file count slowdown with ongoing compaction.                                                                                |
-| level0_file_limit_stop_with_ongoing_compaction[xxx]     | Number of L0 file count stops with ongoing compaction.                                                                                   |
+In the properties below, `xxx` is a column-family name. These properties are returned once for each of the eight column families:
 
-... those statistics were the entire rocksdb side:
+| Property                                                    | Desc                                                                                                      |
+|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| estimate_keys[xxx]                                          | Estimated number of keys; may include tombstones and expired keys                                         |
+| index_and_filter_cache_usage[xxx]                            | Estimated bytes used by table readers, including index and filter blocks                                  |
+| level0_file_limit_slowdown[xxx]                              | Write slowdowns caused by the level-0 file-count limit                                                     |
+| level0_file_limit_stop[xxx]                                  | Write stops caused by the level-0 file-count limit                                                         |
+| pending_compaction_bytes_slowdown[xxx]                       | Write slowdowns caused by the pending-compaction-bytes limit                                               |
+| pending_compaction_bytes_stop[xxx]                           | Write stops caused by the pending-compaction-bytes limit                                                   |
+| level0_file_limit_slowdown_with_ongoing_compaction[xxx]      | Level-0 file-count slowdowns while a compaction was already in progress                                    |
+| level0_file_limit_stop_with_ongoing_compaction[xxx]          | Level-0 file-count stops while a compaction was already in progress                                        |
+| memtable_count_limit_slowdown[xxx]                           | Write slowdowns caused by the memtable-count limit                                                         |
+| memtable_count_limit_stop[xxx]                               | Write stops caused by the memtable-count limit                                                             |
+| num_files_at_level[xxx]                                     | Number of SST files at levels 0 through 6, represented as a seven-element array                            |
+| estimate_pending_compaction_bytes[xxx]                       | Estimated number of bytes awaiting compaction                                                              |
+
+The shared block-cache fields are:
+
+| Property                            | Desc                                                                                              |
+|-------------------------------------|---------------------------------------------------------------------------------------------------|
+| block_cache_usage                   | Total bytes used by the shared block cache                                                        |
+| block_cache_pinned_usage[default]   | Bytes pinned in the shared block cache; obtained through the `default` column family              |
+| block_cache_hit                     | Total block-cache hits                                                                            |
+| block_cache_miss                    | Total block-cache misses                                                                          |
+| block_cache_index_hit               | Block-cache hits for index blocks                                                                 |
+| block_cache_index_miss              | Block-cache misses for index blocks                                                               |
+| block_cache_filter_hit              | Block-cache hits for filter blocks                                                                |
+| block_cache_filter_miss             | Block-cache misses for filter blocks                                                              |
+| block_cache_data_hit                | Block-cache hits for data blocks                                                                  |
+| block_cache_data_miss               | Block-cache misses for data blocks                                                                |
+
+The hit and miss counters are present when RocksDB statistics are enabled. The remaining database-wide fields are:
 
 | Property                | Desc                                                                                                                                       |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | all_mem_tables          | Approximate size of active, unflushed immutable, and pinned immutable memtables in bytes.                                                  |
 | cur_mem_tables          | Approximate size of active and unflushed immutable memtable in bytes.                                                                      |
-| snapshots               | Number of snapshots in rocksdb.                                                                                                            |
-| num_immutable_tables    | Number of the immutable.                                                                                                                   |
+| snapshots               | Number of RocksDB snapshots                                                                                                                |
+| num_immutable_tables    | Number of immutable memtables                                                                                                              |
 | num_running_flushes     | Number of currently running flushes.                                                                                                       |
 | memtable_flush_pending  | This metric returns 1 if a memtable flush is pending; otherwise it returns 0.                                                              |
 | compaction_pending      | This metric returns 1 if at least one compaction is pending; otherwise, the metric reports 0.                                              |
 | num_running_compactions | Number of currently running compactions.                                                                                                   |
 | num_live_versions       | Number of live versions. More live versions often mean more SST files are held from being deleted, by iterators or unfinished compactions. |
-| num_super_version       | Number of the super version inside the RocksDB.                                                                                            |
-| num_background_errors   | Accumulated number of background errors.                                                                                                   |
-| flush_count             | Number of flushes.                                                                                                                         |
-| compaction_count        | Number of compactions.                                                                                                                     |
-| put_per_sec             | Number of put processed per second.                                                                                                        |
-| get_per_sec             | Number of get processed per second.                                                                                                        |
-| seek_per_sec            | Number of seek processed per second.                                                                                                       |
-| next_per_sec            | Number of next processed per second.                                                                                                       |
-| prev_per_sec            | Number of prev processed per second.                                                                                                       |
-| is_bgsaving             | This metric returns 1 if the bgsave was running; otherwise it returns 0.                                                                   |
-| is_compacting           | This metric returns 1 if the compaction was running; otherwise it returns 0.                                                               |
+| num_super_version       | Current RocksDB super-version number                                                                                                       |
+| num_background_errors   | Accumulated number of background errors                                                                                                    |
+| flush_count             | Number of completed flushes                                                                                                                |
+| compaction_count        | Number of completed compactions                                                                                                            |
+| put_per_sec             | Number of RocksDB `Put` and `Write` calls per second                                                                                       |
+| get_per_sec             | Combined number of RocksDB `Get` and `MultiGet` calls per second                                                                           |
+| seek_per_sec            | Number of RocksDB iterator `Seek` calls per second                                                                                         |
+| next_per_sec            | Number of RocksDB iterator `Next` calls per second                                                                                         |
+| prev_per_sec            | Number of RocksDB iterator `Prev` calls per second                                                                                         |
+| is_bgsaving             | Whether a background save is running (`yes`/`no`)                                                                                          |
+| is_compacting           | Whether a compaction is running (`yes`/`no`)                                                                                               |
