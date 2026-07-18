@@ -63,6 +63,8 @@
 | HEXPIRETIME  | ✓                | unstable      | Returns the expiration Unix timestamp in seconds for one or more hash fields.                               |
 | HPEXPIRETIME | ✓                | unstable      | Returns the expiration Unix timestamp in milliseconds for one or more hash fields.                          |
 | HPERSIST     | ✓                | unstable      | Removes the expiration time from one or more hash fields.                                                   |
+| HSETEX       | ✓                | unstable      | Sets the value of a specific field within a hash and assigns it an expiration time in seconds.              |
+| HGETEX       | ✓                | unstable      | Retrieves the value of a specific hash field while optionally updating or removing its expiration time.     |
 
 ## List commands
 
