@@ -20,11 +20,7 @@ As LLMs are now widely used in software development, we are receiving many more 
 * Understand the code they submit and are willing to update, test, and maintain it based on review feedback.
 * Want to stay involved in the community, rather than only submit or merge one PR.
 
-**We do not welcome:**
-
-* Copying LLM-generated text directly into PR descriptions, issues, or review replies.
-* Treating the number of submitted or merged PRs as a personal KPI.
-* Acting only as a messenger for an LLM and being unable to explain the design, trade-offs, or possible effects of the change.
+Please carefully read [our Guidelines for AI-assisted Contributions](https://kvrocks.apache.org/community/contributing#guidelines-for-ai-assisted-contributions) before submitting a PR.
 
 We may close clearly low-quality PRs without a full review. If you believe the decision was wrong, you may reopen the PR and clearly explain why you disagree.
 
