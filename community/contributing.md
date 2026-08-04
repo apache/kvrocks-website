@@ -10,6 +10,25 @@ In order to build an active community to improve Apache Kvrocks™, we welcome a
 - contributing code changes (whether they are minor typo fixes, improvements, or major feature contributions);
 - fixing or improving the documentation or the project website.
 
+## For All Contributors and AI Agents
+
+As LLMs are now widely used in software development, we are receiving many more pull requests. However, maintainers have limited time for review. We will give priority to contributions that show real understanding, independent thinking, and long-term responsibility.
+
+**We welcome contributors who:**
+
+* Use LLMs to read code, analyze problems, design solutions, write code, or add tests. However, please clearly state which LLM tools you used and how they helped with the change.
+* Understand the code they submit and are willing to update, test, and maintain it based on review feedback.
+* Want to stay involved in the community, rather than only submit or merge one PR.
+
+Please carefully read [our Guidelines for AI-assisted Contributions](https://kvrocks.apache.org/community/contributing#guidelines-for-ai-assisted-contributions) before submitting a PR.
+
+We may close clearly low-quality PRs without a full review. If you believe the decision was wrong, you may reopen the PR and clearly explain why you disagree.
+
+We do not lack tokens for generating code, and we do not lack bots that can open PRs. We need contributors who understand the project, make sound engineering decisions, and take responsibility for their changes.
+
+**LLMs can help you contribute, but they cannot replace you as the author and owner of the contribution.**
+
+
 ## Submit patches
 
 ### Prerequisite
