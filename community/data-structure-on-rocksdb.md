@@ -2,7 +2,7 @@
 
 Apache Kvrocks™ uses the RocksDB as storage, it's developed by Facebook which is built on LevelDB with many extra features, like column family, transaction and backup, see the RocksDB wiki: [Features Not In LevelDB](https://github.com/facebook/RocksDB/wiki/Features-Not-in-LevelDB). The basic operations in RocksDB are `Put(key, value)`, `Get(key)`, `Delete(key)`, other complex structures aren't supported.
 
-The main goal of this doc is to explain how we build the Redis hash/list/set/zset/bitmap/stream on RocksDB. Most of the design were derived from [Qihoo360/Blackwidow](https://github.com/Qihoo360/blackwidow), but with little modification, like the bitmap design, it's a fascinating part.
+The main goal of this doc is to explain how we build the Redis hash/list/set/zset/bitmap/stream/cuckoo filter on RocksDB. Most of the design were derived from [Qihoo360/Blackwidow](https://github.com/Qihoo360/blackwidow), but with little modification, like the bitmap design, it's a fascinating part.
 
 ## User Key Encoding
 
@@ -49,6 +49,7 @@ The values encoded for other data types in flags can be found in the table below
 | Hyperloglog|         11 |
 | TDigest    |         12 |
 | TimeSeries |         13 |
+| CuckooFilter|        14 |
 
 In the encoding version `0`, `expire` is stored in seconds and as a 4byte field (32bit integer), `size` is stored as also a 4byte field (32bit integer);
 while in the encoding version `1`, `expire` is stored in milliseconds and as a 8byte field (64bit integer), `size` is stored as also a 8byte field (64bit integer).
@@ -362,6 +363,36 @@ We break the bitmap values into fragments(each fragment is a split block bloom f
 key|index => |    filter     |
              +---------------+
 ```
+
+## Cuckoo Filter
+
+Redis Cuckoo filter is a probabilistic data structure used to test whether an element is a member of a set. It stores compact fingerprints in buckets, which makes the data structure suitable for membership tests and deletion semantics.
+
+Kvrocks stores one Cuckoo filter as metadata and multiple page sub keys. The metadata describes the filter chain, and the page sub keys store bucket slots. This follows the same metadata/subkey model as other complex types while avoiding one RocksDB key per bucket.
+
+#### Cuckoo Filter metadata
+
+```text
+              +---------+---------+---------+---------+-----------+-----------+---------------+-------------+----------------+-------------------+-----------+
+              | flags   | expire  | version |  size   | n_filters | expansion | base_capacity | bucket_size | max_iterations | num_deleted_items | page_size |
+ key =>       +---------+---------+---------+---------+-----------+-----------+---------------+-------------+----------------+-------------------+-----------+
+              | (1byte) | (Ebyte) | (8byte) | (Sbyte) | (2byte)   | (2byte)   | (8byte)       | (1byte)     | (2byte)        | (8byte)           | (4byte)  |
+              +---------+---------+---------+---------+-----------+-----------+---------------+-------------+----------------+-------------------+-----------+
+```
+
+`n_filters` is the number of sub-filters in the chain. `base_capacity`, `bucket_size`, `max_iterations`, and `expansion` come from `CF.RESERVE`. When a scaling filter is full, Kvrocks appends a new sub-filter instead of rebuilding existing pages.
+
+#### Cuckoo Filter sub keys-values
+
+Each sub-filter contains logical buckets, and each bucket contains `bucket_size` one-byte fingerprint slots. Buckets are grouped into page values before being stored in RocksDB. The default page size is 2048 bytes.
+
+```text
+                                               +------------------+------------------+-----+------------------+
+key|version|filter_index|page_index        => | bucket 0 slots   | bucket 1 slots   | ... | bucket N slots   |
+                                               +------------------+------------------+-----+------------------+
+```
+
+`filter_index` locates the sub-filter in the chain, and `page_index` locates the page inside that sub-filter. A fingerprint value of `0` means the slot is empty, so valid fingerprints are in the range `1..255`.
 
 ## JSON
 
