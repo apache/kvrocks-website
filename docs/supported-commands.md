@@ -516,6 +516,15 @@ These commands are subcommands for `SLOWLOG`, using as `SLOWLOG GET` etc.
 | BF.INSERT  | ✓                | v2.7.0        | Adds one or more items to a Bloom filter, with the option to create a filter if it doesn't exist.             |
 | BF.MEXISTS | ✓                | v2.6.0        | Checks if multiple items may exist in the Bloom filter.                                                       |
 
+## CuckooFilter commands
+
+| Command    | Supported OR Not | Since Version | Description                                                   |
+| ---------- | ---------------- | ------------- | ------------------------------------------------------------- |
+| CF.RESERVE | ✓                | unstable      | Creates a new Cuckoo filter with specified parameters.         |
+| CF.ADD     | ✓                | unstable      | Adds an item to a Cuckoo filter.                               |
+| CF.EXISTS  | ✓                | unstable      | Checks if an item may exist in the Cuckoo filter.              |
+| CF.MEXISTS | ✓                | unstable      | Checks if multiple items may exist in the Cuckoo filter.       |
+
 ## Function commands
 
 | Command  | Supported OR Not | Since Version | Description                                                                                                     |
