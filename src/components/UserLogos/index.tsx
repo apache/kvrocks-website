@@ -17,6 +17,7 @@ let userData = [
     { title: 'Meitu', img: '/media/users/meitu.png', site: 'https://pc.meitu.com/' },
     { title: 'Netease Hangzhou Institute', img: '/media/users/netease.jpg', site: 'https://research.netease.com/' },
     { title: 'Opera', img: '/media/users/opera.png', site: 'https://opera.com' },
+    { title: 'RAGFlow', img: '/media/users/ragflow.svg', site: 'https://ragflow.io/' },
     { title: 'Ruangao Mobile Private Marketplace', img: '/media/users/rgyun.png', site: 'https://www.rgyun.com/' },
     { title: 'Shoplazza', img: '/media/users/shoplazza.png', site: 'https://www.shoplazza.com/' },
     { title: 'U-NEXT', img: '/media/users/u-next.png', site: 'https://unext.jp/' },
