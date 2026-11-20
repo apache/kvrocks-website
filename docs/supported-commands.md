@@ -46,7 +46,7 @@
 | HLEN         | ✓                | v1.0.0        | Returns the number of fields in a hash.                                                                     |
 | HMGET        | ✓                | v1.0.0        | Retrieves the values associated with multiple fields in a hash.                                             |
 | HMSET        | ✓                | v1.0.0        | Sets multiple fields in a hash to multiple values.                                                          |
-| HRANGEBYLEX  | ✓                | v2.3.0        | Returns elements in a sorted set within a specific range defined by lexicographical ordering.               |
+| HRANGEBYLEX  | ✓                | v2.3.0        | Returns elements in a hash within a specific range defined by lexicographical ordering.               |
 | HSET         | ✓                | v1.0.0        | Sets the value of a field in a hash.                                                                        |
 | HSETNX       | ✓                | v1.0.0        | Sets the value of a field in a hash only if the field does not exist.                                       |
 | HSTRLEN      | ✓                | v1.0.0        | Returns the length of string value for the specific field in a hash.                                        |
